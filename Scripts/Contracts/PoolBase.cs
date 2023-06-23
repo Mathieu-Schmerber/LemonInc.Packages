@@ -9,31 +9,31 @@ namespace LemonInc.Core.Pooling.Contracts
 	/// <summary>
 	/// MonoBehaviour implementation of <see cref="IPool"/>.
 	/// </summary>
-	/// <seealso cref="LemonInc.Core.Pooling.Contracts.IPool" />
+	/// <seealso cref="LemonInc.Core.Pooling.Contracts.IPool"/>
 	public abstract class PoolBase : MonoBehaviour, IPool
 	{
 		/// <summary>
-		/// The prefab.
+		/// Gets the prefab.
 		/// </summary>
-		[SerializeField] protected GameObject _prefab;
+		protected abstract GameObject Prefab { get; set; }
 
 		/// <summary>
-		/// The initial copies.
+		/// Gets the initial copies.
 		/// </summary>
-		[SerializeField, Min(0)] protected int _initialCopies;
+		protected abstract int InitialCopies { get; set; }
 
 		/// <summary>
 		/// Managed pool.
 		/// </summary>
-		private IDictionary<PoolState, IList<IPoolable>> Pool { get; set; }
+		protected abstract IDictionary<PoolState, IList<IPoolable>> Pool { get; }
 
 		/// <summary>
 		/// Called when [validate].
 		/// </summary>
-		/// <exception cref="LemonInc.Core.Pooling.Exceptions.PoolException">Prefab should be an {nameof(IPoolable)}.</exception>
+		/// <exception cref="PoolException">Prefab should be an {nameof(IPoolable)}.</exception>
 		private void OnValidate()
 		{
-			if (_prefab != null && _prefab.GetComponent<IPoolable>() == null)
+			if (Prefab != null && Prefab.GetComponent<IPoolable>() == null)
 			{
 				throw new PoolException($"Prefab should be an {nameof(IPoolable)}.");
 			}
@@ -44,28 +44,36 @@ namespace LemonInc.Core.Pooling.Contracts
 		/// </summary>
 		private void EnsureInitialized()
 		{
-			if (Pool == null)
+			if (Pool.Count == 0)
 			{
 				throw new PoolException("The Pool was not populated.");
 			}
 		}
 
 		/// <inheritdoc/>
+		public void Configure(PoolSettings settings)
+		{
+			Prefab = settings.Prefab;
+			InitialCopies = settings.InitialCount;
+		}
+
+		/// <inheritdoc/>
 		public void Populate()
 		{
-			if (_prefab == null) throw new PoolException("Prefab is required.");
+			if (Pool.Count > 0) return;
+			else if (Prefab == null) throw new PoolException("Prefab is required.");
 			OnValidate();
 
-			Pool = new Dictionary<PoolState, IList<IPoolable>>()
-			{
-				{ PoolState.BUSY, new List<IPoolable>() },
-				{ PoolState.FREE, new List<IPoolable>() }
-			};
+			Pool.Add(PoolState.FREE, new List<IPoolable>());
+			Pool.Add(PoolState.BUSY, new List<IPoolable>());
 
-			for (int i = 0; i < _initialCopies; i++)
+			for (int i = 0; i < InitialCopies; i++)
 			{
-				var instance = Instantiate(_prefab);
-				Pool[PoolState.FREE].Add(instance.GetComponent<IPoolable>());
+				var instance = Instantiate(Prefab);
+				var poolable = instance.GetComponent<IPoolable>();
+
+				poolable.State = PoolState.FREE;
+				Pool[PoolState.FREE].Add(poolable);
 			}
 		}
 
@@ -118,7 +126,7 @@ namespace LemonInc.Core.Pooling.Contracts
 			if (ofState == PoolState.FREE)
 				throw new PoolException($"Inconsistent ReleaseAll() call. Cannot release '{nameof(PoolState.FREE)}' state.");
 
-			foreach (var poolable in Pool[ofState])
+			foreach (var poolable in Pool[ofState].ToList())
 			{
 				poolable.State = PoolState.FREE;
 				Pool[ofState].Remove(poolable);
@@ -132,7 +140,7 @@ namespace LemonInc.Core.Pooling.Contracts
 		/// <returns>The <see cref="IPoolable"/>.</returns>
 		private IPoolable RetrieveFromPool()
 		{
-			var instance = Pool[PoolState.FREE].FirstOrDefault() ?? Instantiate(_prefab).GetComponent<IPoolable>();
+			var instance = Pool[PoolState.FREE].FirstOrDefault() ?? Instantiate(Prefab).GetComponent<IPoolable>();
 
 			Pool[PoolState.FREE].Remove(instance);
 			Pool[PoolState.BUSY].Add(instance);
