@@ -1,4 +1,4 @@
-@startuml "Pooling UML"
+@startuml   Pooling UML
 
 package Unity {
     class MonoBehaviour {
@@ -6,53 +6,50 @@ package Unity {
     }
 }
 
-package Contract {
+package Contracts {
 
     interface IPoolProvider {
-        TPool CreatePool<TPool>()
-        TPool Get<TPool>()
-        CreatePoolFor<TPoolable>()
-        IPool<TPoolable> GetFor<TPoolable>()
+        TPool CreatePoolOfType<TPool>()
+        TPool GetOfType<TPool>()
+        IPool CreatePoolForType<TPoolable>()
+        IPool<TPoolable> GetPoolForType<TPoolable>()
     }
 
-    interface IPool<T : IPoolable> {
+    interface IPool {
         Populate()
-        T Get(T data)
-        T Release()
-        T ReleaseAll(PoolState? ofState = null)
+        GameObject Get(object data, callback onInititialized = null)
+        GameObject Get(object data, Vector3 position, Quaternion rotation, callback onInititialized = null)
+        void Release(IPoolable)
+        void ReleaseAll(PoolState ofState = BUSY)
     }
 
     interface IPoolable<T> {
-        Initialize(IPool owner, T data)
+        GameObject Instance
+        PoolState State
+        Initialize(IPool owner, object data)
         Release()
     }
 
     enum PoolState {
-        AVAILABLE
+        FREE
         BUSY
     }
 
-    abstract ObjectPoolBase<T : IPoolable> {
-        # IDictionary<PoolState, IPoolable[]> Pool
+    abstract PoolableBase<T> {
+        # OnReleasing()
     }
 
-    note right of ObjectPoolBase::Pool
-    The pool is storing a collection per poolable state to make the process quicker.
-    This way, the pool stays aware of the state of each poolable belonging to it.
-    end note
-
-    abstract PoolableObject<T> {}
-
-    ObjectPoolBase --|> IPool
-    PoolState <-- ObjectPoolBase
-    IPoolable <-- ObjectPoolBase
-    IPoolable <|-- PoolableObject
+    PoolState <-- ObjectPool
+    IPoolable <-- ObjectPool
+    IPoolable <|-- PoolableBase
 }
 
-package Implementation {
-    class ObjectPool<T : IPoolable, MonoBehaviour> {}
+package Implementations {
+    class ObjectPool {
+        # IDictionary<PoolState, IPoolable[]> Pool
+    }
 }
 
-MonoBehaviour <|-- PoolableObject
+MonoBehaviour <|-- PoolableBase
 
 @enduml
