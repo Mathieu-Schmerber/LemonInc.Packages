@@ -6,7 +6,13 @@ namespace LemonInc.Core.Pooling.Contracts
     /// Describes a Pool.
     /// </summary>
     public interface IPool
-    {
+	{
+		/// <summary>
+		/// Configures the pool.
+		/// </summary>
+		/// <param name="settings">The settings.</param>
+		void Configure(PoolSettings settings);
+
 		/// <summary>
 		/// Populates this instance.
 		/// </summary>
