@@ -15,7 +15,7 @@ This repository hosts all custom Unity packages that LemonInc uses for its proje
 
 ### Initialize
 
-On the `master` branch, create the package structure within the `LemonInc/<Scope>/<new feature>` folder.
+On the `master` branch, create the package structure within the `Assets/LemonInc/<Scope>/<new feature>` folder.
 
 The package structure requires:
 - `package.json`: sumarize the package details (name, description, dependencies, ...).
@@ -30,13 +30,14 @@ The package structure requires:
 ### Publish
 
 Publishing your feature requires you to create a subtree branch.
-1. > git add -A
-1. > git commit -m "feat(\<scope>.\<feature>): whatever you did"
-1. > git subtree split --prefix=Assets/LemonInc/\<scope>/\<feature>
-1. > git push origin \<scope>.\<feature>
-1. > git push origin master
-
-Your package is now ready to be imported on other projects.
+``` shell
+git add -A
+git commit -m "feat(\<scope>.\<feature>): whatever you did"
+git subtree split --prefix=Assets/LemonInc/\<scope>/\<feature>
+git push origin \<scope>.\<feature>
+git push origin master
+```
+Your package is now ready to be imported on other projects !
 
 ### Coming up...
 
