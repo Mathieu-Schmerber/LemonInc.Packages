@@ -1,0 +1,58 @@
+@startuml "Pooling UML"
+
+package Unity {
+    class MonoBehaviour {
+    
+    }
+}
+
+package Contract {
+
+    interface IPoolProvider {
+        TPool CreatePool<TPool>()
+        TPool Get<TPool>()
+        CreatePoolFor<TPoolable>()
+        IPool<TPoolable> GetFor<TPoolable>()
+    }
+
+    interface IPool<T : IPoolable> {
+        Populate()
+        T Get(T data)
+        T Release()
+        T ReleaseAll(PoolState? ofState = null)
+    }
+
+    interface IPoolable<T> {
+        Initialize(IPool owner, T data)
+        Release()
+    }
+
+    enum PoolState {
+        AVAILABLE
+        BUSY
+    }
+
+    abstract ObjectPoolBase<T : IPoolable> {
+        # IDictionary<PoolState, IPoolable[]> Pool
+    }
+
+    note right of ObjectPoolBase::Pool
+    The pool is storing a collection per poolable state to make the process quicker.
+    This way, the pool stays aware of the state of each poolable belonging to it.
+    end note
+
+    abstract PoolableObject<T> {}
+
+    ObjectPoolBase --|> IPool
+    PoolState <-- ObjectPoolBase
+    IPoolable <-- ObjectPoolBase
+    IPoolable <|-- PoolableObject
+}
+
+package Implementation {
+    class ObjectPool<T : IPoolable, MonoBehaviour> {}
+}
+
+MonoBehaviour <|-- PoolableObject
+
+@enduml
