@@ -15,7 +15,7 @@ This repository hosts all custom Unity packages that LemonInc uses for its proje
 
 ### Initialize
 
-On the `master` branch, create the package structure within the `LemonInc/<Scope>/<new feature>` folder.
+On the `master` branch, create the package structure within the `Assets/LemonInc/<Scope>/<new feature>` folder.
 
 The package structure requires:
 - `package.json`: sumarize the package details (name, description, dependencies, ...).
