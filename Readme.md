@@ -31,9 +31,13 @@ The package structure requires:
 
 Publishing your feature requires you to create a subtree branch.
 > git add -A
+
 > git commit -m "feat(\<scope>.\<feature>): whatever you did"
+
 > git subtree split --prefix=Assets/LemonInc/\<scope>/\<feature>
+
 > git push origin \<scope>.\<feature>
+
 > git push origin master
 
 Your package is now ready to be imported on other projects !
