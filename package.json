@@ -1,0 +1,10 @@
+{
+    "name": "com.lemon-inc.core.input",
+    "displayName": "LemonInc.Core.Input",
+    "description": "Input interfaces.",
+    "version": "1.0.0",
+    "unity": "2022.3",
+    "dependencies": {
+        "com.unity.inputsystem": "1.6.1"
+    }
+}
