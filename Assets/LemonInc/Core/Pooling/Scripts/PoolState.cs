@@ -11,7 +11,7 @@ namespace LemonInc.Core.Pooling
 		FREE,
 
 		/// <summary>
-		/// The busy state, entity is active out of the pool.
+		/// The busy state, entity is btnActive out of the pool.
 		/// </summary>
 		BUSY
 	}

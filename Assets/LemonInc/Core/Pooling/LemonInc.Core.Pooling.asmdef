@@ -1,7 +1,9 @@
 {
     "name": "LemonInc.Core.Pooling",
     "rootNamespace": "LemonInc.Core.Pooling",
-    "references": [],
+    "references": [
+        "GUID:84e136866fcc40949ab68aaa40f77f3f"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

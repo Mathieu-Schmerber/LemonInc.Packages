@@ -15,7 +15,12 @@ namespace LemonInc.Core.Pooling.Providers
 		/// <inheritdoc/>
 		protected override IPool CreatePool(string key)
 		{
-			var instance = Instantiate(new GameObject($"Pool - '{key}'"), transform);
+			var instance = new GameObject(PoolNamePolicy<string>.GetPoolName(key))
+			{
+				transform = {
+					parent = transform
+				}
+			};
 			return instance.AddComponent<ObjectPool>();
 		}
 	}

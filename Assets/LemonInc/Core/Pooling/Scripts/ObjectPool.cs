@@ -12,22 +12,31 @@ namespace LemonInc.Core.Pooling
 	{
 		[SerializeField] private GameObject _prefab;
 		[SerializeField, Min(0)] private int _initialCopies;
+		public bool PopulateOnAwake = true;
 
 		/// <inheritdoc/>
-		protected override GameObject Prefab 
+		public override GameObject Prefab 
 		{ 
 			get => _prefab;
-			set => _prefab = value;
+			protected set => _prefab = value;
 		}
 
 		/// <inheritdoc/>
-		protected override int InitialCopies
+		public override int InitialCopies
 		{
 			get => _initialCopies;
-			set => _initialCopies = value;
+			protected set => _initialCopies = value;
 		}
 
 		/// <inheritdoc/>
 		protected override IDictionary<PoolState, IList<IPoolable>> Pool { get; } = new Dictionary<PoolState, IList<IPoolable>>();
+
+		private void Awake()
+		{
+			if (PopulateOnAwake)
+			{
+				Populate();
+			}
+		}
 	}
 }
