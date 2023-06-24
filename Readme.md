@@ -7,9 +7,6 @@ This repository hosts all custom Unity packages that LemonInc uses for its proje
   - [Dependencies](#dependencies)
   - [Importing](#importing)
 - [Developing packages](#developing-packages)
-  - [Creating a new packkage](#creating-a-new-packkage)
-  - [Publishing a new package](#publishing-a-new-package)
-  - [Updating an existing package](#updating-an-existing-package)
 - [Coming up...](#coming-up)
 
 # Import a LemonInc package to your project
@@ -38,44 +35,17 @@ Before importing any package from LemonInc, please make sure to install the foll
 
 # Developing packages
 
-## Creating a new packkage
+Creating a package is pretty straight forward, just create the correct package structure within the "Assets/LemonInc/\<Scope>/\<Feature>" folder.
 
-On the `master` branch, create the package structure within the `Assets/LemonInc/<Scope>/<new feature>` folder.
+To publish or update your package, run
+``` html
+./publish.exe <scope>.<feature> "commit message"
 
-The package structure requires:
-- `package.json`: sumarize the package details (name, description, dependencies, ...).
-- `asmdef` file: the assembly definition asset.
-- `Scripts/`: feature code.
-- `Documentation/`: documentation folder with **at least** a `classes.puml` file.
-- `Editor/`: optional editor scripts.
-- `Tests/`: optional unit tests.
-
-> The .meta files must not be deleted
-
-## Publishing a new package
-
-Publishing your feature requires you to create a subtree branch.
-``` shell
-git add -A
-git commit -m "feat(<scope>.<feature>): whatever you did"
-git subtree split --prefix=Assets/LemonInc/<scope>/<feature> --branch <scope>.<feature>
-git subtree push --prefix=Assets/LemonInc/<scope>/<feature> https://github.com/Mathieu-Schmerber/LemonInc.Packages <scope>.<feature>
-git push origin master
-```
-Your package is now ready to be imported on other projects !
-
-## Updating an existing package
-
-``` shell
-git add -A
-git commit -m "feat(<scope>.<feature>): whatever you did"
-git push origin master
-git subtree push --prefix=Assets/LemonInc/<scope>/<feature> https://github.com/Mathieu-Schmerber/LemonInc.Packages <scope>.<feature>
+# Example: ./publish.exe core.pooling "feat(core.pooling): my update"
 ```
 
 # Coming up...
 
-- Some kind of script to make the publish process even easier.
 - Some pipeline work to:
   - Ensure some % coverage
   - Make package.json configuration easier by using keyword such as $P{REPOSITORY_URL}
