@@ -1,6 +1,0 @@
-{
-    "dependencies": {
-        "com.lemon-inc.editor.utilities": "https://github.com/Mathieu-Schmerber/LemonInc.Packages.git#editor.utilities",
-        "com.lemon-inc.editor.toolbar": "https://github.com/Mathieu-Schmerber/LemonInc.Packages.git#editor.toolbar"
-    }
-}

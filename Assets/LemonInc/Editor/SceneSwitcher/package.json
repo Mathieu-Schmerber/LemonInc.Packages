@@ -4,7 +4,8 @@
     "description": "Adds a drop down near the play button, which allows for the user to switch and load scenes.",
     "version": "1.0.0",
     "unity": "2022.3",
-    "dependencies": {
+    "dependencies": {},
+    "gitDependencies": {
         "com.lemon-inc.editor.utilities": "https://github.com/Mathieu-Schmerber/LemonInc.Packages.git#editor.utilities",
         "com.lemon-inc.editor.toolbar": "https://github.com/Mathieu-Schmerber/LemonInc.Packages.git#editor.toolbar"
     }
