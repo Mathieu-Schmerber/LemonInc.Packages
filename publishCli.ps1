@@ -43,13 +43,13 @@ function ExecuteGitCommands {
     }
 
     if ($action -eq 'Create') {
-        $branch = "$scope.$feature"
+        $branch = ("$scope.$feature").toLower()
         Write-Host "Executing git command: git subtree split --prefix=$path --branch $branch"
         git subtree split --prefix=$path --branch $branch
     }
 
     $remoteURL = "https://github.com/Mathieu-Schmerber/LemonInc.Packages"
-    $branch = "$scope.$feature"
+    $branch = ("$scope.$feature").toLower()
 
     Write-Host "Executing git command: git subtree push --prefix=$path $remoteURL $branch"
     git subtree push --prefix=$path $remoteURL $branch
