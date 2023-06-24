@@ -27,17 +27,26 @@ The package structure requires:
 
 > The .meta files must not be deleted
 
-### Publish
+### Publish new package
 
 Publishing your feature requires you to create a subtree branch.
 ``` shell
 git add -A
 git commit -m "feat(<scope>.<feature>): whatever you did"
 git subtree split --prefix=Assets/LemonInc/<scope>/<feature> --branch <scope>.<feature>
-git push origin <scope>.<feature>
+git subtree push --prefix=Assets/LemonInc/<scope>/<feature> https://github.com/Mathieu-Schmerber/LemonInc.Packages <scope>.<feature>
 git push origin master
 ```
 Your package is now ready to be imported on other projects !
+
+## Updating an existing package
+
+``` shell
+git add -A
+git commit -m "feat(<scope>.<feature>): whatever you did"
+git push origin master
+git subtree push --prefix=Assets/LemonInc/<scope>/<feature> https://github.com/Mathieu-Schmerber/LemonInc.Packages <scope>.<feature>
+```
 
 ### Coming up...
 
