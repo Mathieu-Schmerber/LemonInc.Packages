@@ -1,0 +1,9 @@
+{
+    "name": "com.lemon-inc.editor.utilities",
+    "displayName": "LemonInc.Editor.Utilities",
+    "description": "Editor utilities.",
+    "version": "1.0.0",
+    "unity": "2022.3",
+    "dependencies": {
+    }
+}

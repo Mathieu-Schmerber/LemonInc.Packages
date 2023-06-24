@@ -1,0 +1,9 @@
+{
+    "name": "com.lemon-inc.core.utilities",
+    "displayName": "LemonInc.Core.Utilities",
+    "description": "Provides with core utilities.",
+    "version": "1.0.0",
+    "unity": "2022.3",
+    "dependencies": {
+    }
+}

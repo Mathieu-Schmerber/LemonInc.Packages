@@ -6,21 +6,23 @@ using UnityEngine;
 namespace LemonInc.Core.Pooling.Contracts
 {
 	/// <summary>
-	/// <see cref="IPoolProvider"/> base implementation.
+	/// <see cref="IPoolProvider{T}"/> base implementation.
 	/// </summary>
-	/// <seealso cref="LemonInc.Core.Pooling.Contracts.IPoolProvider" />
-	public abstract class PoolProviderBase : MonoBehaviour, IPoolProvider
+	/// <seealso cref="LemonInc.Core.Pooling.Contracts.IPoolProvider{T}" />
+	/// <keyparam name="TKey">Storing key key.</keyparam>
+	public abstract class PoolProviderBase<TKey> : MonoBehaviour, IPoolProvider<TKey>
 	{
 		/// <summary>
 		/// The pools.
 		/// </summary>
-		protected abstract IDictionary<Type, IPool> Pools { get; }
+		protected abstract IDictionary<TKey, IPool> Pools { get; }
 
 		/// <summary>
 		/// Creates the pool.
 		/// </summary>
+		/// <param name="key">The pool key.</param>
 		/// <returns>The <see cref="IPool"/>.</returns>
-		protected abstract IPool CreatePool();
+		protected abstract IPool CreatePool(TKey key);
 
 		/// <summary>
 		/// Ensures the initialized.
@@ -29,58 +31,49 @@ namespace LemonInc.Core.Pooling.Contracts
 		private void EnsureInitialized()
 		{
 			if (Pools == null)
-				throw new PoolException($"{nameof(PoolProviderBase.Pools)} was not initialized.");
+				throw new PoolException($"{nameof(PoolProviderBase<TKey>.Pools)} was not initialized.");
 		}
-
+		
 		/// <inheritdoc/>
-		public IPool CreatePoolOf<TPoolable>(PoolSettings settings, bool populate = false) where TPoolable : IPoolable => CreatePoolOf(typeof(TPoolable), settings, populate);
-
-		/// <inheritdoc/>
-		public IPool GetPoolOf<TPoolable>() where TPoolable : IPoolable => GetPoolOf(typeof(TPoolable));
-
-		/// <inheritdoc/>
-		public IPool GetOrCreatePoolOf<TPoolable>(PoolSettings settings, bool populate = false) where TPoolable : IPoolable => GetOrCreatePoolOf(typeof(TPoolable), settings, populate);
-
-		/// <inheritdoc/>
-		public virtual IPool CreatePoolOf(Type type, PoolSettings settings, bool populate = false)
+		public virtual IPool Create(TKey key, PoolSettings settings, bool populate = false)
 		{
 			EnsureInitialized();
 
-			if (Pools.ContainsKey(type))
+			if (Pools.ContainsKey(key))
 			{
-				throw new PoolException($"A pool of type {type.Name} has already been registered.");
+				throw new PoolException($"A pool of key {key} has already been registered.");
 			}
 
-			var pool = CreatePool();
+			var pool = CreatePool(key);
 			pool.Configure(settings);
 			if (populate)
 			{
 				pool.Populate();
 			}
 
-			Pools.Add(type, pool);
+			Pools.Add(key, pool);
 			return pool;
 		}
 
 		/// <inheritdoc/>
-		public virtual IPool GetPoolOf(Type type)
+		public virtual IPool Get(TKey key)
 		{
 			EnsureInitialized();
 
-			if (!Pools.ContainsKey(type))
+			if (!Pools.ContainsKey(key))
 			{
-				throw new PoolException($"No pool of type {type.Name} has been registered.");
+				throw new PoolException($"No pool of key {key} has been registered.");
 			}
 
-			return Pools[type];
+			return Pools[key];
 		}
 
 		/// <inheritdoc/>
-		public virtual IPool GetOrCreatePoolOf(Type type, PoolSettings settings, bool populate = false)
+		public virtual IPool GetOrCreate(TKey key, PoolSettings settings, bool populate = false)
 		{
 			EnsureInitialized();
 
-			return !Pools.ContainsKey(type) ? CreatePoolOf(type, settings, populate) : GetPoolOf(type);
+			return !Pools.ContainsKey(key) ? Create(key, settings, populate) : Get(key);
 		}
 	}
 }
