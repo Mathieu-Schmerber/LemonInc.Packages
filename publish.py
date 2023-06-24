@@ -97,7 +97,7 @@ def publish_package(package_name, commit_msg):
     scope, feature = package_name.split('.')
     base_path = "Assets\LemonInc"
     path = os.path.realpath(f"{base_path}\{scope}\{feature}")
-    path = slicer(path, base_path)
+    path = slicer(path, base_path).replace("\\", "/")
 
     if os.path.exists(path):
         is_valid_package = check_package_validity(path, scope, feature)
