@@ -5,5 +5,7 @@
     "version": "1.0.0",
     "unity": "2022.3",
     "dependencies": {
+        "com.lemon-inc.editor.utilities": "1.0.0",
+        "com.lemon-inc.editor.toolbar": "1.0.0"
     }
 }
