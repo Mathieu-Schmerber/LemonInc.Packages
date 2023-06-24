@@ -1,0 +1,14 @@
+{
+    "name": "LemonInc.Editor.Toolbar",
+    "rootNamespace": "LemonInc.Editor.Toolbar",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

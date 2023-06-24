@@ -1,0 +1,9 @@
+{
+    "name": "com.lemon-inc.editor.toolbar",
+    "displayName": "LemonInc.Editor.Toolbar",
+    "description": "Allows to extend toolbar (play button area).",
+    "version": "1.0.0",
+    "unity": "2022.3",
+    "dependencies": {
+    }
+}
