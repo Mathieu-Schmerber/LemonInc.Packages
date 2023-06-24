@@ -15,12 +15,12 @@ namespace LemonInc.Core.Pooling.Contracts
 		/// <summary>
 		/// Gets the prefab.
 		/// </summary>
-		protected abstract GameObject Prefab { get; set; }
+		public abstract GameObject Prefab { get; protected set; }
 
 		/// <summary>
 		/// Gets the initial copies.
 		/// </summary>
-		protected abstract int InitialCopies { get; set; }
+		public abstract int InitialCopies { get; protected set; }
 
 		/// <summary>
 		/// Managed pool.
@@ -60,8 +60,7 @@ namespace LemonInc.Core.Pooling.Contracts
 		/// <inheritdoc/>
 		public void Populate()
 		{
-			if (Pool.Count > 0) return;
-			else if (Prefab == null) throw new PoolException("Prefab is required.");
+			if (Pool.Count > 0 || Prefab == null) return;
 			OnValidate();
 
 			Pool.Add(PoolState.FREE, new List<IPoolable>());
@@ -69,7 +68,7 @@ namespace LemonInc.Core.Pooling.Contracts
 
 			for (int i = 0; i < InitialCopies; i++)
 			{
-				var instance = Instantiate(Prefab);
+				var instance = Instantiate(Prefab, transform);
 				var poolable = instance.GetComponent<IPoolable>();
 
 				poolable.State = PoolState.FREE;
@@ -117,6 +116,7 @@ namespace LemonInc.Core.Pooling.Contracts
 			}
 
 			Pool[PoolState.FREE].Add(poolable);
+			poolable.Instance.transform.parent = transform;
 			poolable.State = PoolState.FREE;
 		}
 
@@ -129,6 +129,7 @@ namespace LemonInc.Core.Pooling.Contracts
 			foreach (var poolable in Pool[ofState].ToList())
 			{
 				poolable.State = PoolState.FREE;
+				poolable.Instance.transform.parent = transform;
 				Pool[ofState].Remove(poolable);
 				Pool[PoolState.FREE].Add(poolable);
 			}

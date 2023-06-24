@@ -39,7 +39,7 @@ namespace LemonInc.Core.Pooling.Contracts
 		{
 			EnsureInitialized();
 
-			if (Pools.ContainsKey(key))
+			if (Pools.ContainsKey(key) && Pools[key] != null)
 			{
 				throw new PoolException($"A pool of key {key} has already been registered.");
 			}
@@ -60,7 +60,7 @@ namespace LemonInc.Core.Pooling.Contracts
 		{
 			EnsureInitialized();
 
-			if (!Pools.ContainsKey(key))
+			if (!Pools.ContainsKey(key) || Pools[key] == null)
 			{
 				throw new PoolException($"No pool of key {key} has been registered.");
 			}
