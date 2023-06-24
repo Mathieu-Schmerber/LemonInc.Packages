@@ -175,9 +175,11 @@ namespace LemonInc.Editor.Utilities.Helpers
 			return style;
 		}
 
-		public static GUIStyle WithNormalTextColor(this GUIStyle style, Color textColor)
+		public static GUIStyle WithTextColor(this GUIStyle style, Color normalColor, Color activeColor)
 		{
-			style.normal.textColor = textColor;
+			style.normal.textColor = normalColor;
+			style.active.textColor = activeColor;
+			style.hover.textColor = activeColor;
 			return style;
 		}
 	}
