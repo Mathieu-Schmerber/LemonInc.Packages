@@ -39,9 +39,7 @@ Creating a package is pretty straight forward, just create the correct package s
 
 To publish or update your package, run
 ``` html
-./publish.exe <scope>.<feature> "commit message"
-
-# Example: ./publish.exe core.pooling "feat(core.pooling): my update"
+./publish.exe -s
 ```
 
 # Coming up...
