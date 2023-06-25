@@ -8,7 +8,8 @@ def has_changes(path):
     result = subprocess.run(cmd, capture_output=True, text=True)
     return bool(result.stdout.strip())
 
-def execute_git_commands(path, action, scope, feature, commit_msg):
+def execute_git_commands(path, action, scope, feature, commit_msg = None):
+    package_name = f"{scope}.{feature}"
     if has_changes(path):
         commit_message = commit_msg if commit_msg else input("Enter the commit message: ")
         subprocess.run(['git', 'add', path])
@@ -93,6 +94,53 @@ def slicer(my_str, sub):
     else:
         raise Exception('Substring not found!')
     
+def sync_packages():
+    base_path = "Assets/LemonInc"
+    asmdef_files = []
+
+    for root, _, files in os.walk(base_path):
+        for file in files:
+            if file.endswith(".asmdef"):
+                asmdef_files.append(os.path.join(root, file))
+
+    for asmdef_file in asmdef_files:
+        package_path = os.path.dirname(asmdef_file)
+        _, scope, feature = package_path.split(os.sep)
+
+        if has_changes(package_path):
+            is_valid_package = check_package_validity(package_path, scope, feature)
+            if is_valid_package:
+                if os.path.exists('.git'):
+                    os.chdir('.git')
+                    repo_url = subprocess.run(['git', 'config', '--get', 'remote.origin.url'],
+                                              capture_output=True, text=True).stdout.strip()
+                    os.chdir('..')
+
+                    if repo_url:
+                        # Check if the package already exists in the repository
+                        package_exists = subprocess.run(['git', 'ls-remote', '--heads', 'origin', f'{scope}.{feature}'],
+                                                        capture_output=True, text=True).returncode == 0
+
+                        if package_exists:
+                            action = 'update'
+                            print(colored(f"Changes detected for '{package_path}'. Updating the package...", "cyan"))
+                        else:
+                            action = 'create'
+                            print(colored(f"Changes detected for '{package_path}'. Creating the package...", "cyan"))
+
+                        execute_git_commands(package_path.replace("\\", "/"), action, scope, feature)
+
+                    else:
+                        print(colored("❌ Git remote URL not found.", "red"))
+
+                else:
+                    print(colored("❌ Current directory is not a valid Git repository.", "red"))
+            else:
+                print(colored(f"❌ The package '{package_path}' is not valid.", "red"))
+        else:
+            print(colored(f"No changes detected for package '{package_path}', skipping...", "grey"))
+
+
 def publish_package(package_name, commit_msg):
     scope, feature = package_name.split('.')
     base_path = "Assets\LemonInc"
@@ -131,10 +179,17 @@ def publish_package(package_name, commit_msg):
     else:
         print(colored(f"❌ The path '{path}' does not exist.", "red"))
 
-if __name__ == "__main__":
-    if len(sys.argv) < 2 or len(sys.argv) > 3:
-        print(colored("Usage: python app.py <package_name> [commit message]", "yellow"))
+def handle_publish(package_name, commit_msg):
+    if len(package_name) == 2 and package_name[1] == "-s":
+        sync_packages()
+        return
+
+    if len(package_name) < 2 or len(package_name) > 3:
+        print(colored("Usage: python app.py <package_name> [commit message]\t - \tPublishes the specified package\n"
+                      "       python app.py -s \t\t\t\t - \tSynchronizes the local and the remote", "yellow"))
         sys.exit(1)
-    package_name = sys.argv[1]
-    commit_msg = sys.argv[2] if len(sys.argv) > 2 else None
-    publish_package(package_name, commit_msg)
+
+    publish_package(package_name[1], commit_msg)
+
+if __name__ == "__main__":
+    handle_publish(sys.argv, None if len(sys.argv) <= 2 else sys.argv[2])
