@@ -3,9 +3,11 @@ using LemonInc.Core.Pooling.Contracts;
 using LemonInc.Core.Pooling.Providers;
 using LemonInc.Editor.Utilities;
 using LemonInc.Editor.Utilities.Helpers;
+using Sirenix.Utilities.Editor;
 using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEditor;
 using UnityEngine;
+using EditorIcons = LemonInc.Editor.Utilities.EditorIcons;
 
 namespace LemonInc.Core.Pooling.Editor
 {
@@ -16,63 +18,91 @@ namespace LemonInc.Core.Pooling.Editor
 	[CustomEditor(typeof(NamedObjectPoolProvider), editorForChildClasses: true)]
     public class ObjectPoolProviderEditor : UnityEditor.Editor
 	{
-		private string _poolId;
+		/// <summary>
+		/// The pool key.
+		/// </summary>
+		private string _poolKey;
+
+		/// <summary>
+		/// The prefab.
+		/// </summary>
 		private GameObject _prefab;
+
+		/// <summary>
+		/// The initial count.
+		/// </summary>
 		private int _initialCount = 10;
 
+		/// <summary>
+		/// The object reference.
+		/// </summary>
 		private NamedObjectPoolProvider _target;
 
+		/// <summary>
+		/// Styles used.
+		/// </summary>
 		public static class Styles
 		{
+			public static Color IndianRed = new(205 / 255f, 92 / 255f, 92 / 255f);
+
 			public static GUIStyle btnActive = GUI.skin.button;
-			public static GUIStyle btnDisabled = new GUIStyle(GUI.skin.button).WithTextColor(Color.red, Color.red);
-			public static GUIStyle errorMessage = new GUIStyle(GUI.skin.label).WithTextColor(Color.red, Color.red);
+			public static GUIStyle btnDisabled = new GUIStyle(GUI.skin.button).WithNormalBackground(IndianRed);
+			public static GUIStyle errorMessage = new GUIStyle(GUI.skin.label).WithFontStyle(FontStyle.Bold).WithTextColor(IndianRed, IndianRed);
 		}
 
+		/// <summary>
+		/// Checks if creation is possible.
+		/// </summary>
+		/// <returns>(<see cref="bool"/> can create, <see cref="string"/> error message)</returns>
 		private (bool success, string error) CanCreate()
 		{
-			if (string.IsNullOrEmpty(_poolId))
-				return (false, $"Pool Id cannot be null.");
+			if (string.IsNullOrEmpty(_poolKey))
+				return (false, $"Pool Key cannot be null.");
 			else if (_prefab == null)
 				return (false, $"Prefab cannot be null.");
 
 			for (int i = 0; i < _target.transform.childCount; i++)
 			{
-				if (_target.transform.GetChild(i).name.Equals(PoolNamePolicy<string>.GetPoolName(_poolId)))
-					return (false, $"Pool '{_poolId}' already exists.");
+				if (_target.transform.GetChild(i).name.Equals(PoolNamePolicy<string>.GetPoolName(_poolKey)))
+					return (false, $"Pool '{_poolKey}' already exists.");
 			}
 
 			return (true, string.Empty);
 		}
 
+		/// <summary>
+		/// On Inspector GUI.
+		/// </summary>
 		public override void OnInspectorGUI()
 		{
 			_target = target as NamedObjectPoolProvider;
 
-			GameObject prefab = EditorGUILayout.ObjectField("Prefab", _prefab, typeof(GameObject), false) as GameObject;
+			GameObject prefab = EditorGUILayout.ObjectField(new GUIContent("Prefab", EditorIcons.DPrematcube.image), _prefab, typeof(GameObject), false) as GameObject;
 		    if (_prefab != prefab)
 		    {
 				_prefab = prefab;
-				_poolId = _prefab?.name ?? _poolId;
+				_poolKey = _prefab?.name ?? _poolKey;
 		    }
+			
+		    _poolKey = EditorGUILayout.TextField(new GUIContent("Pool Key", EditorIcons.Jointangularlimits.image), _poolKey);
+		    _initialCount = EditorGUILayout.IntField(new GUIContent("Initial count", EditorIcons.Settings.image), _initialCount);
 
-		    _poolId = EditorGUILayout.TextField("Pool Id", _poolId);
-		    _initialCount = EditorGUILayout.IntField("Initial count", _initialCount);
-
+			GUILayout.Space(10);
 			GuiHelper.DrawLineSeparator();
+			GUILayout.Space(10);
 
-		    var canCreate = CanCreate();
+			var canCreate = CanCreate();
 			if (!canCreate.success)
-			    GUILayout.Label(canCreate.error, Styles.errorMessage);
+			    GUILayout.Label(new GUIContent(canCreate.error, EditorIcons.ConsoleErroricon.image), Styles.errorMessage);
 		    if (GUILayout.Button("Create Pool", canCreate.success ? Styles.btnActive : Styles.btnDisabled) && canCreate.success)
 		    {
-			    _target.Create(_poolId, new PoolSettings()
+			    _target.Create(_poolKey, new PoolSettings()
 				{
 					Prefab = _prefab,
 					InitialCount = _initialCount
 				});
 
-				_poolId = string.Empty;
+				_poolKey = string.Empty;
 				_prefab = null;
 			}
 	    }
