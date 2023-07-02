@@ -58,7 +58,7 @@ namespace LemonInc.Core.Input
 		/// The state.
 		/// </returns>
 		public abstract T GetState(T state);
-
+		
 		/// <summary>
 		/// Awakes this instance.
 		/// </summary>
@@ -72,6 +72,7 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		protected virtual void OnEnable()
 		{
+			_controls.Enable();
 			_playerInput.onControlsChanged += OnControlsChanged;
 		}
 
@@ -80,6 +81,7 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		protected virtual void OnDisable()
 		{
+			_controls.Disable();
 			_playerInput.onControlsChanged -= OnControlsChanged;
 		}
 
