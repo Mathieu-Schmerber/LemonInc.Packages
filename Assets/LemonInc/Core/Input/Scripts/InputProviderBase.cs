@@ -29,22 +29,12 @@ namespace LemonInc.Core.Input
 		/// The type of the in use control.
 		/// </value>
 		public ControlType InUseControlType { get; private set; }
-
-		/// <summary>
-		/// The controls.
-		/// </summary>
-		private Controls _controls;
-
+		
 		/// <summary>
 		/// The player input.
 		/// </summary>
 		protected PlayerInput _playerInput;
-
-		/// <summary>
-		/// Gets the controls.
-		/// </summary>
-		protected Controls Controls => _controls ??= new Controls();
-
+		
 		/// <summary>
 		/// Occurs when [on controls changed event].
 		/// </summary>
@@ -72,7 +62,6 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		protected virtual void OnEnable()
 		{
-			_controls.Enable();
 			_playerInput.onControlsChanged += OnControlsChanged;
 		}
 
@@ -81,7 +70,6 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		protected virtual void OnDisable()
 		{
-			_controls.Disable();
 			_playerInput.onControlsChanged -= OnControlsChanged;
 		}
 
