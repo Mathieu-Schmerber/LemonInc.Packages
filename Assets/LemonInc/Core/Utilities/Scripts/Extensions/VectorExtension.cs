@@ -16,16 +16,44 @@ namespace LemonInc.Core.Utilities.Extensions
 		private static Matrix4x4 _isoMatrix = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
 
 		/// <summary>
-		/// Rotates a Vector3 by the given euler.
+		/// Rotates a direction by the given euler.
 		/// </summary>
-		/// <param name="input"></param>
-		/// <param name="euler"></param>
-		/// <returns>The <see cref="Vector3"/>.</returns>
-		public static Vector3 Rotate(this Vector3 input, Vector3 euler)
+		/// <param name="direction">The direction.</param>
+		/// <param name="euler">The euler.</param>
+		/// <returns>The rotated vector.</returns>
+		public static Vector3 Rotate(this Vector3 direction, Vector3 euler)
 		{
 			var matrix = Matrix4x4.Rotate(Quaternion.Euler(euler));
 
-			return matrix.MultiplyPoint3x4(input);
+			return matrix.MultiplyPoint3x4(direction);
+		}
+
+		/// <summary>
+		/// Rotates a point around a pivot.
+		/// </summary>
+		/// <param name="point">The point.</param>
+		/// <param name="euler">The euler.</param>
+		/// <param name="pivot">The pivot.</param>
+		/// <returns>The rotated point.</returns>
+		public static Vector3 RotatePoint(this Vector3 point, Vector3 euler, Vector3 pivot)
+		{
+			var dir = point - pivot;
+			var normalized = point / dir.magnitude;
+			var rotate = normalized.Rotate(euler);
+
+			return rotate * dir.magnitude;
+		}
+
+		/// <summary>
+		/// Rotates a point around a pivot.
+		/// </summary>
+		/// <param name="point">The point.</param>
+		/// <param name="euler">The euler.</param>
+		/// <param name="pivot">The pivot.</param>
+		/// <returns></returns>
+		public static Vector3Int RotatePoint(this Vector3Int point, Vector3Int euler, Vector3Int pivot)
+		{
+			return Vector3Int.RoundToInt(((Vector3)point).RotatePoint(euler, pivot));
 		}
 
 		/// <summary>
