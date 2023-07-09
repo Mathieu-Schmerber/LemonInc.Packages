@@ -157,6 +157,9 @@ namespace LemonInc.Editor.Utilities.Helpers
 			return style;
 		}
 
+		public static GUIStyle WithFixedSize(this GUIStyle style, int fixedHeight, int fixedWidth)
+			=> style.WithFixedHeight(fixedHeight).WithFixedWidth(fixedWidth);
+
 		public static GUIStyle WithRichText(this GUIStyle style, bool richText = true)
 		{
 			style.richText = richText;
