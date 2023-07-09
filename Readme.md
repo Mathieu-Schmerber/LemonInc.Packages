@@ -17,7 +17,7 @@ Before importing any package from LemonInc, please make sure to install the foll
 - [GitDependenciesResolver For Unity](https://github.com/mob-sakai/GitDependencyResolverForUnity)
   1. Open the Unity Package Manager Window
   1. At the top click the `+` icon > `Add package from git URL...`
-  2. Input `https://github.com/mob-sakai/GitDependencyResolverForUnity`
+  2. Input `https://github.com/mob-sakai/GitDependencyResolverForUnity.git`
   3. For any futur dependency issue, checkout the Github linked above
 - [Sirenix.Odin](https://odininspector.com/)
     1. Buy from the asset store
