@@ -3,6 +3,11 @@
     - There are bugs (find them and fix them)
 [+] Write documentation for everything
 
+[~] LemonInc package handker:
+    - Update UI when package has been installed/deleted dynamically
+    - Import external dependencies (Odin, Surge, ...)
+    - May provide with a way for packages to add configuration sections to the editor window
+
 [+] Have a utility class that can store data such as scriptable objects in /Plugins/LemonInc/(...)
     This will provide LemonInc with a way to instantiate project data (whether for editor or gameplay purposes).
     Features needed:

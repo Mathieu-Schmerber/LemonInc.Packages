@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.lemon-inc.core.grid": {
+      "version": "https://github.com/Mathieu-Schmerber/LemonInc.Packages.git#core.grid",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "28590b3a14a2854bc952fe1eb05964e78af32fb5"
+    },
     "com.unity.collab-proxy": {
       "version": "2.0.4",
       "depth": 0,
