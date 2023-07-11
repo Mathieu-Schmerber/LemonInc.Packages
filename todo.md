@@ -1,6 +1,8 @@
 [~] Edit Core.Utilities.Timer: make use of coroutines if possible
+
 [~] Tools.Tilemap is a wip:
     - There are bugs (find them and fix them)
+
 [+] Write documentation for everything
 
 [~] LemonInc package handler:
