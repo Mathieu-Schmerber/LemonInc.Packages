@@ -1,5 +1,5 @@
 {
-    "name": "com.lemon-inc.editor.scene-switcher",
+    "name": "com.lemon-inc.editor.sceneswitcher",
     "displayName": "LemonInc.Editor.SceneSwitcher",
     "description": "Adds a drop down near the play button, which allows for the user to switch and load scenes.",
     "version": "1.0.0",
