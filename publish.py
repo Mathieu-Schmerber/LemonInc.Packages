@@ -8,7 +8,32 @@ def has_changes(path):
     result = subprocess.run(cmd, capture_output=True, text=True)
     return bool(result.stdout.strip())
 
+def pascal_to_dashed(pascal_case):
+    dashed_case = ""
+    for i, char in enumerate(pascal_case):
+        if i > 0 and char.isupper():
+            dashed_case += "-" + char.lower()
+        else:
+            dashed_case += char.lower()
+    return dashed_case
+
+def dashed_to_pascal(dashed_case):
+    pascal_case = ""
+    capitalize_next = True
+    for char in dashed_case:
+        if char == "-":
+            capitalize_next = True
+        else:
+            if capitalize_next:
+                pascal_case += char.upper()
+                capitalize_next = False
+            else:
+                pascal_case += char
+    return pascal_case
+
 def execute_git_commands(path, action, scope, feature, commit_msg = None):
+    scope = pascal_to_dashed(scope)
+    feature = pascal_to_dashed(feature)
     package_name = f"{scope}.{feature}"
     if has_changes(path):
         commit_message = commit_msg if commit_msg else input("Enter the commit message: ")
@@ -143,6 +168,8 @@ def sync_packages():
 
 def publish_package(package_name, commit_msg):
     scope, feature = package_name.split('.')
+    scope = dashed_to_pascal(scope)
+    feature = dashed_to_pascal(feature)
     base_path = "Assets\LemonInc"
     path = os.path.realpath(f"{base_path}\{scope}\{feature}")
     path = slicer(path, base_path).replace("\\", "/")
