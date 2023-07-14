@@ -5,7 +5,6 @@ using System;
 using System.Linq;
 using UnityEngine;
 using Newtonsoft.Json;
-using System.Collections;
 
 namespace LemonInc.Tools.PackageHandler
 {
@@ -38,7 +37,7 @@ namespace LemonInc.Tools.PackageHandler
 			{
 				client.BaseAddress = new Uri(BASE_URL);
 				client.DefaultRequestHeaders.UserAgent.ParseAdd(MOZILLA_HEADER);
-
+				
 				var response = await client.GetAsync($"repos/{owner}/{repository}/branches");
 
 				if (response.IsSuccessStatusCode)

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEditor.PackageManager;
@@ -19,14 +20,14 @@ namespace LemonInc.Tools.PackageHandler
 		/// <summary>
 		/// Converts to lemon inc package name.
 		/// </summary>
-		/// <param name="packageName">Name of the package.</param>
+		/// <param name="packageName">BranchName of the package.</param>
 		/// <returns></returns>
 		public static string ToLemonIncPackageName(this string packageName) => $"com.lemon-inc.{packageName}";
 
 		/// <summary>
 		/// Determines whether the given name is a valid  package name.
 		/// </summary>
-		/// <param name="packageName">Name of the package.</param>
+		/// <param name="packageName">BranchName of the package.</param>
 		public static bool IsValidPackageName(string packageName) => packageName.Contains(".");
 
 		/// <summary>
@@ -36,9 +37,11 @@ namespace LemonInc.Tools.PackageHandler
 		{
 			var packages = Client.List();
 
+			Debug.Log($"Fetching packages...");
 			while (!packages.IsCompleted)
 				await Task.Yield();
 
+			Debug.Log($"Done fetching !");
 			return packages.Result;
 		}
 
@@ -46,9 +49,9 @@ namespace LemonInc.Tools.PackageHandler
 		/// Installs a git package.
 		/// </summary>
 		/// <param name="package">The package.</param>
-		public static IEnumerator InstallPackage(LemonIncPackage package)
+		public static IEnumerator InstallPackage(LemonIncPackage package, Action<bool> then = null)
 		{
-			var url = $"{GITHUB_URL}#{package.Name}";
+			var url = $"{GITHUB_URL}#{package.BranchName}";
 
 			Debug.Log($"Installing '{url}' ...");
 
@@ -56,23 +59,23 @@ namespace LemonInc.Tools.PackageHandler
 			yield return new WaitUntil(() => request.IsCompleted);
 
 			package.Installed = request.Status == StatusCode.Success;
-			Debug.Log($"Package install request for '{package.FullName}': {request.Status}, {request.Error.message}");
+			then?.Invoke(request.Status == StatusCode.Success);
 		}
 
 		/// <summary>
 		/// Updates the package.
 		/// </summary>
 		/// <param name="package">The package.</param>
-		public static IEnumerator UpdatePackage(LemonIncPackage package)
+		public static IEnumerator UpdatePackage(LemonIncPackage package, Action<bool> then = null)
 		{
-			yield return InstallPackage(package);
+			yield return InstallPackage(package, then);
 		}
 
 		/// <summary>
 		/// Removes the package.
 		/// </summary>
 		/// <param name="package">The package.</param>
-		public static IEnumerator RemovePackage(LemonIncPackage package)
+		public static IEnumerator RemovePackage(LemonIncPackage package, Action<bool> then = null)
 		{
 			Debug.Log($"Removing {package.FullName}...");
 
@@ -80,7 +83,7 @@ namespace LemonInc.Tools.PackageHandler
 			yield return new WaitUntil(() => request.IsCompleted);
 
 			package.Installed = request.Status != StatusCode.Success;
-			Debug.Log($"Package remove request for '{package.FullName}': {request.Status}");
+			then?.Invoke(request.Status == StatusCode.Success);
 		}
 	}
 }

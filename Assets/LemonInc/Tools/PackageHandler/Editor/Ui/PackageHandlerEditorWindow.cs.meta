@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5ee1450a4f4ba284e8f89627f461192d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - _baseUxml: {fileID: 9197481963319205126, guid: 6ea03548795e73941afb71373018653b, type: 3}
+  - _packageScopeTemplate: {fileID: 9197481963319205126, guid: ec0a4e97a669c2048a0d32e99d1df260, type: 3}
+  - _packageEntryTemplate: {fileID: 9197481963319205126, guid: e96282e9a43a8e9499531a683bfcd599, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
