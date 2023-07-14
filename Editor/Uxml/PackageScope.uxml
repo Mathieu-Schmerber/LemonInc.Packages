@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+        <ui:Label tabindex="-1" text="Title" display-tooltip-when-elided="true" name="Title" style="font-size: 14px; -unity-font-style: normal; color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0.31); height: 25px; flex-grow: 0; -unity-text-align: middle-left; margin-left: 0; padding-left: 10px;" />
+        <ui:ListView focusable="true" selection-type="None" show-alternating-row-backgrounds="All" virtualization-method="FixedHeight" fixed-item-height="25" style="flex-grow: 1; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+    </ui:VisualElement>
+</ui:UXML>
