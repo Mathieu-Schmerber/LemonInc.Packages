@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.lemon-inc.core.grid": "https://github.com/Mathieu-Schmerber/LemonInc.Packages.git#core.grid",
     "com.unity.collab-proxy": "2.0.4",
     "com.unity.feature.development": "1.0.1",
     "com.unity.inputsystem": "1.6.1",

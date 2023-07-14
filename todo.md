@@ -14,8 +14,6 @@
      -> stop using odin tree panel
      -> provide with section support to create New data assets without opening the project window
 
-[~] Scene switcher: refactor UI using visual elements 
-
 [+] Have a utility class that can store data such as scriptable objects in /Plugins/LemonInc/(...)
     This will provide LemonInc with a way to instantiate project data (whether for editor or gameplay purposes).
     Features needed:
