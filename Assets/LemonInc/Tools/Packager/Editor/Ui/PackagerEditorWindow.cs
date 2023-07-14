@@ -68,8 +68,8 @@ namespace LemonInc.Tools.Packager.Editor.Ui
 			var packages = branches.Where(LemonIncPackageUtility.IsValidPackageName).Select(x => new LemonIncPackage()
 			{
 				BranchName = x,
-				Scope = x.Split('.')[0].FirstCharToUpper(),
-				Feature = x.Split('.')[1].FirstCharToUpper(),
+				Scope = x.Split('.')[0].ToTitleCaseFromDashed(),
+				Feature = x.Split('.')[1].ToTitleCaseFromDashed(),
 				Installed = installedPackages.Any(y => y.name.Equals(x.ToLemonIncPackageName()))
 			});
 
