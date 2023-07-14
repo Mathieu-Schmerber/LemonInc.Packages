@@ -11,7 +11,7 @@ This repository hosts all custom Unity packages that LemonInc uses for its proje
 
 # Import a LemonInc package to your project
 
-## Dependencies
+## Dependencies (Soon to be deprecated)
 
 Before importing any package from LemonInc, please make sure to install the following dependencies:
 - [GitDependenciesResolver For Unity](https://github.com/mob-sakai/GitDependencyResolverForUnity)
@@ -28,10 +28,9 @@ Before importing any package from LemonInc, please make sure to install the foll
 
 1. Open the Unity Package Manager window.
 1. At the top click the `+` icon > `Add package from git URL...`
-1. Input `https://github.com/Mathieu-Schmerber/LemonInc.Packages.git#<scope>.<feature>`
-
-    The scope corresponds to the global perimeter (core, gameplay, ...)
-    > Example: https://github.com/Mathieu-Schmerber/LemonInc.Packages.git#core.pooling
+1. Input `https://github.com/Mathieu-Schmerber/LemonInc.Packages.git#tools.packagehandler`
+1. Open the menu item `Tools/LemonInc/Package Handler Window`
+1. You can then select whichever package you want to import. 
 
 # Developing packages
 
@@ -44,6 +43,8 @@ To publish or update your package, run
 
 # Coming up...
 
+- LemonInc Package Handler:
+  - Install external dependencies
 - Some pipeline work to:
   - Ensure some % coverage
   - Make package.json configuration easier by using keyword such as $P{REPOSITORY_URL}
