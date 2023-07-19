@@ -1,12 +1,13 @@
+using LemonInc.Editor.Utilities.Ui.Tooltip;
 using UnityEditor;
 using UnityEngine;
 
-namespace LemonInc.Editor.Utilities.Tooltip
+namespace LemonInc.Editor.Utilities.Ui.Tooltip
 {
 	/// <summary>
 	/// <see cref="Tooltip"/> property drawer.
 	/// </summary>
-	[CustomPropertyDrawer(typeof(Tooltip))]
+	[CustomPropertyDrawer(typeof(Ui.Tooltip.Tooltip))]
 	public class TooltipPropertyDrawer : PropertyDrawer
 	{
 		/// <summary>
@@ -17,7 +18,7 @@ namespace LemonInc.Editor.Utilities.Tooltip
 		/// <param name="label">The label of this property.</param>
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
-			var tooltip = ((Tooltip)attribute).Content;
+			var tooltip = ((Ui.Tooltip.Tooltip)attribute).Content;
 			var labelSize = GetLabelSize(property.name + "\t");
 			var btnRect = new Rect(position.position.x + labelSize.x, position.position.y, EditorGUIUtility.singleLineHeight, EditorGUIUtility.singleLineHeight);
 
