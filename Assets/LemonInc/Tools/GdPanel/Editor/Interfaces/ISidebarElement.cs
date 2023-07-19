@@ -1,0 +1,52 @@
+﻿using LemonInc.Tools.GdPanel.Controllers;
+using LemonInc.Tools.GdPanel.Models;
+using UnityEngine;
+
+namespace LemonInc.Tools.GdPanel.Interfaces
+{
+	/// <summary>
+	/// Design element, belongs to <see cref="SidebarEntry"/>
+	/// </summary>
+	public interface ISidebarElement
+	{
+		/// <summary>
+		/// Gets or sets the identifier.
+		/// </summary>
+		/// <value>
+		/// The identifier.
+		/// </value>
+		public int Id { get; set; }
+
+		/// <summary>
+		/// Gets or sets the display name.
+		/// </summary>
+		/// <value>
+		/// The display name.
+		/// </value>
+		public string DisplayName { get; set; }
+
+		/// <summary>
+		/// Gets or sets the path.
+		/// </summary>
+		/// <value>
+		/// The path.
+		/// </value>
+		public string Path { get; set; }
+
+		/// <summary>
+		/// Gets or sets the object.
+		/// </summary>
+		/// <value>
+		/// The object.
+		/// </value>
+		public Object Object { get; set; }
+
+		/// <summary>
+		/// Gets the type.
+		/// </summary>
+		/// <value>
+		/// The type.
+		/// </value>
+		public SidebarElementType Type { get; }
+	}
+}
