@@ -2,9 +2,10 @@
     - Import external dependencies (Odin, Surge, ...)
     - May provide with a way for packages to add configuration sections to the editor window
 
-[~] Panels: refactor UI using visual elements
-     -> stop using odin tree panel
-     -> provide with section support to create New data assets without opening the project window
+[~] GD panel:
+    -> create a editor.panels package that allows the dynamic configuration of panels.
+    -> make the gdpanel a default panel.
+    -> provide with section support to create New data assets without opening the project window
 
 [~] Edit Core.Utilities.Timer: make use of coroutines if possible
 
