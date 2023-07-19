@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LemonInc.Editor.Utilities.Tooltip
+namespace LemonInc.Editor.Utilities.Ui.Tooltip
 {
 	/// <summary>
 	/// Tooltip attribute to be displayed in editor.
