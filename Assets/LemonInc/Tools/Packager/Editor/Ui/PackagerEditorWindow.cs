@@ -30,7 +30,7 @@ namespace LemonInc.Tools.Packager.Editor.Ui
 		private Dictionary<string, List<LemonIncPackage>> _packagesByScope;
 
 
-		[MenuItem("Tools/LemonInc/Packager")]
+		[MenuItem("Tools/LemonInc/Packager", false, 1)]
 		public static void OpenWindow()
 		{
 			var window = EditorWindow.GetWindow<PackagerEditorWindow>(Title);
