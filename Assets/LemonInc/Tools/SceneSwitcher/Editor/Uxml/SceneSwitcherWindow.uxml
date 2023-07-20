@@ -1,3 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
-    <ui:ListView focusable="true" name="SceneList" show-foldout-header="false" show-alternating-row-backgrounds="All" show-border="true" style="flex-grow: 1; width: auto; height: auto;" />
-</ui:UXML>
