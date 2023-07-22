@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Testing.Script;
 using LemonInc.Editor.Utilities;
 using UnityEditor;
-using UnityEngine;
 
 [CustomEditor(typeof(RotatingCube))]
 public class RotatingCubeEditor : Editor

@@ -1,11 +1,11 @@
-[~] LemonInc package handler:
+[+] LemonInc database:
+    - Import from Nawlian.Lib
+    - Ability do declare multiple databases
+    - Create the database in Plugins/LemonInc and locate it through MenuItem/Tools/LemonInc
+
+[~] LemonInc packager:
     - Import external dependencies (Odin, Surge, ...)
     - May provide with a way for packages to add configuration sections to the editor window
-
-[~] GD panel:
-    -> create a editor.panels package that allows the dynamic configuration of panels.
-    -> make the gdpanel a default panel.
-    -> provide with section support to create New data assets without opening the project window
 
 [~] Edit Core.Utilities.Timer: make use of coroutines if possible
 
@@ -24,3 +24,6 @@
     - There are bugs (find them and fix them)
 
 [+] Write documentation for everything
+
+[~] Panels:
+    -> provide with section support to create New data assets without opening the project window
