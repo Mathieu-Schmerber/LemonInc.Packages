@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEditor;
 
 namespace LemonInc.Editor.Utilities.Events
@@ -58,7 +59,8 @@ namespace LemonInc.Editor.Utilities.Events
 			{
 				foreach (var str in importedAssets)
 				{
-					OnAssetImported?.Invoke(str);
+					if (!movedAssets.Contains(str))
+						OnAssetImported?.Invoke(str);
 				}
 
 				foreach (var str in deletedAssets)

@@ -1,5 +1,4 @@
-﻿using GluonGui.WorkspaceWindow.Views.WorkspaceExplorer.Explorer;
-using LemonInc.Editor.Utilities.Helpers;
+﻿using LemonInc.Editor.Utilities.Helpers;
 using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
