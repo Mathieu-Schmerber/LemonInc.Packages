@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: UxmlAssetConfiguration
   m_EditorClassIdentifier: 
   References:
-    _keyData:
-    - Assets/LemonInc/Editor/Uxml/Editor/TestWin.uxml
-    _valueData:
-    - AssetPath: Assets/LemonInc/Editor/Uxml/Editor/TestWin.uxml
-      ReferenceClass: Assets/LemonInc/Editor/Uxml/Editor/TestWinReference.cs
-  DoLogTrace: 1
+    _keyData: []
+    _valueData: []
+  DoLogTrace: 0

@@ -1,9 +1,15 @@
+[~] Fix the issue where Editor windows are blank when loading a project:
+    - Panels
+    - Packager
+
+
 [+] LemonInc database:
     - Import from Nawlian.Lib
     - Ability do declare multiple databases
     - Create the database in Plugins/LemonInc and locate it through MenuItem/Tools/LemonInc
 
 [~] LemonInc packager:
+    - Fix the issue where the panel is blocked in fetching state after importing packages
     - Import external dependencies (Odin, Surge, ...)
     - May provide with a way for packages to add configuration sections to the editor window
 
