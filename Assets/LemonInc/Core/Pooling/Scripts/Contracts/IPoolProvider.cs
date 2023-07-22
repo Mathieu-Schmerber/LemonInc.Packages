@@ -1,5 +1,3 @@
-using System;
-
 namespace LemonInc.Core.Pooling.Contracts
 {
 	/// <summary>
