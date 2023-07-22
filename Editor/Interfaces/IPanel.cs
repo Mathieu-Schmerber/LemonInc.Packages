@@ -1,7 +1,4 @@
-﻿using LemonInc.Tools.Panels.Models;
-using UnityEditor;
-
-namespace LemonInc.Tools.Panels.Interfaces
+﻿namespace LemonInc.Tools.Panels.Interfaces
 {
 	/// <summary>
 	/// Describes a panel.
