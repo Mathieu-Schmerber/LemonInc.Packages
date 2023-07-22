@@ -1,0 +1,17 @@
+{
+    "name": "com.lemon-inc.editor.uxml",
+    "displayName": "LemonInc.Editor.Uxml",
+    "description": "Editor Uxml.",
+    "version": "1.0.0",
+    "unity": "2022.3",
+    "author": "Lemon Inc. <mathieu.schmerber@gmail.com> (https://github.com/Mathieu-Schmerber)",
+    "repository": {
+		"type": "git",
+		"url": "https://github.com/Mathieu-Schmerber/LemonInc.Packages.git"
+	},
+    "dependencies": {},
+    "gitDependencies": {
+        "com.lemon-inc.editor.utilities": "https://github.com/Mathieu-Schmerber/LemonInc.Packages.git#editor.utilities",
+        "com.lemon-inc.core.utilities": "https://github.com/Mathieu-Schmerber/LemonInc.Packages.git#core.utilities"
+    }
+}
