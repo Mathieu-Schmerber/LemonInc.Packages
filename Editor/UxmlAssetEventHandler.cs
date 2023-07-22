@@ -44,7 +44,7 @@ namespace LemonInc.Editor.Uxml
 		/// <exception cref="System.NotImplementedException"></exception>
 		private static void OnAssetCreated(string assetPath)
 		{
-			if (!UxmlUtility.IsUxml(assetPath, out _))
+			if (assetPath.Contains("Assets/Packages") || !UxmlUtility.IsUxml(assetPath, out _))
 				return;
 
 			if (!UxmlAssetConfiguration.Instance.References.ContainsKey(assetPath))
@@ -64,7 +64,7 @@ namespace LemonInc.Editor.Uxml
 		/// <param name="newAssetPath">The newAssetPath.</param>
 		private static void OnAssetMoved(string oldAssetPath, string newAssetPath)
 		{
-			if (!UxmlUtility.IsUxml(oldAssetPath, out _))
+			if (newAssetPath.Contains("Assets/Packages") || !UxmlUtility.IsUxml(oldAssetPath, out _))
 				return;
 			
 			if (!UxmlAssetConfiguration.Instance.References.TryGetValue(oldAssetPath, out var uxmlAssetDefinition))
@@ -84,7 +84,7 @@ namespace LemonInc.Editor.Uxml
 		/// <param name="assetPath">The asset path.</param>
 		private static void OnAssetDeleted(string assetPath)
 		{
-			if (!UxmlUtility.IsUxml(assetPath, out _))
+			if (assetPath.Contains("Assets/Packages") || !UxmlUtility.IsUxml(assetPath, out _))
 				return;
 
 			if (UxmlAssetConfiguration.Instance.References.ContainsKey(assetPath))
