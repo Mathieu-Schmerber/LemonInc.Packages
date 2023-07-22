@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using Unity.EditorCoroutines.Editor;
-using UnityEditor;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace LemonInc.Tools.Packager.Editor.Ui
