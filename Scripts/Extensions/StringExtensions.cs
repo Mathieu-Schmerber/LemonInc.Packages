@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,19 @@ namespace LemonInc.Core.Utilities.Extensions
 	/// </summary>
 	public static class StringExtensions
 	{
+		/// <summary>
+		/// Capitalizes the specified string.
+		/// </summary>
+		/// <param name="str">The string.</param>
+		/// <returns>The capitalized string.</returns>
+		public static string ToCapitalized(this string str)
+		{
+			if (string.IsNullOrEmpty(str))
+				return str;
+
+			return char.ToUpper(str[0]) + str.Substring(1);
+		}
+
 		/// <summary>
 		/// Convert string to snake_case format
 		/// </summary>
@@ -76,6 +90,11 @@ namespace LemonInc.Core.Utilities.Extensions
 			return builder.ToString();
 		}
 
+		/// <summary>
+		/// Converts to pascalcase.
+		/// </summary>
+		/// <param name="original">The original.</param>
+		/// <returns></returns>
 		public static string ToPascalCase(this string original)
 		{
 			var invalidCharsRgx = new Regex("[^_a-zA-Z0-9]");
@@ -100,5 +119,33 @@ namespace LemonInc.Core.Utilities.Extensions
 
 			return string.Concat(pascalCase);
 		}
+
+		/// <summary>
+		/// Parses the format.
+		/// </summary>
+		/// <param name="str">The string.</param>
+		/// <param name="template">
+		/// The template.
+		/// <example>ex: str.ParseFormat("The value {0} is '{1}'.")</example>
+		/// </param>
+		/// <returns>The matching strings in order.</returns>
+		public static IList<string> ParseFormat(this string str, string template)
+		{
+			//Handles regex special characters.
+			template = Regex.Replace(template, @"[\\\^\$\.\|\?\*\+\(\)\[\]]", m => "\\" + m.Value);
+			var pattern = "^" + Regex.Replace(template, @"\{[0-9]+\}", "(.*?)") + "$";
+
+			var r = new Regex(pattern);
+			var m = r.Match(str);
+			var ret = new List<string>();
+
+			for (var i = 1; i < m.Groups.Count; i++)
+			{
+				ret.Add(m.Groups[i].Value);
+			}
+
+			return ret;
+		}
+
 	}
 }
