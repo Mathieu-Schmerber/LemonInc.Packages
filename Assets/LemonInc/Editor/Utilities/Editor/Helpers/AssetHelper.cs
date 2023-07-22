@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEditor;
 
 namespace LemonInc.Editor.Utilities.Helpers
@@ -30,19 +29,5 @@ namespace LemonInc.Editor.Utilities.Helpers
 
             return assets;
         }
-
-		/// <summary>
-		/// Converts a full path to an asset path.
-		/// </summary>
-		/// <param name="fullPath">The full path.</param>
-		/// <returns>The asset path.</returns>
-		public static string ToAssetPath(this string fullPath)
-		{
-            if (string.IsNullOrEmpty(fullPath))
-                return string.Empty;
-
-            var index = fullPath.IndexOf("Assets", StringComparison.Ordinal);
-            return fullPath.Remove(0, index);
-		}
     }
 }
