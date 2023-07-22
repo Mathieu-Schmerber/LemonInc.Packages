@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace LemonInc.Core.Pooling.Providers
+﻿namespace LemonInc.Core.Pooling.Providers
 {
 	/// <summary>
 	/// Pool name policy.
