@@ -9,8 +9,7 @@ namespace LemonInc.Core.Input
 	/// Input provider.
 	/// </summary>
 	[RequireComponent(typeof(PlayerInput))]
-	public abstract class InputProviderBase<T> : MonoBehaviour, IInputProvider<T>
-		where T : class, new()
+	public abstract class InputProviderBase : MonoBehaviour, IInputProvider
 	{
 		/// <summary>
 		/// Control types.
@@ -47,7 +46,7 @@ namespace LemonInc.Core.Input
 		/// <returns>
 		/// The state.
 		/// </returns>
-		public abstract T GetState(T state);
+		public abstract object GetInput(object state);
 		
 		/// <summary>
 		/// Awakes this instance.
@@ -62,7 +61,8 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		protected virtual void OnEnable()
 		{
-			_playerInput.onControlsChanged += OnControlsChanged;
+			if (_playerInput != null)
+				_playerInput.onControlsChanged += OnControlsChanged;
 		}
 
 		/// <summary>
@@ -70,7 +70,8 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		protected virtual void OnDisable()
 		{
-			_playerInput.onControlsChanged -= OnControlsChanged;
+			if (_playerInput != null)
+				_playerInput.onControlsChanged -= OnControlsChanged;
 		}
 
 		private void OnControlsChanged(PlayerInput input)
