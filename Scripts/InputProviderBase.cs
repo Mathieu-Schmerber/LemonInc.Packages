@@ -39,14 +39,8 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		public event Action<ControlType> OnControlsChangedEvent;
 
-		/// <summary>
-		/// Gets the input state.
-		/// </summary>
-		/// <param name="state">Initial state.</param>
-		/// <returns>
-		/// The state.
-		/// </returns>
-		public abstract object GetInput(object state);
+		/// <inheritdoc/>
+		public abstract void ProcessInputs();
 		
 		/// <summary>
 		/// Awakes this instance.
