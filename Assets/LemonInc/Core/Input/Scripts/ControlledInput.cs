@@ -4,21 +4,12 @@ using UnityEngine.InputSystem;
 namespace LemonInc.Core.Input
 {
 	/// <summary>
-	/// Manages a controlled input with press events and a value.
+	/// Manages a controlled input with press events.
 	/// </summary>
-	public class InputValue<T>
-		where T : struct
+	public class ControlledInput
 	{
 		/// <summary>
-		/// Gets the value.
-		/// </summary>
-		/// <value>
-		/// The value.
-		/// </value>
-		public T Value => _inputAction.ReadValue<T>();
-
-		/// <summary>
-		/// Gets or sets a value indicating whether this <see cref="Input"/> is pressed.
+		/// Gets or sets a value indicating whether this <see cref="ControlledInput"/> is pressed.
 		/// </summary>
 		/// <value>
 		///   <c>true</c> if pressed; otherwise, <c>false</c>.
@@ -57,7 +48,7 @@ namespace LemonInc.Core.Input
 			_inputAction.performed -= Performed;
 			_inputAction.canceled -= Canceled;
 		}
-
+		
 		private void Performed(InputAction.CallbackContext obj)
 		{
 			Pressed = true;
@@ -74,19 +65,19 @@ namespace LemonInc.Core.Input
 		/// Subscribes the specified input action.
 		/// </summary>
 		/// <param name="inputAction">The input action.</param>
-		/// <returns>The <see cref="Input"/>.</returns>
-		public static InputValue<T> Subscribe(InputAction inputAction)
+		/// <returns>The <see cref="ControlledInput"/>.</returns>
+		public static ControlledInput Subscribe(InputAction inputAction)
 		{
-			var instance = new InputValue<T>(inputAction);
+			var instance = new ControlledInput(inputAction);
 			instance.Subscribe();
 			return instance;
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Input"/> struct.
+			/// <summary>
+		/// Initializes a new instance of the <see cref="ControlledInput"/> struct.
 		/// </summary>
 		/// <param name="inputAction">The input action.</param>
-		private InputValue(InputAction inputAction)
+		private ControlledInput(InputAction inputAction)
 		{
 			_inputAction = inputAction;
 			Pressed = false;
