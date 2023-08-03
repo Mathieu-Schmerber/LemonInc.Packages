@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -44,7 +45,13 @@ namespace LemonInc.Editor.Uxml
 		/// <exception cref="System.NotImplementedException"></exception>
 		private static void OnAssetCreated(string assetPath)
 		{
-			if (assetPath.Contains("Assets/Packages") || !UxmlUtility.IsUxml(assetPath, out _))
+			if (!UxmlUtility.IsUxml(assetPath, out _))
+				return;
+
+			var creation = File.GetCreationTime(assetPath);
+			var timeOffset = DateTime.Now - creation;
+			if (timeOffset.Minutes > 5)
+				// Ensure creation within project from user actions
 				return;
 
 			if (!UxmlAssetConfiguration.Instance.References.ContainsKey(assetPath))
