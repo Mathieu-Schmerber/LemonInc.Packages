@@ -1,0 +1,17 @@
+{
+    "name": "LemonInc.Core.StateMachine",
+    "rootNamespace": "LemonInc.Core.StateMachine",
+    "references": [
+        "GUID:a3e9f3b8813038642a08e98408860bfb",
+        "GUID:84e136866fcc40949ab68aaa40f77f3f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

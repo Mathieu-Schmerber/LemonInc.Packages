@@ -1,0 +1,162 @@
+GridBackground {
+    --grid-background-color: rgb(40, 40, 40);
+    --line-color: rgba(193, 196, 192, 0.1);
+    --thick-line-color: rgba(193, 196, 192, 0.1);
+    --spacing: 15;
+}
+
+.panelTitle {
+    background-color: rgb(37, 37, 37);
+    padding-left: 3px;
+    height: 18px;
+    align-self: auto;
+    justify-content: flex-start;
+    align-items: center;
+    -unity-text-align: middle-left;
+}
+
+#input {
+    --port-color: rgb(209, 93, 54);
+}
+
+#output {
+    --port-color: rgb(54, 65, 209);
+}
+
+StateNodeView #title {
+    background-color: rgb(63, 63, 63);
+}
+
+StateNodeView .initialState {
+    border-width: 1px;
+    border-color: rgba(209, 93, 54, 0.7);
+    border-radius: 5px;
+}
+
+StateNodeView #nodeTitle {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+StateNodeView #nodeTitle .initialState {
+    color: rgb(150, 150, 63);
+}
+
+StateNodeView #initialStateText {
+    position: absolute;
+    background-color: rgb(90, 90, 90);
+    padding: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-left-width: 0;
+    border-right-width: 1px;
+    border-top-width: 0;
+    border-bottom-width: 1px;
+    border-left-color: rgba(0, 0, 0, 0.43);
+    border-right-color: rgba(0, 0, 0, 0.43);
+    border-top-color: rgba(0, 0, 0, 0.43);
+    border-bottom-color: rgba(0, 0, 0, 0.43);
+    border-bottom-right-radius: 5px;
+    top: 1px;
+    left: 1px;
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.6);
+    -unity-font-style: italic;
+}
+
+.scriptableStateEditor {
+    flex-grow: 1;
+}
+
+InspectorView #addAction {
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+InspectorView #titleArea {
+    flex-direction: row;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: center;
+    background-color: rgb(50, 50, 50);
+}
+
+InspectorView .title {
+    margin-left: 5px;
+    flex-grow: 1;
+    -unity-font-style: bold;
+}
+
+InspectorView #Entry_icon {
+    --unity-image-tint-color: rgb(116, 181, 105);
+}
+
+InspectorView #Update_icon {
+    --unity-image-tint-color: rgb(77, 168, 162);
+}
+
+InspectorView #Physics_icon {
+    --unity-image-tint-color: rgb(255, 187, 0);
+}
+
+InspectorView #Exit_icon {
+    --unity-image-tint-color: rgb(220, 101, 101);
+}
+
+InspectorView #Conditions_icon {
+    --unity-image-tint-color: rgb(220, 101, 101);
+}
+
+InspectorView #selectedTitle {
+    background-color: rgb(70, 70, 70);
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    margin: 2px;
+    padding: 2px;
+    border-width: 1px;
+    border-color: rgb(68, 192, 255);
+}
+
+.actionList {
+    height: 25%;
+}
+
+.conditionList {
+    flex-grow: 1;
+}
+
+StateTransitionEditor {
+    flex-grow: 1;
+}
+
+Widget Foldout Toggle {
+    margin: 0;
+    border-bottom-width: 1px;
+    border-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(100, 100, 100, 0.5);
+}
+
+Widget Foldout Toggle:hover {
+    background-color: rgba(70, 110, 233, 0.5);
+}
+
+Widget Foldout #unity-content {
+    margin: 0;
+    padding: 0;
+}
+
+Widget #titleContainer {
+    flex-grow: 1;
+    -unity-text-align: middle-center;
+}
+
+Widget #titleContainer #title {
+    flex-grow: 1;
+}
+
+Widget Foldout {
+    background-color: rgba(30, 30, 30, 0.4);
+}
