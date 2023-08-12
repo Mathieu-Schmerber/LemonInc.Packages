@@ -62,6 +62,7 @@ namespace LemonInc.Editor.Uxml
 				UxmlLogger.LogError(e);
 				throw;
 			}
+
 			AssetDatabase.Refresh();
 		}
 
@@ -78,10 +79,12 @@ namespace LemonInc.Editor.Uxml
 			foreach (var line in content.Split(Environment.NewLine))
 			{
 				var uxmlLine = line.Trim();
-				if (!uxmlLine.Contains("<ui:"))
+				if (uxmlLine.Contains("<ui:"))
+					uxmlLine = uxmlLine.Substring("<ui:".Length);
+				else if (uxmlLine.Contains("<"))
+					uxmlLine = uxmlLine.Substring("<".Length);
+				else
 					continue;
-
-				uxmlLine = uxmlLine.Substring("<ui:".Length);
 
 				var uxmlProps = uxmlLine.Split(' ');
 				var type = uxmlProps[0];
@@ -94,6 +97,7 @@ namespace LemonInc.Editor.Uxml
 				if (nameProp == null)
 					continue;
 				var property = ComputeUniqueProperty(nameProp, type, result);
+				UxmlLogger.Log($"Generating property {property.CodeName}, {property.Type}");
 				result.Add(property.CodeName, property);
 			}
 
@@ -109,7 +113,7 @@ namespace LemonInc.Editor.Uxml
 		/// <returns></returns>
 		private static Property ComputeUniqueProperty(string nameProp, string type, Dictionary<string, Property> properties)
 		{
-			var result = new Property()
+			var result = new Property
 			{
 				UxmlName = nameProp.Substring("name=\"".Length, nameProp.Length - ("name=\"".Length) - ("\"".Length)),
 				Type = type
@@ -118,15 +122,16 @@ namespace LemonInc.Editor.Uxml
 			result.CodeName = result.UxmlName.ToPascalCase();
 
 			// Remove any mention of the type already existing within the name
-			var start = result.UxmlName.IndexOf(type, StringComparison.CurrentCultureIgnoreCase);
+			var usableType = type.Split('.').Last();
+			var start = result.UxmlName.IndexOf(usableType, StringComparison.CurrentCultureIgnoreCase);
 			if (start >= 0)
 			{
-				var typePart = result.UxmlName.Substring(start, type.Length);
+				var typePart = result.UxmlName.Substring(start, usableType.Length);
 				result.CodeName = result.UxmlName.Replace(typePart, "");
 			}
 
 			// Append type properly
-			result.CodeName = $"{result.CodeName}{type}".ToPascalCase();
+			result.CodeName = $"{result.CodeName}{usableType}".ToPascalCase();
 
 			// Append numbers if duplicates found
 			var it = 0;
@@ -168,10 +173,11 @@ namespace {@namespace} {{
 		/// <summary>
 		/// Gets the full property code.
 		/// </summary>
-		/// <param name="property">The property.</param>
+		/// <param name="property">The property.</param>	
 		/// <returns>The property code.</returns>
 		private static string GetFullPropertyCode(Property property)
 		{
+			UxmlLogger.Log($"Writing {property.CodeName}");
 			var fieldName = $"_{property.CodeName}";
 
 			return $@"
