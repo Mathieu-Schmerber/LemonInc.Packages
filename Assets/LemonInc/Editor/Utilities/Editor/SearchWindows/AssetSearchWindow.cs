@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace LemonInc.Editor.Utilities
+namespace LemonInc.Editor.Utilities.SearchWindows
 {
 	/// <summary>
 	/// Asset search provider to use in editor with the <see cref="SearchWindow"/>.
@@ -13,17 +13,17 @@ namespace LemonInc.Editor.Utilities
 	/// <typeparam name="T"></typeparam>
 	/// <seealso cref="UnityEngine.ScriptableObject" />
 	/// <seealso cref="UnityEditor.Experimental.GraphView.ISearchWindowProvider" />
-	public class AssetSearchProvider<T> : ScriptableObject, ISearchWindowProvider
+	public class AssetSearchWindow<T> : ScriptableObject, ISearchWindowProvider
 		where T : UnityEngine.Object
 	{
 		private readonly IList<T> _assets;
 		private readonly Action<T> _onEntrySelected;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="AssetSearchProvider{T}"/> class.
+		/// Initializes a new instance of the <see cref="AssetSearchWindow{T}"/> class.
 		/// </summary>
 		/// <param name="onEntrySelected">The on entry selected.</param>
-		public AssetSearchProvider(Action<T> onEntrySelected)
+		public AssetSearchWindow(Action<T> onEntrySelected)
 		{
 			_onEntrySelected = onEntrySelected;
 			_assets = AssetHelper.FindAssetsByType<T>();
