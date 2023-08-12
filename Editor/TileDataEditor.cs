@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using LemonInc.Editor.Utilities;
 using LemonInc.Editor.Utilities.Helpers;
+using LemonInc.Editor.Utilities.SearchWindows;
 using LemonInc.Tools.Tilemap.Data;
 using LemonInc.Tools.Tilemap.Data.TileProperties;
 using Sirenix.Utilities.Editor;
@@ -110,7 +110,7 @@ namespace LemonInc.Tools.Tilemap.Editor
 		private void AssignSelectedTileData(TileProperty property, Vector2Int index)
 		{
 			var context = new SearchWindowContext(GUIUtility.GUIToScreenPoint(Event.current.mousePosition), 100, 100);
-			SearchWindow.Open(context, new AssetSearchProvider<TileData>(
+			SearchWindow.Open(context, new AssetSearchWindow<TileData>(
 				onEntrySelected: (entry) => {
 					SetProperty(property, index, entry);
 				}));

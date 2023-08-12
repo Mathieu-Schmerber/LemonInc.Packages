@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using LemonInc.Core.Grid.Extensions;
 using LemonInc.Core.Utilities.Extensions;
-using LemonInc.Editor.Utilities;
 using LemonInc.Editor.Utilities.Extensions;
 using LemonInc.Editor.Utilities.Helpers;
+using LemonInc.Editor.Utilities.SearchWindows;
 using LemonInc.Tools.Tilemap.Data;
 using LemonInc.Tools.Tilemap.Editor.Interfaces;
 using LemonInc.Tools.Tilemap.Editor.Tools;
@@ -202,7 +202,7 @@ namespace LemonInc.Tools.Tilemap.Editor
 				}
 				if (GUILayout.Button("Load Tilemap Asset"))
 				{
-					SearchWindow.Open(new SearchWindowContext(GUIUtility.GUIToScreenPoint(Event.current.mousePosition)), new AssetSearchProvider<TilemapData>((entry) =>
+					SearchWindow.Open(new SearchWindowContext(GUIUtility.GUIToScreenPoint(Event.current.mousePosition)), new AssetSearchWindow<TilemapData>((entry) =>
 					{
 						_tilemap.Data = entry;
 						EditorUtility.SetDirty(_tilemap);
