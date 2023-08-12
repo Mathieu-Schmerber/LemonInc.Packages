@@ -6,7 +6,7 @@ namespace LemonInc.Tools.Tilemap.Data
 	/// <summary>
 	/// Stores tilemap data.
 	/// </summary>
-	[CreateAssetMenu] // TODO: tmp, create from editor or smthg
+	[CreateAssetMenu(menuName = "Lemon Inc/Tilemap/Tilemap")] // TODO: tmp, create from editor or smthg
 	public class TilemapData : ScriptableObject
 	{
 		/// <summary>

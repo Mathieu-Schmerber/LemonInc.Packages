@@ -7,7 +7,7 @@ namespace LemonInc.Tools.Tilemap.Data
 	/// <summary>
 	/// Holds the data of a <see cref="Tile"/>.
 	/// </summary>
-	[CreateAssetMenu]
+	[CreateAssetMenu(menuName = "Lemon Inc/Tilemap/Tile")]
 	public class TileData : ScriptableObject
 	{
 		public Texture Texture;
