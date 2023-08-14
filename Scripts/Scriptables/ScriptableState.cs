@@ -111,21 +111,22 @@ namespace LemonInc.Core.StateMachine.Scriptables
 		{
 			foreach (var stateTransition in Transitions)
 				foreach (var stateTransitionCondition in stateTransition.Conditions)
-					stateTransitionCondition.OnEnteredState(stateComponent);
-
-			EntryActions.ForEach(x => x.OnEnteredState(stateComponent));
-			StateActions.ForEach(x => x.OnEnteredState(stateComponent));
-			PhysicsActions.ForEach(x => x.OnEnteredState(stateComponent));
-			ExitActions.ForEach(x => x.OnEnteredState(stateComponent));
+					stateTransitionCondition.OnStateEntered(stateComponent);
 
 			ExecuteActions(stateComponent, EntryActions, nameof(EntryActions));
 		}
 
 		/// <inheritdoc/>
-        public void End(StateComponent stateComponent)
-	        => ExecuteActions(stateComponent, ExitActions, nameof(ExitActions));
+		public void End(StateComponent stateComponent)
+		{
+			foreach (var stateTransition in Transitions)
+				foreach (var stateTransitionCondition in stateTransition.Conditions)
+					stateTransitionCondition.OnStateExited(stateComponent);
 
-        /// <inheritdoc/>
+			ExecuteActions(stateComponent, ExitActions, nameof(ExitActions));
+		}
+
+		/// <inheritdoc/>
         public void UpdatePhysics(StateComponent stateComponent)
 	        => ExecuteActions(stateComponent, PhysicsActions, nameof(PhysicsActions));
 
