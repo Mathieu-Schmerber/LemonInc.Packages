@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace LemonInc.Editor.Utilities.Ui.Graph.GraphNode
+namespace LemonInc.Editor.Utilities.Ui.GraphView.Node
 {
 	/// <summary>
 	/// Basically same code as Unity's source, but managed with public accesses and different mouse controls.
@@ -131,7 +131,7 @@ namespace LemonInc.Editor.Utilities.Ui.Graph.GraphNode
 
 		private void Abort()
 		{
-			var graphView = target?.GetFirstAncestorOfType<GraphView>();
+			var graphView = target?.GetFirstAncestorOfType<UnityEditor.Experimental.GraphView.GraphView>();
 			graphView?.RemoveElement(_edgeCandidate);
 
 			_edgeCandidate.input = null;

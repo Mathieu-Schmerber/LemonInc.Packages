@@ -4,7 +4,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace LemonInc.Editor.Utilities.Ui.Graph.GraphNode
+namespace LemonInc.Editor.Utilities.Ui.GraphView.Node
 {
 	/// <summary>
 	/// Internal logic of the <see cref="EdgeControl"/> class, taken from unity's sources.
@@ -312,7 +312,7 @@ namespace LemonInc.Editor.Utilities.Ui.Graph.GraphNode
 			RenderPoints.Add(p4);
 		}
 
-        public Painter2D SetupPainter(MeshGenerationContext mgc, GraphView graphView)
+        public Painter2D SetupPainter(MeshGenerationContext mgc, UnityEditor.Experimental.GraphView.GraphView graphView)
         {
 	        var inColor = _edgeControl.inputColor;
 	        var outColor = _edgeControl.outputColor;

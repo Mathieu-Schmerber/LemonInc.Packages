@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEditor.Experimental.GraphView;
 
-namespace LemonInc.Editor.Utilities.Ui.Graph
+namespace LemonInc.Editor.Utilities.Ui.GraphView
 {
 	/// <summary>
 	/// Base <see cref="Edge"/> with events.

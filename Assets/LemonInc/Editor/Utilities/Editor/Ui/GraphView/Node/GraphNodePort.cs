@@ -5,7 +5,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace LemonInc.Editor.Utilities.Ui.Graph.GraphNode
+namespace LemonInc.Editor.Utilities.Ui.GraphView.Node
 {
 	public class GraphNodePort : Port
 	{
@@ -24,13 +24,13 @@ namespace LemonInc.Editor.Utilities.Ui.Graph.GraphNode
 			}
 
 			public void OnDropOutsidePort(Edge edge, Vector2 position) { }
-			public void OnDrop(GraphView graphView, Edge edge)
+			public void OnDrop(UnityEditor.Experimental.GraphView.GraphView graphView, Edge edge)
 			{
 				m_EdgesToCreate.Clear();
 				m_EdgesToCreate.Add(edge);
 
 				// We can't just add these edges to delete to the m_GraphViewChange
-				// because we want the proper deletion code in GraphView to also
+				// because we want the proper deletion code in GraphViewBase to also
 				// be called. Of course, that code (in DeleteElements) also
 				// sends a GraphViewChange.
 				m_EdgesToDelete.Clear();

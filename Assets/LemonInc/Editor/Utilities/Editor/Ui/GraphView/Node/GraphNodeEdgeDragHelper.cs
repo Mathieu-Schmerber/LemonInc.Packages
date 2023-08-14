@@ -3,7 +3,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace LemonInc.Editor.Utilities.Ui.Graph.GraphNode
+namespace LemonInc.Editor.Utilities.Ui.GraphView.Node
 {
     /// <summary>
     /// Basically same code as Unity's source.
@@ -22,7 +22,7 @@ namespace LemonInc.Editor.Utilities.Ui.Graph.GraphNode
 
         protected List<Port> CompatiblePorts;
         private Edge _ghostEdge;
-        protected GraphView GraphView;
+        protected UnityEditor.Experimental.GraphView.GraphView GraphView;
         protected static NodeAdapter NodeAdapter = new();
         protected readonly IEdgeConnectorListener MListener;
 
@@ -104,7 +104,7 @@ namespace LemonInc.Editor.Utilities.Ui.Graph.GraphNode
                 return false;
             }
 
-            GraphView = draggedPort.GetFirstAncestorOfType<GraphView>();
+            GraphView = draggedPort.GetFirstAncestorOfType<UnityEditor.Experimental.GraphView.GraphView>();
 
             if (GraphView == null)
             {
