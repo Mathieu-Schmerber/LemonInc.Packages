@@ -6,6 +6,10 @@ using UnityEngine.UIElements;
 
 namespace LemonInc.Core.StateMachine.Editor
 {
+	/// <summary>
+	/// State machine editor window.
+	/// </summary>
+	/// <seealso cref="UnityEditor.EditorWindow" />
 	public class StateMachineEditorWindow : EditorWindow
 	{
 		[SerializeField] private VisualTreeAsset _visualTreeAsset = default;
@@ -40,8 +44,10 @@ namespace LemonInc.Core.StateMachine.Editor
 
 			_scriptableStateMachine = stateMachineAsset;
 			_assetPath = AssetDatabase.GetAssetPath(_scriptableStateMachine);
-			_references.GraphStateMachineGraphView.PopulateGraph(_scriptableStateMachine);
 			_references.GraphViewTitleLabel.text = $"State Machine: {_assetPath}";
+
+			_references.GraphStateMachineGraphView.Initialize(_scriptableStateMachine);
+			_references.GraphStateMachineGraphView.Populate();
 		}
 
 		/// <summary>
@@ -91,7 +97,7 @@ namespace LemonInc.Core.StateMachine.Editor
 
 			_assetPath = string.Empty;
 			_scriptableStateMachine = null;
-			_references.GraphViewTitleLabel.text = $"State Machine: No state machine selected.";
+			_references.GraphViewTitleLabel.text = "State Machine: No state machine selected.";
 			_references.InspectorInspectorView.ClearInspector();
 			_references.GraphStateMachineGraphView.ClearGraph();
 		}

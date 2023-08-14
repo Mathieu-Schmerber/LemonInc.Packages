@@ -1,13 +1,14 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using LemonInc.Core.StateMachine.Scriptables;
-using LemonInc.Editor.Utilities.Ui.Graph;
+using LemonInc.Editor.Utilities.Ui.GraphView;
+using LemonInc.Editor.Utilities.Ui.GraphView.Node;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
-using System;
 
-namespace LemonInc.Core.StateMachine.Editor.Node
+namespace LemonInc.Core.StateMachine.Editor.Graph
 {
 	/// <summary>
 	/// <see cref="NodeViewBase{TNodeData}"/> implementation for <see cref="ScriptableState"/>.

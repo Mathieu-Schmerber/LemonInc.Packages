@@ -16,8 +16,8 @@ private VisualElement _RightPanelVisualElement;
 public VisualElement RightPanelVisualElement => _RightPanelVisualElement ??= _root.Q<VisualElement>("RightPanel");
 private Label _GraphViewTitleLabel;
 public Label GraphViewTitleLabel => _GraphViewTitleLabel ??= _root.Q<Label>("GraphViewTitle");
-private LemonInc.Core.StateMachine.Editor.StateMachineGraphView _GraphStateMachineGraphView;
-public LemonInc.Core.StateMachine.Editor.StateMachineGraphView GraphStateMachineGraphView => _GraphStateMachineGraphView ??= _root.Q<LemonInc.Core.StateMachine.Editor.StateMachineGraphView>("Graph");
+private LemonInc.Core.StateMachine.Editor.Graph.StateMachineGraphView _graphStateMachineGraphView;
+public LemonInc.Core.StateMachine.Editor.Graph.StateMachineGraphView GraphStateMachineGraphView => _graphStateMachineGraphView ??= _root.Q<LemonInc.Core.StateMachine.Editor.Graph.StateMachineGraphView>("Graph");
 		public StateMachineEditorWindowReference(VisualElement root) => _root = root;
 	}
 }

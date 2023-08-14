@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using Codice.CM.Common.Tree;
 using LemonInc.Core.StateMachine.Interfaces;
 using LemonInc.Core.Utilities.Extensions;
-using LemonInc.Editor.Utilities.Ui.Graph;
+using LemonInc.Editor.Utilities.Ui.GraphView.Interfaces;
 using UnityEngine;
 
 namespace LemonInc.Core.StateMachine.Scriptables
