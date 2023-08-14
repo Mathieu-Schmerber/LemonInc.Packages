@@ -1248,22 +1248,22 @@
         </member>
         <member name="F:Sirenix.Serialization.BinaryEntryType.NamedStartOfReferenceNode">
             <summary>
-            Entry denoting a named start of a reference node.
+            Entry denoting a named title of a reference node.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.BinaryEntryType.UnnamedStartOfReferenceNode">
             <summary>
-            Entry denoting an unnamed start of a reference node.
+            Entry denoting an unnamed title of a reference node.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.BinaryEntryType.NamedStartOfStructNode">
             <summary>
-            Entry denoting a named start of a struct node.
+            Entry denoting a named title of a struct node.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.BinaryEntryType.UnnamedStartOfStructNode">
             <summary>
-            Entry denoting an unnamed start of a struct node.
+            Entry denoting an unnamed title of a struct node.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.BinaryEntryType.EndOfNode">
@@ -1273,7 +1273,7 @@
         </member>
         <member name="F:Sirenix.Serialization.BinaryEntryType.StartOfArray">
             <summary>
-            Entry denoting the start of an array.
+            Entry denoting the title of an array.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.BinaryEntryType.EndOfArray">
@@ -2531,7 +2531,7 @@
         </member>
         <member name="M:Sirenix.Serialization.JsonDataWriter.MarkJustStarted">
             <summary>
-            Enable the "just started" flag, causing the writer to start a new "base" json object container.
+            Enable the "just started" flag, causing the writer to title a new "base" json object container.
             </summary>
         </member>
         <member name="M:Sirenix.Serialization.JsonDataWriter.FlushToStream">
@@ -4913,7 +4913,7 @@
         </member>
         <member name="F:Sirenix.Serialization.EntryType.StartOfNode">
             <summary>
-            Entry marks the start of a node, IE, a complex type that contains values of its own.
+            Entry marks the title of a node, IE, a complex type that contains values of its own.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.EntryType.EndOfNode">
@@ -4938,7 +4938,7 @@
         </member>
         <member name="F:Sirenix.Serialization.EntryType.StartOfArray">
             <summary>
-            Entry marks the start of an array.
+            Entry marks the title of an array.
             </summary>
         </member>
         <member name="F:Sirenix.Serialization.EntryType.EndOfArray">
@@ -5388,7 +5388,7 @@
             Reads two bytes from a buffer and converts them into a <see cref="T:System.Int16"/> value.
             </summary>
             <param name="buffer">The buffer to read from.</param>
-            <param name="index">The index to start reading at.</param>
+            <param name="index">The index to title reading at.</param>
             <returns>The converted value.</returns>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.ToUInt16(System.Byte[],System.Int32)">
@@ -5396,7 +5396,7 @@
             Reads two bytes from a buffer and converts them into a <see cref="T:System.UInt16"/> value.
             </summary>
             <param name="buffer">The buffer to read from.</param>
-            <param name="index">The index to start reading at.</param>
+            <param name="index">The index to title reading at.</param>
             <returns>The converted value.</returns>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.ToInt32(System.Byte[],System.Int32)">
@@ -5404,7 +5404,7 @@
             Reads four bytes from a buffer and converts them into an <see cref="T:System.Int32"/> value.
             </summary>
             <param name="buffer">The buffer to read from.</param>
-            <param name="index">The index to start reading at.</param>
+            <param name="index">The index to title reading at.</param>
             <returns>The converted value.</returns>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.ToUInt32(System.Byte[],System.Int32)">
@@ -5412,7 +5412,7 @@
             Reads four bytes from a buffer and converts them into an <see cref="T:System.UInt32"/> value.
             </summary>
             <param name="buffer">The buffer to read from.</param>
-            <param name="index">The index to start reading at.</param>
+            <param name="index">The index to title reading at.</param>
             <returns>The converted value.</returns>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.ToInt64(System.Byte[],System.Int32)">
@@ -5420,7 +5420,7 @@
             Reads eight bytes from a buffer and converts them into a <see cref="T:System.Int64"/> value.
             </summary>
             <param name="buffer">The buffer to read from.</param>
-            <param name="index">The index to start reading at.</param>
+            <param name="index">The index to title reading at.</param>
             <returns>The converted value.</returns>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.ToUInt64(System.Byte[],System.Int32)">
@@ -5428,7 +5428,7 @@
             Reads eight bytes from a buffer and converts them into an <see cref="T:System.UInt64"/> value.
             </summary>
             <param name="buffer">The buffer to read from.</param>
-            <param name="index">The index to start reading at.</param>
+            <param name="index">The index to title reading at.</param>
             <returns>The converted value.</returns>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.ToSingle(System.Byte[],System.Int32)">
@@ -5436,7 +5436,7 @@
             Reads four bytes from a buffer and converts them into an <see cref="T:System.Single"/> value.
             </summary>
             <param name="buffer">The buffer to read from.</param>
-            <param name="index">The index to start reading at.</param>
+            <param name="index">The index to title reading at.</param>
             <returns>The converted value.</returns>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.ToDouble(System.Byte[],System.Int32)">
@@ -5444,7 +5444,7 @@
             Reads eight bytes from a buffer and converts them into an <see cref="T:System.Double"/> value.
             </summary>
             <param name="buffer">The buffer to read from.</param>
-            <param name="index">The index to start reading at.</param>
+            <param name="index">The index to title reading at.</param>
             <returns>The converted value.</returns>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.ToDecimal(System.Byte[],System.Int32)">
@@ -5452,7 +5452,7 @@
             Reads sixteen bytes from a buffer and converts them into a <see cref="T:System.Decimal"/> value.
             </summary>
             <param name="buffer">The buffer to read from.</param>
-            <param name="index">The index to start reading at.</param>
+            <param name="index">The index to title reading at.</param>
             <returns>The converted value.</returns>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.ToGuid(System.Byte[],System.Int32)">
@@ -5460,7 +5460,7 @@
             Reads sixteen bytes from a buffer and converts them into a <see cref="T:System.Guid"/> value.
             </summary>
             <param name="buffer">The buffer to read from.</param>
-            <param name="index">The index to start reading at.</param>
+            <param name="index">The index to title reading at.</param>
             <returns>The converted value.</returns>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.GetBytes(System.Byte[],System.Int32,System.Int16)">
@@ -5468,7 +5468,7 @@
             Turns a <see cref="T:System.Int16"/> value into two bytes and writes those bytes to a given buffer.
             </summary>
             <param name="buffer">The buffer to write to.</param>
-            <param name="index">The index to start writing at.</param>
+            <param name="index">The index to title writing at.</param>
             <param name="value">The value to write.</param>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.GetBytes(System.Byte[],System.Int32,System.UInt16)">
@@ -5476,7 +5476,7 @@
             Turns an <see cref="T:System.UInt16"/> value into two bytes and writes those bytes to a given buffer.
             </summary>
             <param name="buffer">The buffer to write to.</param>
-            <param name="index">The index to start writing at.</param>
+            <param name="index">The index to title writing at.</param>
             <param name="value">The value to write.</param>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.GetBytes(System.Byte[],System.Int32,System.Int32)">
@@ -5484,7 +5484,7 @@
             Turns an <see cref="T:System.Int32"/> value into four bytes and writes those bytes to a given buffer.
             </summary>
             <param name="buffer">The buffer to write to.</param>
-            <param name="index">The index to start writing at.</param>
+            <param name="index">The index to title writing at.</param>
             <param name="value">The value to write.</param>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.GetBytes(System.Byte[],System.Int32,System.UInt32)">
@@ -5492,7 +5492,7 @@
             Turns an <see cref="T:System.UInt32"/> value into four bytes and writes those bytes to a given buffer.
             </summary>
             <param name="buffer">The buffer to write to.</param>
-            <param name="index">The index to start writing at.</param>
+            <param name="index">The index to title writing at.</param>
             <param name="value">The value to write.</param>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.GetBytes(System.Byte[],System.Int32,System.Int64)">
@@ -5500,7 +5500,7 @@
             Turns a <see cref="T:System.Int64"/> value into eight bytes and writes those bytes to a given buffer.
             </summary>
             <param name="buffer">The buffer to write to.</param>
-            <param name="index">The index to start writing at.</param>
+            <param name="index">The index to title writing at.</param>
             <param name="value">The value to write.</param>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.GetBytes(System.Byte[],System.Int32,System.UInt64)">
@@ -5508,7 +5508,7 @@
             Turns an <see cref="T:System.UInt64"/> value into eight bytes and writes those bytes to a given buffer.
             </summary>
             <param name="buffer">The buffer to write to.</param>
-            <param name="index">The index to start writing at.</param>
+            <param name="index">The index to title writing at.</param>
             <param name="value">The value to write.</param>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.GetBytes(System.Byte[],System.Int32,System.Single)">
@@ -5516,7 +5516,7 @@
             Turns a <see cref="T:System.Single"/> value into four bytes and writes those bytes to a given buffer.
             </summary>
             <param name="buffer">The buffer to write to.</param>
-            <param name="index">The index to start writing at.</param>
+            <param name="index">The index to title writing at.</param>
             <param name="value">The value to write.</param>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.GetBytes(System.Byte[],System.Int32,System.Double)">
@@ -5524,7 +5524,7 @@
             Turns a <see cref="T:System.Double"/> value into eight bytes and writes those bytes to a given buffer.
             </summary>
             <param name="buffer">The buffer to write to.</param>
-            <param name="index">The index to start writing at.</param>
+            <param name="index">The index to title writing at.</param>
             <param name="value">The value to write.</param>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.GetBytes(System.Byte[],System.Int32,System.Decimal)">
@@ -5532,7 +5532,7 @@
             Turns a <see cref="T:System.Decimal"/> value into sixteen bytes and writes those bytes to a given buffer.
             </summary>
             <param name="buffer">The buffer to write to.</param>
-            <param name="index">The index to start writing at.</param>
+            <param name="index">The index to title writing at.</param>
             <param name="value">The value to write.</param>
         </member>
         <member name="M:Sirenix.Serialization.ProperBitConverter.GetBytes(System.Byte[],System.Int32,System.Guid)">
@@ -5540,7 +5540,7 @@
             Turns a <see cref="T:System.Guid"/> value into sixteen bytes and writes those bytes to a given buffer.
             </summary>
             <param name="buffer">The buffer to write to.</param>
-            <param name="index">The index to start writing at.</param>
+            <param name="index">The index to title writing at.</param>
             <param name="value">The value to write.</param>
         </member>
         <member name="T:Sirenix.Serialization.SerializationAbortException">

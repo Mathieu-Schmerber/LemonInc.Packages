@@ -67,10 +67,10 @@ def check_package_validity(path, scope, feature):
     # Define required files and folders
     required_items = [
         {
-            'Path': os.path.join(path, 'Documentation'),
+            'Path': os.path.join(path, 'Documentation~'),
             'Type': 'd',
-            'ErrorMessage': "The 'Documentation' folder is missing.",
-            'NoFileErrorMessage': "The 'Documentation' folder does not contain any files."
+            'ErrorMessage': "The 'Documentation~' folder is missing.",
+            'NoFileErrorMessage': "The 'Documentation~' folder does not contain any files."
         },
         {
             'Path': os.path.join(path, 'package.json'),
@@ -105,6 +105,8 @@ def check_package_validity(path, scope, feature):
     if is_valid_package:
         for item in required_items:
             item_path = item['Path']
+            if item_path.endswith("~"):
+                continue
             meta_file = f"{item_path}.meta"
             if not os.path.exists(meta_file) or not os.path.isfile(meta_file):
                 is_valid_package = False

@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: UxmlAssetConfiguration
   m_EditorClassIdentifier: 
   References:
-    _keyData: []
-    _valueData: []
+    _keyData:
+    - Assets/LemonInc/Core/StateMachine/Editor/StateMachineEditorWindow.uxml
+    - Assets/LemonInc/Core/StateMachine/Editor/StateNode.uxml
+    _valueData:
+    - AssetPath: Assets/LemonInc/Core/StateMachine/Editor/StateMachineEditorWindow.uxml
+      ReferenceClass: Assets/LemonInc/Core/StateMachine/Editor/StateMachineEditorWindowReference.cs
+    - AssetPath: Assets/LemonInc/Core/StateMachine/Editor/StateNode.uxml
+      ReferenceClass: Assets/LemonInc/Core/StateMachine/Editor/StateNodeReference.cs
   DoLogTrace: 0

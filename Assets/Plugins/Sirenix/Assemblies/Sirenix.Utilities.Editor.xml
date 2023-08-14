@@ -2037,10 +2037,10 @@
         </member>
         <member name="P:Sirenix.Utilities.Editor.GUIPagingHelper.StartIndex">
             <summary>
-            Gets the start index.
+            Gets the title index.
             </summary>
             <value>
-            The start index.
+            The title index.
             </value>
         </member>
         <member name="P:Sirenix.Utilities.Editor.GUIPagingHelper.EndIndex">

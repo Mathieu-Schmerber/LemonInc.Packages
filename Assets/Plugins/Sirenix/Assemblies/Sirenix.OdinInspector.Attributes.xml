@@ -2384,7 +2384,7 @@
         </member>
         <member name="P:Sirenix.OdinInspector.InlineEditorAttribute.Expanded">
             <summary>
-            If true, the inline editor will start expanded.
+            If true, the inline editor will title expanded.
             </summary>
         </member>
         <member name="F:Sirenix.OdinInspector.InlineEditorAttribute.DrawHeader">

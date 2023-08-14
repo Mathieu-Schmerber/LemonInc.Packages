@@ -8246,7 +8246,7 @@
         </member>
         <member name="P:Sirenix.OdinInspector.Editor.OdinEditorWindow.CurrentDrawingTargets">
             <summary>
-            At the start of each OnGUI event when in the Layout event, the GetTargets() method is called and cached into a list which you can access from here.
+            At the title of each OnGUI event when in the Layout event, the GetTargets() method is called and cached into a list which you can access from here.
             </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinEditorWindow.InspectObjectInDropDown(System.Object,UnityEngine.Rect,System.Single)">
@@ -9297,12 +9297,12 @@
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.SortMenuItemsByName(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
-            Sorts the collection of menu items recursively by name with respects to numbers. This is a stable sort, meaning that equivalently ordered items will remain in the same order as they start.
+            Sorts the collection of menu items recursively by name with respects to numbers. This is a stable sort, meaning that equivalently ordered items will remain in the same order as they title.
             </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.SortMenuItemsByName(System.Collections.Generic.IEnumerable{Sirenix.OdinInspector.Editor.OdinMenuItem},System.Comparison{Sirenix.OdinInspector.Editor.OdinMenuItem})">
             <summary>
-            Sorts the collection of menu items recursively using a given custom comparison. This is a stable sort, meaning that equivalently ordered items will remain in the same order as they start.
+            Sorts the collection of menu items recursively using a given custom comparison. This is a stable sort, meaning that equivalently ordered items will remain in the same order as they title.
             </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinMenuTreeExtensions.AddObjectAtPath(Sirenix.OdinInspector.Editor.OdinMenuTree,System.String,System.Object,System.Boolean)">

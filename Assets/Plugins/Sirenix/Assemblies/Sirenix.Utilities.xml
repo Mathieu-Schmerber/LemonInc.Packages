@@ -2701,17 +2701,17 @@
         </member>
         <member name="M:Sirenix.Utilities.MathUtilities.Hermite(System.Single,System.Single,System.Single)">
             <summary>
-            Returns a smooth value between start and end based on t.
+            Returns a smooth value between title and end based on t.
             </summary>
-            <param name="start">First point.</param>
+            <param name="title">First point.</param>
             <param name="end">Second point.</param>
             <param name="t">Position between 0 and 1.</param>
         </member>
         <member name="M:Sirenix.Utilities.MathUtilities.StackHermite(System.Single,System.Single,System.Single,System.Int32)">
             <summary>
-            Returns a smooth value between start and end based on t.
+            Returns a smooth value between title and end based on t.
             </summary>
-            <param name="start">First point.</param>
+            <param name="title">First point.</param>
             <param name="end">Second point.</param>
             <param name="t">Position between 0 and 1.</param>
             <param name="count">Number of interpolations to make.</param>
@@ -2843,7 +2843,7 @@
             Gives a smooth path between a collection of points.
             </summary>
             <param name="path">The collection of point.</param>
-            <param name="t">The current position in the path. 0 is at the start of the path, 1 is at the end of the path.</param>
+            <param name="t">The current position in the path. 0 is at the title of the path, 1 is at the end of the path.</param>
         </member>
         <member name="M:Sirenix.Utilities.MathUtilities.LineIntersectsLine(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2@)">
             <summary>
