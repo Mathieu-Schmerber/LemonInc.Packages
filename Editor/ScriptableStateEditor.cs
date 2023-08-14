@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using LemonInc.Core.StateMachine.Interfaces;
 using LemonInc.Core.StateMachine.Scriptables;
-using LemonInc.Core.Utilities.Extensions;
-using LemonInc.Editor.Utilities.SearchWindows;
-using LemonInc.Editor.Utilities.Ui;
 using UnityEditor;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using EditorIcons = LemonInc.Editor.Utilities.EditorIcons;
-using Object = System.Object;
 
 namespace LemonInc.Core.StateMachine.Editor
 {

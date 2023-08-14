@@ -9,7 +9,7 @@
         </ui:VisualElement>
         <ui:VisualElement name="RightPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
             <ui:Label tabindex="-1" text="Graph" display-tooltip-when-elided="true" name="GraphViewTitle" class="panelTitle" />
-            <LemonInc.Core.StateMachine.Editor.StateMachineGraphView focusable="true" name="Graph" style="flex-grow: 1;" />
+            <LemonInc.Core.StateMachine.Editor.Graph.StateMachineGraphView focusable="true" name="Graph" style="flex-grow: 1;" />
         </ui:VisualElement>
     </LemonInc.Editor.Utilities.Builtins.SplitView>
 </ui:UXML>
