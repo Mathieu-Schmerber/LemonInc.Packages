@@ -11,9 +11,6 @@ namespace LemonInc.Core.StateMachine.Scriptables
 	public abstract class ScriptableAction : ScriptableObject, IStateAction
 	{
 		/// <inheritdoc/>
-		public abstract void OnEnteredState(StateComponent stateComponent);
-
-		/// <inheritdoc/>
 		public abstract void Act(StateComponent stateComponent);
     }
 }

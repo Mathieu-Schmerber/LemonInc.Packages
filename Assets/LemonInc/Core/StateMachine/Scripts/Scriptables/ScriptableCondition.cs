@@ -11,9 +11,12 @@ namespace LemonInc.Core.StateMachine.Scriptables
 	public abstract class ScriptableCondition : ScriptableObject, IStateCondition
     {
 	    /// <inheritdoc/>
-	    public abstract void OnEnteredState(StateComponent stateComponent);
+	    public virtual void OnStateEntered(StateComponent stateComponent) {}
 
 		/// <inheritdoc/>
 		public abstract bool Verify(StateComponent statesComponent);
-    }
+
+		/// <inheritdoc/>
+		public virtual void OnStateExited(StateComponent stateComponent) { }
+	}
 }

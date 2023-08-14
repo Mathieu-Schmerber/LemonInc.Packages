@@ -6,11 +6,11 @@
 	public interface IStateCondition
 	{
 		/// <summary>
-		/// Called when [entered state].
-		/// This method can be used to reset internal values.
+		/// Called when the state where the condition sits is entered.
+		/// Use this method to set some data and subscribe to events.
 		/// </summary>
-		/// <param name="stateComponent">The state component.</param>
-		void OnEnteredState(StateComponent stateComponent);
+		/// <param name="stateComponent"></param>
+		void OnStateEntered(StateComponent stateComponent);
 
 		/// <summary>
 		/// Verifies the condition for the specified state component.
@@ -18,5 +18,12 @@
 		/// <param name="stateComponent">The state component.</param>
 		/// <returns></returns>
 		bool Verify(StateComponent stateComponent);
+
+		/// <summary>
+		/// Called when the state where the condition sits is exited.
+		/// Use this method to reset some data and unsubscribe from events.
+		/// </summary>
+		/// <param name="stateComponent"></param>
+		void OnStateExited(StateComponent stateComponent);
 	}
 }
