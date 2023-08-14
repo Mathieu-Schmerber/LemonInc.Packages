@@ -1,5 +1,6 @@
 ### GraphViewBase<TNodeView, TNodeData>
 > where TNodeView : UnityEditor.Experimental.GraphView.Node, INodeView<TNodeData>, new()
+
 > where TNodeData : ScriptableObject, [INode](INode.md)
 
 #### Public properties
