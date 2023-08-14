@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using LemonInc.Editor.Utilities.Ui.GraphView.Node;
 
-namespace LemonInc.Editor.Utilities.Ui.Graph
+namespace LemonInc.Editor.Utilities.Ui.GraphView.Interfaces
 {
 	/// <summary>
 	/// Node view representation.
@@ -15,7 +16,7 @@ namespace LemonInc.Editor.Utilities.Ui.Graph
 		/// <value>
 		/// The on selected event.
 		/// </value>
-		Action<TNodeData> OnSelectedEvent { get; set; }
+		Action<TNodeData> OnNodeSelectedEvent { get; set; }
 
 		/// <summary>
 		/// Gets or sets the on un selected event.
@@ -23,7 +24,7 @@ namespace LemonInc.Editor.Utilities.Ui.Graph
 		/// <value>
 		/// The on un selected event.
 		/// </value>
-		Action<TNodeData> OnUnSelectedEvent { get; set; }
+		Action<TNodeData> OnNodeUnSelectedEvent { get; set; }
 
 		/// <summary>
 		/// Gets or sets the data.

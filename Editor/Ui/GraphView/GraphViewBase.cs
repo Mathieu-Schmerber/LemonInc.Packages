@@ -2,83 +2,91 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using LemonInc.Core.Utilities.Extensions;
+using LemonInc.Editor.Utilities.Ui.GraphView.Interfaces;
+using LemonInc.Editor.Utilities.Ui.GraphView.Node;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Object = UnityEngine.Object;
 
-namespace LemonInc.Editor.Utilities.Ui.Graph
+namespace LemonInc.Editor.Utilities.Ui.GraphView
 {
 	/// <summary>
 	/// Graph view.
 	/// </summary>
 	/// <seealso cref="UnityEditor.Experimental.GraphView.GraphView" />
-	public abstract class GraphView<TContainer, TNodeView, TNodeData> : UnityEditor.Experimental.GraphView.GraphView, IGraphView<TNodeData>
-		where TContainer : INodeContainer<TNodeData>
-		where TNodeView : Node, INodeView<TNodeData>, new()
+	public abstract class GraphViewBase<TNodeView, TNodeData> : UnityEditor.Experimental.GraphView.GraphView, IGraphView<TNodeView, TNodeData>
+		where TNodeView : UnityEditor.Experimental.GraphView.Node, INodeView<TNodeData>, new()
 		where TNodeData : ScriptableObject, INode
 	{
-		private TContainer _container;
 		private GraphViewSearchWindowBase _searchWindow;
 		private Vector2 _localMousePosition;
-
 		private TNodeView[] _copyNodeCache;
+		private readonly INodeController<TNodeData> _controller;
 
-		protected TContainer Container => _container;
-
-		/// <summary>
-		/// Gets or sets the on node created.
-		/// </summary>
-		/// <value>
-		/// The on node created.
-		/// </value>
+		/// <inheritdoc/>
 		public Action<TNodeView> OnNodeCreatedCallback { get; set; }
 
-		/// <summary>
-		/// Gets or sets the on node selected.
-		/// </summary>
-		/// <value>
-		/// The on node selected.
-		/// </value>
+		/// <inheritdoc/>
 		public Action<TNodeView> OnNodeSelectedCallback { get; set; }
 
-		/// <summary>
-		/// Gets or sets the on node un selected.
-		/// </summary>
-		/// <value>
-		/// The on node un selected.
-		/// </value>
+		/// <inheritdoc/>
 		public Action<TNodeView> OnNodeUnSelectedCallback { get; set; }
 
-		/// <summary>
-		/// Gets or sets the on node created.
-		/// </summary>
-		/// <value>
-		/// The on node created.
-		/// </value>
+		/// <inheritdoc/>
 		public Action<EdgeView> OnEdgeSelectedCallback { get; set; }
 
-		/// <summary>
-		/// Gets or sets the on node selected.
-		/// </summary>
-		/// <value>
-		/// The on node selected.
-		/// </value>
+		/// <inheritdoc/>
 		public Action<EdgeView> OnEdgeUnSelectedCallback { get; set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="GraphView"/> class.
 		/// </summary>
-		protected GraphView()
+		protected GraphViewBase()
 	    {
 		    Insert(0, new GridBackground());
 		    AddManipulators();
+
+		    _controller = CreateController();
 
 		    serializeGraphElements += HandleCopyCutOperation;
 			canPasteSerializedData += AllowPaste;
 		    unserializeAndPaste += HandlePasteDuplicateOperation;
 	    }
+
+		#region Contract
+
+		/// <summary>
+		/// Returns true if the <see cref="GraphViewBaseBase{TNodeView,TNodeData}"/> implementation should handle copy/pasting.
+		/// If true, implement <see cref="INodeController{TNodeData}.Duplicate"/>.
+		/// </summary>
+		protected abstract bool HandlesCopyPaste { get; }
+
+		/// <summary>
+		/// Creates the controller.
+		/// </summary>
+		/// <returns></returns>
+		protected abstract INodeController<TNodeData> CreateController();
+
+		/// <summary>
+		/// Called when [node created].
+		/// </summary>
+		/// <param name="nodeView">The node view.</param>
+		protected virtual void OnNodeCreated(TNodeView nodeView) { }
+
+		/// <summary>
+		/// Called when [node added].
+		/// </summary>
+		/// <param name="nodeView">The node view.</param>
+		protected virtual void OnNodeAdded(TNodeView nodeView) { }
+
+		/// <summary>
+		/// Called when [node added].
+		/// </summary>
+		/// <param name="nodeView">The node view.</param>
+		protected virtual void OnNodeDeleted(TNodeView nodeView) { }
+
+		#endregion
 
 		/// <summary>
 		/// Handles the copy cut operation.
@@ -99,7 +107,7 @@ namespace LemonInc.Editor.Utilities.Ui.Graph
 		/// <param name="data">The data.</param>
 		private void HandlePasteDuplicateOperation(string operationName, string data)
 		{
-			if (!AllowPaste(data))
+			if (!AllowPaste(data) || !HandlesCopyPaste)
 				return;
 
 			var totalX = 0f;
@@ -114,12 +122,12 @@ namespace LemonInc.Editor.Utilities.Ui.Graph
 			var center = new Vector2(totalX / _copyNodeCache.Length, totalY / _copyNodeCache.Length);
 			foreach (var node in _copyNodeCache)
 			{
-				var dataCopy = DuplicateNodeData(node.Data);
+				var dataCopy = _controller.Duplicate(node.Data);
 				if (dataCopy == null)
 					continue;
 
 				dataCopy.Position = _localMousePosition + (dataCopy.Position - center);
-				Container.AddNode(dataCopy);
+				_controller.Add(dataCopy);
 				AddNodeToGraph(dataCopy);
 				created.Add(dataCopy);
 			}
@@ -204,10 +212,7 @@ namespace LemonInc.Editor.Utilities.Ui.Graph
 			this.AddManipulator(new RectangleSelector());
 		}
 
-		/// <summary>
-		/// Adds the style.
-		/// </summary>
-		/// <param name="styleSheet">The style.</param>
+		/// <inheritdoc/>
 		public void AddStyle(StyleSheet styleSheet)
 	    {
 			if (styleSheet != null)
@@ -230,19 +235,14 @@ namespace LemonInc.Editor.Utilities.Ui.Graph
 		protected TNodeView GetNodeView(string id)
 			=> GetNodeByGuid(id) as TNodeView;
 
-		/// <summary>
-		/// Populates the graph.
-		/// </summary>
-		/// <param name="container">The node container.</param>
-		public void PopulateGraph(TContainer container)
+		/// <inheritdoc/>
+		public void Populate()
 		{
-			_container = container;
-
 			graphViewChanged -= OnGraphViewChanged;
 			DeleteElements(graphElements);
 			graphViewChanged += OnGraphViewChanged;
 
-			var data = _container.GetAllNodes().ToList();
+			var data = _controller.GetAllNodes().ToList();
 			data.ForEach(AddNodeToGraph);
 
 			LinkNodeViews(data);
@@ -258,7 +258,7 @@ namespace LemonInc.Editor.Utilities.Ui.Graph
 			foreach (var nodeData in data)
 			{
 				var view = GetNodeView(nodeData);
-				var children = Container.GetChildren(nodeData)
+				var children = _controller.GetRelated(nodeData)
 					.Select(GetNodeView)
 					.Cast<NodeViewBase<TNodeData>>()
 					.ToList();
@@ -288,13 +288,13 @@ namespace LemonInc.Editor.Utilities.Ui.Graph
 					switch (e)
 					{
 						case TNodeView view:
-							Container.DeleteNode(view.Data);
+							_controller.Delete(view.Data);
 							OnNodeDeleted(view);
 							break;
 						case Edge edge:
 						{
 							if (edge.output.node is TNodeView outputNode && edge.input.node is TNodeView inputNode)
-								Container.UnlinkNodes(inputNode.Data, outputNode.Data);
+								_controller.Unlink(inputNode.Data, outputNode.Data);
 							break;
 						}
 					}
@@ -312,21 +312,14 @@ namespace LemonInc.Editor.Utilities.Ui.Graph
 					}
 
 					if (edge.output.node is TNodeView outputNode && edge.input.node is TNodeView inputNode)
-						Container.LinkNodes(inputNode.Data, outputNode.Data);
+						_controller.Link(inputNode.Data, outputNode.Data);
 				});
 			}
 
 			return changes;
 		}
 
-		/// <summary>
-		/// Get all ports compatible with given port.
-		/// </summary>
-		/// <param name="startPort">Start port to validate against.</param>
-		/// <param name="nodeAdapter">Node adapter.</param>
-		/// <returns>
-		/// List of compatible ports.
-		/// </returns>
+		/// <inheritdoc/>
 		public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
 		{
 			var result = ports.ToList();
@@ -348,7 +341,7 @@ namespace LemonInc.Editor.Utilities.Ui.Graph
 		/// <param name="position">The position.</param>
 		protected void CreateNewNode(Type type, Vector2 position)
 		{
-			var node = Container.CreateNodeOfType(type);
+			var node = _controller.CreateNodeOfType(type);
 			node.Position = position;
 			AddNodeToGraph(node);
 
@@ -361,7 +354,7 @@ namespace LemonInc.Editor.Utilities.Ui.Graph
 		/// Adds the node.
 		/// </summary>
 		/// <param name="data">The data.</param>
-		public void AddNodeToGraph(TNodeData data)
+		protected void AddNodeToGraph(TNodeData data)
 		{
 			var nodeView = new TNodeView();
 
@@ -369,48 +362,13 @@ namespace LemonInc.Editor.Utilities.Ui.Graph
 				nodeView.styleSheets.Add(styleSheets[i]);
 
 			nodeView.Bind(data);
-			nodeView.OnSelectedEvent = _ => OnNodeSelectedCallback?.Invoke(nodeView);
-			nodeView.OnUnSelectedEvent = _ => OnNodeUnSelectedCallback?.Invoke(nodeView);
+			nodeView.OnNodeSelectedEvent = _ => OnNodeSelectedCallback?.Invoke(nodeView);
+			nodeView.OnNodeUnSelectedEvent = _ => OnNodeUnSelectedCallback?.Invoke(nodeView);
 			AddElement(nodeView);
 
 			OnNodeCreatedCallback?.Invoke(nodeView);
 			OnNodeAdded(nodeView);
 		}
-
-		#region Contract
-		
-		/// <summary>
-		/// Called when [node created].
-		/// </summary>
-		/// <param name="nodeView">The node view.</param>
-		protected virtual void OnNodeCreated(TNodeView nodeView) { }
-
-		/// <summary>
-		/// Called when [node added].
-		/// </summary>
-		/// <param name="nodeView">The node view.</param>
-		protected virtual void OnNodeAdded(TNodeView nodeView) { }
-
-		/// <summary>
-		/// Called when [node added].
-		/// </summary>
-		/// <param name="nodeView">The node view.</param>
-		protected virtual void OnNodeDeleted(TNodeView nodeView) { }
-
-		/// <summary>
-		/// Returns true if the <see cref="GraphView{TContainer,TNodeView,TNodeData}"/> implementation should handle copy/pasting.
-		/// If true, implement <see cref="DuplicateNodeData"/>.
-		/// </summary>
-		protected abstract bool HandlesCopyPaste { get; }
-
-		/// <summary>
-		///	Duplicates node data.
-		/// </summary>
-		/// <param name="nodeData"></param>
-		/// <returns></returns>
-		protected virtual TNodeData DuplicateNodeData(TNodeData nodeData) => null;
-
-		#endregion
 
 		/// <summary>
 		/// Gets the mouse position.
@@ -419,15 +377,12 @@ namespace LemonInc.Editor.Utilities.Ui.Graph
 		/// <returns></returns>
 		protected Vector2 GetMousePosition(Vector2 localMousePosition) => viewTransform.matrix.inverse.MultiplyPoint(localMousePosition);
 
-		/// <summary>
-		/// Build contextual menu.
-		/// </summary>
-		/// <param name="evt"></param>
+		/// <inheritdoc/>
 		public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
 		{
 			if (HandlesCopyPaste)
 			{
-				if (evt.target is Node node)
+				if (evt.target is UnityEditor.Experimental.GraphView.Node node)
 				{
 					if (node.IsCopiable())
 						base.BuildContextualMenu(evt);

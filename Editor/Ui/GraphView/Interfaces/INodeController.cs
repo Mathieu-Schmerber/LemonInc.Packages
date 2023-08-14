@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LemonInc.Editor.Utilities.Ui.Graph
+namespace LemonInc.Editor.Utilities.Ui.GraphView.Interfaces
 {
 	/// <summary>
-	/// Represents a node container.
+	/// Handles a node collection.
 	/// </summary>
-	public interface INodeContainer<TNodeData>
+	public interface INodeController<TNodeData>
 		where TNodeData : INode
 	{
 		/// <summary>
@@ -23,36 +23,42 @@ namespace LemonInc.Editor.Utilities.Ui.Graph
 		TNodeData CreateNodeOfType(Type type);
 
 		/// <summary>
-		/// Adds the node.
+		/// Adds a node.
 		/// </summary>
 		/// <param name="node">The node.</param>
-		void AddNode(TNodeData node);
+		void Add(TNodeData node);
 
 		/// <summary>
-		/// Deletes the node.
+		/// Deletes a node.
 		/// </summary>
 		/// <param name="node">The node.</param>
-		void DeleteNode(TNodeData node);
+		void Delete(TNodeData node);
+
+		/// <summary>
+		/// Duplicates the specified node.
+		/// </summary>
+		/// <param name="node">The node.</param>
+		TNodeData Duplicate(TNodeData node);
 
 		/// <summary>
 		/// Links the nodes.
 		/// </summary>
 		/// <param name="inputNode">The input node.</param>
 		/// <param name="outputNode">The output node.</param>
-		void LinkNodes(TNodeData inputNode, TNodeData outputNode);
+		void Link(TNodeData inputNode, TNodeData outputNode);
 
 		/// <summary>
 		/// Unlinks the nodes.
 		/// </summary>
 		/// <param name="inputNode">The input node.</param>
 		/// <param name="outputNode">The output node.</param>
-		void UnlinkNodes(TNodeData inputNode, TNodeData outputNode);
+		void Unlink(TNodeData inputNode, TNodeData outputNode);
 
 		/// <summary>
-		/// Gets the children of a node.
+		/// Gets the related nodes of a node.
 		/// </summary>
 		/// <param name="node">The node.</param>
 		/// <returns></returns>
-		IEnumerable<TNodeData> GetChildren(TNodeData node);
+		IEnumerable<TNodeData> GetRelated(TNodeData node);
 	}
 }

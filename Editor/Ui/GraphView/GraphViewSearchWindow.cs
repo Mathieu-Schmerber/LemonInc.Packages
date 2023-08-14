@@ -4,12 +4,12 @@ using LemonInc.Core.Utilities.Extensions;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace LemonInc.Editor.Utilities.Ui.Graph
+namespace LemonInc.Editor.Utilities.Ui.GraphView
 {
 	/// <summary>
 	/// Simple search window listing nodes.
 	/// </summary>
-	/// <seealso cref="LemonInc.Editor.Utilities.Ui.Graph.GraphViewSearchWindowBase" />
+	/// <seealso cref="GraphViewSearchWindowBase" />
 	public class GraphViewSearchWindow : GraphViewSearchWindowBase
 	{
 		/// <summary>

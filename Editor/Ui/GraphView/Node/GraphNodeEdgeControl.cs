@@ -4,7 +4,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace LemonInc.Editor.Utilities.Ui.Graph.GraphNode
+namespace LemonInc.Editor.Utilities.Ui.GraphView.Node
 {
 	/// <summary>
 	/// Graph node edge control.
@@ -27,7 +27,7 @@ namespace LemonInc.Editor.Utilities.Ui.Graph.GraphNode
 		/// <summary>
 		/// The graph view.
 		/// </summary>
-		private GraphView _graphView;
+		private UnityEditor.Experimental.GraphView.GraphView _graphView;
 
 		/// <summary>
 		/// Offset to apply in order to distinguish connection between same ports.
@@ -42,7 +42,7 @@ namespace LemonInc.Editor.Utilities.Ui.Graph.GraphNode
 		{
 			_internal = new InternalEdgeControl(this);
 			_edge = edge;
-			_graphView = GetFirstAncestorOfType<GraphView>();
+			_graphView = GetFirstAncestorOfType<UnityEditor.Experimental.GraphView.GraphView>();
 			generateVisualContent = Draw;
 		}
 

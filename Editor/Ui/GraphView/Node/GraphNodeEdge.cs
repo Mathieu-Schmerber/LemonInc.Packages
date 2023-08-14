@@ -1,9 +1,9 @@
 ﻿using UnityEditor;
-using UnityEngine;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace LemonInc.Editor.Utilities.Ui.Graph.GraphNode
+namespace LemonInc.Editor.Utilities.Ui.GraphView.Node
 {
 	/// <summary>
 	/// <see cref="Edge"/> for <see cref="GraphNodeView{T}"/>.
@@ -16,7 +16,7 @@ namespace LemonInc.Editor.Utilities.Ui.Graph.GraphNode
         private readonly Image _flowImg;
 
         private const int ARROW_SIZE = 10;
-        private const string TRIANGLE_PATH = "Editor/Ui/Graph/Resources/triangle.png";
+        private const string TRIANGLE_PATH = "Editor/Ui/GraphView/Resources/triangle.png";
 
         public GraphNodeEdge()
         {
