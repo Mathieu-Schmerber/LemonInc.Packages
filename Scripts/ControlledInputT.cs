@@ -75,8 +75,15 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		/// <param name="inputAction">The input action.</param>
 		/// <returns>The <see cref="ControlledInput"/>.</returns>
-		public static ControlledInput<T> Subscribe(InputAction inputAction)
+		public static ControlledInput<T> Subscribe(InputAction inputAction, ControlledInput<T> controlledInput = null)
 		{
+			if (controlledInput != null)
+			{
+				controlledInput.Unsubscribe();
+				controlledInput.Subscribe();
+				return controlledInput;
+			}
+
 			var instance = new ControlledInput<T>(inputAction);
 			instance.Subscribe();
 			return instance;
