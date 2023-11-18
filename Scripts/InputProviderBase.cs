@@ -1,5 +1,5 @@
 using System;
-using System.Threading.Tasks;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +9,8 @@ namespace LemonInc.Core.Input
 	/// Input provider.
 	/// </summary>
 	[RequireComponent(typeof(PlayerInput))]
-	public abstract class InputProviderBase : MonoBehaviour, IInputProvider
+	public abstract class InputProviderBase<T> : MonoBehaviour, IInputProvider
+		where T : IInputActionCollection, new()
 	{
 		/// <summary>
 		/// Control types.
@@ -39,6 +40,16 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		public event Action<ControlType> OnControlsChangedEvent;
 
+		/// <summary>
+		/// The controls asset.
+		/// </summary>
+		private T _controls;
+
+		/// <summary>
+		/// The controls asset.
+		/// </summary>
+		public T Controls => _controls ??= new T();
+
 		/// <inheritdoc/>
 		public abstract void ProcessInputs();
 		
@@ -57,6 +68,8 @@ namespace LemonInc.Core.Input
 		{
 			if (_playerInput != null)
 				_playerInput.onControlsChanged += OnControlsChanged;
+
+			Controls.Enable();
 		}
 
 		/// <summary>
@@ -66,10 +79,15 @@ namespace LemonInc.Core.Input
 		{
 			if (_playerInput != null)
 				_playerInput.onControlsChanged -= OnControlsChanged;
+
+			Controls.Disable();
 		}
 
 		private void OnControlsChanged(PlayerInput input)
 		{
+			if (!input.devices.Any())
+				return;
+
 			if (input.devices[0].device.displayName.Contains("Keyboard"))
 				InUseControlType = ControlType.KEYBOARD;
 			else if (Gamepad.current is UnityEngine.InputSystem.XInput.XInputController) // XBOX
@@ -77,34 +95,6 @@ namespace LemonInc.Core.Input
 			else if (Gamepad.current is UnityEngine.InputSystem.DualShock.DualShockGamepad) // PS4
 				InUseControlType = ControlType.PS4;
 			OnControlsChangedEvent?.Invoke(InUseControlType);
-		}
-
-		/// <summary>
-		/// Waits the and execute.
-		/// </summary>
-		/// <param name="time">The time.</param>
-		/// <param name="execute">The execute.</param>
-		private static async void WaitAndExecute(float time, Action execute)
-		{
-			float start = Time.time;
-			float end = start + time;
-
-			while (Time.time < end)
-				await Task.Yield();
-			execute.Invoke();
-		}
-
-		/// <summary>
-		/// Vibrates the controller.
-		/// </summary>
-		/// <param name="normalizedAmount">The normalized amount.</param>
-		/// <param name="time">The time.</param>
-		public static void VibrateController(float normalizedAmount, float time)
-		{
-			if (time == 0 || normalizedAmount == 0 || Gamepad.current == null)
-				return;
-			Gamepad.current.SetMotorSpeeds(normalizedAmount, normalizedAmount);
-			WaitAndExecute(time, () => Gamepad.current.SetMotorSpeeds(0, 0));
 		}
 	}
 }
