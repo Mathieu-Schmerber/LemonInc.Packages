@@ -107,7 +107,7 @@ namespace LemonInc.Core.Pooling.Contracts
 		{
 			EnsureInitialized();
 
-			if (!Pool[PoolState.FREE].Contains(poolable))
+			if (!Pool[PoolState.BUSY].Contains(poolable))
 				return;
 
 			foreach (var poolEntry in Pool)
