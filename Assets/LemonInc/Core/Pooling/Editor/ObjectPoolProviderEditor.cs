@@ -1,8 +1,13 @@
+using System.Linq;
+using Codice.Client.Commands;
 using LemonInc.Core.Pooling.Contracts;
 using LemonInc.Core.Pooling.Providers;
+using LemonInc.Editor.Utilities;
 using LemonInc.Editor.Utilities.Helpers;
+using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GridBrushBase;
 using EditorIcons = LemonInc.Editor.Utilities.EditorIcons;
 
 namespace LemonInc.Core.Pooling.Editor
@@ -44,6 +49,7 @@ namespace LemonInc.Core.Pooling.Editor
 			public static GUIStyle btnActive = GUI.skin.button;
 			public static GUIStyle btnDisabled = new GUIStyle(GUI.skin.button).WithNormalBackground(IndianRed);
 			public static GUIStyle errorMessage = new GUIStyle(GUI.skin.label).WithFontStyle(FontStyle.Bold).WithTextColor(IndianRed, IndianRed);
+			public static GUIStyle iconButton = new GUIStyle(GUI.skin.button).WithPadding(new RectOffset(1, 1, 1, 1)).WithFixedWidth(20).WithFixedHeight(20);
 		}
 
 		/// <summary>
@@ -56,8 +62,10 @@ namespace LemonInc.Core.Pooling.Editor
 				return (false, $"Pool Key cannot be null.");
 			else if (_prefab == null)
 				return (false, $"Prefab cannot be null.");
+			else if (_prefab.GetComponent<IPoolable>() == null)
+				return (false, "Prefab must implement IPoolable.");
 
-			for (int i = 0; i < _target.transform.childCount; i++)
+			for (var i = 0; i < _target.transform.childCount; i++)
 			{
 				if (_target.transform.GetChild(i).name.Equals(PoolNamePolicy<string>.GetPoolName(_poolKey)))
 					return (false, $"Pool '{_poolKey}' already exists.");
@@ -73,34 +81,94 @@ namespace LemonInc.Core.Pooling.Editor
 		{
 			_target = target as NamedObjectPoolProvider;
 
-			GameObject prefab = EditorGUILayout.ObjectField(new GUIContent("Prefab", EditorIcons.DPrematcube.image), _prefab, typeof(GameObject), false) as GameObject;
-		    if (_prefab != prefab)
-		    {
-				_prefab = prefab;
-				_poolKey = _prefab?.name ?? _poolKey;
-		    }
-			
-		    _poolKey = EditorGUILayout.TextField(new GUIContent("Pool Key", EditorIcons.Jointangularlimits.image), _poolKey);
-		    _initialCount = EditorGUILayout.IntField(new GUIContent("Initial count", EditorIcons.Settings.image), _initialCount);
+			base.OnInspectorGUI();
+			DrawPoolList();
+			DrawPoolCreator();
+		}
 
-			GUILayout.Space(10);
-			GuiHelper.DrawLineSeparator();
-			GUILayout.Space(10);
+		/// <summary>
+		/// Draws the pool list.
+		/// </summary>
+		private void DrawPoolList()
+		{
+			var pools = _target.GetPools();
 
-			var canCreate = CanCreate();
-			if (!canCreate.success)
-			    GUILayout.Label(new GUIContent(canCreate.error, EditorIcons.ConsoleErroricon.image), Styles.errorMessage);
-		    if (GUILayout.Button("Create Pool", canCreate.success ? Styles.btnActive : Styles.btnDisabled) && canCreate.success)
-		    {
-			    _target.Create(_poolKey, new PoolSettings()
+			SirenixEditorGUI.BeginBox("Pools");
+			{
+				if (pools.Count == 0)
 				{
-					Prefab = _prefab,
-					InitialCount = _initialCount
-				});
-
-				_poolKey = string.Empty;
-				_prefab = null;
+					GUILayout.Label("<i>No Pool created yet.</i>", GUIStyle.none.WithRichText().WithTextColor(Color.white, Color.white));
+				}
+				else
+				{
+					SirenixEditorGUI.BeginVerticalList(false);
+					{
+						foreach (var pool in pools)
+						{
+							var value = pool.Value as ObjectPool;
+							SirenixEditorGUI.BeginListItem();
+							{
+								GUILayout.BeginHorizontal();
+								{
+									GUILayout.Label(pool.Key);
+									if (GUILayout.Button(EditorIcons.Animationvisibilitytoggleon.image, Styles.iconButton))
+										Selection.SetActiveObjectWithContext(value, value);
+									if (GUILayout.Button(EditorIcons.DProject2X.image, Styles.iconButton))
+										GUIUtility.systemCopyBuffer = pool.Key;
+								}
+								GUILayout.EndHorizontal();
+							}
+							SirenixEditorGUI.EndListItem();
+						}
+					}
+					SirenixEditorGUI.EndVerticalList();
+				}
 			}
-	    }
-    }
+			SirenixEditorGUI.EndBox();
+		}
+
+		/// <summary>
+		/// Draws the pool creator.
+		/// </summary>
+		private void DrawPoolCreator()
+		{
+			SirenixEditorGUI.BeginBox("Pool creator");
+			{
+				var prefab = EditorGUILayout.ObjectField(new GUIContent("Prefab", EditorIcons.DPrematcube.image),
+					_prefab, typeof(GameObject), false) as GameObject;
+				if (_prefab != prefab)
+				{
+					_prefab = prefab;
+					_poolKey = _prefab?.name ?? _poolKey;
+				}
+
+				_poolKey = EditorGUILayout.TextField(new GUIContent("Pool Key", EditorIcons.Jointangularlimits.image),
+					_poolKey);
+				_initialCount = EditorGUILayout.IntField(new GUIContent("Initial count", EditorIcons.Settings.image),
+					_initialCount);
+
+				GUILayout.Space(10);
+
+				var canCreate = CanCreate();
+				if (!canCreate.success)
+					EditorMessageBox.Error(canCreate.error);
+
+				if (GUILayout.Button("Create Pool", canCreate.success ? Styles.btnActive : Styles.btnDisabled) &&
+				    canCreate.success)
+				{
+					_target.Create(_poolKey, new PoolSettings()
+					{
+						Prefab = _prefab,
+						InitialCount = _initialCount
+					});
+
+					_poolKey = string.Empty;
+					_prefab = null;
+				}
+
+				GUILayout.Space(5);
+			}
+			SirenixEditorGUI.EndBox();
+		}
+	}
 }
