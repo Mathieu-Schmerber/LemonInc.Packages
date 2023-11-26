@@ -1,7 +1,12 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Xml.Serialization;
 using LemonInc.Tools.Panels.Controllers;
 using LemonInc.Tools.Panels.Interfaces;
 using LemonInc.Tools.Panels.Models;
 using UnityEditor;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
 using IPanel = LemonInc.Tools.Panels.Interfaces.IPanel;
@@ -42,7 +47,7 @@ namespace LemonInc.Tools.Panels
 		{
 			get
 			{
-				if (Configuration?.Panels?.TryGetValue(_name, out PanelDefinition definition) == true)
+				if (!string.IsNullOrEmpty(_name) && Configuration?.Panels?.TryGetValue(_name, out PanelDefinition definition) == true)
 					return definition;
 
 				Debug.LogError($"LemonInc Configuration Error: Panel '{_name}' doesn't exist within the configuration.");
@@ -68,7 +73,30 @@ namespace LemonInc.Tools.Panels
 		/// <inheritdoc/>
 		public void Init(string panelName)
 		{
+			if (string.IsNullOrEmpty(panelName) || _uxml == null || Configuration == null)
+				return;
+			
+			Configuration.Panels[panelName].OpenedInstances ??= new List<string>();
+			Configuration.Panels[panelName].OpenedInstances.Add(GetInstanceID().ToString());
+			PanelsConfiguration.Instance.Save();
+
 			_name = panelName;
+
+			_sidebarController ??= new SidebarController(rootVisualElement, PanelDefinition.TargetFolder)
+			{
+				OnSelectionChanged = OnElementSelected,
+				OnTargetFolderChanged = SetTargetFolder
+			};
+
+			_inspectorPanelController ??= new InspectorPanelController(rootVisualElement);
+		}
+
+		private void CreateGUI()
+		{
+			if (string.IsNullOrEmpty(_name) && titleContent?.text.Contains("PanelEditorWindow") == false)
+			{
+				Init(titleContent?.text);
+			}
 		}
 
 		/// <summary>
@@ -77,13 +105,14 @@ namespace LemonInc.Tools.Panels
 		private void OnEnable()
 		{
 			_uxml.CloneTree(rootVisualElement);
-			_sidebarController ??= new SidebarController(rootVisualElement, PanelDefinition.TargetFolder)
-			{
-				OnSelectionChanged = OnElementSelected,
-				OnTargetFolderChanged = SetTargetFolder
-			};
 
-			_inspectorPanelController ??= new InspectorPanelController(rootVisualElement);
+			var config = Configuration.Panels.FirstOrDefault(x => x.Value.OpenedInstances?.Contains(GetInstanceID().ToString()) == true);
+			if (config.Value == null)
+			{
+				return;
+			}
+
+			Init(config.Key);
 		}
 
 		/// <summary>
@@ -95,12 +124,18 @@ namespace LemonInc.Tools.Panels
 			_inspectorPanelController?.Dispose();
 		}
 
+		private void OnDestroy()
+		{
+			Configuration.Panels[_name].OpenedInstances.Remove(GetInstanceID().ToString()); 
+			Configuration.Save();
+		}
+
 		/// <summary>
 		/// Updates this instance.
 		/// </summary>
 		private void Update()
 		{
-			_inspectorPanelController.RepaintIfNeeded();
+			_inspectorPanelController?.RepaintIfNeeded();
 		}
 
 		/// <summary>

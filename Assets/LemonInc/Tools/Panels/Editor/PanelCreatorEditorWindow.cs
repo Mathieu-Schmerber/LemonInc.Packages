@@ -175,6 +175,8 @@ namespace LemonInc.Tools.Panels
 					TargetFolder = _panelTargetFolder
 				});
 
+				Configuration.Save();
+
 				var output = Path.GetFullPath("Assets/Plugins/LemonInc/Resources/Panels/Panels.cs");
 				PanelCodeGenerator.GenerateScript(Configuration.Panels, output, true);
 				Close();
