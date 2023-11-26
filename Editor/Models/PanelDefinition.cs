@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace LemonInc.Tools.Panels.Models
 {
@@ -8,6 +9,11 @@ namespace LemonInc.Tools.Panels.Models
 	[Serializable]
 	public class PanelDefinition
 	{
+		/// <summary>
+		/// The opened instances
+		/// </summary>
+		public List<string> OpenedInstances;
+
 		/// <summary>
 		/// Gets or sets the target folder.
 		/// </summary>
