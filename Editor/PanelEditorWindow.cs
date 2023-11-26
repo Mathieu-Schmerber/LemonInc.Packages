@@ -42,7 +42,7 @@ namespace LemonInc.Tools.Panels
 		{
 			get
 			{
-				if (Configuration.Panels.TryGetValue(_name, out PanelDefinition definition))
+				if (Configuration?.Panels?.TryGetValue(_name, out PanelDefinition definition) == true)
 					return definition;
 
 				Debug.LogError($"LemonInc Configuration Error: Panel '{_name}' doesn't exist within the configuration.");
@@ -69,15 +69,21 @@ namespace LemonInc.Tools.Panels
 		public void Init(string panelName)
 		{
 			_name = panelName;
+		}
 
+		/// <summary>
+		/// Called when [enable].
+		/// </summary>
+		private void OnEnable()
+		{
 			_uxml.CloneTree(rootVisualElement);
-			_sidebarController = new SidebarController(rootVisualElement, PanelDefinition.TargetFolder)
+			_sidebarController ??= new SidebarController(rootVisualElement, PanelDefinition.TargetFolder)
 			{
 				OnSelectionChanged = OnElementSelected,
 				OnTargetFolderChanged = SetTargetFolder
 			};
 
-			_inspectorPanelController = new InspectorPanelController(rootVisualElement);
+			_inspectorPanelController ??= new InspectorPanelController(rootVisualElement);
 		}
 
 		/// <summary>
@@ -87,6 +93,14 @@ namespace LemonInc.Tools.Panels
 		{
 			_sidebarController?.Dispose();
 			_inspectorPanelController?.Dispose();
+		}
+
+		/// <summary>
+		/// Updates this instance.
+		/// </summary>
+		private void Update()
+		{
+			_inspectorPanelController.RepaintIfNeeded();
 		}
 
 		/// <summary>
