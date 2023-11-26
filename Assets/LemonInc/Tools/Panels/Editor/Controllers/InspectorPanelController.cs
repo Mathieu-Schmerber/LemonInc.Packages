@@ -35,6 +35,11 @@ namespace LemonInc.Tools.Panels.Controllers
 		private readonly ToolbarButton _deleteBtn;
 
 		/// <summary>
+		/// The editor.
+		/// </summary>
+		private UnityEditor.Editor _editor;
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="InspectorPanelController"/> class.
 		/// </summary>
 		public InspectorPanelController(VisualElement rootVisualElement)
@@ -87,11 +92,11 @@ namespace LemonInc.Tools.Panels.Controllers
 		/// <param name="elementObject">The element object.</param>
 		private void DisplayElementDetails(Object elementObject)
 		{
-			var editor = UnityEditor.Editor.CreateEditor(elementObject);
-			var inspector = new InspectorElement(editor);
+			_editor = UnityEditor.Editor.CreateEditor(elementObject);
+			var inspector = new InspectorElement(_editor);
 
 			_inspector.Add(inspector);
-			_inspector.Bind(editor.serializedObject);
+			_inspector.Bind(_editor.serializedObject);
 		}
 
 		/// <summary>
@@ -118,6 +123,17 @@ namespace LemonInc.Tools.Panels.Controllers
 				return;
 			
 			EditorGUIUtility.PingObject(_bind.Object);
+		}
+
+		/// <summary>
+		/// Repaints if needed.
+		/// </summary>
+		public void RepaintIfNeeded()
+		{
+			if (_editor?.RequiresConstantRepaint() == true)
+			{
+				_inspector?.MarkDirtyRepaint();
+			}
 		}
 	}
 }
