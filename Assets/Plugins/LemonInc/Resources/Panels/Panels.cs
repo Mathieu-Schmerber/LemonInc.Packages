@@ -5,12 +5,12 @@
 			        internal static class PanelMenuItems
 			        {
 			            
-		        [MenuItem("Tools/LemonInc/Panels/LemonInc Panel")]
-		        public static void OpenLemonIncPanel()
+		        [MenuItem("Tools/LemonInc/Panels/TestPanel")]
+		        public static void OpenTestPanel()
 		        {
 		            var window = UnityEditor.EditorWindow.CreateWindow<LemonInc.Tools.Panels.PanelEditorWindow>();
-		            window.titleContent = new GUIContent("LemonInc Panel");
-					window.Init("LemonInc Panel");
+		            window.titleContent = new GUIContent("TestPanel");
+					window.Init("TestPanel");
 		            window.Show();
 		            window.Focus();
 		        }
