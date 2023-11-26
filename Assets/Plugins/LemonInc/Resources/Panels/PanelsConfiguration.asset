@@ -19,4 +19,6 @@ MonoBehaviour:
     - OpenedInstances:
       - -1864
       - 24222
+      - 24216
+      - 24534
       TargetFolder: Assets/LemonInc/Test
