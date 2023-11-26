@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: PanelsConfiguration
   m_EditorClassIdentifier: 
   Panels:
-    _keyData: []
-    _valueData: []
+    _keyData:
+    - GD
+    _valueData:
+    - OpenedInstances:
+      - -1864
+      - 24222
+      TargetFolder: Assets/LemonInc/Test
