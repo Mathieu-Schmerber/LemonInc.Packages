@@ -44,7 +44,7 @@ namespace LemonInc.Tools.Panels.Controllers
 		/// </summary>
 		public InspectorPanelController(VisualElement rootVisualElement)
 		{
-			_inspector = rootVisualElement.Q<VisualElement>("Inspector");
+			_inspector = rootVisualElement.Q<ScrollView>("Inspector");
 			_locateBtn = rootVisualElement.Q<ToolbarButton>("LocateAsset");
 			_deleteBtn = rootVisualElement.Q<ToolbarButton>("DeleteAsset");
 
