@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using LemonInc.Core.Pooling.Contracts;
+using LemonInc.Core.Utilities;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace LemonInc.Core.Pooling.Providers
 {
@@ -9,8 +14,32 @@ namespace LemonInc.Core.Pooling.Providers
 	/// </summary>
 	public class NamedObjectPoolProvider : PoolProviderBase<string>
 	{
+		/// <summary>
+		/// The pools.
+		/// </summary>
+		private Dictionary<string, IPool> _pools;
+
 		/// <inheritdoc/>
-		protected override IDictionary<string, IPool> Pools { get; } = new Dictionary<string, IPool>();
+		protected override IDictionary<string, IPool> Pools => _pools ??= FetchPools();
+
+		/// <summary>
+		/// Fetches the pools.
+		/// </summary>
+		/// <returns>The pools.</returns>
+		private Dictionary<string, IPool> FetchPools()
+		{
+			var result = new Dictionary<string, IPool>();
+
+			foreach (var pool in GetComponentsInChildren<ObjectPool>())
+			{
+				if (PoolNamePolicy<string>.TryGetKey(pool.name, out var key))
+				{
+					result.TryAdd(key, pool);
+				}
+			}
+
+			return result;
+		}
 
 		/// <inheritdoc/>
 		protected override IPool CreatePool(string key)
@@ -23,5 +52,19 @@ namespace LemonInc.Core.Pooling.Providers
 			};
 			return instance.AddComponent<ObjectPool>();
 		}
+
+		/// <summary>
+		/// Awakes this instance.
+		/// </summary>
+		private void Awake()
+		{
+			_pools = FetchPools();
+		}
+
+#if UNITY_EDITOR
+
+		public IDictionary<string, IPool> GetPools() => FetchPools();
+
+#endif
 	}
 }

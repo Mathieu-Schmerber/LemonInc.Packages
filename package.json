@@ -11,6 +11,7 @@
 	},
     "dependencies": {},
     "gitDependencies": {
-        "com.lemon-inc.editor.utilities": "https://github.com/Mathieu-Schmerber/LemonInc.Packages.git#editor.utilities"
+        "com.lemon-inc.editor.utilities": "https://github.com/Mathieu-Schmerber/LemonInc.Packages.git#editor.utilities",
+        "com.lemon-inc.core.utilities": "https://github.com/Mathieu-Schmerber/LemonInc.Packages.git#core.utilities"
     }
 }
