@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ccd7c80f1f4e84babde8daa06d31f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pool: {fileID: 1982974577}
+  _poolProvider: {fileID: 1952333024}
 --- !u!4 &884355664
 Transform:
   m_ObjectHideFlags: 0
@@ -500,11 +500,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1982974578}
+  - {fileID: 2147213863}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1982974576
+--- !u!1 &2147213862
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -512,8 +512,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1982974578}
-  - component: {fileID: 1982974577}
+  - component: {fileID: 2147213863}
+  - component: {fileID: 2147213864}
   m_Layer: 0
   m_Name: Pool - 'Bullet'
   m_TagString: Untagged
@@ -521,28 +521,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1982974577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1982974576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0ecb5244d56fb447a0b31cfa3ebc3e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefab: {fileID: 1033174274539694887, guid: 604bf7ff186c40547838d4216bbf6cc9, type: 3}
-  _initialCopies: 10
-  PopulateOnAwake: 1
---- !u!4 &1982974578
+--- !u!4 &2147213863
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1982974576}
+  m_GameObject: {fileID: 2147213862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -551,3 +536,18 @@ Transform:
   m_Father: {fileID: 1952333025}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2147213864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147213862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ecb5244d56fb447a0b31cfa3ebc3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 1033174274539694887, guid: 604bf7ff186c40547838d4216bbf6cc9, type: 3}
+  _initialCopies: 10
+  PopulateOnAwake: 1

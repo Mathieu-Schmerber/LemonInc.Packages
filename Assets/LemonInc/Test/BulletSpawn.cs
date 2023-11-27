@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+using LemonInc.Core.Pooling;
 using LemonInc.Core.Pooling.Contracts;
-using Unity.VisualScripting;
+using LemonInc.Core.Pooling.Providers;
 using UnityEngine;
 
 public class BulletSpawn : MonoBehaviour
 {
-    [SerializeField] private PoolBase _pool;
+	[SerializeField] private NamedObjectPoolProvider _poolProvider;
 
     private void Start()
     {
@@ -15,6 +14,6 @@ public class BulletSpawn : MonoBehaviour
 
     private void Spawn()
     {
-	    _pool.Get(null, transform.position, Quaternion.identity);
-    }
+	    _poolProvider.Get(Pool.Bullet.ToString()).Get(null, transform.position, Quaternion.identity);
+	}
 }
