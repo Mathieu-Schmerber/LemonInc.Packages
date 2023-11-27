@@ -1,13 +1,13 @@
-using System.Linq;
-using Codice.Client.Commands;
 using LemonInc.Core.Pooling.Contracts;
 using LemonInc.Core.Pooling.Providers;
 using LemonInc.Editor.Utilities;
 using LemonInc.Editor.Utilities.Helpers;
 using Sirenix.Utilities.Editor;
+using System.IO;
+using LemonInc.Core.Pooling.Editor.Configuration;
+using LemonInc.Editor.Utilities.Extensions;
 using UnityEditor;
 using UnityEngine;
-using static UnityEngine.GridBrushBase;
 using EditorIcons = LemonInc.Editor.Utilities.EditorIcons;
 
 namespace LemonInc.Core.Pooling.Editor
@@ -38,6 +38,11 @@ namespace LemonInc.Core.Pooling.Editor
 		/// The object reference.
 		/// </summary>
 		private NamedObjectPoolProvider _target;
+
+		/// <summary>
+		/// The automatic generate.
+		/// </summary>
+		private bool _autoGenerate = false;
 
 		/// <summary>
 		/// Styles used.
@@ -74,6 +79,15 @@ namespace LemonInc.Core.Pooling.Editor
 			return (true, string.Empty);
 		}
 
+		private void OnEnable()
+		{
+			var form = PoolingConfiguration.Instance.LastFormState;
+			_prefab = form.Prefab;
+			_poolKey = form.Key;
+			_initialCount = form.InitialCount;
+			_autoGenerate = form.AutoGenerateOnCreate;
+		}
+
 		/// <summary>
 		/// On Inspector GUI.
 		/// </summary>
@@ -86,6 +100,12 @@ namespace LemonInc.Core.Pooling.Editor
 			DrawPoolCreator();
 		}
 
+		private void Generate()
+		{
+			var output = Path.GetFullPath("Assets/Plugins/LemonInc/Resources/Pooling/Pooling.cs");
+			NamedPoolingCodeGenerator.GenerateScript(_target, output, true);
+		}
+
 		/// <summary>
 		/// Draws the pool list.
 		/// </summary>
@@ -93,8 +113,21 @@ namespace LemonInc.Core.Pooling.Editor
 		{
 			var pools = _target.GetPools();
 
-			SirenixEditorGUI.BeginBox("Pools");
+			SirenixEditorGUI.BeginBox();
 			{
+				SirenixEditorGUI.BeginBoxHeader();
+				{
+					GUILayout.BeginHorizontal();
+					GUILayout.Label("Pools");
+					GUILayout.FlexibleSpace();
+					if (GUILayout.Button("Generate script"))
+					{
+						Generate();
+					}
+					GUILayout.EndHorizontal();
+				}
+				SirenixEditorGUI.EndBoxHeader();
+
 				if (pools.Count == 0)
 				{
 					GUILayout.Label("<i>No Pool created yet.</i>", GUIStyle.none.WithRichText().WithTextColor(Color.white, Color.white));
@@ -132,6 +165,8 @@ namespace LemonInc.Core.Pooling.Editor
 		/// </summary>
 		private void DrawPoolCreator()
 		{
+			EditorGUI.BeginChangeCheck();
+
 			SirenixEditorGUI.BeginBox("Pool creator");
 			{
 				var prefab = EditorGUILayout.ObjectField(new GUIContent("Prefab", EditorIcons.DPrematcube.image),
@@ -153,6 +188,11 @@ namespace LemonInc.Core.Pooling.Editor
 				if (!canCreate.success)
 					EditorMessageBox.Error(canCreate.error);
 
+				// TODO: read from config
+				GUILayout.Space(5);
+				_autoGenerate = GUILayout.Toggle(_autoGenerate, "Generate script on pool creation");
+				GUILayout.Space(5);
+
 				if (GUILayout.Button("Create Pool", canCreate.success ? Styles.btnActive : Styles.btnDisabled) &&
 				    canCreate.success)
 				{
@@ -164,11 +204,20 @@ namespace LemonInc.Core.Pooling.Editor
 
 					_poolKey = string.Empty;
 					_prefab = null;
+
+					if (_autoGenerate)
+						Generate();
 				}
 
 				GUILayout.Space(5);
 			}
 			SirenixEditorGUI.EndBox();
+
+			if (EditorGUI.EndChangeCheck())
+			{
+				PoolingConfiguration.Instance.LastFormState = new PoolingConfiguration.PoolCreatorForm(_prefab, _initialCount, _poolKey, _autoGenerate);
+				PoolingConfiguration.Instance.Save();
+			}
 		}
 	}
 }

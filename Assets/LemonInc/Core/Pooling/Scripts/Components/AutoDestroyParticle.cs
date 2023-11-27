@@ -1,9 +1,9 @@
-﻿using LemonInc.Core.Pooling.Contracts;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using LemonInc.Core.Pooling.Contracts;
 using UnityEngine;
 
-namespace LemonInc.Core.Pooling.Poolables
+namespace LemonInc.Core.Pooling.Components
 {
 	public class AutoDestroyParticle : PoolableBase
 	{
