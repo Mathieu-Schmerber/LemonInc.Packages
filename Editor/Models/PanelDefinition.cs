@@ -21,5 +21,10 @@ namespace LemonInc.Tools.Panels.Models
 		/// The target folder.
 		/// </value>
 		public string TargetFolder;
+
+		/// <summary>
+		/// The last selected element identifier.
+		/// </summary>
+		public int LastSelectedElementId;
 	}
 }

@@ -122,6 +122,18 @@ namespace LemonInc.Tools.Panels.Controllers
 		}
 
 		/// <summary>
+		/// Selects the element.
+		/// </summary>
+		/// <param name="elementId">The element identifier.</param>
+		public void SelectElement(int elementId)
+		{
+			_elementsView.SetSelection(new List<int>()
+			{
+				elementId
+			})
+		}
+
+		/// <summary>
 		/// Builds the UI.
 		/// </summary>
 		private void BuildUi()
