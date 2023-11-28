@@ -89,6 +89,7 @@ namespace LemonInc.Tools.Panels
 			};
 
 			_inspectorPanelController ??= new InspectorPanelController(rootVisualElement);
+			_sidebarController.SelectElement(PanelDefinition.LastSelectedElementId);
 		}
 
 		private void CreateGUI()
@@ -122,12 +123,12 @@ namespace LemonInc.Tools.Panels
 		{
 			_sidebarController?.Dispose();
 			_inspectorPanelController?.Dispose();
+			Configuration.Save();
 		}
 
 		private void OnDestroy()
 		{
 			Configuration.Panels[_name].OpenedInstances.Remove(GetInstanceID().ToString()); 
-			Configuration.Save();
 		}
 
 		/// <summary>
@@ -153,6 +154,10 @@ namespace LemonInc.Tools.Panels
 		/// </summary>
 		/// <param name="element">The element.</param>
 		/// <exception cref="System.NotImplementedException"></exception>
-		private void OnElementSelected(ISidebarElement element) => _inspectorPanelController.Bind(element);
+		private void OnElementSelected(ISidebarElement element)
+		{
+			_inspectorPanelController.Bind(element);
+			PanelDefinition.LastSelectedElementId = element.Id;
+		}
     }
 }
