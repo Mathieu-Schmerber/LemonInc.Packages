@@ -1,7 +1,4 @@
-
-				using System.Collections.Generic;
-				using LemonInc.Tools.Panels.Models;
-				using UnityEditor;
+using UnityEditor;
 				using UnityEngine;
 				namespace LemonInc.Generated {
 			        internal static class PanelMenuItems

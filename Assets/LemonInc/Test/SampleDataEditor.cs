@@ -1,5 +1,4 @@
 using LemonInc.Core.Utilities;
-using LemonInc.Core.Utilities.Extensions;
 using LemonInc.Editor.Utilities;
 using UnityEditor;
 using UnityEngine;
