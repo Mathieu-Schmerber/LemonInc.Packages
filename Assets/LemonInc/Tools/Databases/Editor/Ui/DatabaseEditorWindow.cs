@@ -90,7 +90,7 @@ namespace LemonInc.Tools.Databases.Ui
 
 			_references.Path.RegisterValueChangedCallback(evt =>
 			{
-				var valid = !string.IsNullOrEmpty(evt.newValue) && File.Exists(evt.newValue);
+				var valid = !string.IsNullOrEmpty(evt.newValue) && Directory.Exists(Path.GetDirectoryName(evt.newValue));
 				_references.Path.style.color = !valid ? Color.red : Color.white;
 				_references.CompileToolbarButton.SetEnabled(valid);
 			});
