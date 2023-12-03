@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace LemonInc.Tools.Databases
+namespace Databases
 {
+	{@databases}
 }
