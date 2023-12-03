@@ -130,7 +130,7 @@ namespace LemonInc.Tools.Panels.Controllers
 			_elementsView.SetSelection(new List<int>()
 			{
 				elementId
-			})
+			});
 		}
 
 		/// <summary>
