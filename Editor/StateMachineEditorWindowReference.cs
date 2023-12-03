@@ -1,5 +1,3 @@
-
-using UnityEngine;
 using UnityEngine.UIElements;
 namespace LemonInc.Core.StateMachine.Editor {
 	public class StateMachineEditorWindowReference 
