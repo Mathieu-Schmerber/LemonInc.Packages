@@ -24,14 +24,14 @@ namespace LemonInc.Editor.Uxml
 		/// <summary>
 		/// The type blacklist.
 		/// </summary>
-		private static readonly string[] TYPE_BLACKLIST = { "UXML", "Instance" };
+		private static readonly string[] TYPE_BLACKLIST = { "UXML", "Template" };
 
 		/// <summary>
 		/// The translation list.
 		/// </summary>
 		private static readonly IDictionary<string, string> TYPE_TRANSLATION = new Dictionary<string, string>
 		{
-			{"Template", "TemplateContainer"}
+			{"Instance", "VisualElement"}
 		};
 
 		/// <summary>
@@ -79,7 +79,9 @@ namespace LemonInc.Editor.Uxml
 			foreach (var line in content.Split(Environment.NewLine))
 			{
 				var uxmlLine = line.Trim();
-				if (uxmlLine.Contains("<ui:"))
+				if (uxmlLine.Contains("<uie:"))
+					uxmlLine = uxmlLine.Substring("<uie:".Length);
+				else if (uxmlLine.Contains("<ui:"))
 					uxmlLine = uxmlLine.Substring("<ui:".Length);
 				else if (uxmlLine.Contains("<"))
 					uxmlLine = uxmlLine.Substring("<".Length);
@@ -154,6 +156,7 @@ namespace LemonInc.Editor.Uxml
 			return @$"
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEditor.UIElements;
 namespace {@namespace} {{
 	public class {classname} 
 	{{
