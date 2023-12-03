@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Template name="Banner" src="project://database/Assets/LemonInc/Tools/Databases/Editor/Uxml/Banner.uxml?fileID=9197481963319205126&amp;guid=b3f98814fe818ac47ba28c0935a07646&amp;type=3#Banner" />
+    <ui:Template name="Panel" src="project://database/Assets/LemonInc/Tools/Databases/Editor/Uxml/Panel.uxml?fileID=9197481963319205126&amp;guid=5ce27b35c41d9e044bf75385573ce3d5&amp;type=3#Panel" />
+    <Style src="project://database/Assets/LemonInc/Tools/Databases/Editor/Uxml/DatabaseStyles.uss?fileID=7433441132597879392&amp;guid=fb101fa48cfa2634ca4f6c5ee3215ebf&amp;type=3#DatabaseStyles" />
+    <ui:Instance template="Banner" name="Banner" style="flex-shrink: 0;" />
+    <uie:Toolbar>
+        <uie:ToolbarButton text="Compile Code" display-tooltip-when-elided="true" name="Compile" class="toolbar-btn" />
+        <uie:ToolbarButton display-tooltip-when-elided="true" name="Folder" style="justify-content: flex-start; align-self: auto; align-items: auto; -unity-text-align: middle-left; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; color: rgb(135, 135, 135); flex-grow: 0;" />
+        <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="Path" style="color: rgb(135, 135, 135); -unity-text-align: middle-left; -unity-font-style: italic;" />
+    </uie:Toolbar>
+    <ui:GroupBox style="flex-direction: row; align-self: stretch; justify-content: center; flex-shrink: 1; flex-grow: 1; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+        <ui:Instance template="Panel" name="Databases" style="flex-grow: 0; flex-shrink: 0; flex-basis: 33%;" />
+        <ui:Instance template="Panel" name="Sections" style="flex-grow: 0; flex-shrink: 0; flex-basis: 33%;" />
+        <ui:Instance template="Panel" name="Assets" style="flex-grow: 0; flex-shrink: 0; flex-basis: 33%;" />
+    </ui:GroupBox>
+</ui:UXML>
