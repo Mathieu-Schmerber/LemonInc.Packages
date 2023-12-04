@@ -7,7 +7,7 @@ namespace LemonInc.Tools.Databases.Models
 	/// <summary>
 	/// Database configuration.
 	/// </summary>
-	[GlobalConfig("Plugins/LemonInc/Resources/Databases")]
+	[GlobalConfig("Plugins/LemonInc/Resources/Databases/")]
 	public class DatabaseConfiguration : GlobalConfig<DatabaseConfiguration>
 	{
 		/// <summary>
