@@ -10,11 +10,6 @@ namespace LemonInc.Tools.Panels.Models
 	public class PanelDefinition
 	{
 		/// <summary>
-		/// The opened instances
-		/// </summary>
-		public List<string> OpenedInstances;
-
-		/// <summary>
 		/// Gets or sets the target folder.
 		/// </summary>
 		/// <value>
