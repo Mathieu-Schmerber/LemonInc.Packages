@@ -20,7 +20,7 @@ namespace LemonInc.Tools.Panels
 		/// <summary>
 		/// The uxml.
 		/// </summary>
-		[SerializeField] private VisualTreeAsset _uxml;
+		private VisualTreeAsset _uxml;
 
 		/// <summary>
 		/// The state.
@@ -71,8 +71,9 @@ namespace LemonInc.Tools.Panels
 		/// <inheritdoc/>
 		public void Init(string panelName)
 		{
+			_uxml = Resources.Load<VisualTreeAsset>("Panel");
 			titleContent = new GUIContent(panelName, EditorIcons.DScaletool.image);
-			if (string.IsNullOrEmpty(panelName) || _uxml == null || Configuration == null)
+			if (string.IsNullOrEmpty(panelName) || Configuration == null)
 				return;
 
 			_uxml.CloneTree(rootVisualElement);

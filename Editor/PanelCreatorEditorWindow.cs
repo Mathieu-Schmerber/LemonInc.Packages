@@ -16,7 +16,7 @@ namespace LemonInc.Tools.Panels
 		/// <summary>
 		/// The uxml.
 		/// </summary>
-		[SerializeField] private VisualTreeAsset _uxml;
+		private VisualTreeAsset _uxml;
 
 		/// <summary>
 		/// Opens this instance.
@@ -82,6 +82,7 @@ namespace LemonInc.Tools.Panels
 		/// </summary>
 		private void CreateGUI()
 		{
+			_uxml = Resources.Load<VisualTreeAsset>("CreatePanel");
 			_uxml.CloneTree(rootVisualElement);
 
 			_root = rootVisualElement.Q<VisualElement>("Root");
