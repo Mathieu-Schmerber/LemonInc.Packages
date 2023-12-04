@@ -19,7 +19,7 @@ namespace LemonInc.Tools.Databases.Ui
 		/// <summary>
 		/// The uxml.
 		/// </summary>
-		[SerializeField] private VisualTreeAsset _uxml;
+		private VisualTreeAsset _uxml;
 
 		/// <summary>
 		/// The naming policy.
@@ -91,6 +91,7 @@ namespace LemonInc.Tools.Databases.Ui
 		/// </summary>
 		private void Init()
 		{
+			_uxml = Resources.Load<VisualTreeAsset>("Databases");
 			_data = ScaffoldDictionary();
 			_uxml.CloneTree(rootVisualElement);
 			_references = new DatabasesReference(rootVisualElement);
