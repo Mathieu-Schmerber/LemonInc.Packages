@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using LemonInc.Editor.Utilities;
 using LemonInc.Editor.Utilities.Extensions;
@@ -44,6 +45,11 @@ namespace LemonInc.Tools.Databases.Ui
 		private DatabaseConfiguration Configuration => _configuration ??= DatabaseConfiguration.Instance;
 
 		/// <summary>
+		/// The data.
+		/// </summary>
+		private Dictionary<string, SectionDefinition> _data;
+
+		/// <summary>
 		/// The databases controller.
 		/// </summary>
 		private TreeViewPanelController _databasesController;
@@ -85,6 +91,7 @@ namespace LemonInc.Tools.Databases.Ui
 		/// </summary>
 		private void Init()
 		{
+			_data = ScaffoldDictionary();
 			_uxml.CloneTree(rootVisualElement);
 			_references = new DatabasesReference(rootVisualElement);
 
@@ -116,7 +123,7 @@ namespace LemonInc.Tools.Databases.Ui
 				new PanelReference(_references.AssetsVisualElement), 
 				ValidateAsset);
 
-			_databasesController.SetChildren(Configuration.Databases.Values.ToList());
+			_databasesController.SetChildren(_data.Values.ToList());
 
 			_databasesController.Refresh();
 			_sectionsController.Refresh();
@@ -182,7 +189,7 @@ namespace LemonInc.Tools.Databases.Ui
 			Configuration.LastSelectedDatabaseId = _databasesController.SelectedItem?.Data.Id;
 			Configuration.LastSelectedSectionId = _sectionsController.SelectedItem?.Data.Id;
 			Configuration.LastSelectedAssetId = _assetsController.SelectedItem?.Data.Id;
-			Configuration.Save();
+			SaveConfiguration();
 			Unsubscribe();
 		}
 
@@ -209,11 +216,15 @@ namespace LemonInc.Tools.Databases.Ui
 		private bool ValidateItem(SectionDefinition item, out string error)
 		{
 			var duplicate = item.Parent == null
-				? Configuration.Databases.Values.Count(x => x.Name == item.Name) > 1
+				? _data.Values.Count(x => x.Name == item.Name) > 1
 				: item.Parent.Sections.Values.Count(x => x.Name == item.Name) > 1;
 
-			error = duplicate ? $"'{item.Name}' is already taken." : "The name should be alphanumeric.";
-			return !duplicate && _namingPolicy.Validate(item.Name, out _);
+			var sameAsParent = item.Parent != null && item.Parent.Name.Equals(item.Name);
+			var sameAsChild = item.Sections.Values.Any(x => x.Name.Equals(item.Name)); ;
+			var taken = duplicate || sameAsChild || sameAsParent;
+
+			error = taken ? $"'{item.Name}' is already taken." : "The name should be alphanumeric.";
+			return !taken && _namingPolicy.Validate(item.Name, out _);
 		}
 
 		/// <summary>
@@ -245,8 +256,8 @@ namespace LemonInc.Tools.Databases.Ui
 		/// <param name="database">The database.</param>
 		private void AddDatabase(SectionDefinition database)
 		{
-			database.Name = $"New Database {Configuration.Databases.Count}";
-			Configuration.Databases.TryAdd(database.Id, database);
+			database.Name = $"New Database {_data.Count}";
+			_data.TryAdd(database.Id, database);
 		}
 
 		/// <summary>
@@ -274,7 +285,7 @@ namespace LemonInc.Tools.Databases.Ui
 			}
 			else
 			{
-				Configuration.Databases.Remove(section.Id);
+				_data.Remove(section.Id);
 			}
 
 			_sectionsController.Refresh();
@@ -321,8 +332,114 @@ namespace LemonInc.Tools.Databases.Ui
 		/// </summary>
 		private void GenerateCode()
 		{
+			SaveConfiguration();
 			if (!string.IsNullOrEmpty(Configuration.ScriptPath))
 				DatabaseCodeGenerator.GenerateScript(Configuration, Configuration.ScriptPath, true);
+		}
+
+		/// <summary>
+		/// Saves the configuration.
+		/// </summary>
+		private void SaveConfiguration()
+		{
+			FlattenData(_data);
+			Configuration.DatabaseIds = _data.Keys.ToList();
+			Configuration.Save();
+		}
+
+		/// <summary>
+		/// Flattens the data.
+		/// </summary>
+		/// <param name="data">The data.</param>
+		private void FlattenData(Dictionary<string, SectionDefinition> data)
+		{
+			foreach (var section in data.Values)
+			{
+				if (Configuration.SectionDefinitions.TryGetValue(section.Id, out var existing))
+				{
+					existing.Name = section.Name;
+					existing.Assets = section.Assets.Select(asset => asset.Id).ToList();
+					existing.Sections = section.Sections.Keys.ToList();
+				}
+				else
+				{
+					Configuration.SectionDefinitions.Add(section.Id, new SectionDescription()
+					{
+						Id = section.Id,
+						Name = section.Name,
+						Assets = section.Assets.Select(asset => asset.Id).ToList(),
+						Sections = section.Sections.Keys.ToList(),
+					});
+				}
+
+				foreach (var assetDefinition in section.Assets)
+				{
+					if (Configuration.AssetDefinitions.TryGetValue(assetDefinition.Id, out var asset))
+					{
+						asset.Name = assetDefinition.Name;
+						asset.Data = assetDefinition.Data;
+					}
+					else
+					{
+						Configuration.AssetDefinitions.Add(assetDefinition.Id, assetDefinition);
+					}
+				}
+
+				FlattenData(section.Sections);
+			}
+		}
+
+		/// <summary>
+		/// Scaffolds a dictionary.
+		/// </summary>
+		/// <returns>The translated data.</returns>
+		private Dictionary<string, SectionDefinition> ScaffoldDictionary()
+		{
+			var result = new Dictionary<string, SectionDefinition>();
+
+			foreach (var databaseId in Configuration.DatabaseIds)
+			{
+				var database = new SectionDefinition()
+				{
+					Id = databaseId,
+					Name = Configuration.SectionDefinitions[databaseId].Name,
+					Parent = null,
+					Assets = new List<AssetDefinition>()
+				};
+
+				database.Sections = ScaffoldSectionDictionary(database);
+
+				result.Add(databaseId, database);
+			}
+
+			return result;
+		}
+
+		/// <summary>
+		/// Scaffolds the section dictionary.
+		/// </summary>
+		/// <param name="parent">The parent.</param>
+		/// <returns>The section dictionary.</returns>
+		private SectionDictionary ScaffoldSectionDictionary(SectionDefinition parent)
+		{
+			var result = new SectionDictionary();
+
+			foreach (var sectionId in Configuration.SectionDefinitions[parent.Id].Sections)
+			{
+				var definition = Configuration.SectionDefinitions[sectionId];
+				var section = new SectionDefinition()
+				{
+					Id = sectionId,
+					Name = definition.Name,
+					Parent = parent,
+					Assets = definition.Assets.Select(x => Configuration.AssetDefinitions[x]).ToList()
+				};
+
+				section.Sections = ScaffoldSectionDictionary(section);
+				result.Add(sectionId, section);
+			}
+
+			return result;
 		}
 	}
 }

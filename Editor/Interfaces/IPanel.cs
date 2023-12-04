@@ -24,11 +24,6 @@ namespace LemonInc.Tools.Databases.Interfaces
 		public event Action<TData> OnItemSelected;
 
 		/// <summary>
-		/// Occurs when [on item de selected].
-		/// </summary>
-		public event Action<TData> OnItemDeSelected;
-
-		/// <summary>
 		/// Selects the item.
 		/// </summary>
 		/// <param name="dataId">The data identifier.</param>
