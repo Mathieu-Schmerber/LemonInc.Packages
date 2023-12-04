@@ -12,10 +12,153 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d94a7c610c9af74a97785e07ff16b97, type: 3}
   m_Name: DatabaseConfiguration
   m_EditorClassIdentifier: 
-  Databases:
-    _keyData: []
-    _valueData: []
-  LastSelectedDatabaseId: 
-  LastSelectedSectionId: 
-  LastSelectedAssetId: 
+  SectionDefinitions:
+    _keyData:
+    - a6e29646-0f1b-4826-be2f-ba7f325d8a48
+    - 66df5855-6e41-45db-8264-49ffe4e5628e
+    - 3b2346eb-a483-487b-ad22-114bf4a61762
+    - f3a8db06-edbc-4cbd-8877-32ad4de88498
+    - 241a820f-5ae8-4b31-aa71-7734ba67fa2d
+    - a4838f09-db52-4c55-8369-10b23d8802cf
+    - 176c08cc-3d57-4347-a775-47108f38d595
+    - 8e90d37b-3d94-4343-837e-8b2009ce8b49
+    - 49bdff87-3cbb-48da-9a1b-31fcfdfc651e
+    - 0987a80a-3e9a-4162-8ef5-5d34d6d1a3ce
+    - dd09d693-7b06-4d63-8704-ada53ba88ca0
+    _valueData:
+    - _id: a6e29646-0f1b-4826-be2f-ba7f325d8a48
+      _name: test
+      _sections:
+      - 66df5855-6e41-45db-8264-49ffe4e5628e
+      - f3a8db06-edbc-4cbd-8877-32ad4de88498
+      _assets: []
+    - _id: 66df5855-6e41-45db-8264-49ffe4e5628e
+      _name: okk
+      _sections:
+      - 3b2346eb-a483-487b-ad22-114bf4a61762
+      _assets: []
+    - _id: 3b2346eb-a483-487b-ad22-114bf4a61762
+      _name: err
+      _sections:
+      - 0987a80a-3e9a-4162-8ef5-5d34d6d1a3ce
+      _assets:
+      - 56a152c7-93d0-44aa-8bc2-ff7e5e64445c
+      - 332b2b48-37fc-49fc-8b7d-a238db98b260
+      - 54f9439a-8b9a-4e2e-a178-187a3c240f4a
+    - _id: f3a8db06-edbc-4cbd-8877-32ad4de88498
+      _name: ok
+      _sections: []
+      _assets: []
+    - _id: 241a820f-5ae8-4b31-aa71-7734ba67fa2d
+      _name: bruh
+      _sections: []
+      _assets: []
+    - _id: a4838f09-db52-4c55-8369-10b23d8802cf
+      _name: New Section 2
+      _sections:
+      - 176c08cc-3d57-4347-a775-47108f38d595
+      - 8e90d37b-3d94-4343-837e-8b2009ce8b49
+      - 49bdff87-3cbb-48da-9a1b-31fcfdfc651e
+      _assets: []
+    - _id: 176c08cc-3d57-4347-a775-47108f38d595
+      _name: New Section 0
+      _sections: []
+      _assets: []
+    - _id: 8e90d37b-3d94-4343-837e-8b2009ce8b49
+      _name: New Section 1
+      _sections: []
+      _assets: []
+    - _id: 49bdff87-3cbb-48da-9a1b-31fcfdfc651e
+      _name: New Section 2
+      _sections: []
+      _assets: []
+    - _id: 0987a80a-3e9a-4162-8ef5-5d34d6d1a3ce
+      _name: okk
+      _sections:
+      - dd09d693-7b06-4d63-8704-ada53ba88ca0
+      _assets: []
+    - _id: dd09d693-7b06-4d63-8704-ada53ba88ca0
+      _name: New Section 0
+      _sections: []
+      _assets:
+      - 2a3b14f4-e749-43ec-9009-1f92739fd2ba
+      - a3ebde06-34ae-457c-bf89-11107e9228be
+      - 74b3168d-7eb1-4436-8db5-8b26d7d74cad
+      - 5749336d-24ea-4851-8cd6-70c338967fd1
+      - 96e4effd-4a89-4812-8a2a-bd927fdbb50f
+      - 4877cacd-742f-4556-a7f4-8f8feb6b678b
+      - 8df3404a-b46c-48af-a3b7-ec15aca59826
+      - efbdaca0-f088-4cde-b49f-58bc361645ce
+      - a8f816bb-6712-4912-b5b4-56e984e6b784
+      - c63ce637-080a-48e7-9bac-e31c005111ce
+      - 1f96ef6b-10a7-45ee-85fe-93e49e525c7d
+      - 8d6dae5f-631f-4d4a-a463-f666256c121d
+  AssetDefinitions:
+    _keyData:
+    - 56a152c7-93d0-44aa-8bc2-ff7e5e64445c
+    - 332b2b48-37fc-49fc-8b7d-a238db98b260
+    - 54f9439a-8b9a-4e2e-a178-187a3c240f4a
+    - 2a3b14f4-e749-43ec-9009-1f92739fd2ba
+    - a3ebde06-34ae-457c-bf89-11107e9228be
+    - 74b3168d-7eb1-4436-8db5-8b26d7d74cad
+    - 5749336d-24ea-4851-8cd6-70c338967fd1
+    - 96e4effd-4a89-4812-8a2a-bd927fdbb50f
+    - 4877cacd-742f-4556-a7f4-8f8feb6b678b
+    - 8df3404a-b46c-48af-a3b7-ec15aca59826
+    - efbdaca0-f088-4cde-b49f-58bc361645ce
+    - a8f816bb-6712-4912-b5b4-56e984e6b784
+    - c63ce637-080a-48e7-9bac-e31c005111ce
+    - 1f96ef6b-10a7-45ee-85fe-93e49e525c7d
+    - 8d6dae5f-631f-4d4a-a463-f666256c121d
+    _valueData:
+    - _id: 56a152c7-93d0-44aa-8bc2-ff7e5e64445c
+      _name: Data B
+      _data: {fileID: 11400000, guid: d51161dc018a0974a91b04fb1325ec2d, type: 2}
+    - _id: 332b2b48-37fc-49fc-8b7d-a238db98b260
+      _name: New Sample Data
+      _data: {fileID: 11400000, guid: d07517afcccd48a46af7408a00f1ac16, type: 2}
+    - _id: 54f9439a-8b9a-4e2e-a178-187a3c240f4a
+      _name: Bullet
+      _data: {fileID: 1033174274539694887, guid: 604bf7ff186c40547838d4216bbf6cc9, type: 3}
+    - _id: 2a3b14f4-e749-43ec-9009-1f92739fd2ba
+      _name: StateMachineEditorWindow
+      _data: {fileID: 7433441132597879392, guid: 1a173ca2111431144878e3835a5ef5a6, type: 3}
+    - _id: a3ebde06-34ae-457c-bf89-11107e9228be
+      _name: Data B
+      _data: {fileID: 11400000, guid: d51161dc018a0974a91b04fb1325ec2d, type: 2}
+    - _id: 74b3168d-7eb1-4436-8db5-8b26d7d74cad
+      _name: New Sample Data
+      _data: {fileID: 11400000, guid: d07517afcccd48a46af7408a00f1ac16, type: 2}
+    - _id: 5749336d-24ea-4851-8cd6-70c338967fd1
+      _name: Databases
+      _data: {fileID: 9197481963319205126, guid: c6183a827e95f404d9053f1fe858beb7, type: 3}
+    - _id: 96e4effd-4a89-4812-8a2a-bd927fdbb50f
+      _name: DatabaseStyles
+      _data: {fileID: 7433441132597879392, guid: fb101fa48cfa2634ca4f6c5ee3215ebf, type: 3}
+    - _id: 4877cacd-742f-4556-a7f4-8f8feb6b678b
+      _name: PackageHandlerWindow
+      _data: {fileID: 9197481963319205126, guid: 6ea03548795e73941afb71373018653b, type: 3}
+    - _id: 8df3404a-b46c-48af-a3b7-ec15aca59826
+      _name: PackageScope
+      _data: {fileID: 9197481963319205126, guid: ec0a4e97a669c2048a0d32e99d1df260, type: 3}
+    - _id: efbdaca0-f088-4cde-b49f-58bc361645ce
+      _name: Banner
+      _data: {fileID: 9197481963319205126, guid: 2d6cb16b7dbdfd7428eb00ae19c978fd, type: 3}
+    - _id: a8f816bb-6712-4912-b5b4-56e984e6b784
+      _name: CreatePanel
+      _data: {fileID: 9197481963319205126, guid: 042ed035a5526804a9fe3fe25e9df6bf, type: 3}
+    - _id: c63ce637-080a-48e7-9bac-e31c005111ce
+      _name: Panel
+      _data: {fileID: 9197481963319205126, guid: 2b525066df47fde449c5010027d90f8b, type: 3}
+    - _id: 1f96ef6b-10a7-45ee-85fe-93e49e525c7d
+      _name: SceneSwitcherWindow
+      _data: {fileID: 9197481963319205126, guid: c64f6523f43d1db4fa366983303fb34d, type: 3}
+    - _id: 8d6dae5f-631f-4d4a-a463-f666256c121d
+      _name: Bullet
+      _data: {fileID: 1033174274539694887, guid: 604bf7ff186c40547838d4216bbf6cc9, type: 3}
+  DatabaseIds:
+  - a6e29646-0f1b-4826-be2f-ba7f325d8a48
+  LastSelectedDatabaseId: a6e29646-0f1b-4826-be2f-ba7f325d8a48
+  LastSelectedSectionId: dd09d693-7b06-4d63-8704-ada53ba88ca0
+  LastSelectedAssetId: 4877cacd-742f-4556-a7f4-8f8feb6b678b
   ScriptPath: Assets/LemonInc/Test/Databases.cs

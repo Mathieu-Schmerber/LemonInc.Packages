@@ -10,11 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8965499ab2121346b6cae6c3e0111e5, type: 3}
-  m_Name: PanelsConfiguration
+  m_Name: d6e8a1dc-e9dc-465f-bc06-d35290efeded
   m_EditorClassIdentifier: 
   Panels:
-    _keyData:
-    - Game design
-    _valueData:
-    - TargetFolder: Assets/LemonInc/Test
-      LastSelectedElementId: 916701768
+    _keyData: []
+    _valueData: []
