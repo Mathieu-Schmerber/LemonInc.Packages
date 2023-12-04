@@ -9,6 +9,7 @@ using LemonInc.Tools.Panels.Models;
 using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEditor.UIElements;
+using UnityEngine;
 using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
 using TreeView = UnityEngine.UIElements.TreeView;
@@ -127,10 +128,7 @@ namespace LemonInc.Tools.Panels.Controllers
 		/// <param name="elementId">The element identifier.</param>
 		public void SelectElement(int elementId)
 		{
-			_elementsView.SetSelection(new List<int>()
-			{
-				elementId
-			});
+			_elementsView.AddToSelectionById(elementId);
 		}
 
 		/// <summary>
@@ -153,9 +151,16 @@ namespace LemonInc.Tools.Panels.Controllers
 			});
 			settings.menu.AppendAction("Change target directory", ChangeTargetDirectory);
 
+			_sidebarElements = new List<ISidebarElement>();
 			_elementsView = _root.Q<TreeView>("Elements");
 			_elementsView.makeItem = () => new SidebarEntry();
-			_elementsView.bindItem = (element, index) => (element as SidebarEntry).Bind(_elementsView.GetItemDataForIndex<ISidebarElement>(index), _search);
+			_elementsView.bindItem = (element, index) =>
+			{
+				var entry = element as SidebarEntry;
+				var sidebarElement = _elementsView.GetItemDataForIndex<ISidebarElement>(index);
+				entry!.Bind(sidebarElement, _search);
+				_sidebarElements.Add(sidebarElement);
+			};
 			_elementsView.autoExpand = true;
 			_elementsView.selectionChanged += SelectionChanged;
 
@@ -233,7 +238,7 @@ namespace LemonInc.Tools.Panels.Controllers
 			if (File.Exists(path) && IsObject(path) && MatchSearch(path, _search))
 			{
 				foundObjectFile = true;
-				var id = Guid.NewGuid().GetHashCode();
+				var id = path.GetHashCode();
 				fileStructure.Add(new TreeViewItemData<ISidebarElement>(id, new SidebarElement(id)
 				{
 					DisplayName = Path.GetFileNameWithoutExtension(path),
@@ -252,7 +257,7 @@ namespace LemonInc.Tools.Panels.Controllers
 						continue;
 
 					foundObjectFile = true;
-					var id = Guid.NewGuid().GetHashCode();
+					var id = subDir.GetHashCode();
 					fileStructure.Add(new TreeViewItemData<ISidebarElement>(id, new SidebarElementGroup(id)
 					{
 						DisplayName = Path.GetFileNameWithoutExtension(subDir),
@@ -264,7 +269,7 @@ namespace LemonInc.Tools.Panels.Controllers
 				foreach (var file in files)
 				{
 					foundObjectFile = true;
-					var id = Guid.NewGuid().GetHashCode();
+					var id = file.GetHashCode();
 					fileStructure.Add(new TreeViewItemData<ISidebarElement>(id, new SidebarElement(id)
 					{
 						DisplayName = Path.GetFileNameWithoutExtension(file),

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using LemonInc.Editor.Utilities;
 using LemonInc.Tools.Panels.Controllers;
 using LemonInc.Tools.Panels.Interfaces;
 using LemonInc.Tools.Panels.Models;
@@ -70,13 +71,11 @@ namespace LemonInc.Tools.Panels
 		/// <inheritdoc/>
 		public void Init(string panelName)
 		{
+			titleContent = new GUIContent(panelName, EditorIcons.DScaletool.image);
 			if (string.IsNullOrEmpty(panelName) || _uxml == null || Configuration == null)
 				return;
-			
-			Configuration.Panels[panelName].OpenedInstances ??= new List<string>();
-			Configuration.Panels[panelName].OpenedInstances.Add(GetInstanceID().ToString());
-			PanelsConfiguration.Instance.Save();
 
+			_uxml.CloneTree(rootVisualElement);
 			_name = panelName;
 
 			_sidebarController ??= new SidebarController(rootVisualElement, PanelDefinition.TargetFolder)
@@ -89,28 +88,19 @@ namespace LemonInc.Tools.Panels
 			_sidebarController.SelectElement(PanelDefinition.LastSelectedElementId);
 		}
 
+		/// <summary>
+		/// Creates the GUI.
+		/// </summary>
 		private void CreateGUI()
 		{
 			if (string.IsNullOrEmpty(_name) && titleContent?.text.Contains("PanelEditorWindow") == false)
 			{
 				Init(titleContent?.text);
 			}
-		}
-
-		/// <summary>
-		/// Called when [enable].
-		/// </summary>
-		private void OnEnable()
-		{
-			_uxml.CloneTree(rootVisualElement);
-
-			var config = Configuration.Panels.FirstOrDefault(x => x.Value.OpenedInstances?.Contains(GetInstanceID().ToString()) == true);
-			if (config.Value == null)
+			else
 			{
-				return;
+				Init(_name);
 			}
-
-			Init(config.Key);
 		}
 
 		/// <summary>
@@ -121,11 +111,6 @@ namespace LemonInc.Tools.Panels
 			_sidebarController?.Dispose();
 			_inspectorPanelController?.Dispose();
 			Configuration.Save();
-		}
-
-		private void OnDestroy()
-		{
-			Configuration.Panels[_name].OpenedInstances.Remove(GetInstanceID().ToString()); 
 		}
 
 		/// <summary>
@@ -153,6 +138,9 @@ namespace LemonInc.Tools.Panels
 		/// <exception cref="System.NotImplementedException"></exception>
 		private void OnElementSelected(ISidebarElement element)
 		{
+			if (element == null) 
+				return;
+
 			_inspectorPanelController.Bind(element);
 			PanelDefinition.LastSelectedElementId = element.Id;
 		}
