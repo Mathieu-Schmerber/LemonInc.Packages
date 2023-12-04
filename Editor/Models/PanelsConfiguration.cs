@@ -8,7 +8,7 @@ namespace LemonInc.Tools.Panels.Models
 	/// <summary>
 	/// Game design state.
 	/// </summary>
-	[GlobalConfig("Plugins/LemonInc/Resources/Panels")]
+	[GlobalConfig("Plugins/LemonInc/Resources/Panels/")]
 	public class PanelsConfiguration : GlobalConfig<PanelsConfiguration>
 	{
 		/// <summary>
