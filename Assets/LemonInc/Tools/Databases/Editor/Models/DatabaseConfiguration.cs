@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 
 namespace LemonInc.Tools.Databases.Models
@@ -10,9 +11,19 @@ namespace LemonInc.Tools.Databases.Models
 	public class DatabaseConfiguration : GlobalConfig<DatabaseConfiguration>
 	{
 		/// <summary>
-		/// The databases.
+		/// The sections definitions.
 		/// </summary>
-		[ReadOnly] public SectionDictionary Databases;
+		[ReadOnly] public SectionDescriptionDictionary SectionDefinitions;
+
+		/// <summary>
+		/// The asset definitions.
+		/// </summary>
+		[ReadOnly] public AssetDictionary AssetDefinitions;
+
+		/// <summary>
+		/// The database ids.
+		/// </summary>
+		[ReadOnly] public List<string> DatabaseIds;
 
 		/// <summary>
 		/// The last selected database identifier.
@@ -40,7 +51,9 @@ namespace LemonInc.Tools.Databases.Models
 		protected override void OnConfigAutoCreated()
 		{
 			base.OnConfigAutoCreated();
-			Databases = new SectionDictionary();
+			SectionDefinitions = new SectionDescriptionDictionary();
+			AssetDefinitions = new AssetDictionary();
+			DatabaseIds = new List<string>();
 		}
 	}
 }

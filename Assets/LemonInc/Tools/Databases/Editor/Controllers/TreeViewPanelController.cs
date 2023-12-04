@@ -17,7 +17,6 @@ namespace LemonInc.Tools.Databases.Controllers
 		public override event Action<SectionDefinition> OnItemCreated;
 		public override event Action<SectionDefinition> OnItemDeleted;
 		public override event Action<SectionDefinition> OnItemSelected;
-		public override event Action<SectionDefinition> OnItemDeSelected;
 
 		/// <summary>
 		/// The parent.
@@ -200,6 +199,7 @@ namespace LemonInc.Tools.Databases.Controllers
 		/// <returns>The selected item or null.</returns>
 		private TreeViewEntry<SectionDefinition> GetSelectedItem()
 		{
+			
 			var dataObject = _treeView.selectedItem as SectionDefinition;
 			var view = _viewEntries.FirstOrDefault(x => x.Data.Id.Equals(dataObject?.Id));
 			view?.OnSelected();

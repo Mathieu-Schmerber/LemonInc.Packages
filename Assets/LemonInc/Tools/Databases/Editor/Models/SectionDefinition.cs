@@ -1,23 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
 using LemonInc.Tools.Databases.Interfaces;
-using UnityEngine;
 
 namespace LemonInc.Tools.Databases.Models
 {
-	[Serializable]
+	/// <summary>
+	/// Complete definition of section.
+	/// </summary>
+	/// <seealso cref="LemonInc.Tools.Databases.Interfaces.IIdentifiable" />
 	public class SectionDefinition : IIdentifiable
 	{
-		[SerializeField] private string _id;
-		[SerializeField] private string _name;
-		[SerializeField] private SectionDictionary _sections;
-		[SerializeField] private List<AssetDefinition> _assets;
+		/// <summary>
+		/// Gets or sets the identifier.
+		/// </summary>
+		/// <value>
+		/// The identifier.
+		/// </value>
+		public string Id { get; set; }
 
-		public string Id { get => _id; set => _id = value; }
-		public string Name { get => _name; set => _name = value; }
+		/// <summary>
+		/// Gets or sets the name.
+		/// </summary>
+		/// <value>
+		/// The name.
+		/// </value>
+		public string Name { get; set; }
+
+		/// <summary>
+		/// Gets or sets the parent.
+		/// </summary>
+		/// <value>
+		/// The parent.
+		/// </value>
 		public SectionDefinition Parent { get; set; }
-		public SectionDictionary Sections { get => _sections; set => _sections = value; }
-		public List<AssetDefinition> Assets { get => _assets; set => _assets = value; }
+
+		/// <summary>
+		/// Gets or sets the sections.
+		/// </summary>
+		/// <value>
+		/// The sections.
+		/// </value>
+		public SectionDictionary Sections { get; set; }
+
+		/// <summary>
+		/// Gets or sets the assets.
+		/// </summary>
+		/// <value>
+		/// The assets.
+		/// </value>
+		public List<AssetDefinition> Assets { get; set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="SectionDefinition"/> class.

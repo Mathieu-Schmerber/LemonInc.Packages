@@ -18,7 +18,6 @@ namespace LemonInc.Tools.Databases.Controllers
 		public override event Action<TData> OnItemCreated;
 		public override event Action<TData> OnItemDeleted;
 		public override event Action<TData> OnItemSelected;
-		public override event Action<TData> OnItemDeSelected;
 
 		/// <summary>
 		/// The selected item.
@@ -79,8 +78,21 @@ namespace LemonInc.Tools.Databases.Controllers
 			});
 			ListView.itemsAdded += OnItemsAdded;
 			ListView.itemsRemoved += OnItemRemoved;
+			ListView.selectionChanged += OnSelectionChanged;
 			reference.AddToolbarButton.clicked += OnItemAdded;
 			reference.PanelVisualElement.Add(ListView);
+		}
+
+		/// <summary>
+		/// Called when [selection changed].
+		/// </summary>
+		/// <param name="selectionq">The object.</param>
+		private void OnSelectionChanged(IEnumerable<object> selectionq)
+		{
+			foreach (var selection in selectionq)
+			{
+				OnItemSelected?.Invoke(selection as TData);
+			}
 		}
 
 		/// <summary>
@@ -182,6 +194,7 @@ namespace LemonInc.Tools.Databases.Controllers
 		{
 			ListView.itemsAdded -= OnItemsAdded;
 			ListView.itemsRemoved -= OnItemRemoved;
+			ListView.selectionChanged -= OnSelectionChanged;
 			foreach (var entryView in _entryViews)
 			{
 				entryView.OnRenamed -= OnItemRenamed;

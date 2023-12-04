@@ -25,9 +25,6 @@ namespace LemonInc.Tools.Databases.Controllers
 		/// <inheritdoc/>
 		public abstract event Action<TData> OnItemSelected;
 
-		/// <inheritdoc/>
-		public abstract event Action<TData> OnItemDeSelected;
-
 		/// <summary>
 		/// The selected item.
 		/// </summary>
