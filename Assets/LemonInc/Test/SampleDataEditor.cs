@@ -25,12 +25,9 @@ namespace Assets.LemonInc.Test
 
 			_time += Time.deltaTime;
 
-			LemonIncEditorUtilities.DrawRect(rect, Color.cyan);
-			LemonIncEditorUtilities.DrawLine(rect.center, rect.min, 3f, Color.red);
-			LemonIncEditorUtilities.DrawLine(rect.center, rect.max, 3f, Color.black);
-			LemonIncEditorUtilities.DrawLine(rect.center, new Vector2(rect.xMax, rect.yMin), 3f, Color.green);
-			LemonIncEditorUtilities.DrawLine(rect.center, new Vector2(rect.xMin, rect.yMax), 3f, Color.yellow);
-			LemonIncEditorUtilities.DrawArrow(rect.center, 5f, rect.size.y / 2f, 20f, ColorUtilities.RandomColor(), _time % 360);
+			LemonIncEditorUtilities.DrawTexture(new Rect(rect.center, new Vector2(50, 50)), Databases.Test.Okk.Err.Angry, ScaleMode.ScaleToFit, Pivot.SPRITE, _time * 10);
+			LemonIncEditorUtilities.DrawRect(new Rect(rect.center, new Vector2(5, 5)), Color.cyan, Pivot.CENTER);
+
 
 			EditorGUILayout.Space(rect.height);
 		}

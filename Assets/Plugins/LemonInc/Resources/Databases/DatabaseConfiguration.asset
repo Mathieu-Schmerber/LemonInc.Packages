@@ -45,6 +45,7 @@ MonoBehaviour:
       - 56a152c7-93d0-44aa-8bc2-ff7e5e64445c
       - 332b2b48-37fc-49fc-8b7d-a238db98b260
       - 54f9439a-8b9a-4e2e-a178-187a3c240f4a
+      - 4d0ad9c1-0aed-46c7-9b88-c8adf9526923
     - _id: f3a8db06-edbc-4cbd-8877-32ad4de88498
       _name: ok
       _sections: []
@@ -110,6 +111,7 @@ MonoBehaviour:
     - c63ce637-080a-48e7-9bac-e31c005111ce
     - 1f96ef6b-10a7-45ee-85fe-93e49e525c7d
     - 8d6dae5f-631f-4d4a-a463-f666256c121d
+    - 4d0ad9c1-0aed-46c7-9b88-c8adf9526923
     _valueData:
     - _id: 56a152c7-93d0-44aa-8bc2-ff7e5e64445c
       _name: Data B
@@ -156,6 +158,9 @@ MonoBehaviour:
     - _id: 8d6dae5f-631f-4d4a-a463-f666256c121d
       _name: Bullet
       _data: {fileID: 1033174274539694887, guid: 604bf7ff186c40547838d4216bbf6cc9, type: 3}
+    - _id: 4d0ad9c1-0aed-46c7-9b88-c8adf9526923
+      _name: angry
+      _data: {fileID: 21300000, guid: eda6a3c14bb9f1d46acb027c23d63446, type: 3}
   DatabaseIds:
   - a6e29646-0f1b-4826-be2f-ba7f325d8a48
   LastSelectedDatabaseId: 
