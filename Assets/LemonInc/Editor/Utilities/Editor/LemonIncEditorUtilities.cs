@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Codice.Client.BaseCommands;
 using LemonInc.Core.Utilities.Extensions;
 using UnityEditor;
@@ -145,14 +146,21 @@ namespace LemonInc.Editor.Utilities
 		}
 
 		/// <summary>
-		/// Draws a texture.
+		/// Draws the texture.
 		/// </summary>
 		/// <param name="rect">The rect.</param>
 		/// <param name="sprite">The sprite.</param>
-		/// <param name="scaleMode">The scale to fit.</param>
+		/// <param name="scaleMode">The scale mode.</param>
+		/// <param name="pivot">The pivot.</param>
+		/// <param name="onTextureCreated">The create texture.</param>
 		/// <param name="eulerRotationZ">The euler rotation z.</param>
-		public static void DrawTexture(Rect rect, Sprite sprite, ScaleMode scaleMode, Vector2 pivot, float eulerRotationZ = 0)
-			=> DrawTexture(rect, sprite.ToTexture(), scaleMode, pivot, eulerRotationZ);
+		public static void DrawTexture(Rect rect, Sprite sprite, ScaleMode scaleMode, Vector2 pivot, Action<Texture2D> onTextureCreated = null, float eulerRotationZ = 0)
+		{
+			var texture = sprite.ToTexture();
+
+			onTextureCreated?.Invoke(texture);
+			DrawTexture(rect, texture, scaleMode, pivot, eulerRotationZ);
+		}
 
 		/// <summary>
 		/// Draws the texture.
@@ -172,16 +180,19 @@ namespace LemonInc.Editor.Utilities
 		/// </summary>
 		/// <param name="rect">The rect.</param>
 		/// <param name="sprite">The sprite.</param>
-		/// <param name="scaleMode">The scale to fit.</param>
+		/// <param name="scaleMode">The scale mode.</param>
 		/// <param name="pivot">The pivot.</param>
+		/// <param name="onTextureCreated">The create texture.</param>
 		/// <param name="eulerRotationZ">The euler rotation z.</param>
-		public static void DrawTexture(Rect rect, Sprite sprite, ScaleMode scaleMode, Pivot pivot, float eulerRotationZ = 0)
+		public static void DrawTexture(Rect rect, Sprite sprite, ScaleMode scaleMode, Pivot pivot, Action<Texture2D> onTextureCreated = null, float eulerRotationZ = 0)
 		{
+			var texture = sprite.ToTexture();
 			var finalPivot = PIVOT_MAPPING[pivot];
 			if (pivot == Pivot.SPRITE)
-				finalPivot = sprite.pivot / sprite.texture.width;
+				finalPivot = sprite.pivot / texture.width;
 
-			DrawTexture(rect, sprite.ToTexture(), scaleMode, finalPivot, eulerRotationZ);
+			onTextureCreated?.Invoke(texture);
+			DrawTexture(rect, texture, scaleMode, finalPivot, eulerRotationZ);
 		}
 	}
 }
