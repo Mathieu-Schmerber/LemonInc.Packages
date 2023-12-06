@@ -13,7 +13,7 @@ namespace Databases
 	public class Test : Singleton<Test>
 {
 private DatabaseConfiguration _configInstance;
-private DatabaseConfiguration Configuration => _configInstance ??= DatabaseConfiguration.Instance;
+private DatabaseConfiguration Configuration => _configInstance ??= Resources.Load<DatabaseConfiguration>("Databases/DatabaseConfiguration");
 public class Okk
 {
 

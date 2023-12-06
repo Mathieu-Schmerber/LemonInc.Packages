@@ -158,7 +158,7 @@ MonoBehaviour:
       _data: {fileID: 1033174274539694887, guid: 604bf7ff186c40547838d4216bbf6cc9, type: 3}
   DatabaseIds:
   - a6e29646-0f1b-4826-be2f-ba7f325d8a48
-  LastSelectedDatabaseId: a6e29646-0f1b-4826-be2f-ba7f325d8a48
-  LastSelectedSectionId: dd09d693-7b06-4d63-8704-ada53ba88ca0
-  LastSelectedAssetId: 4877cacd-742f-4556-a7f4-8f8feb6b678b
+  LastSelectedDatabaseId: 
+  LastSelectedSectionId: 
+  LastSelectedAssetId: 
   ScriptPath: Assets/LemonInc/Test/Databases.cs
