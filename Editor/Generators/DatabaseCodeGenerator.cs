@@ -116,7 +116,7 @@ namespace LemonInc.Tools.Databases.Generators
 			foreach (var assetId in section.Assets)
 			{
 				var asset = databases.AssetDefinitions[assetId];
-				var template = "public static {type} {name} = ({type})Instance.Configuration.AssetDefinitions[\"{id}\"].Data;"
+				var template = "public static {type} {name} = ({type})Instance.Configuration?.AssetDefinitions[\"{id}\"].Data;"
 					.Replace("{type}", asset.Data.GetType().FullName)
 					.Replace("{name}", asset.Name.ToPascalCase())
 					.Replace("{id}", assetId);
