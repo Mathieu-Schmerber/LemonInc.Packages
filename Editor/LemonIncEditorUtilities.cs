@@ -1,5 +1,8 @@
-﻿using LemonInc.Core.Utilities.Extensions;
+﻿using System.Collections.Generic;
+using Codice.Client.BaseCommands;
+using LemonInc.Core.Utilities.Extensions;
 using UnityEditor;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 namespace LemonInc.Editor.Utilities
@@ -10,25 +13,21 @@ namespace LemonInc.Editor.Utilities
 	public static class LemonIncEditorUtilities
 	{
 		/// <summary>
-		/// Draws a rectangle.
+		/// The pivot mapping.
 		/// </summary>
-		/// <param name="rect">The rect.</param>
-		/// <param name="color">The color.</param>
-		/// <param name="eulerRotationZ">The euler rotation z.</param>
-		public static void DrawRect(Rect rect, Color color, float eulerRotationZ = 0)
+		private static Dictionary<Pivot, Vector2> PIVOT_MAPPING = new Dictionary<Pivot, Vector2>()
 		{
-			var baseMatrix = GUI.matrix;
-			if (eulerRotationZ != 0)
-			{
-				GUI.matrix = Matrix4x4.TRS(rect.center,  Quaternion.Euler(0, 0, eulerRotationZ + baseMatrix.rotation.eulerAngles.z), Vector3.one);
-				EditorGUI.DrawRect(new Rect(-rect.width / 2f, -rect.height/2f, rect.width, rect.height), color);
-				GUI.matrix = baseMatrix;
-			}
-			else
-			{
-				EditorGUI.DrawRect(rect, color);
-			}
-		}
+			{ Pivot.TOP_LEFT, new Vector2(0, 1)},
+			{ Pivot.TOP, new Vector2(.5f, 1)},
+			{ Pivot.TOP_RIGHT, new Vector2(1, 1)},
+			{ Pivot.LEFT, new Vector2(0, .5f)},
+			{ Pivot.CENTER, new Vector2(.5f, .5f)},
+			{ Pivot.SPRITE, new Vector2(.5f, .5f)},
+			{ Pivot.RIGHT, new Vector2(1, .5f)},
+			{ Pivot.BOTTOM_LEFT, new Vector2(0, 0)},
+			{ Pivot.BOTTOM, new Vector2(.5f, 0)},
+			{ Pivot.BOTTOM_RIGHT, new Vector2(1, 0)},
+		};
 
 		/// <summary>
 		/// Draws a line between two points.
@@ -61,31 +60,6 @@ namespace LemonInc.Editor.Utilities
 			EditorGUI.DrawRect(new Rect(-thickness / 2f, -thickness / 2f, length, thickness), color);
 			GUI.matrix = baseMatrix;
 		}
-
-		/// <summary>
-		/// Draws a texture.
-		/// </summary>
-		/// <param name="rect">The rect.</param>
-		/// <param name="texture">The texture.</param>
-		/// <param name="scaleToFit">The scale to fit.</param>
-		/// <param name="eulerRotationZ">The euler rotation z.</param>
-		public static void DrawTexture(Rect rect, Texture2D texture, ScaleMode scaleToFit, float eulerRotationZ = 0)
-		{
-			var baseMatrix = GUI.matrix;
-			GUI.matrix = Matrix4x4.TRS(rect.center, Quaternion.Euler(0, 0, eulerRotationZ + baseMatrix.rotation.eulerAngles.z), Vector3.one);
-			GUI.DrawTexture(new Rect(-rect.width / 2f, -rect.height / 2f, rect.width, rect.height), texture, scaleToFit);
-			GUI.matrix = baseMatrix;
-		}
-
-		/// <summary>
-		/// Draws a texture.
-		/// </summary>
-		/// <param name="rect">The rect.</param>
-		/// <param name="sprite">The sprite.</param>
-		/// <param name="scaleToFit">The scale to fit.</param>
-		/// <param name="eulerRotationZ">The euler rotation z.</param>
-		public static void DrawTexture(Rect rect, Sprite sprite, ScaleMode scaleToFit, float eulerRotationZ = 0)
-			=> DrawTexture(rect, sprite.ToTexture(), scaleToFit, eulerRotationZ);
 
 		/// <summary>
 		/// Draws an arrow between two points.
@@ -121,6 +95,93 @@ namespace LemonInc.Editor.Utilities
 			DrawLine(position, thickness, bodyLength, color, eulerRotationZ);
 			DrawLine(arrowTip, thickness, tipLength, color, eulerRotationZ + 145f);
 			DrawLine(arrowTip, thickness, tipLength, color, eulerRotationZ - 145f);
+		}
+
+		/// <summary>
+		/// Draws a rect.
+		/// </summary>
+		/// <param name="rect">The rect.</param>
+		/// <param name="color">The color.</param>
+		/// <param name="pivot">The pivot.</param>
+		/// <param name="eulerRotationZ">The euler rotation z.</param>
+		public static void DrawRect(Rect rect, Color color, Vector2 pivot, float eulerRotationZ = 0)
+		{
+			var startBotLeft = new Vector2(0, -rect.size.y);
+			var pivotAdjustment = rect.size * pivot * new Vector2(1, -1);
+			var baseMatrix = GUI.matrix;
+
+			GUI.matrix = Matrix4x4.TRS(rect.position, Quaternion.Euler(0, 0, eulerRotationZ + baseMatrix.rotation.eulerAngles.z), Vector3.one);
+			EditorGUI.DrawRect(new Rect(startBotLeft - pivotAdjustment, rect.size), color);
+			GUI.matrix = baseMatrix;
+		}
+
+		/// <summary>
+		/// Draws a rect.
+		/// </summary>
+		/// <param name="rect">The rect.</param>
+		/// <param name="color">The color.</param>
+		/// <param name="pivot">The pivot.</param>
+		/// <param name="eulerRotationZ">The euler rotation z.</param>
+		public static void DrawRect(Rect rect, Color color, Pivot pivot, float eulerRotationZ = 0)
+			=> DrawRect(rect, color, PIVOT_MAPPING[pivot], eulerRotationZ);
+
+		/// <summary>
+		/// Draws the texture.
+		/// </summary>
+		/// <param name="rect">The rect.</param>
+		/// <param name="texture">The texture.</param>
+		/// <param name="scaleMode">The scale to fit.</param>
+		/// <param name="pivot">The pivot.</param>
+		/// <param name="eulerRotationZ">The euler rotation z.</param>
+		public static void DrawTexture(Rect rect, Texture2D texture, ScaleMode scaleMode, Vector2 pivot, float eulerRotationZ = 0)
+		{
+			var startBotLeft = new Vector2(0, -rect.size.y);
+			var pivotAdjustment = rect.size * pivot * new Vector2(1, -1);
+			var baseMatrix = GUI.matrix;
+
+			GUI.matrix = Matrix4x4.TRS(rect.position, Quaternion.Euler(0, 0, eulerRotationZ + baseMatrix.rotation.eulerAngles.z), Vector3.one);
+			GUI.DrawTexture(new Rect(startBotLeft - pivotAdjustment, rect.size), texture, scaleMode);
+			GUI.matrix = baseMatrix;
+		}
+
+		/// <summary>
+		/// Draws a texture.
+		/// </summary>
+		/// <param name="rect">The rect.</param>
+		/// <param name="sprite">The sprite.</param>
+		/// <param name="scaleMode">The scale to fit.</param>
+		/// <param name="eulerRotationZ">The euler rotation z.</param>
+		public static void DrawTexture(Rect rect, Sprite sprite, ScaleMode scaleMode, Vector2 pivot, float eulerRotationZ = 0)
+			=> DrawTexture(rect, sprite.ToTexture(), scaleMode, pivot, eulerRotationZ);
+
+		/// <summary>
+		/// Draws the texture.
+		/// </summary>
+		/// <param name="rect">The rect.</param>
+		/// <param name="texture">The texture.</param>
+		/// <param name="scaleMode">The scale to fit.</param>
+		/// <param name="pivot">The pivot.</param>
+		/// <param name="eulerRotationZ">The euler rotation z.</param>
+		public static void DrawTexture(Rect rect, Texture2D texture, ScaleMode scaleMode, Pivot pivot, float eulerRotationZ = 0)
+		{
+			DrawTexture(rect, texture, scaleMode, PIVOT_MAPPING[pivot], eulerRotationZ);
+		}
+
+		/// <summary>
+		/// Draws the texture.
+		/// </summary>
+		/// <param name="rect">The rect.</param>
+		/// <param name="sprite">The sprite.</param>
+		/// <param name="scaleMode">The scale to fit.</param>
+		/// <param name="pivot">The pivot.</param>
+		/// <param name="eulerRotationZ">The euler rotation z.</param>
+		public static void DrawTexture(Rect rect, Sprite sprite, ScaleMode scaleMode, Pivot pivot, float eulerRotationZ = 0)
+		{
+			var finalPivot = PIVOT_MAPPING[pivot];
+			if (pivot == Pivot.SPRITE)
+				finalPivot = sprite.pivot / sprite.texture.width;
+
+			DrawTexture(rect, sprite.ToTexture(), scaleMode, finalPivot, eulerRotationZ);
 		}
 	}
 }
