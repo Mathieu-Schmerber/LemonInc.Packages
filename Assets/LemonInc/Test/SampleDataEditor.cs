@@ -1,4 +1,3 @@
-using LemonInc.Core.Utilities;
 using LemonInc.Editor.Utilities;
 using UnityEditor;
 using UnityEngine;
@@ -25,7 +24,7 @@ namespace Assets.LemonInc.Test
 
 			_time += Time.deltaTime;
 
-			LemonIncEditorUtilities.DrawTexture(new Rect(rect.center, new Vector2(50, 50)), Databases.Test.Okk.Err.Angry, ScaleMode.ScaleToFit, Pivot.SPRITE, _time * 10);
+			LemonIncEditorUtilities.DrawTexture(new Rect(rect.center, new Vector2(50, 50)), Databases.Main.Test.Angry, ScaleMode.ScaleToFit, Pivot.SPRITE, eulerRotationZ: _time * 10);
 			LemonIncEditorUtilities.DrawRect(new Rect(rect.center, new Vector2(5, 5)), Color.cyan, Pivot.CENTER);
 
 

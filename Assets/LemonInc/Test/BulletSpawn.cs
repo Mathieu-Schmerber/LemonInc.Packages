@@ -10,7 +10,7 @@ public class BulletSpawn : MonoBehaviour
     private void Start()
     {
         InvokeRepeating(nameof(Spawn), 0, 2);
-        Instantiate(Databases.Test.Okk.Err.Bullet);
+        Instantiate(Databases.Main.Test.Bullet);
     }
 
     private void Spawn()

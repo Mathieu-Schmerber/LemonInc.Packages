@@ -10,29 +10,16 @@ using UnityEngine;
 
 namespace Databases
 {
-	public class Test : Singleton<Test>
+	public class Main : Singleton<Main>
 {
 private DatabaseConfiguration _configInstance;
 private DatabaseConfiguration Configuration => _configInstance ??= Resources.Load<DatabaseConfiguration>("Databases/DatabaseConfiguration");
-public class Okk
+public class Test
 {
-
-/// <summary>
-/// Gets all assets from this section.
-/// </summary>
-/// <returns>An <see cref="IEnumerable{T}"/> of all assets.</returns>
-public static IEnumerable<T> All<T>()
-   where T : UnityEngine.Object
-{
-   var all = new UnityEngine.Object[0] {  };
-   return all.OfType<T>();
-}
-public class Err
-{
-public static Assets.LemonInc.Test.SampleData DataB = (Assets.LemonInc.Test.SampleData)Instance.Configuration?.AssetDefinitions["56a152c7-93d0-44aa-8bc2-ff7e5e64445c"].Data;
-public static Assets.LemonInc.Test.SampleData NewSampleData = (Assets.LemonInc.Test.SampleData)Instance.Configuration?.AssetDefinitions["332b2b48-37fc-49fc-8b7d-a238db98b260"].Data;
-public static UnityEngine.GameObject Bullet = (UnityEngine.GameObject)Instance.Configuration?.AssetDefinitions["54f9439a-8b9a-4e2e-a178-187a3c240f4a"].Data;
-public static UnityEngine.Sprite Angry = (UnityEngine.Sprite)Instance.Configuration?.AssetDefinitions["4d0ad9c1-0aed-46c7-9b88-c8adf9526923"].Data;
+public static Assets.LemonInc.Test.SampleData DataB = (Assets.LemonInc.Test.SampleData)Instance.Configuration?.AssetDefinitions["15d4db23-e91e-48f5-a29e-019c4b90658d"].Data;
+public static Assets.LemonInc.Test.SampleData NewSampleData = (Assets.LemonInc.Test.SampleData)Instance.Configuration?.AssetDefinitions["2addf8bb-f38a-4177-8a18-221ae5988d6e"].Data;
+public static UnityEngine.GameObject Bullet = (UnityEngine.GameObject)Instance.Configuration?.AssetDefinitions["6a63fffb-004c-484b-86c3-ae47b70982c1"].Data;
+public static UnityEngine.Sprite Angry = (UnityEngine.Sprite)Instance.Configuration?.AssetDefinitions["d2a16fdb-be87-4506-9443-1c964be538ec"].Data;
 
 /// <summary>
 /// Gets all assets from this section.
@@ -44,64 +31,14 @@ public static IEnumerable<T> All<T>()
    var all = new UnityEngine.Object[4] { DataB, NewSampleData, Bullet, Angry };
    return all.OfType<T>();
 }
-public class Okk
-{
-
-/// <summary>
-/// Gets all assets from this section.
-/// </summary>
-/// <returns>An <see cref="IEnumerable{T}"/> of all assets.</returns>
-public static IEnumerable<T> All<T>()
-   where T : UnityEngine.Object
-{
-   var all = new UnityEngine.Object[0] {  };
-   return all.OfType<T>();
-}
-public class NewSection0
-{
-public static UnityEngine.UIElements.StyleSheet StateMachineEditorWindow = (UnityEngine.UIElements.StyleSheet)Instance.Configuration?.AssetDefinitions["2a3b14f4-e749-43ec-9009-1f92739fd2ba"].Data;
-public static Assets.LemonInc.Test.SampleData DataB = (Assets.LemonInc.Test.SampleData)Instance.Configuration?.AssetDefinitions["a3ebde06-34ae-457c-bf89-11107e9228be"].Data;
-public static Assets.LemonInc.Test.SampleData NewSampleData = (Assets.LemonInc.Test.SampleData)Instance.Configuration?.AssetDefinitions["74b3168d-7eb1-4436-8db5-8b26d7d74cad"].Data;
-public static UnityEngine.UIElements.VisualTreeAsset Databases = (UnityEngine.UIElements.VisualTreeAsset)Instance.Configuration?.AssetDefinitions["5749336d-24ea-4851-8cd6-70c338967fd1"].Data;
-public static UnityEngine.UIElements.StyleSheet DatabaseStyles = (UnityEngine.UIElements.StyleSheet)Instance.Configuration?.AssetDefinitions["96e4effd-4a89-4812-8a2a-bd927fdbb50f"].Data;
-public static UnityEngine.UIElements.VisualTreeAsset PackageHandlerWindow = (UnityEngine.UIElements.VisualTreeAsset)Instance.Configuration?.AssetDefinitions["4877cacd-742f-4556-a7f4-8f8feb6b678b"].Data;
-public static UnityEngine.UIElements.VisualTreeAsset PackageScope = (UnityEngine.UIElements.VisualTreeAsset)Instance.Configuration?.AssetDefinitions["8df3404a-b46c-48af-a3b7-ec15aca59826"].Data;
-public static UnityEngine.UIElements.VisualTreeAsset Banner = (UnityEngine.UIElements.VisualTreeAsset)Instance.Configuration?.AssetDefinitions["efbdaca0-f088-4cde-b49f-58bc361645ce"].Data;
-public static UnityEngine.UIElements.VisualTreeAsset CreatePanel = (UnityEngine.UIElements.VisualTreeAsset)Instance.Configuration?.AssetDefinitions["a8f816bb-6712-4912-b5b4-56e984e6b784"].Data;
-public static UnityEngine.UIElements.VisualTreeAsset Panel = (UnityEngine.UIElements.VisualTreeAsset)Instance.Configuration?.AssetDefinitions["c63ce637-080a-48e7-9bac-e31c005111ce"].Data;
-public static UnityEngine.UIElements.VisualTreeAsset SceneSwitcherWindow = (UnityEngine.UIElements.VisualTreeAsset)Instance.Configuration?.AssetDefinitions["1f96ef6b-10a7-45ee-85fe-93e49e525c7d"].Data;
-public static UnityEngine.GameObject Bullet = (UnityEngine.GameObject)Instance.Configuration?.AssetDefinitions["8d6dae5f-631f-4d4a-a463-f666256c121d"].Data;
-
-/// <summary>
-/// Gets all assets from this section.
-/// </summary>
-/// <returns>An <see cref="IEnumerable{T}"/> of all assets.</returns>
-public static IEnumerable<T> All<T>()
-   where T : UnityEngine.Object
-{
-   var all = new UnityEngine.Object[12] { StateMachineEditorWindow, DataB, NewSampleData, Databases, DatabaseStyles, PackageHandlerWindow, PackageScope, Banner, CreatePanel, Panel, SceneSwitcherWindow, Bullet };
-   return all.OfType<T>();
-}
-}
-}
-}
 }
 
-public class Ok
-{
-
-/// <summary>
-/// Gets all assets from this section.
-/// </summary>
-/// <returns>An <see cref="IEnumerable{T}"/> of all assets.</returns>
-public static IEnumerable<T> All<T>()
-   where T : UnityEngine.Object
-{
-   var all = new UnityEngine.Object[0] {  };
-   return all.OfType<T>();
-}
 }
 
+public class NewDatabase1 : Singleton<NewDatabase1>
+{
+private DatabaseConfiguration _configInstance;
+private DatabaseConfiguration Configuration => _configInstance ??= Resources.Load<DatabaseConfiguration>("Databases/DatabaseConfiguration");
 }
 
 
