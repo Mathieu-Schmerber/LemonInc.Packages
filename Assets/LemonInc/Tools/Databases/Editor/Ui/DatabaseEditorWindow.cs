@@ -2,6 +2,8 @@
 using System.IO;
 using System.Linq;
 using LemonInc.Editor.Utilities;
+using LemonInc.Editor.Utilities.Configuration;
+using LemonInc.Editor.Utilities.Configuration.Extensions;
 using LemonInc.Editor.Utilities.Extensions;
 using LemonInc.Tools.Databases.Controllers;
 using LemonInc.Tools.Databases.Generators;
@@ -37,12 +39,17 @@ namespace LemonInc.Tools.Databases.Ui
 		private DatabaseConfiguration _configuration;
 
 		/// <summary>
+		/// The configuration path.
+		/// </summary>
+		public const string CONFIGURATION_PATH = "Plugins/LemonInc/Resources/Databases/DatabaseConfiguration.asset";
+
+		/// <summary>
 		/// Gets the state.
 		/// </summary>
 		/// <value>
 		/// The state.
 		/// </value>
-		private DatabaseConfiguration Configuration => _configuration ??= DatabaseConfiguration.Instance;
+		private DatabaseConfiguration Configuration => _configuration ??= ConfigurationLoader.LoadConfiguration<DatabaseConfiguration>(CONFIGURATION_PATH);
 
 		/// <summary>
 		/// The data.
