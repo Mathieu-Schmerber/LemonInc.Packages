@@ -1,5 +1,8 @@
+using System;
 using System.IO;
 using System.Text;
+using LemonInc.Editor.Utilities.Configuration;
+using LemonInc.Editor.Utilities.Configuration.Extensions;
 using LemonInc.Editor.Utilities.Extensions;
 using LemonInc.Tools.Panels.Models;
 using UnityEditor;
@@ -75,7 +78,7 @@ namespace LemonInc.Tools.Panels
 		/// <value>
 		/// The state.
 		/// </value>
-		private PanelsConfiguration Configuration => _configuration ??= PanelsConfiguration.Instance;
+		private PanelsConfiguration Configuration => _configuration ??= ConfigurationLoader.LoadConfiguration<PanelsConfiguration>("Plugins/LemonInc/Resources/Panels/PanelsConfiguration.asset");
 
 		/// <summary>
 		/// Creates the GUI.
@@ -99,7 +102,15 @@ namespace LemonInc.Tools.Panels
 
 			_root.RegisterCallback<GeometryChangedEvent>(FitToContent);
 		}
-		
+
+		/// <summary>
+		/// Called when [disable].
+		/// </summary>
+		private void OnDisable()
+		{
+			Configuration.Save();
+		}
+
 		/// <summary>
 		/// Fits to content.
 		/// </summary>

@@ -1,15 +1,13 @@
 using System;
 using LemonInc.Core.Utilities;
-using Sirenix.Utilities;
-using UnityEditor;
+using LemonInc.Editor.Utilities.Configuration;
 
 namespace LemonInc.Tools.Panels.Models
 {
 	/// <summary>
 	/// Game design state.
 	/// </summary>
-	[GlobalConfig("Plugins/LemonInc/Resources/Panels/")]
-	public class PanelsConfiguration : GlobalConfig<PanelsConfiguration>
+	public class PanelsConfiguration : ConfigurationAsset
 	{
 		/// <summary>
 		/// The panel dictionary.
@@ -25,18 +23,9 @@ namespace LemonInc.Tools.Panels.Models
 		/// <summary>
 		/// Called when [configuration automatic created].
 		/// </summary>
-		protected override void OnConfigAutoCreated()
+		public override void OnCreated()
 		{
 			Panels = new PanelDictionary();
-		}
-
-		/// <summary>
-		/// Saves this instance.
-		/// </summary>
-		public void Save()
-		{
-			EditorUtility.SetDirty(this);
-			AssetDatabase.SaveAssetIfDirty(this);
 		}
 	}
 }
