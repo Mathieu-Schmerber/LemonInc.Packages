@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
+using LemonInc.Editor.Utilities.Configuration;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 
 namespace LemonInc.Tools.Databases.Models
 {
 	/// <summary>
 	/// Database configuration.
 	/// </summary>
-	[GlobalConfig("Plugins/LemonInc/Resources/Databases/")]
-	public class DatabaseConfiguration : GlobalConfig<DatabaseConfiguration>
+	public class DatabaseConfiguration : ConfigurationAsset
 	{
 		/// <summary>
 		/// The sections definitions.
@@ -45,12 +44,9 @@ namespace LemonInc.Tools.Databases.Models
 		/// </summary>
 		public string ScriptPath;
 
-		/// <summary>
-		/// Called when [configuration automatic created].
-		/// </summary>
-		protected override void OnConfigAutoCreated()
+		/// <inheritdoc />
+		public override void OnCreated()
 		{
-			base.OnConfigAutoCreated();
 			SectionDefinitions = new SectionDescriptionDictionary();
 			AssetDefinitions = new AssetDictionary();
 			DatabaseIds = new List<string>();
