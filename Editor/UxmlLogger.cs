@@ -1,17 +1,22 @@
-﻿using System;
+﻿using LemonInc.Editor.Utilities.Configuration;
+using System;
 using UnityEngine;
 
 namespace LemonInc.Editor.Uxml
 {
 	internal static class UxmlLogger
 	{
+		private static UxmlAssetConfiguration _configuration;
+		public static UxmlAssetConfiguration Configuration => _configuration ??= ConfigurationLoader.LoadConfiguration<UxmlAssetConfiguration>("Settings/LemonInc/Resources/UXML/UxmlAssetConfiguration.asset");
+
+
 		/// <summary>
 		/// Logs the specified message.
 		/// </summary>
 		/// <param name="message">The message.</param>
 		public static void Log(string message)
 		{
-			if (UxmlAssetConfiguration.Instance.DoLogTrace)
+			if (Configuration.DoLogTrace)
 				Debug.Log(message);
 		}
 
