@@ -4,6 +4,7 @@
 
 using LemonInc.Core.Utilities;
 using LemonInc.Tools.Databases.Models;
+using LemonInc.Editor.Utilities.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Databases
 	public class Main : Singleton<Main>
 {
 private DatabaseConfiguration _configInstance;
-private DatabaseConfiguration Configuration => _configInstance ??= Resources.Load<DatabaseConfiguration>("Databases/DatabaseConfiguration");
+private DatabaseConfiguration Configuration => _configInstance ??= ConfigurationLoader.LoadConfiguration<DatabaseConfiguration>("Plugins/LemonInc/Resources/Databases/DatabaseConfiguration.asset");
 public class Test
 {
 public static Assets.LemonInc.Test.SampleData DataB = (Assets.LemonInc.Test.SampleData)Instance.Configuration?.AssetDefinitions["15d4db23-e91e-48f5-a29e-019c4b90658d"].Data;
@@ -33,12 +34,6 @@ public static IEnumerable<T> All<T>()
 }
 }
 
-}
-
-public class NewDatabase1 : Singleton<NewDatabase1>
-{
-private DatabaseConfiguration _configInstance;
-private DatabaseConfiguration Configuration => _configInstance ??= Resources.Load<DatabaseConfiguration>("Databases/DatabaseConfiguration");
 }
 
 
