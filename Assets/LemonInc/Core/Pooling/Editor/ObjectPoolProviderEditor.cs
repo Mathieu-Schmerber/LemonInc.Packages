@@ -5,6 +5,8 @@ using LemonInc.Editor.Utilities.Helpers;
 using Sirenix.Utilities.Editor;
 using System.IO;
 using LemonInc.Core.Pooling.Editor.Configuration;
+using LemonInc.Editor.Utilities.Configuration;
+using LemonInc.Editor.Utilities.Configuration.Extensions;
 using LemonInc.Editor.Utilities.Extensions;
 using UnityEditor;
 using UnityEngine;
@@ -44,6 +46,10 @@ namespace LemonInc.Core.Pooling.Editor
 		/// </summary>
 		private bool _autoGenerate = false;
 
+		private PoolingConfiguration _configuration;
+
+		public PoolingConfiguration Configuration => _configuration ??= ConfigurationLoader.LoadConfiguration<PoolingConfiguration>("Settings/LemonInc/Resources/Pooling/PoolingConfiguration.asset");
+
 		/// <summary>
 		/// Styles used.
 		/// </summary>
@@ -81,7 +87,7 @@ namespace LemonInc.Core.Pooling.Editor
 
 		private void OnEnable()
 		{
-			var form = PoolingConfiguration.Instance.LastFormState;
+			var form = Configuration.LastFormState;
 			_prefab = form.Prefab;
 			_poolKey = form.Key;
 			_initialCount = form.InitialCount;
@@ -102,7 +108,7 @@ namespace LemonInc.Core.Pooling.Editor
 
 		private void Generate()
 		{
-			var output = Path.GetFullPath("Assets/Plugins/LemonInc/Resources/Pooling/Pooling.cs");
+			var output = Path.GetFullPath("Assets/Settings/LemonInc/Resources/Pooling/Pooling.cs");
 			NamedPoolingCodeGenerator.GenerateScript(_target, output, true);
 		}
 
@@ -215,8 +221,8 @@ namespace LemonInc.Core.Pooling.Editor
 
 			if (EditorGUI.EndChangeCheck())
 			{
-				PoolingConfiguration.Instance.LastFormState = new PoolingConfiguration.PoolCreatorForm(_prefab, _initialCount, _poolKey, _autoGenerate);
-				PoolingConfiguration.Instance.Save();
+				Configuration.LastFormState = new PoolingConfiguration.PoolCreatorForm(_prefab, _initialCount, _poolKey, _autoGenerate);
+				Configuration.Save();
 			}
 		}
 	}

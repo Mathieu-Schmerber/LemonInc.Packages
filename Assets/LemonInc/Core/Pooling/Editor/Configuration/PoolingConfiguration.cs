@@ -1,4 +1,5 @@
 ﻿using System;
+using LemonInc.Editor.Utilities.Configuration;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -8,8 +9,7 @@ namespace LemonInc.Core.Pooling.Editor.Configuration
 	/// <summary>
 	/// Pooling configuration.
 	/// </summary>
-	[GlobalConfig("Plugins/LemonInc/Resources/Pooling")]
-	public class PoolingConfiguration : GlobalConfig<PoolingConfiguration>
+	public class PoolingConfiguration : ConfigurationAsset
 	{
 		/// <summary>
 		/// Describes the pool creator form state.
