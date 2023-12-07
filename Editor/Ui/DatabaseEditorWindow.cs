@@ -41,7 +41,7 @@ namespace LemonInc.Tools.Databases.Ui
 		/// <summary>
 		/// The configuration path.
 		/// </summary>
-		public const string CONFIGURATION_PATH = "Plugins/LemonInc/Resources/Databases/DatabaseConfiguration.asset";
+		public const string CONFIGURATION_PATH = "Settings/LemonInc/Resources/Databases/DatabaseConfiguration.asset";
 
 		/// <summary>
 		/// Gets the state.
