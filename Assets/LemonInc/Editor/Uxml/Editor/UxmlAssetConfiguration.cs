@@ -1,5 +1,6 @@
 using System;
 using LemonInc.Core.Utilities;
+using LemonInc.Editor.Utilities.Configuration;
 using Sirenix.Utilities;
 using UnityEditor;
 
@@ -8,8 +9,7 @@ namespace LemonInc.Editor.Uxml
 	/// <summary>
 	/// Uxml Asset Configuration.
 	/// </summary>
-	[GlobalConfig("Plugins/LemonInc/Resources/Uxml")]
-	public class UxmlAssetConfiguration : GlobalConfig<UxmlAssetConfiguration>
+	public class UxmlAssetConfiguration : ConfigurationAsset
 	{
 		/// <summary>
 		/// Key is asset path.
@@ -27,22 +27,10 @@ namespace LemonInc.Editor.Uxml
 		/// </summary>
 		public bool DoLogTrace;
 
-		/// <summary>
-		/// Called when [configuration automatic created].
-		/// </summary>
-		protected override void OnConfigAutoCreated()
+		public override void OnCreated()
 		{
 			References = new UxmlReferenceDictionary();
 			DoLogTrace = false;
-		}
-
-		/// <summary>
-		/// Saves this instance.
-		/// </summary>
-		public void Save()
-		{
-			EditorUtility.SetDirty(this);
-			AssetDatabase.SaveAssetIfDirty(this);
 		}
 	}
 }

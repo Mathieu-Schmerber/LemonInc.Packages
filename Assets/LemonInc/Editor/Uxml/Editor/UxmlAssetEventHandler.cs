@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using LemonInc.Core.Utilities.Extensions;
+using LemonInc.Editor.Utilities.Configuration;
+using LemonInc.Editor.Utilities.Configuration.Extensions;
 using LemonInc.Editor.Utilities.Events;
 using LemonInc.Editor.Utilities.Extensions;
 using UnityEditor;
@@ -19,6 +21,9 @@ namespace LemonInc.Editor.Uxml
 		/// The watcher list.
 		/// </summary>
 		private static readonly IDictionary<string, FileSystemWatcher> WatcherList = new Dictionary<string, FileSystemWatcher>();
+
+		private static UxmlAssetConfiguration _configuration;
+		public static UxmlAssetConfiguration Configuration => _configuration ??= ConfigurationLoader.LoadConfiguration<UxmlAssetConfiguration>("Settings/LemonInc/Resources/UXML/UxmlAssetConfiguration.asset");
 
 		/// <summary>
 		/// Called when [load].
@@ -54,7 +59,7 @@ namespace LemonInc.Editor.Uxml
 				// Ensure creation within project from user actions
 				return;
 
-			if (!UxmlAssetConfiguration.Instance.References.ContainsKey(assetPath))
+			if (!Configuration.References.ContainsKey(assetPath))
 			{
 				OnUxmlCreated(assetPath);
 			}
@@ -74,7 +79,7 @@ namespace LemonInc.Editor.Uxml
 			if (newAssetPath.Contains("Assets/Packages") || !UxmlUtility.IsUxml(oldAssetPath, out _))
 				return;
 			
-			if (!UxmlAssetConfiguration.Instance.References.TryGetValue(oldAssetPath, out var uxmlAssetDefinition))
+			if (!Configuration.References.TryGetValue(oldAssetPath, out var uxmlAssetDefinition))
 			{
 				UxmlLogger.Log($"Asset path '{oldAssetPath}' not found in config.");
 				DeleteWatcherEntryIfExists(oldAssetPath);
@@ -94,7 +99,7 @@ namespace LemonInc.Editor.Uxml
 			if (assetPath.Contains("Assets/Packages") || !UxmlUtility.IsUxml(assetPath, out _))
 				return;
 
-			if (UxmlAssetConfiguration.Instance.References.ContainsKey(assetPath))
+			if (Configuration.References.ContainsKey(assetPath))
 				OnUxmlDeleted(assetPath);
 			else
 				UxmlLogger.Log($"Asset path '{assetPath}' not found in config.");
@@ -109,7 +114,7 @@ namespace LemonInc.Editor.Uxml
 				DeleteWatcherEntryIfExists(WatcherList.Keys.ElementAt(i));
 			WatcherList.Clear();
 
-			foreach (var (assetPath, _) in UxmlAssetConfiguration.Instance.References)
+			foreach (var (assetPath, _) in Configuration.References)
 				AddWatcherEntryIfNotExist(assetPath);
 		}
 
@@ -118,7 +123,7 @@ namespace LemonInc.Editor.Uxml
 		/// </summary>
 		private static void CleanupConfig()
 		{
-			foreach (var assetPath in UxmlAssetConfiguration.Instance.References.Keys.ToList())
+			foreach (var assetPath in Configuration.References.Keys.ToList())
 			{
 				var fullPath = Path.GetFullPath(assetPath);
 				if (File.Exists(fullPath))
@@ -195,7 +200,7 @@ namespace LemonInc.Editor.Uxml
 		/// <param name="e">The <see cref="FileSystemEventArgs"/> instance containing the event data.</param>
 		private static void OnFileChanged(object sender, FileSystemEventArgs e)
 		{
-			if (!UxmlAssetConfiguration.Instance.References.TryGetValue(e.FullPath.ToAssetPath(), out var uxmlAssetDefinition))
+			if (!Configuration.References.TryGetValue(e.FullPath.ToAssetPath(), out var uxmlAssetDefinition))
 			{
 				UxmlLogger.Log($"Asset path '{e.FullPath.ToAssetPath()}' not found in config.");
 				DeleteWatcherEntryIfExists(e.FullPath.ToAssetPath());
@@ -234,8 +239,8 @@ namespace LemonInc.Editor.Uxml
 				ReferenceClass = GetReferenceClassName(uxmlName, folder)
 			};
 
-			UxmlAssetConfiguration.Instance.References.Add(uxmlPath, uxmlDefinition);
-			UxmlAssetConfiguration.Instance.Save();
+			Configuration.References.Add(uxmlPath, uxmlDefinition);
+			Configuration.Save();
 
 			UxmlReferenceCodeGenerator.GenerateCode(uxmlDefinition, createDirectory: false);
 
@@ -272,13 +277,13 @@ namespace LemonInc.Editor.Uxml
 			var newReference = GetReferenceClassName(uxmlName, folder);
 
 			UxmlLogger.Log($"Updating config.");
-			UxmlAssetConfiguration.Instance.References.Remove(oldPath);
-			UxmlAssetConfiguration.Instance.References.Add(uxml.AssetPath, uxml);
+			Configuration.References.Remove(oldPath);
+			Configuration.References.Add(uxml.AssetPath, uxml);
 
 			UxmlLogger.Log($"Updating reference: '{uxml.ReferenceClass}' => '{newReference}'");
 			AssetDatabase.MoveAsset(uxml.ReferenceClass, newReference);
 			uxml.ReferenceClass = newReference;
-			UxmlAssetConfiguration.Instance.Save();
+			Configuration.Save();
 
 			// Update watcher.
 			DeleteWatcherEntryIfExists(oldPath);
@@ -291,9 +296,9 @@ namespace LemonInc.Editor.Uxml
 		/// <param name="path">The uxml path.</param>
 		private static void OnUxmlDeleted(string path)
 		{
-			var current = UxmlAssetConfiguration.Instance.References[path];
+			var current = Configuration.References[path];
 
-			UxmlAssetConfiguration.Instance.References.Remove(path);
+			Configuration.References.Remove(path);
 			if (!string.IsNullOrEmpty(current.ReferenceClass) && File.Exists(current.ReferenceClass))
 			{
 				UxmlLogger.Log($"Deleting '{current.ReferenceClass}'.");
