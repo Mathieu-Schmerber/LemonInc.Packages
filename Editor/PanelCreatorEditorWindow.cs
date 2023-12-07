@@ -78,7 +78,7 @@ namespace LemonInc.Tools.Panels
 		/// <value>
 		/// The state.
 		/// </value>
-		private PanelsConfiguration Configuration => _configuration ??= ConfigurationLoader.LoadConfiguration<PanelsConfiguration>("Plugins/LemonInc/Resources/Panels/PanelsConfiguration.asset");
+		private PanelsConfiguration Configuration => _configuration ??= ConfigurationLoader.LoadConfiguration<PanelsConfiguration>("Settings/LemonInc/Resources/Panels/PanelsConfiguration.asset");
 
 		/// <summary>
 		/// Creates the GUI.
@@ -189,7 +189,7 @@ namespace LemonInc.Tools.Panels
 
 				Configuration.Save();
 
-				var output = Path.GetFullPath("Assets/Plugins/LemonInc/Resources/Panels/Panels.cs");
+				var output = Path.GetFullPath("Assets/Settings/LemonInc/Resources/Panels/Panels.cs");
 				PanelCodeGenerator.GenerateScript(Configuration.Panels, output, true);
 				Close();
 			}
