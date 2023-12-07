@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using LemonInc.Core.Utilities.Extensions;
+using LemonInc.Editor.Utilities.Configuration;
+using LemonInc.Tools.Databases.Ui;
 using UnityEditor;
 using UnityEngine;
 
@@ -67,7 +69,8 @@ namespace LemonInc.Tools.Databases.Generators
 			builder.AppendLine($"public class {database.Name.ToPascalCase()} : Singleton<{database.Name.ToPascalCase()}>");
 			builder.AppendLine($"{{");
 			builder.AppendLine($"private {nameof(DatabaseConfiguration)} _configInstance;");
-			builder.AppendLine($"private {nameof(DatabaseConfiguration)} Configuration => _configInstance ??= Resources.Load<{nameof(DatabaseConfiguration)}>(\"Databases/DatabaseConfiguration\");");
+			builder.AppendLine($"private {nameof(DatabaseConfiguration)} Configuration => _configInstance ??= {nameof(ConfigurationLoader)}.{nameof(ConfigurationLoader.LoadConfiguration)}<{nameof(DatabaseConfiguration)}>(\"{DatabaseEditorWindow.CONFIGURATION_PATH}\");");
+
 
 			foreach (var sectionId in database.Sections)
 			{

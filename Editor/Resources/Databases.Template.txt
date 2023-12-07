@@ -4,6 +4,7 @@
 
 using LemonInc.Core.Utilities;
 using LemonInc.Tools.Databases.Models;
+using LemonInc.Editor.Utilities.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
