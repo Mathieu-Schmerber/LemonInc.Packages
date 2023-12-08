@@ -1,13 +1,14 @@
 using System;
 using LemonInc.Core.Utilities;
-using LemonInc.Editor.Utilities.Configuration;
+using UnityEditor;
 
 namespace LemonInc.Tools.Panels.Models
 {
 	/// <summary>
 	/// Game design state.
 	/// </summary>
-	public class PanelsConfiguration : ConfigurationAsset
+	[FilePath("Plugins/LemonInc/Resources/Panels/PanelsConfiguration.asset", FilePathAttribute.Location.ProjectFolder)]
+	public class PanelsConfiguration : ScriptableSingleton<PanelsConfiguration>
 	{
 		/// <summary>
 		/// The panel dictionary.
@@ -21,11 +22,11 @@ namespace LemonInc.Tools.Panels.Models
 		public PanelDictionary Panels;
 
 		/// <summary>
-		/// Called when [configuration automatic created].
+		/// Called when [enable].
 		/// </summary>
-		public override void OnCreated()
+		private void OnEnable()
 		{
-			Panels = new PanelDictionary();
+			Panels ??= new PanelDictionary();
 		}
 	}
 }

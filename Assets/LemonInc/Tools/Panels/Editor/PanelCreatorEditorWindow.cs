@@ -78,7 +78,7 @@ namespace LemonInc.Tools.Panels
 		/// <value>
 		/// The state.
 		/// </value>
-		private PanelsConfiguration Configuration => _configuration ??= ConfigurationLoader.LoadConfiguration<PanelsConfiguration>("Settings/LemonInc/Resources/Panels/PanelsConfiguration.asset");
+		private PanelsConfiguration Configuration => _configuration ??= PanelsConfiguration.instance;
 
 		/// <summary>
 		/// Creates the GUI.
