@@ -1,4 +1,5 @@
 ﻿using UnityEditor;
+using UnityEngine;
 
 namespace LemonInc.Editor.Utilities.Configuration.Extensions
 {
@@ -12,7 +13,8 @@ namespace LemonInc.Editor.Utilities.Configuration.Extensions
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
 		/// <param name="config">The configuration.</param>
-		public static void Save(this ConfigurationAsset config)
+		public static void Save<T>(this T config) 
+			where T : ScriptableObject
 		{
 			if (config == null)
 				return;
