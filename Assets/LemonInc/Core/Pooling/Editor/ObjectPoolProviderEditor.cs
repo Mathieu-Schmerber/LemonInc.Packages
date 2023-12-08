@@ -48,7 +48,7 @@ namespace LemonInc.Core.Pooling.Editor
 
 		private PoolingConfiguration _configuration;
 
-		public PoolingConfiguration Configuration => _configuration ??= ConfigurationLoader.LoadConfiguration<PoolingConfiguration>("Settings/LemonInc/Resources/Pooling/PoolingConfiguration.asset");
+		public PoolingConfiguration Configuration => _configuration ??= PoolingConfiguration.instance;
 
 		/// <summary>
 		/// Styles used.
