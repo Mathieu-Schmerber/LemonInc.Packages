@@ -1,15 +1,16 @@
 ﻿using System;
-using LemonInc.Editor.Utilities.Configuration;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
+using UnityEditor;
 using UnityEngine;
+using FilePathAttribute = UnityEditor.FilePathAttribute;
 
 namespace LemonInc.Core.Pooling.Editor.Configuration
 {
 	/// <summary>
 	/// Pooling configuration.
 	/// </summary>
-	public class PoolingConfiguration : ConfigurationAsset
+	[UnityEditor.FilePath("Plugins/LemonInc/Resources/Pooling/PoolingConfiguration.asset", FilePathAttribute.Location.ProjectFolder)]
+	public class PoolingConfiguration : ScriptableSingleton<PoolingConfiguration>
 	{
 		/// <summary>
 		/// Describes the pool creator form state.
