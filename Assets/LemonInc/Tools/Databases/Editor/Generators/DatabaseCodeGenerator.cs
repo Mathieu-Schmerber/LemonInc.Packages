@@ -69,7 +69,7 @@ namespace LemonInc.Tools.Databases.Generators
 			builder.AppendLine($"public class {database.Name.ToPascalCase()} : Singleton<{database.Name.ToPascalCase()}>");
 			builder.AppendLine($"{{");
 			builder.AppendLine($"private {nameof(DatabaseConfiguration)} _configInstance;");
-			builder.AppendLine($"private {nameof(DatabaseConfiguration)} Configuration => _configInstance ??= {nameof(ConfigurationLoader)}.{nameof(ConfigurationLoader.LoadConfiguration)}<{nameof(DatabaseConfiguration)}>(\"{DatabaseEditorWindow.CONFIGURATION_PATH}\");");
+			builder.AppendLine($"private {nameof(DatabaseConfiguration)} Configuration => _configInstance ??= {nameof(DatabaseConfiguration)}.{nameof(DatabaseConfiguration.Instance)};");
 
 
 			foreach (var sectionId in database.Sections)

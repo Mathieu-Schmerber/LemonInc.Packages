@@ -49,7 +49,7 @@ namespace LemonInc.Tools.Databases.Ui
 		/// <value>
 		/// The state.
 		/// </value>
-		private DatabaseConfiguration Configuration => _configuration ??= ConfigurationLoader.LoadConfiguration<DatabaseConfiguration>(CONFIGURATION_PATH);
+		private DatabaseConfiguration Configuration => _configuration ??= DatabaseConfiguration.Instance;
 
 		/// <summary>
 		/// The data.
