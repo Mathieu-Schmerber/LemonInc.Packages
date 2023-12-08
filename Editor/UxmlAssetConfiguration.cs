@@ -9,7 +9,8 @@ namespace LemonInc.Editor.Uxml
 	/// <summary>
 	/// Uxml Asset Configuration.
 	/// </summary>
-	public class UxmlAssetConfiguration : ConfigurationAsset
+	[FilePath("Plugins/LemonInc/Resources/UXML/UxmlAssetConfiguration.asset", FilePathAttribute.Location.ProjectFolder)]
+	public class UxmlAssetConfiguration : ScriptableSingleton<UxmlAssetConfiguration>
 	{
 		/// <summary>
 		/// Key is asset path.
@@ -27,10 +28,12 @@ namespace LemonInc.Editor.Uxml
 		/// </summary>
 		public bool DoLogTrace;
 
-		public override void OnCreated()
+		/// <summary>
+		/// Called when [enable].
+		/// </summary>
+		private void OnEnable()
 		{
-			References = new UxmlReferenceDictionary();
-			DoLogTrace = false;
+			References ??= new UxmlReferenceDictionary();
 		}
 	}
 }
