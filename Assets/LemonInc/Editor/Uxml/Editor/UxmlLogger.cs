@@ -7,7 +7,7 @@ namespace LemonInc.Editor.Uxml
 	internal static class UxmlLogger
 	{
 		private static UxmlAssetConfiguration _configuration;
-		public static UxmlAssetConfiguration Configuration => _configuration ??= ConfigurationLoader.LoadConfiguration<UxmlAssetConfiguration>("Settings/LemonInc/Resources/UXML/UxmlAssetConfiguration.asset");
+		public static UxmlAssetConfiguration Configuration => _configuration ??= UxmlAssetConfiguration.instance;
 
 
 		/// <summary>

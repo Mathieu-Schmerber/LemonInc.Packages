@@ -23,7 +23,7 @@ namespace LemonInc.Editor.Uxml
 		private static readonly IDictionary<string, FileSystemWatcher> WatcherList = new Dictionary<string, FileSystemWatcher>();
 
 		private static UxmlAssetConfiguration _configuration;
-		public static UxmlAssetConfiguration Configuration => _configuration ??= ConfigurationLoader.LoadConfiguration<UxmlAssetConfiguration>("Settings/LemonInc/Resources/UXML/UxmlAssetConfiguration.asset");
+		public static UxmlAssetConfiguration Configuration => _configuration ??= UxmlAssetConfiguration.instance;
 
 		/// <summary>
 		/// Called when [load].
