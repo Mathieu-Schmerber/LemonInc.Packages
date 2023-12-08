@@ -1,13 +1,16 @@
 ﻿using System.Collections.Generic;
+using Codice.Client.BaseCommands.Config;
 using LemonInc.Editor.Utilities.Configuration;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 
 namespace LemonInc.Tools.Databases.Models
 {
 	/// <summary>
 	/// Database configuration.
 	/// </summary>
-	public class DatabaseConfiguration : ConfigurationAsset
+	[GlobalConfig("Settings/LemonInc/Resources/Databases")]
+	public class DatabaseConfiguration : GlobalConfig<DatabaseConfiguration>
 	{
 		/// <summary>
 		/// The sections definitions.
@@ -44,9 +47,9 @@ namespace LemonInc.Tools.Databases.Models
 		/// </summary>
 		public string ScriptPath;
 
-		/// <inheritdoc />
-		public override void OnCreated()
+		protected override void OnConfigAutoCreated()
 		{
+			base.OnConfigAutoCreated();
 			SectionDefinitions = new SectionDescriptionDictionary();
 			AssetDefinitions = new AssetDictionary();
 			DatabaseIds = new List<string>();
