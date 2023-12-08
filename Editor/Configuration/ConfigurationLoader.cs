@@ -52,6 +52,7 @@ namespace LemonInc.Editor.Utilities.Configuration
 			var result = GetConfiguration<T>(path);
 			if (result == null)
 			{
+				Debug.Log($"LemonInc - Failed fetching configuration asset at: {path}");
 				result = CreateConfiguration<T>(path);
 				result.OnCreated();
 			}
