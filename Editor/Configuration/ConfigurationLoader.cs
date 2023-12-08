@@ -28,6 +28,7 @@ namespace LemonInc.Editor.Utilities.Configuration
 		private static T CreateConfiguration<T>(string path)
 			where T : ConfigurationAsset
 		{
+			Debug.Log($"LemonInc - Creating a configuration asset at: {path}");
 			var created = ScriptableObject.CreateInstance<T>();
 			var directory = Path.GetDirectoryName(path);
 			Directory.CreateDirectory(directory);
