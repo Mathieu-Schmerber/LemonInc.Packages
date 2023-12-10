@@ -65,12 +65,22 @@ namespace LemonInc.Editor.Utilities.Configuration
 
 		public void Save() => SaveInstance(this);
 
-		protected static string GetFilePath()
+		public static string GetFilePath()
 		{
 			foreach (object customAttribute in typeof(T).GetCustomAttributes(true))
 			{
 				if (customAttribute is ConfigurationAssetAttribute filepathAttribute)
 					return Path.Combine("Assets", filepathAttribute.Path, $"{typeof(T).Name}.asset");
+			}
+			return string.Empty;
+		}
+
+		public static string GetFolderPath()
+		{
+			foreach (object customAttribute in typeof(T).GetCustomAttributes(true))
+			{
+				if (customAttribute is ConfigurationAssetAttribute filepathAttribute)
+					return Path.Combine("Assets", filepathAttribute.Path);
 			}
 			return string.Empty;
 		}
