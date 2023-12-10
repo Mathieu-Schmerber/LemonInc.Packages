@@ -5,9 +5,6 @@ using LemonInc.Editor.Utilities.Helpers;
 using Sirenix.Utilities.Editor;
 using System.IO;
 using LemonInc.Core.Pooling.Editor.Configuration;
-using LemonInc.Editor.Utilities.Configuration;
-using LemonInc.Editor.Utilities.Configuration.Extensions;
-using LemonInc.Editor.Utilities.Extensions;
 using UnityEditor;
 using UnityEngine;
 using EditorIcons = LemonInc.Editor.Utilities.EditorIcons;
@@ -48,7 +45,7 @@ namespace LemonInc.Core.Pooling.Editor
 
 		private PoolingConfiguration _configuration;
 
-		public PoolingConfiguration Configuration => _configuration ??= PoolingConfiguration.instance;
+		public PoolingConfiguration Configuration => PoolingConfiguration.Instance;
 
 		/// <summary>
 		/// Styles used.
