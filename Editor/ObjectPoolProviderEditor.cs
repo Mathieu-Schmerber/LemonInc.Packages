@@ -105,7 +105,7 @@ namespace LemonInc.Core.Pooling.Editor
 
 		private void Generate()
 		{
-			var output = Path.GetFullPath("Assets/Settings/LemonInc/Resources/Pooling/Pooling.cs");
+			var output = Path.Combine(PoolingConfiguration.GetFolderPath(), "Pooling.cs");
 			NamedPoolingCodeGenerator.GenerateScript(_target, output, true);
 		}
 
