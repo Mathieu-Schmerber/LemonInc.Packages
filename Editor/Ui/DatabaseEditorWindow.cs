@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using LemonInc.Editor.Utilities;
-using LemonInc.Editor.Utilities.Configuration;
 using LemonInc.Editor.Utilities.Configuration.Extensions;
 using LemonInc.Editor.Utilities.Extensions;
 using LemonInc.Tools.Databases.Controllers;
@@ -34,11 +33,6 @@ namespace LemonInc.Tools.Databases.Ui
 		private DatabasesReference _references;
 
 		/// <summary>
-		/// The state.
-		/// </summary>
-		private DatabaseConfiguration _configuration;
-
-		/// <summary>
 		/// The configuration path.
 		/// </summary>
 		public const string CONFIGURATION_PATH = "Settings/LemonInc/Resources/Databases/DatabaseConfiguration.asset";
@@ -49,7 +43,7 @@ namespace LemonInc.Tools.Databases.Ui
 		/// <value>
 		/// The state.
 		/// </value>
-		private DatabaseConfiguration Configuration => _configuration ??= DatabaseConfiguration.Instance;
+		private DatabaseConfiguration Configuration => DatabaseConfiguration.Instance;
 
 		/// <summary>
 		/// The data.
@@ -194,9 +188,6 @@ namespace LemonInc.Tools.Databases.Ui
 		/// </summary>
 		private void OnDisable()
 		{
-			Configuration.LastSelectedDatabaseId = _databasesController.SelectedItem?.Data.Id;
-			Configuration.LastSelectedSectionId = _sectionsController.SelectedItem?.Data.Id;
-			Configuration.LastSelectedAssetId = _assetsController.SelectedItem?.Data.Id;
 			SaveConfiguration();
 			Unsubscribe();
 		}
@@ -352,6 +343,9 @@ namespace LemonInc.Tools.Databases.Ui
 		{
 			FlattenData(_data);
 			Configuration.DatabaseIds = _data.Keys.ToList();
+			Configuration.LastSelectedDatabaseId = _databasesController.SelectedItem?.Data.Id;
+			Configuration.LastSelectedSectionId = _sectionsController.SelectedItem?.Data.Id;
+			Configuration.LastSelectedAssetId = _assetsController.SelectedItem?.Data.Id;
 			Configuration.Save();
 		}
 
