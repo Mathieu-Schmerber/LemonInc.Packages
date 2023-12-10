@@ -13,7 +13,7 @@ namespace LemonInc.Editor.Utilities.Configuration.Extensions
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
 		/// <param name="config">The configuration.</param>
-		public static void Save<T>(this T config) 
+		public static void Save<T>(this T config)
 			where T : ScriptableObject
 		{
 			if (config == null)
