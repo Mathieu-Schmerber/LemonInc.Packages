@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Codice.Client.BaseCommands;
 using LemonInc.Core.Utilities.Extensions;
 using UnityEditor;
-using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 namespace LemonInc.Editor.Utilities
