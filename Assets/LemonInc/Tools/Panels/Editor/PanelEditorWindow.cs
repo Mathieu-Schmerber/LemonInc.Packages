@@ -1,8 +1,4 @@
-using System.Collections.Generic;
-using System.Linq;
 using LemonInc.Editor.Utilities;
-using LemonInc.Editor.Utilities.Configuration;
-using LemonInc.Editor.Utilities.Configuration.Extensions;
 using LemonInc.Tools.Panels.Controllers;
 using LemonInc.Tools.Panels.Interfaces;
 using LemonInc.Tools.Panels.Models;
@@ -35,7 +31,7 @@ namespace LemonInc.Tools.Panels
 		/// <value>
 		/// The state.
 		/// </value>
-		private PanelsConfiguration Configuration => _configuration ??= PanelsConfiguration.instance;
+		private PanelsConfiguration Configuration => PanelsConfiguration.Instance;
 
 		/// <summary>
 		/// Gets the panel definition.
