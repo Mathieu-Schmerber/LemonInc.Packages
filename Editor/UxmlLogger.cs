@@ -1,5 +1,4 @@
-﻿using LemonInc.Editor.Utilities.Configuration;
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace LemonInc.Editor.Uxml
@@ -7,7 +6,7 @@ namespace LemonInc.Editor.Uxml
 	internal static class UxmlLogger
 	{
 		private static UxmlAssetConfiguration _configuration;
-		public static UxmlAssetConfiguration Configuration => _configuration ??= UxmlAssetConfiguration.instance;
+		public static UxmlAssetConfiguration Configuration => UxmlAssetConfiguration.Instance;
 
 
 		/// <summary>

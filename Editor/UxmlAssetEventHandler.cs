@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using LemonInc.Core.Utilities.Extensions;
-using LemonInc.Editor.Utilities.Configuration;
-using LemonInc.Editor.Utilities.Configuration.Extensions;
 using LemonInc.Editor.Utilities.Events;
 using LemonInc.Editor.Utilities.Extensions;
 using UnityEditor;
@@ -23,7 +21,7 @@ namespace LemonInc.Editor.Uxml
 		private static readonly IDictionary<string, FileSystemWatcher> WatcherList = new Dictionary<string, FileSystemWatcher>();
 
 		private static UxmlAssetConfiguration _configuration;
-		public static UxmlAssetConfiguration Configuration => _configuration ??= UxmlAssetConfiguration.instance;
+		public static UxmlAssetConfiguration Configuration => UxmlAssetConfiguration.Instance;
 
 		/// <summary>
 		/// Called when [load].

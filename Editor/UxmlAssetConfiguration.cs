@@ -1,16 +1,14 @@
 using System;
 using LemonInc.Core.Utilities;
 using LemonInc.Editor.Utilities.Configuration;
-using Sirenix.Utilities;
-using UnityEditor;
 
 namespace LemonInc.Editor.Uxml
 {
 	/// <summary>
 	/// Uxml Asset Configuration.
 	/// </summary>
-	[FilePath("Plugins/LemonInc/Resources/UXML/UxmlAssetConfiguration.asset", FilePathAttribute.Location.ProjectFolder)]
-	public class UxmlAssetConfiguration : ScriptableSingleton<UxmlAssetConfiguration>
+	[ConfigurationAsset("Plugins/LemonInc/Resources/UXML")]
+	public class UxmlAssetConfiguration : ConfigurationAsset<UxmlAssetConfiguration>
 	{
 		/// <summary>
 		/// Key is asset path.
