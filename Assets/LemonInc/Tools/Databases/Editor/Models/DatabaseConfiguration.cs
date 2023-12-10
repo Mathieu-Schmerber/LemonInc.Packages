@@ -1,31 +1,28 @@
 ﻿using System.Collections.Generic;
-using Codice.Client.BaseCommands.Config;
 using LemonInc.Editor.Utilities.Configuration;
-using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 
 namespace LemonInc.Tools.Databases.Models
 {
 	/// <summary>
 	/// Database configuration.
 	/// </summary>
-	[GlobalConfig("Settings/LemonInc/Resources/Databases")]
-	public class DatabaseConfiguration : GlobalConfig<DatabaseConfiguration>
+	[ConfigurationAsset("Plugins/LemonInc/Resources/Databases")]
+	public class DatabaseConfiguration : ConfigurationAsset<DatabaseConfiguration>
 	{
 		/// <summary>
 		/// The sections definitions.
 		/// </summary>
-		[ReadOnly] public SectionDescriptionDictionary SectionDefinitions;
+		public SectionDescriptionDictionary SectionDefinitions;
 
 		/// <summary>
 		/// The asset definitions.
 		/// </summary>
-		[ReadOnly] public AssetDictionary AssetDefinitions;
+		public AssetDictionary AssetDefinitions;
 
 		/// <summary>
 		/// The database ids.
 		/// </summary>
-		[ReadOnly] public List<string> DatabaseIds;
+		public List<string> DatabaseIds;
 
 		/// <summary>
 		/// The last selected database identifier.
@@ -46,13 +43,15 @@ namespace LemonInc.Tools.Databases.Models
 		/// The script path.
 		/// </summary>
 		public string ScriptPath;
-
-		protected override void OnConfigAutoCreated()
+		
+		/// <summary>
+		/// On enable.
+		/// </summary>
+		private void OnEnable()
 		{
-			base.OnConfigAutoCreated();
-			SectionDefinitions = new SectionDescriptionDictionary();
-			AssetDefinitions = new AssetDictionary();
-			DatabaseIds = new List<string>();
+			SectionDefinitions ??= new SectionDescriptionDictionary();
+			AssetDefinitions ??= new AssetDictionary();
+			DatabaseIds ??= new List<string>();
 		}
 	}
 }
