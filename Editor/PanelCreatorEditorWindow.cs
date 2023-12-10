@@ -1,8 +1,5 @@
-using System;
 using System.IO;
 using System.Text;
-using LemonInc.Editor.Utilities.Configuration;
-using LemonInc.Editor.Utilities.Configuration.Extensions;
 using LemonInc.Editor.Utilities.Extensions;
 using LemonInc.Tools.Panels.Models;
 using UnityEditor;
@@ -78,7 +75,7 @@ namespace LemonInc.Tools.Panels
 		/// <value>
 		/// The state.
 		/// </value>
-		private PanelsConfiguration Configuration => _configuration ??= PanelsConfiguration.instance;
+		private PanelsConfiguration Configuration => PanelsConfiguration.Instance;
 
 		/// <summary>
 		/// Creates the GUI.
