@@ -1,12 +1,15 @@
 {
-    "name": "LemonInc.Tools.Tilemap",
-    "rootNamespace": "LemonInc.Tools.Tilemap",
+    "name": "LemonInc.Tools.Tilemap.Editor",
+    "rootNamespace": "LemonInc.Tools.Tilemap.Editor",
     "references": [
+        "GUID:84e136866fcc40949ab68aaa40f77f3f",
+        "GUID:b45ae7b91a1e5f44e92c581a280413d6",
         "GUID:8b529b6aa358ccd4e9d6aeeb55f5af04",
-        "GUID:a3e9f3b8813038642a08e98408860bfb",
-        "GUID:84e136866fcc40949ab68aaa40f77f3f"
+        "GUID:a3e9f3b8813038642a08e98408860bfb"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
