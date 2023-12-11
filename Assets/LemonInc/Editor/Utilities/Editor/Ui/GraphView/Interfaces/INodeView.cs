@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using LemonInc.Core.Utilities.Graph;
 using LemonInc.Editor.Utilities.Ui.GraphView.Node;
 
 namespace LemonInc.Editor.Utilities.Ui.GraphView.Interfaces

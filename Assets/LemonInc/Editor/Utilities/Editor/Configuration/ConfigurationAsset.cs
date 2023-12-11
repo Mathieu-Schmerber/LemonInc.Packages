@@ -21,9 +21,7 @@ namespace LemonInc.Editor.Utilities.Configuration
 
 		protected ConfigurationAsset()
 		{
-			if (_instance != null)
-				Debug.LogError("ConfigurationAsset already exists. Did you query the singleton in a constructor?");
-			else
+			if (_instance == null)
 				_instance = this as T;
 		}
 

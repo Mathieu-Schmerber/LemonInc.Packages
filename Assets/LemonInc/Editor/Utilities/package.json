@@ -2,7 +2,7 @@
     "name": "com.lemon-inc.editor.utilities",
     "displayName": "LemonInc.Editor.Utilities",
     "description": "Editor utilities.",
-    "version": "2.2.1",
+    "version": "2.3.1",
     "unity": "2022.3",
     "author": "Lemon Inc. <mathieu.schmerber@gmail.com> (https://github.com/Mathieu-Schmerber)",
     "repository": {
