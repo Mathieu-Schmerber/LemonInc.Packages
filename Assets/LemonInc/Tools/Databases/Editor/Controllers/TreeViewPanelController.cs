@@ -4,7 +4,6 @@ using System.Linq;
 using LemonInc.Tools.Databases.Editor.Interfaces;
 using LemonInc.Tools.Databases.Editor.Models;
 using LemonInc.Tools.Databases.Editor.Ui;
-using LemonInc.Tools.Databases.Models;
 using UnityEngine;
 using UnityEngine.UIElements;
 

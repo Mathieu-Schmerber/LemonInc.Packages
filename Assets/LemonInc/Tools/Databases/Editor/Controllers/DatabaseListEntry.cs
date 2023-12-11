@@ -1,7 +1,8 @@
-﻿using System;
+﻿using LemonInc.Editor.Utilities;
+using LemonInc.Editor.Utilities.Extensions;
 using LemonInc.Tools.Databases.Editor.Ui;
 using LemonInc.Tools.Databases.Models;
-using UnityEditor.UIElements;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,39 +14,41 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 	public class DatabaseListEntry : ListEntry<DatabaseData>
 	{
 		/// <summary>
-		/// The object field.
-		/// </summary>
-		private readonly ObjectField _objectField;
-
-		/// <summary>
 		/// Initializes a new instance of the <see cref="DatabaseListEntry"/> class.
 		/// </summary>
 		public DatabaseListEntry()
 		{
 			TitleLabel.parent.Insert(0, new ColoredSquare(Color.cyan));
-
-			_objectField = new ObjectField();
-			_objectField.AddToClassList("asset-field");
-			Add(_objectField);
-
 			AddToClassList("asset-entry");
-		}
 
-		/// <inheritdoc />
-		public override void Bind(DatabaseData definition, Action<DatabaseData> onAddChild)
-		{
-			base.Bind(definition, onAddChild);
-
-			_objectField.value = definition;
-			_objectField.RegisterValueChangedCallback(evt =>
+			var locateBtn = new Button();
+			locateBtn.AddToClassList("entry-btn");
+			locateBtn.Add(new Image
 			{
-				if (evt.newValue != null)
+				image = EditorIcons.DAnimationvisibilitytoggleon.image,
+				style =
 				{
-					Data = evt.newValue as DatabaseData;
-					TitleLabel.text = Data!.Name;
-					SetError(!Validate.Invoke(Data, out var errorMessage), errorMessage);
+					width = new StyleLength(18)
 				}
 			});
+			Add(locateBtn);
+			locateBtn.clicked += LocateBtn_clicked;
+		}
+
+		private void LocateBtn_clicked()
+		{
+			Selection.SetActiveObjectWithContext(Data, Data);
+			EditorGUIUtility.PingObject(Data);
+		}
+
+		/// <summary>
+		/// Called when [item renamed].
+		/// </summary>
+		protected override void OnItemRenamed()
+		{
+			var path = Data.GetPath();
+			AssetDatabase.RenameAsset(path, Data.Name);
+			Data.name = Data.Name;
 		}
 	}
 }

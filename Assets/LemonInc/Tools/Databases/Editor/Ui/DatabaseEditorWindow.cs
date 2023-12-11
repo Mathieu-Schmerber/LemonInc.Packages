@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Codice.Client.Common;
-using LemonInc.Editor.Utilities;
-using LemonInc.Editor.Utilities.Configuration.Extensions;
+using LemonInc.Core.Utilities.Extensions;
 using LemonInc.Editor.Utilities.Extensions;
 using LemonInc.Editor.Utilities.Helpers;
 using LemonInc.Tools.Databases.Editor.Controllers;
@@ -12,10 +10,13 @@ using LemonInc.Tools.Databases.Editor.Interfaces;
 using LemonInc.Tools.Databases.Editor.Models;
 using LemonInc.Tools.Databases.Editor.Policies;
 using LemonInc.Tools.Databases.Models;
+using PlasticGui.WorkspaceWindow.CodeReview;
+using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using DatabaseConfiguration = LemonInc.Tools.Databases.Editor.Models.DatabaseConfiguration;
+using EditorIcons = LemonInc.Editor.Utilities.EditorIcons;
 
 namespace LemonInc.Tools.Databases.Editor.Ui
 {
@@ -96,15 +97,9 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 			_uxml.CloneTree(rootVisualElement);
 			_references = new DatabasesReference(rootVisualElement);
 
-			// TODO: change UI
-			//_references.Path.RegisterValueChangedCallback(evt =>
-			//{
-			//	var valid = !string.IsNullOrEmpty(evt.newValue) && Directory.Exists(Path.GetDirectoryName(evt.newValue));
-			//	_references.Path.style.color = !valid ? Color.red : Color.white;
-			//	_references.CompileToolbarButton.SetEnabled(valid);
-			//});
-			//_references.FolderToolbarButton.Insert(0, new Image { image = EditorIcons.DSettings.image });
-			//_references.Path.text = string.IsNullOrEmpty(Configuration.ScriptPath) ? "No path set." : Configuration.ScriptPath;
+			_references.SelectToolbarMenu.Insert(0, new Image { image = EditorIcons.DPrematcube.image, style = { width = new StyleLength(18)}});
+			_references.SelectToolbarMenu.menu.AppendAction("Compile code", x => GenerateCode());
+			_references.FetchToolbarButton.clicked += RefreshWindow;
 
 			_databasesController = new DatabasePanelController(
 				"Databases",
@@ -123,7 +118,7 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 				new PanelReference(_references.AssetsVisualElement),
 				ValidateAsset);
 
-			_databasesController.SetSource(GetAllDatabases().Values.ToList());
+			_databasesController.SetSource(_data.Keys.ToList());
 
 			_databasesController.Refresh();
 			_sectionsController.Refresh();
@@ -131,9 +126,24 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 
 			Subscribe();
 
-			//_databasesController.SelectItem(Configuration.LastSelectedDatabaseId);
-			//_sectionsController.SelectItem(Configuration.LastSelectedSectionId);
-			//_assetsController.SelectItem(Configuration.LastSelectedAssetId);
+			SelectDatabase(null);
+			_databasesController.SelectItem(Configuration.LastSelectedDatabaseId);
+			_sectionsController.SelectItem(Configuration.LastSelectedSectionId);
+			_assetsController.SelectItem(Configuration.LastSelectedAssetId);
+		}
+
+		private void RefreshWindow()
+		{
+			SaveConfiguration();
+			_data = ScaffoldDictionary();
+			_databasesController.SetSource(_data.Keys.ToList());
+			_databasesController.Refresh();
+			_sectionsController.Refresh();
+			_assetsController.Refresh();
+			SelectDatabase(null);
+			_databasesController.SelectItem(Configuration.LastSelectedDatabaseId);
+			_sectionsController.SelectItem(Configuration.LastSelectedSectionId);
+			_assetsController.SelectItem(Configuration.LastSelectedAssetId);
 		}
 
 		/// <summary>
@@ -141,13 +151,10 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 		/// </summary>
 		private void Subscribe()
 		{
-			_references.FolderToolbarButton.clicked += SetScriptPath;
-			_references.CompileToolbarButton.clicked += GenerateCode;
-
 			_databasesController.OnItemCreated += AddDatabase;
 			_databasesController.OnItemDeleted += DeleteDatabase;
 			_databasesController.OnItemSelected += SelectDatabase;
-
+			
 			_sectionsController.OnItemCreated += AddSection;
 			_sectionsController.OnItemDeleted += DeleteSection;
 			_sectionsController.OnItemSelected += DisplayAssetsForSection;
@@ -161,9 +168,6 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 		/// </summary>
 		private void Unsubscribe()
 		{
-			_references.FolderToolbarButton.clicked -= SetScriptPath;
-			_references.CompileToolbarButton.clicked -= GenerateCode;
-
 			_databasesController.OnItemCreated -= AddDatabase;
 			_databasesController.OnItemDeleted -= DeleteDatabase;
 			_databasesController.OnItemSelected -= SelectDatabase;
@@ -240,8 +244,14 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 		{
 			_selectedDatabase = database;
 			DisplayAssetsForSection(null);
-			_sectionsController.SetChildren(_data[database].Values.ToList());
+			if (database == null)
+				_sectionsController.SetChildren(new List<SectionDefinition>());
+			else
+				_sectionsController.SetChildren(_data[database].Values.Where(x => x.Parent == null).ToList());
 			_sectionsController.Refresh();
+			
+			_references.SelectToolbarMenu.SetEnabled(database != null);
+			_references.SelectToolbarMenu.text = database != null ? $"{database.Name}" : "No database selected.";
 		}
 
 		/// <summary>
@@ -261,11 +271,19 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 		/// <param name="database">The database.</param>
 		private void AddDatabase(DatabaseData database)
 		{
-			database.Name = $"New Database {_data.Count}";
 			var path = EditorUtility.OpenFolderPanel("Select a folder where the Database scriptable should be placed.", "Assets", "Assets");
 
 			if (!string.IsNullOrEmpty(path))
 			{
+				if (!path.Contains($@"{"Resources"}\"))
+				{
+					EditorUtility.DisplayDialog(
+						"LemonInc Databases", 
+						"Database asset should be placed within a /Resources folder.",
+						"Ok");
+					return;
+				}
+				database.Name = $"New Database {_data.Count}";
 				var relative = path.ToAssetPath();
 				var instance = CreateInstance<DatabaseData>();
 				instance.Name = database.Name;
@@ -305,7 +323,14 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 		/// <param name="database">The database.</param>
 		private void DeleteDatabase(DatabaseData database)
 		{
-			Debug.Log("TODO: delete");
+			if (EditorUtility.DisplayDialog("LemonInc Database", 
+				    $"The database asset '{database.Name}' will be deleted, are you sure you want to continue ?",
+				    "Delete",
+				    "Cancel"))
+			{
+				_data.Remove(database);
+				AssetDatabase.DeleteAsset(database.GetPath());
+			}
 		}
 
 		/// <summary>
@@ -348,30 +373,25 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 		}
 
 		/// <summary>
-		/// Sets the script path.
-		/// </summary>
-		/// <exception cref="System.NotImplementedException"></exception>
-		private void SetScriptPath()
-		{
-			// TODO:
-			//var path = EditorUtility.OpenFolderPanel("Select script path", "Assets", "");
-			//if (string.IsNullOrEmpty(path))
-			//	return;
-
-			//Configuration.ScriptPath = $"{path.ToAssetPath()}/Databases.cs" ;
-			//_references.Path.text = string.IsNullOrEmpty(Configuration.ScriptPath) ? "No path set." : Configuration.ScriptPath;
-			//Configuration.Save();
-		}
-
-		/// <summary>
 		/// Generates the code.
 		/// </summary>
 		private void GenerateCode()
 		{
 			SaveConfiguration();
-			// TODO:
-			//if (!string.IsNullOrEmpty(Configuration.ScriptPath))
-			//	DatabaseCodeGenerator.GenerateScript(Configuration, Configuration.ScriptPath, true);
+			if (_selectedDatabase == null)
+				return;
+
+			if (string.IsNullOrEmpty(_selectedDatabase.ScriptPath))
+			{
+				_selectedDatabase.ScriptPath = EditorUtility.OpenFolderPanel("Select the location where the script should be placed", "Assets", "Assets");
+				_selectedDatabase.ScriptPath = Path.Combine(_selectedDatabase.ScriptPath, $"{DatabaseCodeGenerator.GetClass(_selectedDatabase)}.cs");
+				_selectedDatabase.ScriptPath = _selectedDatabase.ScriptPath.ToAssetPath();
+			}
+
+			if (!string.IsNullOrEmpty(_selectedDatabase.ScriptPath))
+			{
+				DatabaseCodeGenerator.GenerateScript(_selectedDatabase, _selectedDatabase.ScriptPath, true);
+			}
 		}
 
 		/// <summary>
@@ -381,7 +401,9 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 		{
 			foreach (var database in _data.Keys)
 			{
-				foreach (var root in _data[database].Values)
+				database.SectionDefinitions.Clear();
+				database.AssetDefinitions.Clear();
+				foreach (var root in GetRoots(_data[database]))
 				{
 					FlattenData(database, root);
 				}
@@ -399,43 +421,42 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 		/// <summary>
 		/// Flattens the data.
 		/// </summary>
+		/// <param name="database">The database.</param>
 		/// <param name="rootSection">The root section.</param>
 		private void FlattenData(DatabaseData database, SectionDefinition rootSection)
 		{
-			foreach (var (_, section) in rootSection.Sections)
+			if (database.SectionDefinitions.TryGetValue(rootSection.Id, out var existing))
 			{
-				if (database.SectionDefinitions.TryGetValue(section.Id, out var existing))
+				existing.Name = rootSection.Name;
+				existing.Assets = rootSection.Assets.Select(asset => asset.Id).ToList();
+				existing.Sections = rootSection.Sections.Keys.ToList();
+			}
+			else
+			{
+				database.SectionDefinitions.Add(rootSection.Id, new SectionDescription
 				{
-					existing.Name = section.Name;
-					existing.Assets = section.Assets.Select(asset => asset.Id).ToList();
-					existing.Sections = section.Sections.Keys.ToList();
+					Id = rootSection.Id,
+					Name = rootSection.Name,
+					Assets = rootSection.Assets.Select(asset => asset.Id).ToList(),
+					Sections = rootSection.Sections.Keys.ToList(),
+				});
+			}
+
+			foreach (var assetDefinition in rootSection.Assets)
+			{
+				if (database.AssetDefinitions.TryGetValue(assetDefinition.Id, out var asset))
+				{
+					asset.Name = assetDefinition.Name;
+					asset.Data = assetDefinition.Data;
 				}
 				else
 				{
-					database.SectionDefinitions.Add(section.Id, new SectionDescription()
-					{
-						Id = section.Id,
-						Name = section.Name,
-						Assets = section.Assets.Select(asset => asset.Id).ToList(),
-						Sections = section.Sections.Keys.ToList(),
-					});
+					database.AssetDefinitions.Add(assetDefinition.Id, assetDefinition);
 				}
-
-				foreach (var assetDefinition in section.Assets)
-				{
-					if (database.AssetDefinitions.TryGetValue(assetDefinition.Id, out var asset))
-					{
-						asset.Name = assetDefinition.Name;
-						asset.Data = assetDefinition.Data;
-					}
-					else
-					{
-						database.AssetDefinitions.Add(assetDefinition.Id, assetDefinition);
-					}
-				}
-
-				FlattenData(database, section);
 			}
+
+			foreach (var (_, section) in rootSection.Sections)
+				FlattenData(database, section);
 		}
 
 		/// <summary>
@@ -449,16 +470,15 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 			foreach (var (_, databaseData) in GetAllDatabases())
 			{
 				result.Add(databaseData, new SectionDictionary());
-
-				foreach (var (id, section) in databaseData.SectionDefinitions)
+				foreach (var section in GetRoots(databaseData))
 				{
 					var rootSection = new SectionDefinition
 					{
-						Id = id,
+						Id = section.Id,
 						Name = section.Name,
 						Parent = null,
 						Database = databaseData,
-						Assets = new List<AssetDefinition>()
+						Assets = section.Assets.Select(x => databaseData.AssetDefinitions[x]).ToList()
 					};
 
 					rootSection.Sections = ScaffoldSectionDictionary(databaseData, rootSection);
@@ -504,8 +524,33 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 		/// <returns>The databases.</returns>
 		private Dictionary<string, DatabaseData> GetAllDatabases()
 		{
-			var databases = AssetHelper.FindAssetsByType<DatabaseData>();
-			return databases.ToDictionary(x => x.Id);
+			return Resources.LoadAll<DatabaseData>("").ToDictionary(x => x.Id);
+		}
+
+		/// <summary>
+		/// Get roots.
+		/// </summary>
+		/// <param name="database"></param>
+		/// <returns></returns>
+		public static List<SectionDescription> GetRoots(DatabaseData database)
+		{
+			return database.SectionDefinitions.Values
+				.Where(x => !database.SectionDefinitions.Values
+					.Any(y => y.Sections.Contains(x.Id)))
+				.ToList();
+		}
+
+		/// <summary>
+		/// Get roots.
+		/// </summary>
+		/// <param name="sections"></param>
+		/// <returns></returns>
+		private List<SectionDefinition> GetRoots(SectionDictionary sections)
+		{
+			return sections.Values
+				.Where(x => !sections.Values
+					.Any(y => y.Sections.Any(z => z.Key == y.Id)))
+				.ToList();
 		}
 	}
 }

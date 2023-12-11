@@ -2,7 +2,7 @@
     "name": "com.lemon-inc.tools.databases",
     "displayName": "LemonInc.Tools.Databases",
     "description": "Databases.",
-    "version": "1.3.3",
+    "version": "2.0.0",
     "unity": "2022.3",
     "author": "Lemon Inc. <mathieu.schmerber@gmail.com> (https://github.com/Mathieu-Schmerber)",
     "repository": {

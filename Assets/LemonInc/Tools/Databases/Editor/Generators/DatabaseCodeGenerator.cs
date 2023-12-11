@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using LemonInc.Core.Utilities.Extensions;
+using LemonInc.Tools.Databases.Editor.Ui;
 using LemonInc.Tools.Databases.Models;
 using UnityEditor;
 using UnityEngine;
@@ -15,15 +16,22 @@ namespace LemonInc.Tools.Databases.Editor.Generators
 	public static class DatabaseCodeGenerator
 	{
 		/// <summary>
+		/// Gets the class.
+		/// </summary>
+		/// <param name="database">The database.</param>
+		/// <returns></returns>
+		public static string GetClass(DatabaseData database) => $"{database.Name.ToPascalCase()}Database";
+
+		/// <summary>
 		/// Generates the script.
 		/// </summary>
-		/// <param name="databases">The databases.</param>
+		/// <param name="database">The database.</param>
 		/// <param name="outputPath">The output path.</param>
 		/// <param name="createFolders">if set to <c>true</c> [create folders].</param>
-		public static void GenerateScript(DatabaseConfiguration databases, string outputPath, bool createFolders = true)
+		public static void GenerateScript(DatabaseData database, string outputPath, bool createFolders = true)
 		{
 			var template = Resources.Load("Databases.Template") as TextAsset;
-			var code = GenerateDatabaseClasses(template.text, databases);
+			var code = GenerateDatabaseClass(template.text, database);
 
 			if (createFolders)
 			{
@@ -37,43 +45,38 @@ namespace LemonInc.Tools.Databases.Editor.Generators
 		}
 
 		/// <summary>
-		/// Generates the database classes.
+		/// Generates the database classe.
 		/// </summary>
 		/// <param name="code">The code.</param>
-		/// <param name="databases">The databases.</param>
+		/// <param name="database">The database.</param>
 		/// <returns></returns>
-		private static string GenerateDatabaseClasses(string code, DatabaseConfiguration databases)
+		private static string GenerateDatabaseClass(string code, DatabaseData database)
 		{
-			//var builder = new StringBuilder();
+			var builder = new StringBuilder();
 
-			//foreach (var id in databases.DatabaseIds)
-			//{
-			//	var database = databases.SectionDefinitions[id];
-			//	GenerateDatabase(databases, database, builder);
-			//	builder.AppendLine();
-			//}
+			GenerateDatabase(database, builder);
+			builder.AppendLine();
 
-			//return code.Replace("{@databases}", builder.ToString());
-			return "";
+			return code.Replace("{@databases}", builder.ToString());
 		}
 
 		/// <summary>
 		/// Generates the database.
 		/// </summary>
-		/// <param name="databases">The databases.</param>
 		/// <param name="database">The database.</param>
 		/// <param name="builder">The builder.</param>
-		private static void GenerateDatabase(DatabaseConfiguration databases, SectionDescription database, StringBuilder builder)
+		private static void GenerateDatabase(DatabaseData database, StringBuilder builder)
 		{
-			builder.AppendLine($"public static class {database.Name.ToPascalCase()}");
+			builder.AppendLine($"public class {GetClass(database)} : Singleton<{GetClass(database)}>");
 			builder.AppendLine($"{{");
+			builder.AppendLine($"private {nameof(DatabaseData)} _data;");
+			builder.AppendLine($"public {nameof(DatabaseData)} Data => _data ??= Resources.Load<{nameof(DatabaseData)}>(\"{database.Name}\");");
 
-			//foreach (var sectionId in database.Sections)
-			//{
-			//	var section = databases.SectionDefinitions[sectionId];
-			//	GenerateSection(databases, section, builder);
-			//	builder.AppendLine();
-			//}
+			foreach (var section in DatabaseEditorWindow.GetRoots(database))
+			{
+				GenerateSection(database, section, builder);
+				builder.AppendLine();
+			}
 
 			builder.AppendLine($"}}");
 		}
@@ -81,51 +84,50 @@ namespace LemonInc.Tools.Databases.Editor.Generators
 		/// <summary>
 		/// Generates the section.
 		/// </summary>
-		/// <param name="databases">The databases.</param>
+		/// <param name="database">The database.</param>
 		/// <param name="section">The section.</param>
 		/// <param name="builder">The builder.</param>
-		private static void GenerateSection(DatabaseConfiguration databases, SectionDescription section, StringBuilder builder)
+		private static void GenerateSection(DatabaseData database, SectionDescription section, StringBuilder builder)
 		{
 			builder.AppendLine($"public static class {section.Name.ToPascalCase()}");
 			builder.AppendLine($"{{");
 
-			//GenerateAssets(databases, section, builder);
-			//if (section.Sections != null)
-			//{
-			//	foreach (var sectionId in section.Sections)
-			//	{
-			//		var childSection = databases.SectionDefinitions[sectionId];
-			//		GenerateSection(databases, childSection, builder);
-			//	}
-			//}
-			
+			GenerateAssets(database, section, builder);
+			if (section.Sections != null)
+			{
+				foreach (var sectionId in section.Sections)
+				{
+					var childSection = database.SectionDefinitions[sectionId];
+					GenerateSection(database, childSection, builder);
+				}
+			}
+
 			builder.AppendLine($"}}");
 		}
 
 		/// <summary>
 		/// Generates the assets.
 		/// </summary>
-		/// <param name="databases">The databases.</param>
+		/// <param name="database">The database.</param>
 		/// <param name="section">The section.</param>
 		/// <param name="builder">The builder.</param>
-		private static void GenerateAssets(DatabaseConfiguration databases, SectionDescription section, StringBuilder builder)
+		private static void GenerateAssets(DatabaseData database, SectionDescription section, StringBuilder builder)
 		{
 			var all = string.Empty;
 
-			//foreach (var assetId in section.Assets)
-			//{
-			//	var asset = databases.AssetDefinitions[assetId];
-			//	var template = "public static {type} {name} = Resources.Load<{type}>(\"{path}\");"
-			//		.Replace("{type}", asset.Data.GetType().FullName)
-			//		.Replace("{name}", asset.Name.ToPascalCase())
-			//		.Replace("{path}", asset.Path);
+			foreach (var assetId in section.Assets)
+			{
+				var asset = database.AssetDefinitions[assetId];
+				var template = $"public static [type] [name] = ([type]){GetClass(database)}.Instance.Data.AssetDefinitions[\"[id]\"].Data;"
+					.Replace("[type]", asset.Data.GetType().FullName)
+					.Replace("[name]", asset.Name.ToPascalCase())
+					.Replace("[id]", assetId);
 
-			//	Debug.Log(asset.Path);
-			//	var coma = section.Assets.Last() == assetId ? "" : ", ";
-			//	all += $"{asset.Name.ToPascalCase()}{coma}";
+				var coma = section.Assets.Last() == assetId ? "" : ", ";
+				all += $"{asset.Name.ToPascalCase()}{coma}";
 
-			//	builder.AppendLine(template);
-			//}
+				builder.AppendLine(template);
+			}
 
 			builder.AppendLine();
 			builder.AppendLine("/// <summary>");
