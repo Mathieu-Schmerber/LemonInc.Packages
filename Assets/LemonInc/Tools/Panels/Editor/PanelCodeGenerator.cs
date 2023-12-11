@@ -57,6 +57,7 @@ namespace LemonInc.Tools.Panels
 		private static string ComputeFinalCode(string currentCode)
 		{
 			var newClassCode = $@"
+#if UNITY_EDITOR
 				using UnityEditor;
 				using UnityEngine;
 				namespace {NAMESPACE} {{
@@ -64,8 +65,8 @@ namespace LemonInc.Tools.Panels
 			        {{
 			            {currentCode}
 			        }}
-			    }}";
-
+			    }}
+#endif";
 			return newClassCode;
 		}
 
