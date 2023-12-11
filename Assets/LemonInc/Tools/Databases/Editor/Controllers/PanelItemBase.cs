@@ -1,10 +1,11 @@
 ﻿using System;
 using LemonInc.Editor.Utilities;
+using LemonInc.Tools.Databases.Editor.Interfaces;
 using LemonInc.Tools.Databases.Interfaces;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace LemonInc.Tools.Databases.Controllers
+namespace LemonInc.Tools.Databases.Editor.Controllers
 {
 	/// <summary>
 	/// Describes a panel item.

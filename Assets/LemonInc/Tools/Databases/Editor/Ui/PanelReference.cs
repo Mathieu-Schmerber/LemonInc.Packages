@@ -1,7 +1,7 @@
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace LemonInc.Tools.Databases.Ui {
+namespace LemonInc.Tools.Databases.Editor.Ui {
 	public class PanelReference 
 	{
 		private readonly VisualElement _root;

@@ -8,9 +8,9 @@ using UnityEngine.UIElements;
 namespace LemonInc.Tools.Databases.Editor.Controllers
 {
 	/// <summary>
-	/// Describes a list entry containing an assset.
+	/// Describes a list entry containing a database.
 	/// </summary>
-	public class AssetListEntry : ListEntry<AssetDefinition>
+	public class DatabaseListEntry : ListEntry<DatabaseData>
 	{
 		/// <summary>
 		/// The object field.
@@ -18,11 +18,11 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 		private readonly ObjectField _objectField;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="AssetListEntry"/> class.
+		/// Initializes a new instance of the <see cref="DatabaseListEntry"/> class.
 		/// </summary>
-		public AssetListEntry()
+		public DatabaseListEntry()
 		{
-			TitleLabel.parent.Insert(0, new ColoredSquare(Color.magenta));
+			TitleLabel.parent.Insert(0, new ColoredSquare(Color.cyan));
 
 			_objectField = new ObjectField();
 			_objectField.AddToClassList("asset-field");
@@ -32,18 +32,17 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 		}
 
 		/// <inheritdoc />
-		public override void Bind(AssetDefinition definition, Action<AssetDefinition> onAddChild)
+		public override void Bind(DatabaseData definition, Action<DatabaseData> onAddChild)
 		{
 			base.Bind(definition, onAddChild);
 
-			_objectField.value = definition.Data;
+			_objectField.value = definition;
 			_objectField.RegisterValueChangedCallback(evt =>
 			{
 				if (evt.newValue != null)
 				{
-					Data.Name = evt.newValue.name;
-					Data.Data = evt.newValue;
-					TitleLabel.text = Data.Name;
+					Data = evt.newValue as DatabaseData;
+					TitleLabel.text = Data!.Name;
 					SetError(!Validate.Invoke(Data, out var errorMessage), errorMessage);
 				}
 			});

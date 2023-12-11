@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using LemonInc.Tools.Databases.Interfaces;
+using LemonInc.Tools.Databases.Models;
 
-namespace LemonInc.Tools.Databases.Models
+namespace LemonInc.Tools.Databases.Editor.Models
 {
 	/// <summary>
 	/// Complete definition of section.
@@ -25,6 +26,14 @@ namespace LemonInc.Tools.Databases.Models
 		/// The name.
 		/// </value>
 		public string Name { get; set; }
+
+		/// <summary>
+		/// Gets or sets the database.
+		/// </summary>
+		/// <value>
+		/// The database.
+		/// </value>
+		public DatabaseData Database { get; set; }
 
 		/// <summary>
 		/// Gets or sets the parent.

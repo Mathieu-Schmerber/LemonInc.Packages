@@ -1,11 +1,11 @@
 ﻿using System;
+using LemonInc.Tools.Databases.Editor.Ui;
 using LemonInc.Tools.Databases.Interfaces;
-using LemonInc.Tools.Databases.Ui;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace LemonInc.Tools.Databases.Controllers
+namespace LemonInc.Tools.Databases.Editor.Controllers
 {
 	/// <summary>
 	/// Tree view entry.
