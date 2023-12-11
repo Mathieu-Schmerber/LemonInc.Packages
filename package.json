@@ -2,7 +2,7 @@
     "name": "com.lemon-inc.tools.scene-switcher",
     "displayName": "LemonInc.Tools.Scene Switcher",
     "description": "Adds a drop down near the play button, which allows for the user to switch and load scenes.",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "unity": "2022.3",
     "author": "Lemon Inc. <mathieu.schmerber@gmail.com> (https://github.com/Mathieu-Schmerber)",
     "repository": {
