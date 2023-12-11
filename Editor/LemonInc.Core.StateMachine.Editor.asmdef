@@ -1,0 +1,20 @@
+{
+    "name": "LemonInc.Core.StateMachine.Editor",
+    "rootNamespace": "LemonInc.Core.StateMachine.Editor",
+    "references": [
+        "GUID:a3e9f3b8813038642a08e98408860bfb",
+        "GUID:84e136866fcc40949ab68aaa40f77f3f",
+        "GUID:8ba0acc3a03921545b20f79d9adda2bf"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
