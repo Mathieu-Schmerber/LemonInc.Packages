@@ -2,7 +2,9 @@
     "name": "LemonInc.Editor.Toolbar",
     "rootNamespace": "LemonInc.Editor.Toolbar",
     "references": [],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
