@@ -1,7 +1,7 @@
 ﻿using System;
 using LemonInc.Tools.Databases.Interfaces;
 
-namespace LemonInc.Tools.Databases.Controllers
+namespace LemonInc.Tools.Databases.Editor.Controllers
 {
 	/// <summary>
 	/// Describes a list entry.

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using LemonInc.Tools.Databases.Interfaces;
+using LemonInc.Tools.Databases.Editor.Interfaces;
 
-namespace LemonInc.Tools.Databases.Policies
+namespace LemonInc.Tools.Databases.Editor.Policies
 {
 	/// <summary>
 	/// Alpha numeric naming policy.

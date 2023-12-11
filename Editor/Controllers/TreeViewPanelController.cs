@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using LemonInc.Tools.Databases.Interfaces;
+using LemonInc.Tools.Databases.Editor.Interfaces;
+using LemonInc.Tools.Databases.Editor.Models;
+using LemonInc.Tools.Databases.Editor.Ui;
 using LemonInc.Tools.Databases.Models;
-using LemonInc.Tools.Databases.Ui;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace LemonInc.Tools.Databases.Controllers
+namespace LemonInc.Tools.Databases.Editor.Controllers
 {
 	/// <summary>
 	/// Handles a panel with a tree view.
@@ -150,7 +151,14 @@ namespace LemonInc.Tools.Databases.Controllers
 		public override void SelectItem(string dataId)
 		{
 			if (!string.IsNullOrEmpty(dataId))
-				_treeView.AddToSelectionById(dataId.GetHashCode());
+			{
+				var id = dataId.GetHashCode();
+				_treeView.ClearSelection();
+				if (_treeView.GetItemDataForId<SectionDefinition>(id) != null)
+				{
+					_treeView.AddToSelectionById(dataId.GetHashCode());
+				}
+			}
 		}
 
 		/// <inheritdoc />

@@ -1,4 +1,4 @@
-﻿namespace LemonInc.Tools.Databases.Interfaces
+﻿namespace LemonInc.Tools.Databases.Editor.Interfaces
 {
 	/// <summary>
 	/// Naming policy.

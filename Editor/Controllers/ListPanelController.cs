@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using LemonInc.Tools.Databases.Editor.Interfaces;
+using LemonInc.Tools.Databases.Editor.Ui;
 using LemonInc.Tools.Databases.Interfaces;
-using LemonInc.Tools.Databases.Ui;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace LemonInc.Tools.Databases.Controllers
+namespace LemonInc.Tools.Databases.Editor.Controllers
 {
 	/// <summary>
 	/// Controls a panel containing a list.

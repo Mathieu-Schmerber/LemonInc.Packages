@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace LemonInc.Tools.Databases.Ui
+namespace LemonInc.Tools.Databases.Editor.Ui
 {
 	/// <summary>
 	/// Square visual element.

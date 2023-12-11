@@ -1,0 +1,16 @@
+{
+    "name": "LemonInc.Tools.Databases",
+    "rootNamespace": "LemonInc.Tools.Databases",
+    "references": [
+        "GUID:a3e9f3b8813038642a08e98408860bfb"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

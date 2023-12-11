@@ -34,14 +34,6 @@ namespace LemonInc.Tools.Databases.Models
 			set => _data = value;
 		}
 
-		/// <summary>
-		/// Gets or sets the path.
-		/// </summary>
-		/// <value>
-		/// The path.
-		/// </value>
-		public string Path => AssetDatabase.GetAssetPath(Data);
-
 		public AssetDefinition()
 		{
 			Id = Guid.NewGuid().ToString();

@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using LemonInc.Core.Utilities.Extensions;
 using LemonInc.Editor.Utilities.Extensions;
-using LemonInc.Tools.Databases.Interfaces;
+using LemonInc.Tools.Databases.Editor.Interfaces;
+using LemonInc.Tools.Databases.Editor.Ui;
 using LemonInc.Tools.Databases.Models;
-using LemonInc.Tools.Databases.Ui;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 using EditorIcons = Sirenix.Utilities.Editor.EditorIcons;
 using Object = UnityEngine.Object;
 
-namespace LemonInc.Tools.Databases.Controllers
+namespace LemonInc.Tools.Databases.Editor.Controllers
 {
 	/// <summary>
 	/// Controls the asset panel.
