@@ -63,11 +63,8 @@ namespace LemonInc.Tools.Databases.Generators
 		/// <param name="builder">The builder.</param>
 		private static void GenerateDatabase(DatabaseConfiguration databases, SectionDescription database, StringBuilder builder)
 		{
-			builder.AppendLine($"public class {database.Name.ToPascalCase()} : Singleton<{database.Name.ToPascalCase()}>");
+			builder.AppendLine($"public static class {database.Name.ToPascalCase()}");
 			builder.AppendLine($"{{");
-			builder.AppendLine($"private {nameof(DatabaseConfiguration)} _configInstance;");
-			builder.AppendLine($"private {nameof(DatabaseConfiguration)} Configuration => _configInstance ??= {nameof(DatabaseConfiguration)}.{nameof(DatabaseConfiguration.Instance)};");
-
 
 			foreach (var sectionId in database.Sections)
 			{
@@ -87,7 +84,7 @@ namespace LemonInc.Tools.Databases.Generators
 		/// <param name="builder">The builder.</param>
 		private static void GenerateSection(DatabaseConfiguration databases, SectionDescription section, StringBuilder builder)
 		{
-			builder.AppendLine($"public class {section.Name.ToPascalCase()}");
+			builder.AppendLine($"public static class {section.Name.ToPascalCase()}");
 			builder.AppendLine($"{{");
 
 			GenerateAssets(databases, section, builder);
@@ -116,11 +113,12 @@ namespace LemonInc.Tools.Databases.Generators
 			foreach (var assetId in section.Assets)
 			{
 				var asset = databases.AssetDefinitions[assetId];
-				var template = "public static {type} {name} = ({type})Instance.Configuration?.AssetDefinitions[\"{id}\"].Data;"
+				var template = "public static {type} {name} = Resources.Load<{type}>(\"{path}\");"
 					.Replace("{type}", asset.Data.GetType().FullName)
 					.Replace("{name}", asset.Name.ToPascalCase())
-					.Replace("{id}", assetId);
+					.Replace("{path}", asset.Path);
 
+				Debug.Log(asset.Path);
 				var coma = section.Assets.Last() == assetId ? "" : ", ";
 				all += $"{asset.Name.ToPascalCase()}{coma}";
 
