@@ -8,8 +8,6 @@ namespace LemonInc.Tools.Databases.Editor.Ui {
 
 private VisualElement _BannerVisualElement;
 public VisualElement BannerVisualElement => _BannerVisualElement ??= _root.Q<VisualElement>("Banner");
-private ToolbarButton _CompileToolbarButton;
-public ToolbarButton CompileToolbarButton => _CompileToolbarButton ??= _root.Q<ToolbarButton>("Compile");
 private VisualElement _DatabasesVisualElement;
 public VisualElement DatabasesVisualElement => _DatabasesVisualElement ??= _root.Q<VisualElement>("Databases");
 private VisualElement _SectionsVisualElement;
@@ -17,9 +15,13 @@ public VisualElement SectionsVisualElement => _SectionsVisualElement ??= _root.Q
 private VisualElement _AssetsVisualElement;
 public VisualElement AssetsVisualElement => _AssetsVisualElement ??= _root.Q<VisualElement>("Assets");
 
-private ToolbarButton _FolderToolbarButton;
-public ToolbarButton FolderToolbarButton => _FolderToolbarButton ??= _root.Q<ToolbarButton>("Folder");
-private Label _Path;
+private ToolbarMenu _SelectToolbarMenu;
+public ToolbarMenu SelectToolbarMenu => _SelectToolbarMenu ??= _root.Q<ToolbarMenu>("SelectedMenu");
+
+private ToolbarButton _FetchToolbarButton;
+public ToolbarButton FetchToolbarButton => _FetchToolbarButton ??= _root.Q<ToolbarButton>("Fetch");
+
+		private Label _Path;
 public Label Path => _Path ??= _root.Q<Label>("Path");
 		public DatabasesReference(VisualElement root) => _root = root;
 	}

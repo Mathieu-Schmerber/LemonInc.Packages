@@ -69,11 +69,6 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 			_titleContainer.Insert(0, _errorIcon);
 		}
 
-		/// <summary>
-		/// Notifies the rename.
-		/// </summary>
-		public void NotifyRename() => OnRenamed?.Invoke(Data);
-
 		/// <inheritdoc/>
 		public void SetError(bool error, string errorMessage)
 		{
@@ -160,8 +155,11 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 
 			TitleLabel.text = _renameField.text.Trim();
 			Data.Name = TitleLabel.text;
+			OnItemRenamed();
 			OnRenamed?.Invoke(Data);
 		}
+
+		protected virtual void OnItemRenamed() {}
 
 		#endregion
 	}
