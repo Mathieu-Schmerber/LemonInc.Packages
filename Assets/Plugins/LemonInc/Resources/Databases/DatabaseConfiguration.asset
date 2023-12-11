@@ -105,20 +105,20 @@ MonoBehaviour:
       _name: Bullet
       _data: {fileID: 1033174274539694887, guid: 604bf7ff186c40547838d4216bbf6cc9, type: 3}
     - _id: 15d4db23-e91e-48f5-a29e-019c4b90658d
-      _name: Data B
-      _data: {fileID: 11400000, guid: d51161dc018a0974a91b04fb1325ec2d, type: 2}
+      _name: Action
+      _data: {fileID: 2800000, guid: 1555d56fac796f14082730d9af8d7c3a, type: 3}
     - _id: 2addf8bb-f38a-4177-8a18-221ae5988d6e
-      _name: New Sample Data
-      _data: {fileID: 11400000, guid: d07517afcccd48a46af7408a00f1ac16, type: 2}
+      _name: Banner
+      _data: {fileID: 2800000, guid: 31255bfece192d743b4867d874873177, type: 3}
     - _id: 6a63fffb-004c-484b-86c3-ae47b70982c1
-      _name: Bullet
-      _data: {fileID: 1033174274539694887, guid: 604bf7ff186c40547838d4216bbf6cc9, type: 3}
+      _name: Condition
+      _data: {fileID: 21300000, guid: 35af58d3267f19b46984e928d44f401e, type: 3}
     - _id: d2a16fdb-be87-4506-9443-1c964be538ec
-      _name: angry
-      _data: {fileID: 21300000, guid: eda6a3c14bb9f1d46acb027c23d63446, type: 3}
+      _name: AttributesExampleWindow
+      _data: {fileID: -1806621427, guid: a4865f1ab4504ed8a368670db22f409c, type: 3}
   DatabaseIds:
   - fa333418-cfe2-4a8b-a304-619d2f8eb6c8
   LastSelectedDatabaseId: fa333418-cfe2-4a8b-a304-619d2f8eb6c8
   LastSelectedSectionId: 985e6c3c-6752-478f-b419-fdb4743337b6
-  LastSelectedAssetId: 
+  LastSelectedAssetId: d2a16fdb-be87-4506-9443-1c964be538ec
   ScriptPath: Assets/LemonInc/Test/Databases.cs
