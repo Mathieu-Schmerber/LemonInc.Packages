@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using LemonInc.Core.StateMachine.Interfaces;
-using LemonInc.Editor.Utilities.Ui.GraphView.Interfaces;
+using LemonInc.Core.Utilities.Graph;
 using UnityEngine;
 
 namespace LemonInc.Core.StateMachine.Scriptables
