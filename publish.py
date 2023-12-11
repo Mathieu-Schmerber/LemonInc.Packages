@@ -76,11 +76,6 @@ def check_package_validity(path, scope, feature):
             'Path': os.path.join(path, 'package.json'),
             'Type': 'f',
             'ErrorMessage': "The 'package.json' file is missing."
-        },
-        {
-            'Path': os.path.join(path, f"LemonInc.{scope}.{feature}.asmdef"),
-            'Type': 'f',
-            'ErrorMessage': f"The 'LemonInc.{scope}.{feature}.asmdef' file is missing."
         }
     ]
 
@@ -121,17 +116,21 @@ def slicer(my_str, sub):
     else:
         raise Exception('Substring not found!')
     
+def list_folders(root_path):
+    folders_list = []
+    for root, dirs, files in os.walk(root_path):
+        depth = root[len(root_path):].count(os.sep)
+        if depth == 2:
+            folders_list.append(root)
+    return folders_list
+
 def sync_packages():
     base_path = "Assets/LemonInc"
-    asmdef_files = []
+    folders = list_folders(base_path)
 
-    for root, _, files in os.walk(base_path):
-        for file in files:
-            if file.endswith(".asmdef"):
-                asmdef_files.append(os.path.join(root, file))
-
-    for asmdef_file in asmdef_files:
-        package_path = os.path.dirname(asmdef_file)
+    print(folders)
+    for folder in folders:
+        package_path = folder
         _, scope, feature = package_path.split(os.sep)
 
         if has_changes(package_path):
