@@ -275,7 +275,7 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 
 			if (!string.IsNullOrEmpty(path))
 			{
-				if (!path.Contains($@"{"Resources"}\"))
+				if (!path.Contains($@"\{"Resources"}") && !path.Contains($@"/{"Resources"}"))
 				{
 					EditorUtility.DisplayDialog(
 						"LemonInc Databases", 
@@ -290,6 +290,7 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 				_data.TryAdd(instance, new SectionDictionary());
 				AssetDatabase.CreateAsset(instance, Path.Combine(relative, $"{database.Name}.asset"));
 				AssetDatabase.SaveAssets();
+				RefreshWindow();
 			}
 		}
 
@@ -330,6 +331,7 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 			{
 				_data.Remove(database);
 				AssetDatabase.DeleteAsset(database.GetPath());
+				RefreshWindow();
 			}
 		}
 
