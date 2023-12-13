@@ -19,11 +19,6 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 		public override event Action<SectionDefinition> OnItemSelected;
 
 		/// <summary>
-		/// The parent.
-		/// </summary>
-		private SectionDefinition _parent;
-
-		/// <summary>
 		/// The children.
 		/// </summary>
 		private List<SectionDefinition> _children;
@@ -120,7 +115,7 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 				Parent = parent
 			};
 
-			if (parent?.Id == _parent?.Id)
+			if (parent?.Id == null)
 			{
 				_children?.Add(item);
 			}
@@ -134,7 +129,7 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 		/// <summary>
 		/// Adds the new item.
 		/// </summary>
-		private void AddNewItem() => AddNewItem(_parent);
+		private void AddNewItem() => AddNewItem(null);
 
 		/// <inheritdoc />
 		protected override void OnDelete(TreeViewEntry<SectionDefinition> selectedItem)
@@ -163,11 +158,11 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 		/// <inheritdoc />
 		public override void Refresh()
 		{
-			var children = _parent?.Sections.Values.ToList() ?? _children;
+			var children = _children;
 			var roots = children?
 				.Select(x =>
 				{
-					x.Parent = _parent;
+					x.Parent = null;
 					return new TreeViewItemData<SectionDefinition>(x.Id.GetHashCode(), x, GetChildren(x));
 				})
 				.ToList();
@@ -220,12 +215,6 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 		/// <param name="obj">The object.</param>
 		/// <exception cref="System.NotImplementedException"></exception>
 		private void OnSelectionChanged(IEnumerable<object> obj) => GetSelectedItem();
-
-		/// <summary>
-		/// Sets the parent.
-		/// </summary>
-		/// <param name="parent"></param>
-		public void SetParent(SectionDefinition parent) => _parent = parent;
 
 		/// <summary>
 		/// Sets the children.

@@ -1,7 +1,6 @@
 ﻿using System;
 using LemonInc.Tools.Databases.Editor.Ui;
 using LemonInc.Tools.Databases.Models;
-using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -42,7 +41,8 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 			{
 				if (evt.newValue != null)
 				{
-					Data.Name = evt.newValue.name;
+					var nameChanged = evt.previousValue?.name != evt.newValue?.name;
+					Data.Name = !nameChanged ? evt.newValue.name : Data.Name;
 					Data.Data = evt.newValue;
 					TitleLabel.text = Data.Name;
 					SetError(!Validate.Invoke(Data, out var errorMessage), errorMessage);

@@ -48,7 +48,8 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 		{
 			var path = Data.GetPath();
 			AssetDatabase.RenameAsset(path, Data.Name);
-			Data.name = Data.Name;
+			Data.Name = Data.name;
+			AssetDatabase.Refresh();
 		}
 	}
 }
