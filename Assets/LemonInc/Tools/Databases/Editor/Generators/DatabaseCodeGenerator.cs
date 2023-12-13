@@ -2,11 +2,11 @@
 using System.Linq;
 using System.Text;
 using LemonInc.Core.Utilities.Extensions;
+using LemonInc.Editor.Utilities.Extensions;
 using LemonInc.Tools.Databases.Editor.Ui;
 using LemonInc.Tools.Databases.Models;
 using UnityEditor;
 using UnityEngine;
-using DatabaseConfiguration = LemonInc.Tools.Databases.Editor.Models.DatabaseConfiguration;
 
 namespace LemonInc.Tools.Databases.Editor.Generators
 {
@@ -70,8 +70,11 @@ namespace LemonInc.Tools.Databases.Editor.Generators
 			builder.AppendLine($"public class {GetClass(database)} : Singleton<{GetClass(database)}>");
 			builder.AppendLine($"{{");
 			builder.AppendLine($"private {nameof(DatabaseData)} _data;");
+			builder.AppendLine("#if UNITY_EDITOR");
+			builder.AppendLine($"public {nameof(DatabaseData)} Data => _data ??= AssetDatabase.LoadAllAssetsAtPath(\"{database.GetPath()}\").FirstOrDefault() as {nameof(DatabaseData)};");
+			builder.AppendLine("#else");
 			builder.AppendLine($"public {nameof(DatabaseData)} Data => _data ??= Resources.Load<{nameof(DatabaseData)}>(\"{database.Name}\");");
-
+			builder.AppendLine("#endif");
 			foreach (var section in DatabaseEditorWindow.GetRoots(database))
 			{
 				GenerateSection(database, section, builder);

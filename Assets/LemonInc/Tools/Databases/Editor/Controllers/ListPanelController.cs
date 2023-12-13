@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using LemonInc.Editor.Utilities;
 using LemonInc.Tools.Databases.Editor.Interfaces;
 using LemonInc.Tools.Databases.Editor.Ui;
 using LemonInc.Tools.Databases.Interfaces;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -86,6 +84,8 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 			reference.PanelVisualElement.Add(ListView);
 		}
 
+		protected void NotifyCreated(TData item) => OnItemCreated?.Invoke(item);
+
 		/// <summary>
 		/// Called when [selection changed].
 		/// </summary>
@@ -121,12 +121,14 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 		/// Called when [item added].
 		/// </summary>
 		/// <exception cref="System.NotImplementedException"></exception>
-		protected void OnItemAdded()
+		protected virtual void OnItemAdded()
 		{
 			var item = new TData();
 
-			OnItemCreated?.Invoke(item);
+			NotifyCreated(item);
 			Refresh();
+			SelectItem(item.Id);
+			_entryViews.FirstOrDefault(x => x.Data.Id == item.Id)?.StartRename();
 		}
 
 		/// <summary>
@@ -180,8 +182,12 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 		/// <inheritdoc/>
 		public override void SelectItem(string dataId)
 		{
-			if (!string.IsNullOrEmpty(dataId))
-				ListView.AddToSelection(Source.FindIndex(x => x.Id.Equals(dataId)));
+			if (!string.IsNullOrEmpty(dataId) && Source != null)
+			{
+				var index = Source.FindIndex(x => x.Id.Equals(dataId));
+				if (index > 0 && index < Source.Count)
+					ListView.AddToSelection(index);
+			}
 		}
 
 		/// <inheritdoc/>

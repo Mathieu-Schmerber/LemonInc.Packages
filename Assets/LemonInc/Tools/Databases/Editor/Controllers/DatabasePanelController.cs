@@ -2,7 +2,9 @@
 using LemonInc.Tools.Databases.Editor.Interfaces;
 using LemonInc.Tools.Databases.Editor.Ui;
 using LemonInc.Tools.Databases.Models;
+using System.Linq;
 using UnityEngine.UIElements;
+using UnityEngine;
 
 namespace LemonInc.Tools.Databases.Editor.Controllers
 {
@@ -41,6 +43,16 @@ namespace LemonInc.Tools.Databases.Editor.Controllers
 					: DisplayStyle.Flex);
 
 			Reference.PanelVisualElement.Add(_emptyInfo);
+		}
+
+		protected override void OnItemAdded()
+		{
+			var database = ScriptableObject.CreateInstance<DatabaseData>();
+
+			NotifyCreated(database);
+			Refresh();
+			SelectItem(database.Id);
+			_entryViews.FirstOrDefault(x => x.Data.Id == database.Id)?.StartRename();
 		}
 
 		public override void Refresh()

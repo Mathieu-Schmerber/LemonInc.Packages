@@ -1,17 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using LemonInc.Core.Utilities.Extensions;
 using LemonInc.Editor.Utilities.Extensions;
-using LemonInc.Editor.Utilities.Helpers;
 using LemonInc.Tools.Databases.Editor.Controllers;
 using LemonInc.Tools.Databases.Editor.Generators;
 using LemonInc.Tools.Databases.Editor.Interfaces;
 using LemonInc.Tools.Databases.Editor.Models;
 using LemonInc.Tools.Databases.Editor.Policies;
 using LemonInc.Tools.Databases.Models;
-using PlasticGui.WorkspaceWindow.CodeReview;
-using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -216,6 +212,12 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 		/// <returns>Whether the item is valid.</returns>
 		private bool ValidateItem(SectionDefinition item, out string error)
 		{
+			if (item.Database == null && _selectedDatabase == null)
+			{
+				error = null;
+				return true;
+			};
+
 			var duplicate = item.Parent == null
 				? _data[item.Database].Values.Count(x => x.Name == item.Name) > 1
 				: item.Parent.Sections.Values.Count(x => x.Name == item.Name) > 1;
@@ -285,12 +287,12 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 				}
 				database.Name = $"New Database {_data.Count}";
 				var relative = path.ToAssetPath();
-				var instance = CreateInstance<DatabaseData>();
-				instance.Name = database.Name;
-				_data.TryAdd(instance, new SectionDictionary());
-				AssetDatabase.CreateAsset(instance, Path.Combine(relative, $"{database.Name}.asset"));
+				_data.TryAdd(database, new SectionDictionary());
+				_data.TryAdd(database, new SectionDictionary());
+				AssetDatabase.CreateAsset(database, Path.Combine(relative, $"{database.Name}.asset"));
 				AssetDatabase.SaveAssets();
 				RefreshWindow();
+				SelectDatabase(database);
 			}
 		}
 
@@ -329,6 +331,11 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 				    "Delete",
 				    "Cancel"))
 			{
+				if (_selectedDatabase.Id == database.Id)
+				{
+					SelectDatabase(null);
+				}
+
 				_data.Remove(database);
 				AssetDatabase.DeleteAsset(database.GetPath());
 				RefreshWindow();
