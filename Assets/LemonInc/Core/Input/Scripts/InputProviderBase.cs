@@ -8,8 +8,7 @@ namespace LemonInc.Core.Input
 	/// <summary>
 	/// Input provider.
 	/// </summary>
-	[RequireComponent(typeof(PlayerInput))]
-	public abstract class InputProviderBase<T> : MonoBehaviour, IInputProvider
+	public abstract class InputProviderBase<T> : MonoBehaviour
 		where T : IInputActionCollection, new()
 	{
 		/// <summary>
@@ -50,9 +49,6 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		public T Controls => _controls ??= new T();
 
-		/// <inheritdoc/>
-		public abstract void ProcessInputs();
-		
 		/// <summary>
 		/// Awakes this instance.
 		/// </summary>
@@ -70,6 +66,7 @@ namespace LemonInc.Core.Input
 				_playerInput.onControlsChanged += OnControlsChanged;
 
 			Controls.Enable();
+			SubscribeInputs();
 		}
 
 		/// <summary>
@@ -81,8 +78,16 @@ namespace LemonInc.Core.Input
 				_playerInput.onControlsChanged -= OnControlsChanged;
 
 			Controls.Disable();
+			UnSubscribeInputs();
 		}
 
+		protected abstract void SubscribeInputs();
+		protected abstract void UnSubscribeInputs();
+
+		/// <summary>
+		/// Called when [controls changed].
+		/// </summary>
+		/// <param name="input">The input.</param>
 		private void OnControlsChanged(PlayerInput input)
 		{
 			if (!input.devices.Any())
