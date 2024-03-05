@@ -22,25 +22,27 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		private Func<URawInput, TConverted> _valueConverter;
 
+		public override TConverted Value { 
+			get {
+				var physicalValue = _inputAction.ReadValue<URawInput>();
+				if (_valueConverter != null)
+					return _valueConverter(physicalValue);
+				else
+				{
+					if (physicalValue is TConverted value)
+						return value;
+					else
+						throw new InvalidCastException($"Tried to convert {typeof(URawInput).FullName} to {typeof(TConverted).FullName}, when no value convertor was assigned.");
+				}
+			} 
+			protected set => base.Value = value; 
+		}
+
 		/// <summary>
 		/// Performs the specified input.
 		/// </summary>
 		/// <param name="ctx">The context.</param>
-		private void Performed(InputAction.CallbackContext ctx)
-        {
-			var physicalValue = ctx.ReadValue<URawInput>();
-			if (_valueConverter != null)
-				SetValue(_valueConverter(physicalValue));
-			else
-			{
-				if (physicalValue is TConverted value)
-					SetValue(value);
-				else
-					throw new InvalidCastException($"Tried to convert {typeof(URawInput).FullName} to {typeof(TConverted).FullName}, when no value convertor was assigned.");
-			}
-
-            Hold();
-        }
+		private void Performed(InputAction.CallbackContext ctx) => Hold();
 
         /// <summary>
         /// Cancels the specified input.
