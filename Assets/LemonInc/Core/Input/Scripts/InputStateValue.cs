@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LemonInc.Core.Input
+﻿namespace LemonInc.Core.Input
 {
     /// <summary>
     /// Describes an input.
@@ -14,7 +12,7 @@ namespace LemonInc.Core.Input
 		/// <value>
 		/// The value.
 		/// </value>
-		public T Value { get; private set; }
+		public virtual T Value { get; protected set; }
 
         /// <summary>
         /// Occurs when [on value changed].
