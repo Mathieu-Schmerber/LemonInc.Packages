@@ -1,5 +1,5 @@
 ﻿using System;
-using LemonInc.Editor.Utilities;
+using LemonInc.Core.Utilities.Editor;
 using LemonInc.Tools.Databases.Editor.Interfaces;
 using LemonInc.Tools.Databases.Interfaces;
 using UnityEngine;

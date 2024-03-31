@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using LemonInc.Editor.Utilities.Extensions;
+using LemonInc.Core.Utilities.Editor.Extensions;
 using LemonInc.Tools.Databases.Editor.Controllers;
 using LemonInc.Tools.Databases.Editor.Generators;
 using LemonInc.Tools.Databases.Editor.Interfaces;
@@ -12,7 +12,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using DatabaseConfiguration = LemonInc.Tools.Databases.Editor.Models.DatabaseConfiguration;
-using EditorIcons = LemonInc.Editor.Utilities.EditorIcons;
+using EditorIcons = LemonInc.Core.Utilities.Editor.EditorIcons;
 
 namespace LemonInc.Tools.Databases.Editor.Ui
 {
