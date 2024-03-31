@@ -116,7 +116,7 @@ namespace LemonInc.Core.Pooling.Contracts
 			}
 
 			Pool[PoolState.FREE].Add(poolable);
-			poolable.Instance.transform.parent = transform;
+			poolable.Instance.transform.SetParent(transform);
 			poolable.State = PoolState.FREE;
 		}
 
@@ -129,7 +129,7 @@ namespace LemonInc.Core.Pooling.Contracts
 			foreach (var poolable in Pool[ofState].ToList())
 			{
 				poolable.State = PoolState.FREE;
-				poolable.Instance.transform.parent = transform;
+				poolable.Instance.transform.SetParent(transform);
 				Pool[ofState].Remove(poolable);
 				Pool[PoolState.FREE].Add(poolable);
 			}

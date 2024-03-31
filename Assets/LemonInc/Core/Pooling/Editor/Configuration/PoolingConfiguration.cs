@@ -1,5 +1,5 @@
 ﻿using System;
-using LemonInc.Editor.Utilities.Configuration;
+using LemonInc.Core.Utilities.Editor.Configuration;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

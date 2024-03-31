@@ -2,9 +2,9 @@
     "name": "LemonInc.Core.Pooling.Editor",
     "rootNamespace": "LemonInc.Core.Pooling.Editor",
     "references": [
-        "GUID:84e136866fcc40949ab68aaa40f77f3f",
         "GUID:a3e9f3b8813038642a08e98408860bfb",
-        "GUID:a131ec2cfad2ac84b98102fd12f7d446"
+        "GUID:a131ec2cfad2ac84b98102fd12f7d446",
+        "GUID:33b4de149a2cd0f4cba5df2e36bca79a"
     ],
     "includePlatforms": [
         "Editor"
