@@ -72,5 +72,32 @@ namespace LemonInc.Core.Utilities.Extensions
 		{
 			return source == null || source.Count == 0;
 		}
+
+		/// <summary>
+		/// Resizes the specified list.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="list">The list.</param>
+		/// <param name="size">The size.</param>
+		/// <param name="createItem">The function creating an item.</param>
+		public static void Resize<T>(this List<T> list, int size, Func<int, T> createItem)
+		{
+			var count = list.Count;
+
+			if (size < count)
+			{
+				list.RemoveRange(size, count - size);
+			}
+			else if (size > count)
+			{
+				if (size > list.Capacity)
+					list.Capacity = size;
+
+				for (var i = count; i < size; i++)
+				{
+					list.Add(createItem(i));
+				}
+			}
+		}
 	}
 }
