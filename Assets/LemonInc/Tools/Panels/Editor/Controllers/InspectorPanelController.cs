@@ -1,5 +1,5 @@
 ﻿using System;
-using LemonInc.Editor.Utilities.Extensions;
+using LemonInc.Core.Utilities.Editor.Extensions;
 using LemonInc.Tools.Panels.Interfaces;
 using LemonInc.Tools.Panels.Models;
 using UnityEditor;

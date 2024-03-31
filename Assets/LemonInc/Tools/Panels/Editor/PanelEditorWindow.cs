@@ -1,4 +1,4 @@
-using LemonInc.Editor.Utilities;
+using LemonInc.Core.Utilities.Editor;
 using LemonInc.Tools.Panels.Controllers;
 using LemonInc.Tools.Panels.Interfaces;
 using LemonInc.Tools.Panels.Models;

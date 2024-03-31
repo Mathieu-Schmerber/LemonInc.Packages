@@ -1,6 +1,6 @@
 using System.IO;
 using System.Text;
-using LemonInc.Editor.Utilities.Extensions;
+using LemonInc.Core.Utilities.Editor.Extensions;
 using LemonInc.Tools.Panels.Models;
 using UnityEditor;
 using UnityEngine;

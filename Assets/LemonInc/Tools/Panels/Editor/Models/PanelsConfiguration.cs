@@ -1,6 +1,6 @@
 using System;
 using LemonInc.Core.Utilities;
-using LemonInc.Editor.Utilities.Configuration;
+using LemonInc.Core.Utilities.Editor.Configuration;
 
 namespace LemonInc.Tools.Panels.Models
 {
