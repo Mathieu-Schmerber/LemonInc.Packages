@@ -13,6 +13,9 @@ namespace LemonInc.Core.Utilities
 		/// </summary>
 		[ReadOnly] public string Id = string.Empty;
 
+
+#if UNITY_EDITOR
+
 		/// <summary>
 		/// On create/compile
 		/// </summary>
@@ -22,7 +25,7 @@ namespace LemonInc.Core.Utilities
 				GenerateID();
 		}
 
-#if UNITY_EDITOR
+
 		[Button, ShowIf("@string.IsNullOrEmpty(Id)")]
 		private void GenerateID() => Id = Guid.NewGuid().ToString();
 #endif
