@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using LemonInc.Core.Utilities.Extensions;
-using LemonInc.Editor.Utilities;
-using LemonInc.Editor.Utilities.SearchWindows;
+using LemonInc.Core.Utilities.Editor;
+using LemonInc.Core.Utilities.Editor.SearchWindows;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;

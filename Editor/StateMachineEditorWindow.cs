@@ -1,5 +1,5 @@
 using LemonInc.Core.StateMachine.Scriptables;
-using LemonInc.Editor.Utilities.Events;
+using LemonInc.Core.Utilities.Editor.Events;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;

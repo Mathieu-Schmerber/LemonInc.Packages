@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using LemonInc.Core.StateMachine.Editor.Graph;
 using LemonInc.Core.StateMachine.Scriptables;
-using LemonInc.Editor.Utilities.Ui.GraphView;
+using LemonInc.Core.Utilities.Editor.Ui.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 

@@ -2,7 +2,7 @@
     <ui:Template name="LemonInc.Banner" src="project://database/Assets/LemonInc/Editor/Utilities/Editor/Ui/LemonInc.Banner.uxml?fileID=9197481963319205126&amp;guid=6500b10e494774f4fb078024caa8bd47&amp;type=3#LemonInc.Banner" />
     <Style src="project://database/Assets/LemonInc/Core/StateMachine/Editor/StateMachineEditorWindow.uss?fileID=7433441132597879392&amp;guid=1a173ca2111431144878e3835a5ef5a6&amp;type=3#StateMachineEditorWindow" />
     <ui:Instance template="LemonInc.Banner" name="LemonInc.Banner" />
-    <LemonInc.Editor.Utilities.Builtins.SplitView fixed-pane-initial-dimension="200">
+    <LemonInc.Core.Utilities.Editor.Builtins.SplitView fixed-pane-initial-dimension="200">
         <ui:VisualElement name="LeftPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
             <ui:Label tabindex="-1" text="Inspector" display-tooltip-when-elided="true" class="panelTitle" />
             <LemonInc.Core.StateMachine.Editor.InspectorView name="Inspector" style="flex-grow: 1;" />
@@ -11,5 +11,5 @@
             <ui:Label tabindex="-1" text="Graph" display-tooltip-when-elided="true" name="GraphViewTitle" class="panelTitle" />
             <LemonInc.Core.StateMachine.Editor.Graph.StateMachineGraphView focusable="true" name="Graph" style="flex-grow: 1;" />
         </ui:VisualElement>
-    </LemonInc.Editor.Utilities.Builtins.SplitView>
+    </LemonInc.Core.Utilities.Editor.Builtins.SplitView>
 </ui:UXML>

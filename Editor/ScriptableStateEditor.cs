@@ -5,7 +5,7 @@ using LemonInc.Core.StateMachine.Scriptables;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using EditorIcons = LemonInc.Editor.Utilities.EditorIcons;
+using EditorIcons = LemonInc.Core.Utilities.Editor.EditorIcons;
 
 namespace LemonInc.Core.StateMachine.Editor
 {
