@@ -1,4 +1,5 @@
-﻿using UnityEngine.InputSystem;
+﻿using System;
+using UnityEngine.InputSystem;
 
 namespace LemonInc.Core.Input
 {
@@ -10,10 +11,15 @@ namespace LemonInc.Core.Input
     public class PhysicalInput : InputState
     {
         /// <summary>
+		/// The input action.
+		/// </summary>
+		private InputAction _inputAction;
+
+        /// <summary>
         /// Performs the specified input.
         /// </summary>
-        /// <param name="_">The context.</param>
-        private void Performed(InputAction.CallbackContext _) => Hold();
+        /// <param name="ctx">The context.</param>
+        private void Performed(InputAction.CallbackContext ctx) => Hold();
 
         /// <summary>
         /// Cancels the specified input.
@@ -22,13 +28,23 @@ namespace LemonInc.Core.Input
         private void Cancelled(InputAction.CallbackContext _) => Release();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ControlledInput"/> struct.
+        /// Subscribes the specified input action.
         /// </summary>
         /// <param name="inputAction">The input action.</param>
-        public PhysicalInput(InputAction inputAction)
+        public void Subscribe(InputAction inputAction)
         {
-            inputAction.performed += Performed;
-            inputAction.canceled += Cancelled;
+            _inputAction = inputAction;
+            _inputAction.performed += Performed;
+            _inputAction.canceled += Cancelled;
+        }
+
+        /// <summary>
+        /// Unsubscribes.
+        /// </summary>
+        public void UnSubscribe()
+        {
+            _inputAction.performed -= Performed;
+            _inputAction.canceled -= Cancelled;
         }
     }
 }
