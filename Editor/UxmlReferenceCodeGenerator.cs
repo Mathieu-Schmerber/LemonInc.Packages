@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using LemonInc.Core.Utilities.Extensions;
-using LemonInc.Editor.Utilities.Extensions;
+using LemonInc.Core.Utilities.Editor.Extensions;
 using UnityEditor;
 
 namespace LemonInc.Editor.Uxml
