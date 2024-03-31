@@ -1,55 +1,79 @@
-﻿using UnityEngine;
+﻿using System;
+using System.IO;
+using UnityEngine;
 
 namespace LemonInc.Core.Utilities
 {
-	/// <summary>
-	/// https://answers.unity.com/questions/125049/is-there-any-way-to-view-the-console-in-a-build.html
-	/// </summary>
 	public class BuildConsole : MonoBehaviour
 	{
-		private string _logStart = "*** Logs ***";
-		private string _filename = "";
+		[SerializeField] private float windowX = 10f;
+		[SerializeField] private float windowY = 10f;
+		[SerializeField] private float windowWidth = 400f;
+		[SerializeField] private float windowHeight = 300f;
 
-		private const int KChars = 700;
+		private string logs;
+		private Vector2 scrollPosition;
+		private string logFilePath;
 
-		[SerializeField] private const bool Show = true;
-
-		private void OnEnable() { Application.logMessageReceived += Log; }
-		private void OnDisable() { Application.logMessageReceived -= Log; }
-
-		public void Log(string logString, string stackTrace, LogType type)
+		private void Start()
 		{
-			_logStart = _logStart + "\n" + logString;
+			// Get the path to the directory where the executable is located
+			string executableDirectory = Path.GetDirectoryName(Application.dataPath);
 
-			if (_logStart.Length > KChars)
-				_logStart = _logStart.Substring(_logStart.Length - KChars);
+			// Specify the path for the log file (next to the executable)
+			logFilePath = Path.Combine(executableDirectory, "application_log.txt");
 
-			if (string.IsNullOrEmpty(_filename))
+			// If the log file exists, delete it to clear previous logs
+			if (File.Exists(logFilePath))
 			{
-				var d = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop) + "/LOGS";
-				System.IO.Directory.CreateDirectory(d);
-				var r = Random.Range(1000, 9999).ToString();
-				_filename = d + "/log-" + r + ".txt";
+				File.Delete(logFilePath);
+			}
+		}
+
+		private void OnEnable()
+		{
+			Application.logMessageReceived += HandleLog;
+		}
+
+		private void OnDisable()
+		{
+			Application.logMessageReceived -= HandleLog;
+		}
+
+		private void HandleLog(string logText, string stackTrace, LogType type)
+		{
+			// Append the new log message to the logs string
+			logs += $"[{DateTime.Now.ToShortTimeString()}]" + logText + "\n";
+
+			// Write the log message to the log file
+			using (StreamWriter writer = new StreamWriter(logFilePath, true))
+			{
+				writer.WriteLine(logText);
 			}
 
-			try
-			{
-				System.IO.File.AppendAllText(_filename, logString + "\n");
-			}
-			catch
-			{
-				// ignored
-			}
+			// Make sure the scroll position is always at the bottom to display latest logs
+			scrollPosition.y = Mathf.Infinity;
 		}
 
 		private void OnGUI()
 		{
-			if (Show)
-			{
-				GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity,
-					new Vector3(Screen.width / 1200.0f, Screen.height / 800.0f, 1.0f));
-				GUI.TextArea(new Rect(10, 10, 540, 370), _logStart);
-			}
+			// Set the position and size of the log window
+			Rect logWindowRect = new Rect(windowX, windowY, windowWidth, windowHeight);
+
+			// Begin the log window GUI group
+			GUI.BeginGroup(logWindowRect);
+
+			// Create a scroll view for the logs
+			scrollPosition = GUILayout.BeginScrollView(scrollPosition, GUILayout.Width(windowWidth), GUILayout.Height(windowHeight));
+
+			// Draw the console GUI
+			GUILayout.TextArea(logs);
+
+			// End the scroll view
+			GUILayout.EndScrollView();
+
+			// End the log window GUI group
+			GUI.EndGroup();
 		}
 	}
 }
