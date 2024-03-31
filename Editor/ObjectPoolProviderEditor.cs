@@ -1,13 +1,13 @@
 using LemonInc.Core.Pooling.Contracts;
 using LemonInc.Core.Pooling.Providers;
-using LemonInc.Editor.Utilities;
-using LemonInc.Editor.Utilities.Helpers;
+using LemonInc.Core.Utilities.Editor;
+using LemonInc.Core.Utilities.Editor.Helpers;
 using Sirenix.Utilities.Editor;
 using System.IO;
 using LemonInc.Core.Pooling.Editor.Configuration;
 using UnityEditor;
 using UnityEngine;
-using EditorIcons = LemonInc.Editor.Utilities.EditorIcons;
+using EditorIcons = LemonInc.Core.Utilities.Editor.EditorIcons;
 
 namespace LemonInc.Core.Pooling.Editor
 {

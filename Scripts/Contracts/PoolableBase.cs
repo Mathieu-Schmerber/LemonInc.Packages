@@ -62,7 +62,7 @@ namespace LemonInc.Core.Pooling.Contracts
 			{
 				case PoolState.BUSY:
 					Instance.SetActive(true);
-					Instance.transform.parent = null;
+					Instance.transform.SetParent(null);
 					break;
 				case PoolState.FREE:
 					Instance.SetActive(false);
