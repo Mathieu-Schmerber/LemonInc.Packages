@@ -1,4 +1,4 @@
-﻿using LemonInc.Editor.Utilities.Configuration;
+﻿using LemonInc.Core.Utilities.Editor.Configuration;
 
 namespace LemonInc.Tools.Databases.Editor.Models
 {

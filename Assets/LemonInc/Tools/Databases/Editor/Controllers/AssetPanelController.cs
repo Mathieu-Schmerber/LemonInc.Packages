@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using LemonInc.Core.Utilities.Extensions;
-using LemonInc.Editor.Utilities.Extensions;
+using LemonInc.Core.Utilities.Editor.Extensions;
 using LemonInc.Tools.Databases.Editor.Interfaces;
 using LemonInc.Tools.Databases.Editor.Ui;
 using LemonInc.Tools.Databases.Models;

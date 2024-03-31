@@ -1,5 +1,5 @@
-﻿using LemonInc.Editor.Utilities;
-using LemonInc.Editor.Utilities.Extensions;
+﻿using LemonInc.Core.Utilities.Editor;
+using LemonInc.Core.Utilities.Editor.Extensions;
 using LemonInc.Tools.Databases.Editor.Ui;
 using LemonInc.Tools.Databases.Models;
 using UnityEditor;
