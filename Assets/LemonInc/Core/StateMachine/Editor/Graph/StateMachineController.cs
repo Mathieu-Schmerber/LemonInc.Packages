@@ -4,7 +4,7 @@ using System.Linq;
 using LemonInc.Core.StateMachine.Interfaces;
 using LemonInc.Core.StateMachine.Scriptables;
 using LemonInc.Core.Utilities.Extensions;
-using LemonInc.Editor.Utilities.Ui.GraphView.Interfaces;
+using LemonInc.Core.Utilities.Editor.Ui.GraphView.Interfaces;
 using UnityEditor;
 using UnityEngine;
 
@@ -15,7 +15,7 @@ namespace LemonInc.Core.StateMachine.Editor.Graph
 	/// </summary>
 	/// <seealso>
 	///     <cref>
-	///         LemonInc.Editor.Utilities.Ui.Graph.Interfaces.INodeController&amp;
+	///         LemonInc.Core.Utilities.Editor.Ui.Graph.Interfaces.INodeController&amp;
 	///         lt;LemonInc.Core.StateMachine.Scriptables.ScriptableState&amp;gt;
 	///     </cref>
 	/// </seealso>
