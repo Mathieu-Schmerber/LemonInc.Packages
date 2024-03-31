@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using LemonInc.Editor.Utilities.Helpers;
-using LemonInc.Editor.Utilities.SearchWindows;
+using LemonInc.Core.Utilities.Editor.Helpers;
+using LemonInc.Core.Utilities.Editor.SearchWindows;
 using LemonInc.Tools.Tilemap.Data;
 using LemonInc.Tools.Tilemap.Data.TileProperties;
 using Sirenix.Utilities.Editor;
