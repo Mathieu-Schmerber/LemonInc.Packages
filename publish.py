@@ -127,6 +127,7 @@ def list_folders(root_path):
 def sync_packages():
     base_path = "Assets/LemonInc"
     folders = list_folders(base_path)
+    folders = [item for item in folders if "Test" not in item]
 
     print(folders)
     for folder in folders:

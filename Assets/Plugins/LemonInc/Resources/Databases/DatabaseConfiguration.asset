@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d94a7c610c9af74a97785e07ff16b97, type: 3}
   m_Name: DatabaseConfiguration
   m_EditorClassIdentifier: 
-  LastSelectedDatabaseId: ea05a2c4-2a45-4f41-b45a-5ad9626244be
-  LastSelectedSectionId: a17dbca6-97d8-498b-bab5-c6759b36220b
+  LastSelectedDatabaseId: 
+  LastSelectedSectionId: 
   LastSelectedAssetId: 
