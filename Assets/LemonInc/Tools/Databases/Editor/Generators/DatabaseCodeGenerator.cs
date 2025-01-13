@@ -71,7 +71,7 @@ namespace LemonInc.Tools.Databases.Editor.Generators
 			builder.AppendLine($"{{");
 			builder.AppendLine($"private {nameof(DatabaseData)} _data;");
 			builder.AppendLine("#if UNITY_EDITOR");
-			builder.AppendLine($"public {nameof(DatabaseData)} {GetClass(database)} => _{GetClass(database)} ??= AssetDatabase.LoadAllAssetsAtPath(\"{database.GetPath()}\").FirstOrDefault() as {nameof(DatabaseData)};");
+			builder.AppendLine($"public {nameof(DatabaseData)} {GetClass(database)}Data => _data ??= AssetDatabase.LoadAllAssetsAtPath(\"{database.GetPath()}\").FirstOrDefault() as {nameof(DatabaseData)};");
 			builder.AppendLine("#else");
 			builder.AppendLine($"public {nameof(DatabaseData)} {GetClass(database)} => _data ??= Resources.Load<{nameof(DatabaseData)}>(\"{database.Name}\");");
 			builder.AppendLine("#endif");
@@ -121,7 +121,7 @@ namespace LemonInc.Tools.Databases.Editor.Generators
 			foreach (var assetId in section.Assets)
 			{
 				var asset = database.AssetDefinitions[assetId];
-				var template = $"public static [type] [name] = ([type]){GetClass(database)}.Instance.Data.AssetDefinitions[\"[id]\"].Data;"
+				var template = $"public static [type] [name] = ([type]){GetClass(database)}.Instance.{GetClass(database)}Data.AssetDefinitions[\"[id]\"].Data;"
 					.Replace("[type]", asset.Data.GetType().FullName)
 					.Replace("[name]", asset.Name.ToPascalCase())
 					.Replace("[id]", assetId);
