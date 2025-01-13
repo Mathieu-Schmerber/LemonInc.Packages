@@ -92,7 +92,7 @@ namespace LemonInc.Tools.Databases.Editor.Generators
 		/// <param name="builder">The builder.</param>
 		private static void GenerateSection(DatabaseData database, SectionDescription section, StringBuilder builder)
 		{
-			builder.AppendLine($"public static class {section.Name.ToPascalCase()}Ref");
+			builder.AppendLine($"public static class {section.Name.ToPascalCase()}");
 			builder.AppendLine($"{{");
 
 			GenerateAssets(database, section, builder);
