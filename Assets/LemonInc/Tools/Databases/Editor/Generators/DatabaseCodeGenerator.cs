@@ -71,9 +71,9 @@ namespace LemonInc.Tools.Databases.Editor.Generators
 			builder.AppendLine($"{{");
 			builder.AppendLine($"private {nameof(DatabaseData)} _data;");
 			builder.AppendLine("#if UNITY_EDITOR");
-			builder.AppendLine($"public {nameof(DatabaseData)} Data => _data ??= AssetDatabase.LoadAllAssetsAtPath(\"{database.GetPath()}\").FirstOrDefault() as {nameof(DatabaseData)};");
+			builder.AppendLine($"public {nameof(DatabaseData)} {GetClass(database)} => _{GetClass(database)} ??= AssetDatabase.LoadAllAssetsAtPath(\"{database.GetPath()}\").FirstOrDefault() as {nameof(DatabaseData)};");
 			builder.AppendLine("#else");
-			builder.AppendLine($"public {nameof(DatabaseData)} Data => _data ??= Resources.Load<{nameof(DatabaseData)}>(\"{database.Name}\");");
+			builder.AppendLine($"public {nameof(DatabaseData)} {GetClass(database)} => _data ??= Resources.Load<{nameof(DatabaseData)}>(\"{database.Name}\");");
 			builder.AppendLine("#endif");
 			foreach (var section in DatabaseEditorWindow.GetRoots(database))
 			{
@@ -92,7 +92,7 @@ namespace LemonInc.Tools.Databases.Editor.Generators
 		/// <param name="builder">The builder.</param>
 		private static void GenerateSection(DatabaseData database, SectionDescription section, StringBuilder builder)
 		{
-			builder.AppendLine($"public static class {section.Name.ToPascalCase()}");
+			builder.AppendLine($"public static class {section.Name.ToPascalCase()}Ref");
 			builder.AppendLine($"{{");
 
 			GenerateAssets(database, section, builder);
