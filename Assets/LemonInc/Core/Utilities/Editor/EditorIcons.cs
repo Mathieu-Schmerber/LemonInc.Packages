@@ -8,7270 +8,7270 @@ namespace LemonInc.Core.Utilities.Editor
 {
 	/// <summary>
 	/// Unity builtin editor icons.
-	/// <see href="https://github.com/halak/unity-editor-icons/tree/master#readme"/>
+	/// <see href=>"https://github.com/halak/unity-editor-icons/tree/master#readme"/>
 	/// </summary>
 	public static class EditorIcons
 	{
 		/// <summary>
 		/// _Help
 		/// </summary>
-		public static readonly GUIContent Help = EditorGUIUtility.IconContent("_Help");
+		public static GUIContent Help => EditorGUIUtility.IconContent("_Help");
 
 		/// <summary>
 		/// _Help@2x
 		/// </summary>
-		public static readonly GUIContent Help2X = EditorGUIUtility.IconContent("_Help@2x");
+		public static GUIContent Help2X => EditorGUIUtility.IconContent("_Help@2x");
 
 		/// <summary>
 		/// _Menu
 		/// </summary>
-		public static readonly GUIContent Menu = EditorGUIUtility.IconContent("_Menu");
+		public static GUIContent Menu => EditorGUIUtility.IconContent("_Menu");
 
 		/// <summary>
 		/// _Menu@2x
 		/// </summary>
-		public static readonly GUIContent Menu2X = EditorGUIUtility.IconContent("_Menu@2x");
+		public static GUIContent Menu2X => EditorGUIUtility.IconContent("_Menu@2x");
 
 		/// <summary>
 		/// _Popup
 		/// </summary>
-		public static readonly GUIContent Popup = EditorGUIUtility.IconContent("_Popup");
+		public static GUIContent Popup => EditorGUIUtility.IconContent("_Popup");
 
 		/// <summary>
 		/// _Popup@2x
 		/// </summary>
-		public static readonly GUIContent Popup2X = EditorGUIUtility.IconContent("_Popup@2x");
+		public static GUIContent Popup2X => EditorGUIUtility.IconContent("_Popup@2x");
 
 		/// <summary>
 		/// aboutwindow.mainheader
 		/// </summary>
-		public static readonly GUIContent
-			AboutwindowMainheader = EditorGUIUtility.IconContent("aboutwindow.mainheader");
+		public static GUIContent
+			AboutwindowMainheader => EditorGUIUtility.IconContent("aboutwindow.mainheader");
 
 		/// <summary>
 		/// ageialogo
 		/// </summary>
-		public static readonly GUIContent Ageialogo = EditorGUIUtility.IconContent("ageialogo");
+		public static GUIContent Ageialogo => EditorGUIUtility.IconContent("ageialogo");
 
 		/// <summary>
 		/// AlphabeticalSorting
 		/// </summary>
-		public static readonly GUIContent Alphabeticalsorting = EditorGUIUtility.IconContent("AlphabeticalSorting");
+		public static GUIContent Alphabeticalsorting => EditorGUIUtility.IconContent("AlphabeticalSorting");
 
 		/// <summary>
 		/// AlphabeticalSorting@2x
 		/// </summary>
-		public static readonly GUIContent
-			Alphabeticalsorting2X = EditorGUIUtility.IconContent("AlphabeticalSorting@2x");
+		public static GUIContent
+			Alphabeticalsorting2X => EditorGUIUtility.IconContent("AlphabeticalSorting@2x");
 
 		/// <summary>
 		/// Animation.AddEvent
 		/// </summary>
-		public static readonly GUIContent AnimationAddevent = EditorGUIUtility.IconContent("Animation.AddEvent");
+		public static GUIContent AnimationAddevent => EditorGUIUtility.IconContent("Animation.AddEvent");
 
 		/// <summary>
 		/// Animation.AddKeyframe
 		/// </summary>
-		public static readonly GUIContent AnimationAddkeyframe = EditorGUIUtility.IconContent("Animation.AddKeyframe");
+		public static GUIContent AnimationAddkeyframe => EditorGUIUtility.IconContent("Animation.AddKeyframe");
 
 		/// <summary>
 		/// Animation.EventMarker
 		/// </summary>
-		public static readonly GUIContent AnimationEventmarker = EditorGUIUtility.IconContent("Animation.EventMarker");
+		public static GUIContent AnimationEventmarker => EditorGUIUtility.IconContent("Animation.EventMarker");
 
 		/// <summary>
 		/// Animation.FilterBySelection
 		/// </summary>
-		public static readonly GUIContent AnimationFilterbyselection =
+		public static GUIContent AnimationFilterbyselection =>
 			EditorGUIUtility.IconContent("Animation.FilterBySelection");
 
 		/// <summary>
 		/// Animation.FirstKey
 		/// </summary>
-		public static readonly GUIContent AnimationFirstkey = EditorGUIUtility.IconContent("Animation.FirstKey");
+		public static GUIContent AnimationFirstkey => EditorGUIUtility.IconContent("Animation.FirstKey");
 
 		/// <summary>
 		/// Animation.LastKey
 		/// </summary>
-		public static readonly GUIContent AnimationLastkey = EditorGUIUtility.IconContent("Animation.LastKey");
+		public static GUIContent AnimationLastkey => EditorGUIUtility.IconContent("Animation.LastKey");
 
 		/// <summary>
 		/// Animation.NextKey
 		/// </summary>
-		public static readonly GUIContent AnimationNextkey = EditorGUIUtility.IconContent("Animation.NextKey");
+		public static GUIContent AnimationNextkey => EditorGUIUtility.IconContent("Animation.NextKey");
 
 		/// <summary>
 		/// Animation.Play
 		/// </summary>
-		public static readonly GUIContent AnimationPlay = EditorGUIUtility.IconContent("Animation.Play");
+		public static GUIContent AnimationPlay => EditorGUIUtility.IconContent("Animation.Play");
 
 		/// <summary>
 		/// Animation.PrevKey
 		/// </summary>
-		public static readonly GUIContent AnimationPrevkey = EditorGUIUtility.IconContent("Animation.PrevKey");
+		public static GUIContent AnimationPrevkey => EditorGUIUtility.IconContent("Animation.PrevKey");
 
 		/// <summary>
 		/// Animation.Record
 		/// </summary>
-		public static readonly GUIContent AnimationRecord = EditorGUIUtility.IconContent("Animation.Record");
+		public static GUIContent AnimationRecord => EditorGUIUtility.IconContent("Animation.Record");
 
 		/// <summary>
 		/// Animation.Record@2x
 		/// </summary>
-		public static readonly GUIContent AnimationRecord2X = EditorGUIUtility.IconContent("Animation.Record@2x");
+		public static GUIContent AnimationRecord2X => EditorGUIUtility.IconContent("Animation.Record@2x");
 
 		/// <summary>
 		/// Animation.SequencerLink
 		/// </summary>
-		public static readonly GUIContent AnimationSequencerlink =
+		public static GUIContent AnimationSequencerlink =>
 			EditorGUIUtility.IconContent("Animation.SequencerLink");
 
 		/// <summary>
 		/// animationanimated
 		/// </summary>
-		public static readonly GUIContent Animationanimated = EditorGUIUtility.IconContent("animationanimated");
+		public static GUIContent Animationanimated => EditorGUIUtility.IconContent("animationanimated");
 
 		/// <summary>
 		/// animationdopesheetkeyframe
 		/// </summary>
-		public static readonly GUIContent Animationdopesheetkeyframe =
+		public static GUIContent Animationdopesheetkeyframe =>
 			EditorGUIUtility.IconContent("animationdopesheetkeyframe");
 
 		/// <summary>
 		/// animationkeyframe
 		/// </summary>
-		public static readonly GUIContent Animationkeyframe = EditorGUIUtility.IconContent("animationkeyframe");
+		public static GUIContent Animationkeyframe => EditorGUIUtility.IconContent("animationkeyframe");
 
 		/// <summary>
 		/// animationnocurve
 		/// </summary>
-		public static readonly GUIContent Animationnocurve = EditorGUIUtility.IconContent("animationnocurve");
+		public static GUIContent Animationnocurve => EditorGUIUtility.IconContent("animationnocurve");
 
 		/// <summary>
 		/// animationvisibilitytoggleoff
 		/// </summary>
-		public static readonly GUIContent Animationvisibilitytoggleoff =
+		public static GUIContent Animationvisibilitytoggleoff =>
 			EditorGUIUtility.IconContent("animationvisibilitytoggleoff");
 
 		/// <summary>
 		/// animationvisibilitytoggleoff@2x
 		/// </summary>
-		public static readonly GUIContent Animationvisibilitytoggleoff2X =
+		public static GUIContent Animationvisibilitytoggleoff2X =>
 			EditorGUIUtility.IconContent("animationvisibilitytoggleoff@2x");
 
 		/// <summary>
 		/// animationvisibilitytoggleon
 		/// </summary>
-		public static readonly GUIContent Animationvisibilitytoggleon =
+		public static GUIContent Animationvisibilitytoggleon =>
 			EditorGUIUtility.IconContent("animationvisibilitytoggleon");
 
 		/// <summary>
 		/// animationvisibilitytoggleon@2x
 		/// </summary>
-		public static readonly GUIContent Animationvisibilitytoggleon2X =
+		public static GUIContent Animationvisibilitytoggleon2X =>
 			EditorGUIUtility.IconContent("animationvisibilitytoggleon@2x");
 
 		/// <summary>
 		/// AnimationWrapModeMenu
 		/// </summary>
-		public static readonly GUIContent Animationwrapmodemenu = EditorGUIUtility.IconContent("AnimationWrapModeMenu");
+		public static GUIContent Animationwrapmodemenu => EditorGUIUtility.IconContent("AnimationWrapModeMenu");
 
 		/// <summary>
 		/// AssemblyLock
 		/// </summary>
-		public static readonly GUIContent Assemblylock = EditorGUIUtility.IconContent("AssemblyLock");
+		public static GUIContent Assemblylock => EditorGUIUtility.IconContent("AssemblyLock");
 
 		/// <summary>
 		/// Unity-AssetStore-Originals-Logo-White
 		/// </summary>
-		public static readonly GUIContent UnityAssetstoreOriginalsLogoWhite =
+		public static GUIContent UnityAssetstoreOriginalsLogoWhite =>
 			EditorGUIUtility.IconContent("Unity-AssetStore-Originals-Logo-White");
 
 		/// <summary>
 		/// Unity-AssetStore-Originals-Logo-White@2x
 		/// </summary>
-		public static readonly GUIContent UnityAssetstoreOriginalsLogoWhite2X =
+		public static GUIContent UnityAssetstoreOriginalsLogoWhite2X =>
 			EditorGUIUtility.IconContent("Unity-AssetStore-Originals-Logo-White@2x");
 
 		/// <summary>
 		/// AutoLightbakingOff
 		/// </summary>
-		public static readonly GUIContent Autolightbakingoff = EditorGUIUtility.IconContent("AutoLightbakingOff");
+		public static GUIContent Autolightbakingoff => EditorGUIUtility.IconContent("AutoLightbakingOff");
 
 		/// <summary>
 		/// AutoLightbakingOff@2x
 		/// </summary>
-		public static readonly GUIContent Autolightbakingoff2X = EditorGUIUtility.IconContent("AutoLightbakingOff@2x");
+		public static GUIContent Autolightbakingoff2X => EditorGUIUtility.IconContent("AutoLightbakingOff@2x");
 
 		/// <summary>
 		/// AutoLightbakingOn
 		/// </summary>
-		public static readonly GUIContent Autolightbakingon = EditorGUIUtility.IconContent("AutoLightbakingOn");
+		public static GUIContent Autolightbakingon => EditorGUIUtility.IconContent("AutoLightbakingOn");
 
 		/// <summary>
 		/// AutoLightbakingOn@2x
 		/// </summary>
-		public static readonly GUIContent Autolightbakingon2X = EditorGUIUtility.IconContent("AutoLightbakingOn@2x");
+		public static GUIContent Autolightbakingon2X => EditorGUIUtility.IconContent("AutoLightbakingOn@2x");
 
 		/// <summary>
 		/// AvatarCompass
 		/// </summary>
-		public static readonly GUIContent Avatarcompass = EditorGUIUtility.IconContent("AvatarCompass");
+		public static GUIContent Avatarcompass => EditorGUIUtility.IconContent("AvatarCompass");
 
 		/// <summary>
 		/// AvatarController.Layer
 		/// </summary>
-		public static readonly GUIContent
-			AvatarcontrollerLayer = EditorGUIUtility.IconContent("AvatarController.Layer");
+		public static GUIContent
+			AvatarcontrollerLayer => EditorGUIUtility.IconContent("AvatarController.Layer");
 
 		/// <summary>
 		/// AvatarController.LayerHover
 		/// </summary>
-		public static readonly GUIContent AvatarcontrollerLayerhover =
+		public static GUIContent AvatarcontrollerLayerhover =>
 			EditorGUIUtility.IconContent("AvatarController.LayerHover");
 
 		/// <summary>
 		/// AvatarController.LayerSelected
 		/// </summary>
-		public static readonly GUIContent AvatarcontrollerLayerselected =
+		public static GUIContent AvatarcontrollerLayerselected =>
 			EditorGUIUtility.IconContent("AvatarController.LayerSelected");
 
 		/// <summary>
 		/// BodyPartPicker
 		/// </summary>
-		public static readonly GUIContent Bodypartpicker = EditorGUIUtility.IconContent("BodyPartPicker");
+		public static GUIContent Bodypartpicker => EditorGUIUtility.IconContent("BodyPartPicker");
 
 		/// <summary>
 		/// BodySilhouette
 		/// </summary>
-		public static readonly GUIContent Bodysilhouette = EditorGUIUtility.IconContent("BodySilhouette");
+		public static GUIContent Bodysilhouette => EditorGUIUtility.IconContent("BodySilhouette");
 
 		/// <summary>
 		/// DotFill
 		/// </summary>
-		public static readonly GUIContent Dotfill = EditorGUIUtility.IconContent("DotFill");
+		public static GUIContent Dotfill => EditorGUIUtility.IconContent("DotFill");
 
 		/// <summary>
 		/// DotFrame
 		/// </summary>
-		public static readonly GUIContent Dotframe = EditorGUIUtility.IconContent("DotFrame");
+		public static GUIContent Dotframe => EditorGUIUtility.IconContent("DotFrame");
 
 		/// <summary>
 		/// DotFrameDotted
 		/// </summary>
-		public static readonly GUIContent Dotframedotted = EditorGUIUtility.IconContent("DotFrameDotted");
+		public static GUIContent Dotframedotted => EditorGUIUtility.IconContent("DotFrameDotted");
 
 		/// <summary>
 		/// DotSelection
 		/// </summary>
-		public static readonly GUIContent Dotselection = EditorGUIUtility.IconContent("DotSelection");
+		public static GUIContent Dotselection => EditorGUIUtility.IconContent("DotSelection");
 
 		/// <summary>
 		/// Head
 		/// </summary>
-		public static readonly GUIContent Head = EditorGUIUtility.IconContent("Head");
+		public static GUIContent Head => EditorGUIUtility.IconContent("Head");
 
 		/// <summary>
 		/// HeadIk
 		/// </summary>
-		public static readonly GUIContent Headik = EditorGUIUtility.IconContent("HeadIk");
+		public static GUIContent Headik => EditorGUIUtility.IconContent("HeadIk");
 
 		/// <summary>
 		/// HeadZoom
 		/// </summary>
-		public static readonly GUIContent Headzoom = EditorGUIUtility.IconContent("HeadZoom");
+		public static GUIContent Headzoom => EditorGUIUtility.IconContent("HeadZoom");
 
 		/// <summary>
 		/// HeadZoomSilhouette
 		/// </summary>
-		public static readonly GUIContent Headzoomsilhouette = EditorGUIUtility.IconContent("HeadZoomSilhouette");
+		public static GUIContent Headzoomsilhouette => EditorGUIUtility.IconContent("HeadZoomSilhouette");
 
 		/// <summary>
 		/// LeftArm
 		/// </summary>
-		public static readonly GUIContent Leftarm = EditorGUIUtility.IconContent("LeftArm");
+		public static GUIContent Leftarm => EditorGUIUtility.IconContent("LeftArm");
 
 		/// <summary>
 		/// LeftFeetIk
 		/// </summary>
-		public static readonly GUIContent Leftfeetik = EditorGUIUtility.IconContent("LeftFeetIk");
+		public static GUIContent Leftfeetik => EditorGUIUtility.IconContent("LeftFeetIk");
 
 		/// <summary>
 		/// LeftFingers
 		/// </summary>
-		public static readonly GUIContent Leftfingers = EditorGUIUtility.IconContent("LeftFingers");
+		public static GUIContent Leftfingers => EditorGUIUtility.IconContent("LeftFingers");
 
 		/// <summary>
 		/// LeftFingersIk
 		/// </summary>
-		public static readonly GUIContent Leftfingersik = EditorGUIUtility.IconContent("LeftFingersIk");
+		public static GUIContent Leftfingersik => EditorGUIUtility.IconContent("LeftFingersIk");
 
 		/// <summary>
 		/// LeftHandZoom
 		/// </summary>
-		public static readonly GUIContent Lefthandzoom = EditorGUIUtility.IconContent("LeftHandZoom");
+		public static GUIContent Lefthandzoom => EditorGUIUtility.IconContent("LeftHandZoom");
 
 		/// <summary>
 		/// LeftHandZoomSilhouette
 		/// </summary>
-		public static readonly GUIContent Lefthandzoomsilhouette =
+		public static GUIContent Lefthandzoomsilhouette =>
 			EditorGUIUtility.IconContent("LeftHandZoomSilhouette");
 
 		/// <summary>
 		/// LeftLeg
 		/// </summary>
-		public static readonly GUIContent Leftleg = EditorGUIUtility.IconContent("LeftLeg");
+		public static GUIContent Leftleg => EditorGUIUtility.IconContent("LeftLeg");
 
 		/// <summary>
 		/// MaskEditor_Root
 		/// </summary>
-		public static readonly GUIContent MaskeditorRoot = EditorGUIUtility.IconContent("MaskEditor_Root");
+		public static GUIContent MaskeditorRoot => EditorGUIUtility.IconContent("MaskEditor_Root");
 
 		/// <summary>
 		/// RightArm
 		/// </summary>
-		public static readonly GUIContent Rightarm = EditorGUIUtility.IconContent("RightArm");
+		public static GUIContent Rightarm => EditorGUIUtility.IconContent("RightArm");
 
 		/// <summary>
 		/// RightFeetIk
 		/// </summary>
-		public static readonly GUIContent Rightfeetik = EditorGUIUtility.IconContent("RightFeetIk");
+		public static GUIContent Rightfeetik => EditorGUIUtility.IconContent("RightFeetIk");
 
 		/// <summary>
 		/// RightFingers
 		/// </summary>
-		public static readonly GUIContent Rightfingers = EditorGUIUtility.IconContent("RightFingers");
+		public static GUIContent Rightfingers => EditorGUIUtility.IconContent("RightFingers");
 
 		/// <summary>
 		/// RightFingersIk
 		/// </summary>
-		public static readonly GUIContent Rightfingersik = EditorGUIUtility.IconContent("RightFingersIk");
+		public static GUIContent Rightfingersik => EditorGUIUtility.IconContent("RightFingersIk");
 
 		/// <summary>
 		/// RightHandZoom
 		/// </summary>
-		public static readonly GUIContent Righthandzoom = EditorGUIUtility.IconContent("RightHandZoom");
+		public static GUIContent Righthandzoom => EditorGUIUtility.IconContent("RightHandZoom");
 
 		/// <summary>
 		/// RightHandZoomSilhouette
 		/// </summary>
-		public static readonly GUIContent Righthandzoomsilhouette =
+		public static GUIContent Righthandzoomsilhouette =>
 			EditorGUIUtility.IconContent("RightHandZoomSilhouette");
 
 		/// <summary>
 		/// RightLeg
 		/// </summary>
-		public static readonly GUIContent Rightleg = EditorGUIUtility.IconContent("RightLeg");
+		public static GUIContent Rightleg => EditorGUIUtility.IconContent("RightLeg");
 
 		/// <summary>
 		/// Torso
 		/// </summary>
-		public static readonly GUIContent Torso = EditorGUIUtility.IconContent("Torso");
+		public static GUIContent Torso => EditorGUIUtility.IconContent("Torso");
 
 		/// <summary>
 		/// AvatarPivot
 		/// </summary>
-		public static readonly GUIContent Avatarpivot = EditorGUIUtility.IconContent("AvatarPivot");
+		public static GUIContent Avatarpivot => EditorGUIUtility.IconContent("AvatarPivot");
 
 		/// <summary>
 		/// AvatarPivot@2x
 		/// </summary>
-		public static readonly GUIContent Avatarpivot2X = EditorGUIUtility.IconContent("AvatarPivot@2x");
+		public static GUIContent Avatarpivot2X => EditorGUIUtility.IconContent("AvatarPivot@2x");
 
 		/// <summary>
 		/// AvatarSelector
 		/// </summary>
-		public static readonly GUIContent Avatarselector = EditorGUIUtility.IconContent("AvatarSelector");
+		public static GUIContent Avatarselector => EditorGUIUtility.IconContent("AvatarSelector");
 
 		/// <summary>
 		/// AvatarSelector@2x
 		/// </summary>
-		public static readonly GUIContent Avatarselector2X = EditorGUIUtility.IconContent("AvatarSelector@2x");
+		public static GUIContent Avatarselector2X => EditorGUIUtility.IconContent("AvatarSelector@2x");
 
 		/// <summary>
 		/// back
 		/// </summary>
-		public static readonly GUIContent Back = EditorGUIUtility.IconContent("back");
+		public static GUIContent Back => EditorGUIUtility.IconContent("back");
 
 		/// <summary>
 		/// back@2x
 		/// </summary>
-		public static readonly GUIContent Back2X = EditorGUIUtility.IconContent("back@2x");
+		public static GUIContent Back2X => EditorGUIUtility.IconContent("back@2x");
 
 		/// <summary>
 		/// beginButton-On
 		/// </summary>
-		public static readonly GUIContent BeginbuttonOn = EditorGUIUtility.IconContent("beginButton-On");
+		public static GUIContent BeginbuttonOn => EditorGUIUtility.IconContent("beginButton-On");
 
 		/// <summary>
 		/// beginButton
 		/// </summary>
-		public static readonly GUIContent Beginbutton = EditorGUIUtility.IconContent("beginButton");
+		public static GUIContent Beginbutton => EditorGUIUtility.IconContent("beginButton");
 
 		/// <summary>
 		/// blendKey
 		/// </summary>
-		public static readonly GUIContent Blendkey = EditorGUIUtility.IconContent("blendKey");
+		public static GUIContent Blendkey => EditorGUIUtility.IconContent("blendKey");
 
 		/// <summary>
 		/// blendKeyOverlay
 		/// </summary>
-		public static readonly GUIContent Blendkeyoverlay = EditorGUIUtility.IconContent("blendKeyOverlay");
+		public static GUIContent Blendkeyoverlay => EditorGUIUtility.IconContent("blendKeyOverlay");
 
 		/// <summary>
 		/// blendKeySelected
 		/// </summary>
-		public static readonly GUIContent Blendkeyselected = EditorGUIUtility.IconContent("blendKeySelected");
+		public static GUIContent Blendkeyselected => EditorGUIUtility.IconContent("blendKeySelected");
 
 		/// <summary>
 		/// blendSampler
 		/// </summary>
-		public static readonly GUIContent Blendsampler = EditorGUIUtility.IconContent("blendSampler");
+		public static GUIContent Blendsampler => EditorGUIUtility.IconContent("blendSampler");
 
 		/// <summary>
 		/// blueGroove
 		/// </summary>
-		public static readonly GUIContent Bluegroove = EditorGUIUtility.IconContent("blueGroove");
+		public static GUIContent Bluegroove => EditorGUIUtility.IconContent("blueGroove");
 
 		/// <summary>
 		/// BuildSettings.Android
 		/// </summary>
-		public static readonly GUIContent BuildsettingsAndroid = EditorGUIUtility.IconContent("BuildSettings.Android");
+		public static GUIContent BuildsettingsAndroid => EditorGUIUtility.IconContent("BuildSettings.Android");
 
 		/// <summary>
 		/// BuildSettings.Android.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsAndroidSmall =
+		public static GUIContent BuildsettingsAndroidSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.Android.Small");
 
 		/// <summary>
 		/// BuildSettings.Android.Small@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsAndroidSmall2X =
+		public static GUIContent BuildsettingsAndroidSmall2X =>
 			EditorGUIUtility.IconContent("BuildSettings.Android.Small@2x");
 
 		/// <summary>
 		/// BuildSettings.Android@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsAndroid2X =
+		public static GUIContent BuildsettingsAndroid2X =>
 			EditorGUIUtility.IconContent("BuildSettings.Android@2x");
 
 		/// <summary>
 		/// BuildSettings.Broadcom
 		/// </summary>
-		public static readonly GUIContent
-			BuildsettingsBroadcom = EditorGUIUtility.IconContent("BuildSettings.Broadcom");
+		public static GUIContent
+			BuildsettingsBroadcom => EditorGUIUtility.IconContent("BuildSettings.Broadcom");
 
 		/// <summary>
 		/// BuildSettings.Editor
 		/// </summary>
-		public static readonly GUIContent BuildsettingsEditor = EditorGUIUtility.IconContent("BuildSettings.Editor");
+		public static GUIContent BuildsettingsEditor => EditorGUIUtility.IconContent("BuildSettings.Editor");
 
 		/// <summary>
 		/// BuildSettings.Editor.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsEditorSmall =
+		public static GUIContent BuildsettingsEditorSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.Editor.Small");
 
 		/// <summary>
 		/// BuildSettings.Facebook
 		/// </summary>
-		public static readonly GUIContent
-			BuildsettingsFacebook = EditorGUIUtility.IconContent("BuildSettings.Facebook");
+		public static GUIContent
+			BuildsettingsFacebook => EditorGUIUtility.IconContent("BuildSettings.Facebook");
 
 		/// <summary>
 		/// BuildSettings.Facebook.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsFacebookSmall =
+		public static GUIContent BuildsettingsFacebookSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.Facebook.Small");
 
 		/// <summary>
 		/// BuildSettings.Facebook.Small@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsFacebookSmall2X =
+		public static GUIContent BuildsettingsFacebookSmall2X =>
 			EditorGUIUtility.IconContent("BuildSettings.Facebook.Small@2x");
 
 		/// <summary>
 		/// BuildSettings.Facebook@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsFacebook2X =
+		public static GUIContent BuildsettingsFacebook2X =>
 			EditorGUIUtility.IconContent("BuildSettings.Facebook@2x");
 
 		/// <summary>
 		/// BuildSettings.FlashPlayer
 		/// </summary>
-		public static readonly GUIContent BuildsettingsFlashplayer =
+		public static GUIContent BuildsettingsFlashplayer =>
 			EditorGUIUtility.IconContent("BuildSettings.FlashPlayer");
 
 		/// <summary>
 		/// BuildSettings.FlashPlayer.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsFlashplayerSmall =
+		public static GUIContent BuildsettingsFlashplayerSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.FlashPlayer.Small");
 
 		/// <summary>
 		/// BuildSettings.iPhone
 		/// </summary>
-		public static readonly GUIContent BuildsettingsIphone = EditorGUIUtility.IconContent("BuildSettings.iPhone");
+		public static GUIContent BuildsettingsIphone => EditorGUIUtility.IconContent("BuildSettings.iPhone");
 
 		/// <summary>
 		/// BuildSettings.iPhone.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsIphoneSmall =
+		public static GUIContent BuildsettingsIphoneSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.iPhone.Small");
 
 		/// <summary>
 		/// BuildSettings.iPhone.Small@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsIphoneSmall2X =
+		public static GUIContent BuildsettingsIphoneSmall2X =>
 			EditorGUIUtility.IconContent("BuildSettings.iPhone.Small@2x");
 
 		/// <summary>
 		/// BuildSettings.iPhone@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsIphone2X =
+		public static GUIContent BuildsettingsIphone2X =>
 			EditorGUIUtility.IconContent("BuildSettings.iPhone@2x");
 
 		/// <summary>
 		/// BuildSettings.Lumin
 		/// </summary>
-		public static readonly GUIContent BuildsettingsLumin = EditorGUIUtility.IconContent("BuildSettings.Lumin");
+		public static GUIContent BuildsettingsLumin => EditorGUIUtility.IconContent("BuildSettings.Lumin");
 
 		/// <summary>
 		/// BuildSettings.Lumin.small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsLuminSmall =
+		public static GUIContent BuildsettingsLuminSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.Lumin.small");
 
 		/// <summary>
 		/// BuildSettings.Lumin.small@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsLuminSmall2X =
+		public static GUIContent BuildsettingsLuminSmall2X =>
 			EditorGUIUtility.IconContent("BuildSettings.Lumin.small@2x");
 
 		/// <summary>
 		/// BuildSettings.Lumin@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsLumin2X = EditorGUIUtility.IconContent("BuildSettings.Lumin@2x");
+		public static GUIContent BuildsettingsLumin2X => EditorGUIUtility.IconContent("BuildSettings.Lumin@2x");
 
 		/// <summary>
 		/// BuildSettings.Metro
 		/// </summary>
-		public static readonly GUIContent BuildsettingsMetro = EditorGUIUtility.IconContent("BuildSettings.Metro");
+		public static GUIContent BuildsettingsMetro => EditorGUIUtility.IconContent("BuildSettings.Metro");
 
 		/// <summary>
 		/// BuildSettings.Metro.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsMetroSmall =
+		public static GUIContent BuildsettingsMetroSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.Metro.Small");
 
 		/// <summary>
 		/// BuildSettings.Metro.Small@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsMetroSmall2X =
+		public static GUIContent BuildsettingsMetroSmall2X =>
 			EditorGUIUtility.IconContent("BuildSettings.Metro.Small@2x");
 
 		/// <summary>
 		/// BuildSettings.Metro@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsMetro2X = EditorGUIUtility.IconContent("BuildSettings.Metro@2x");
+		public static GUIContent BuildsettingsMetro2X => EditorGUIUtility.IconContent("BuildSettings.Metro@2x");
 
 		/// <summary>
 		/// BuildSettings.N3DS
 		/// </summary>
-		public static readonly GUIContent BuildsettingsN3Ds = EditorGUIUtility.IconContent("BuildSettings.N3DS");
+		public static GUIContent BuildsettingsN3Ds => EditorGUIUtility.IconContent("BuildSettings.N3DS");
 
 		/// <summary>
 		/// BuildSettings.N3DS.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsN3DsSmall =
+		public static GUIContent BuildsettingsN3DsSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.N3DS.Small");
 
 		/// <summary>
 		/// BuildSettings.N3DS.Small@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsN3DsSmall2X =
+		public static GUIContent BuildsettingsN3DsSmall2X =>
 			EditorGUIUtility.IconContent("BuildSettings.N3DS.Small@2x");
 
 		/// <summary>
 		/// BuildSettings.N3DS@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsN3Ds2X = EditorGUIUtility.IconContent("BuildSettings.N3DS@2x");
+		public static GUIContent BuildsettingsN3Ds2X => EditorGUIUtility.IconContent("BuildSettings.N3DS@2x");
 
 		/// <summary>
 		/// BuildSettings.PS4
 		/// </summary>
-		public static readonly GUIContent BuildsettingsPs4 = EditorGUIUtility.IconContent("BuildSettings.PS4");
+		public static GUIContent BuildsettingsPs4 => EditorGUIUtility.IconContent("BuildSettings.PS4");
 
 		/// <summary>
 		/// BuildSettings.PS4.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsPs4Small =
+		public static GUIContent BuildsettingsPs4Small =>
 			EditorGUIUtility.IconContent("BuildSettings.PS4.Small");
 
 		/// <summary>
 		/// BuildSettings.PS4.Small@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsPs4Small2X =
+		public static GUIContent BuildsettingsPs4Small2X =>
 			EditorGUIUtility.IconContent("BuildSettings.PS4.Small@2x");
 
 		/// <summary>
 		/// BuildSettings.PS4@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsPs42X = EditorGUIUtility.IconContent("BuildSettings.PS4@2x");
+		public static GUIContent BuildsettingsPs42X => EditorGUIUtility.IconContent("BuildSettings.PS4@2x");
 
 		/// <summary>
 		/// BuildSettings.PSM
 		/// </summary>
-		public static readonly GUIContent BuildsettingsPsm = EditorGUIUtility.IconContent("BuildSettings.PSM");
+		public static GUIContent BuildsettingsPsm => EditorGUIUtility.IconContent("BuildSettings.PSM");
 
 		/// <summary>
 		/// BuildSettings.PSM.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsPsmSmall =
+		public static GUIContent BuildsettingsPsmSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.PSM.Small");
 
 		/// <summary>
 		/// BuildSettings.PSP2
 		/// </summary>
-		public static readonly GUIContent BuildsettingsPsp2 = EditorGUIUtility.IconContent("BuildSettings.PSP2");
+		public static GUIContent BuildsettingsPsp2 => EditorGUIUtility.IconContent("BuildSettings.PSP2");
 
 		/// <summary>
 		/// BuildSettings.PSP2.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsPsp2Small =
+		public static GUIContent BuildsettingsPsp2Small =>
 			EditorGUIUtility.IconContent("BuildSettings.PSP2.Small");
 
 		/// <summary>
 		/// BuildSettings.SelectedIcon
 		/// </summary>
-		public static readonly GUIContent BuildsettingsSelectedicon =
+		public static GUIContent BuildsettingsSelectedicon =>
 			EditorGUIUtility.IconContent("BuildSettings.SelectedIcon");
 
 		/// <summary>
 		/// BuildSettings.Stadia
 		/// </summary>
-		public static readonly GUIContent BuildsettingsStadia = EditorGUIUtility.IconContent("BuildSettings.Stadia");
+		public static GUIContent BuildsettingsStadia => EditorGUIUtility.IconContent("BuildSettings.Stadia");
 
 		/// <summary>
 		/// BuildSettings.Stadia.small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsStadiaSmall =
+		public static GUIContent BuildsettingsStadiaSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.Stadia.small");
 
 		/// <summary>
 		/// BuildSettings.Stadia.Small@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsStadiaSmall2X =
+		public static GUIContent BuildsettingsStadiaSmall2X =>
 			EditorGUIUtility.IconContent("BuildSettings.Stadia.Small@2x");
 
 		/// <summary>
 		/// BuildSettings.Stadia@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsStadia2X =
+		public static GUIContent BuildsettingsStadia2X =>
 			EditorGUIUtility.IconContent("BuildSettings.Stadia@2x");
 
 		/// <summary>
 		/// BuildSettings.Standalone
 		/// </summary>
-		public static readonly GUIContent BuildsettingsStandalone =
+		public static GUIContent BuildsettingsStandalone =>
 			EditorGUIUtility.IconContent("BuildSettings.Standalone");
 
 		/// <summary>
 		/// BuildSettings.Standalone.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsStandaloneSmall =
+		public static GUIContent BuildsettingsStandaloneSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.Standalone.Small");
 
 		/// <summary>
 		/// BuildSettings.Standalone.Small@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsStandaloneSmall2X =
+		public static GUIContent BuildsettingsStandaloneSmall2X =>
 			EditorGUIUtility.IconContent("BuildSettings.Standalone.Small@2x");
 
 		/// <summary>
 		/// BuildSettings.Standalone@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsStandalone2X =
+		public static GUIContent BuildsettingsStandalone2X =>
 			EditorGUIUtility.IconContent("BuildSettings.Standalone@2x");
 
 		/// <summary>
 		/// BuildSettings.StandaloneBroadcom.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsStandalonebroadcomSmall =
+		public static GUIContent BuildsettingsStandalonebroadcomSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.StandaloneBroadcom.Small");
 
 		/// <summary>
 		/// BuildSettings.StandaloneGLES20Emu.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsStandalonegles20EmuSmall =
+		public static GUIContent BuildsettingsStandalonegles20EmuSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.StandaloneGLES20Emu.Small");
 
 		/// <summary>
 		/// BuildSettings.StandaloneGLESEmu
 		/// </summary>
-		public static readonly GUIContent BuildsettingsStandaloneglesemu =
+		public static GUIContent BuildsettingsStandaloneglesemu =>
 			EditorGUIUtility.IconContent("BuildSettings.StandaloneGLESEmu");
 
 		/// <summary>
 		/// BuildSettings.StandaloneGLESEmu.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsStandaloneglesemuSmall =
+		public static GUIContent BuildsettingsStandaloneglesemuSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.StandaloneGLESEmu.Small");
 
 		/// <summary>
 		/// BuildSettings.Switch
 		/// </summary>
-		public static readonly GUIContent BuildsettingsSwitch = EditorGUIUtility.IconContent("BuildSettings.Switch");
+		public static GUIContent BuildsettingsSwitch => EditorGUIUtility.IconContent("BuildSettings.Switch");
 
 		/// <summary>
 		/// BuildSettings.Switch.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsSwitchSmall =
+		public static GUIContent BuildsettingsSwitchSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.Switch.Small");
 
 		/// <summary>
 		/// BuildSettings.Switch.Small@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsSwitchSmall2X =
+		public static GUIContent BuildsettingsSwitchSmall2X =>
 			EditorGUIUtility.IconContent("BuildSettings.Switch.Small@2x");
 
 		/// <summary>
 		/// BuildSettings.Switch@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsSwitch2X =
+		public static GUIContent BuildsettingsSwitch2X =>
 			EditorGUIUtility.IconContent("BuildSettings.Switch@2x");
 
 		/// <summary>
 		/// BuildSettings.tvOS
 		/// </summary>
-		public static readonly GUIContent BuildsettingsTvos = EditorGUIUtility.IconContent("BuildSettings.tvOS");
+		public static GUIContent BuildsettingsTvos => EditorGUIUtility.IconContent("BuildSettings.tvOS");
 
 		/// <summary>
 		/// BuildSettings.tvOS.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsTvosSmall =
+		public static GUIContent BuildsettingsTvosSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.tvOS.Small");
 
 		/// <summary>
 		/// BuildSettings.tvOS.Small@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsTvosSmall2X =
+		public static GUIContent BuildsettingsTvosSmall2X =>
 			EditorGUIUtility.IconContent("BuildSettings.tvOS.Small@2x");
 
 		/// <summary>
 		/// BuildSettings.tvOS@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsTvos2X = EditorGUIUtility.IconContent("BuildSettings.tvOS@2x");
+		public static GUIContent BuildsettingsTvos2X => EditorGUIUtility.IconContent("BuildSettings.tvOS@2x");
 
 		/// <summary>
 		/// BuildSettings.Web
 		/// </summary>
-		public static readonly GUIContent BuildsettingsWeb = EditorGUIUtility.IconContent("BuildSettings.Web");
+		public static GUIContent BuildsettingsWeb => EditorGUIUtility.IconContent("BuildSettings.Web");
 
 		/// <summary>
 		/// BuildSettings.Web.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsWebSmall =
+		public static GUIContent BuildsettingsWebSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.Web.Small");
 
 		/// <summary>
 		/// BuildSettings.WebGL
 		/// </summary>
-		public static readonly GUIContent BuildsettingsWebgl = EditorGUIUtility.IconContent("BuildSettings.WebGL");
+		public static GUIContent BuildsettingsWebgl => EditorGUIUtility.IconContent("BuildSettings.WebGL");
 
 		/// <summary>
 		/// BuildSettings.WebGL.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsWebglSmall =
+		public static GUIContent BuildsettingsWebglSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.WebGL.Small");
 
 		/// <summary>
 		/// BuildSettings.WebGL.Small@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsWebglSmall2X =
+		public static GUIContent BuildsettingsWebglSmall2X =>
 			EditorGUIUtility.IconContent("BuildSettings.WebGL.Small@2x");
 
 		/// <summary>
 		/// BuildSettings.WebGL@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsWebgl2X = EditorGUIUtility.IconContent("BuildSettings.WebGL@2x");
+		public static GUIContent BuildsettingsWebgl2X => EditorGUIUtility.IconContent("BuildSettings.WebGL@2x");
 
 		/// <summary>
 		/// BuildSettings.WP8
 		/// </summary>
-		public static readonly GUIContent BuildsettingsWp8 = EditorGUIUtility.IconContent("BuildSettings.WP8");
+		public static GUIContent BuildsettingsWp8 => EditorGUIUtility.IconContent("BuildSettings.WP8");
 
 		/// <summary>
 		/// BuildSettings.WP8.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsWp8Small =
+		public static GUIContent BuildsettingsWp8Small =>
 			EditorGUIUtility.IconContent("BuildSettings.WP8.Small");
 
 		/// <summary>
 		/// BuildSettings.Xbox360
 		/// </summary>
-		public static readonly GUIContent BuildsettingsXbox360 = EditorGUIUtility.IconContent("BuildSettings.Xbox360");
+		public static GUIContent BuildsettingsXbox360 => EditorGUIUtility.IconContent("BuildSettings.Xbox360");
 
 		/// <summary>
 		/// BuildSettings.Xbox360.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsXbox360Small =
+		public static GUIContent BuildsettingsXbox360Small =>
 			EditorGUIUtility.IconContent("BuildSettings.Xbox360.Small");
 
 		/// <summary>
 		/// BuildSettings.XboxOne
 		/// </summary>
-		public static readonly GUIContent BuildsettingsXboxone = EditorGUIUtility.IconContent("BuildSettings.XboxOne");
+		public static GUIContent BuildsettingsXboxone => EditorGUIUtility.IconContent("BuildSettings.XboxOne");
 
 		/// <summary>
 		/// BuildSettings.XboxOne.Small
 		/// </summary>
-		public static readonly GUIContent BuildsettingsXboxoneSmall =
+		public static GUIContent BuildsettingsXboxoneSmall =>
 			EditorGUIUtility.IconContent("BuildSettings.XboxOne.Small");
 
 		/// <summary>
 		/// BuildSettings.XboxOne.Small@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsXboxoneSmall2X =
+		public static GUIContent BuildsettingsXboxoneSmall2X =>
 			EditorGUIUtility.IconContent("BuildSettings.XboxOne.Small@2x");
 
 		/// <summary>
 		/// BuildSettings.XboxOne@2x
 		/// </summary>
-		public static readonly GUIContent BuildsettingsXboxone2X =
+		public static GUIContent BuildsettingsXboxone2X =>
 			EditorGUIUtility.IconContent("BuildSettings.XboxOne@2x");
 
 		/// <summary>
 		/// CacheServerConnected
 		/// </summary>
-		public static readonly GUIContent Cacheserverconnected = EditorGUIUtility.IconContent("CacheServerConnected");
+		public static GUIContent Cacheserverconnected => EditorGUIUtility.IconContent("CacheServerConnected");
 
 		/// <summary>
 		/// CacheServerConnected@2x
 		/// </summary>
-		public static readonly GUIContent Cacheserverconnected2X =
+		public static GUIContent Cacheserverconnected2X =>
 			EditorGUIUtility.IconContent("CacheServerConnected@2x");
 
 		/// <summary>
 		/// CacheServerDisabled
 		/// </summary>
-		public static readonly GUIContent Cacheserverdisabled = EditorGUIUtility.IconContent("CacheServerDisabled");
+		public static GUIContent Cacheserverdisabled => EditorGUIUtility.IconContent("CacheServerDisabled");
 
 		/// <summary>
 		/// CacheServerDisabled@2x
 		/// </summary>
-		public static readonly GUIContent
-			Cacheserverdisabled2X = EditorGUIUtility.IconContent("CacheServerDisabled@2x");
+		public static GUIContent
+			Cacheserverdisabled2X => EditorGUIUtility.IconContent("CacheServerDisabled@2x");
 
 		/// <summary>
 		/// CacheServerDisconnected
 		/// </summary>
-		public static readonly GUIContent Cacheserverdisconnected =
+		public static GUIContent Cacheserverdisconnected =>
 			EditorGUIUtility.IconContent("CacheServerDisconnected");
 
 		/// <summary>
 		/// CacheServerDisconnected@2x
 		/// </summary>
-		public static readonly GUIContent Cacheserverdisconnected2X =
+		public static GUIContent Cacheserverdisconnected2X =>
 			EditorGUIUtility.IconContent("CacheServerDisconnected@2x");
 
 		/// <summary>
 		/// CheckerFloor
 		/// </summary>
-		public static readonly GUIContent Checkerfloor = EditorGUIUtility.IconContent("CheckerFloor");
+		public static GUIContent Checkerfloor => EditorGUIUtility.IconContent("CheckerFloor");
 
 		/// <summary>
 		/// Clipboard
 		/// </summary>
-		public static readonly GUIContent Clipboard = EditorGUIUtility.IconContent("Clipboard");
+		public static GUIContent Clipboard => EditorGUIUtility.IconContent("Clipboard");
 
 		/// <summary>
 		/// ClothInspector.PaintTool
 		/// </summary>
-		public static readonly GUIContent ClothinspectorPainttool =
+		public static GUIContent ClothinspectorPainttool =>
 			EditorGUIUtility.IconContent("ClothInspector.PaintTool");
 
 		/// <summary>
 		/// ClothInspector.PaintValue
 		/// </summary>
-		public static readonly GUIContent ClothinspectorPaintvalue =
+		public static GUIContent ClothinspectorPaintvalue =>
 			EditorGUIUtility.IconContent("ClothInspector.PaintValue");
 
 		/// <summary>
 		/// ClothInspector.SelectTool
 		/// </summary>
-		public static readonly GUIContent ClothinspectorSelecttool =
+		public static GUIContent ClothinspectorSelecttool =>
 			EditorGUIUtility.IconContent("ClothInspector.SelectTool");
 
 		/// <summary>
 		/// ClothInspector.SettingsTool
 		/// </summary>
-		public static readonly GUIContent ClothinspectorSettingstool =
+		public static GUIContent ClothinspectorSettingstool =>
 			EditorGUIUtility.IconContent("ClothInspector.SettingsTool");
 
 		/// <summary>
 		/// ClothInspector.ViewValue
 		/// </summary>
-		public static readonly GUIContent ClothinspectorViewvalue =
+		public static GUIContent ClothinspectorViewvalue =>
 			EditorGUIUtility.IconContent("ClothInspector.ViewValue");
 
 		/// <summary>
 		/// CloudConnect
 		/// </summary>
-		public static readonly GUIContent Cloudconnect = EditorGUIUtility.IconContent("CloudConnect");
+		public static GUIContent Cloudconnect => EditorGUIUtility.IconContent("CloudConnect");
 
 		/// <summary>
 		/// CloudConnect@2x
 		/// </summary>
-		public static readonly GUIContent Cloudconnect2X = EditorGUIUtility.IconContent("CloudConnect@2x");
+		public static GUIContent Cloudconnect2X => EditorGUIUtility.IconContent("CloudConnect@2x");
 
 		/// <summary>
 		/// Collab.Build
 		/// </summary>
-		public static readonly GUIContent CollabBuild = EditorGUIUtility.IconContent("Collab.Build");
+		public static GUIContent CollabBuild => EditorGUIUtility.IconContent("Collab.Build");
 
 		/// <summary>
 		/// Collab.BuildFailed
 		/// </summary>
-		public static readonly GUIContent CollabBuildfailed = EditorGUIUtility.IconContent("Collab.BuildFailed");
+		public static GUIContent CollabBuildfailed => EditorGUIUtility.IconContent("Collab.BuildFailed");
 
 		/// <summary>
 		/// Collab.BuildSucceeded
 		/// </summary>
-		public static readonly GUIContent CollabBuildsucceeded = EditorGUIUtility.IconContent("Collab.BuildSucceeded");
+		public static GUIContent CollabBuildsucceeded => EditorGUIUtility.IconContent("Collab.BuildSucceeded");
 
 		/// <summary>
 		/// Collab.FileAdded
 		/// </summary>
-		public static readonly GUIContent CollabFileadded = EditorGUIUtility.IconContent("Collab.FileAdded");
+		public static GUIContent CollabFileadded => EditorGUIUtility.IconContent("Collab.FileAdded");
 
 		/// <summary>
 		/// Collab.FileConflict
 		/// </summary>
-		public static readonly GUIContent CollabFileconflict = EditorGUIUtility.IconContent("Collab.FileConflict");
+		public static GUIContent CollabFileconflict => EditorGUIUtility.IconContent("Collab.FileConflict");
 
 		/// <summary>
 		/// Collab.FileDeleted
 		/// </summary>
-		public static readonly GUIContent CollabFiledeleted = EditorGUIUtility.IconContent("Collab.FileDeleted");
+		public static GUIContent CollabFiledeleted => EditorGUIUtility.IconContent("Collab.FileDeleted");
 
 		/// <summary>
 		/// Collab.FileIgnored
 		/// </summary>
-		public static readonly GUIContent CollabFileignored = EditorGUIUtility.IconContent("Collab.FileIgnored");
+		public static GUIContent CollabFileignored => EditorGUIUtility.IconContent("Collab.FileIgnored");
 
 		/// <summary>
 		/// Collab.FileMoved
 		/// </summary>
-		public static readonly GUIContent CollabFilemoved = EditorGUIUtility.IconContent("Collab.FileMoved");
+		public static GUIContent CollabFilemoved => EditorGUIUtility.IconContent("Collab.FileMoved");
 
 		/// <summary>
 		/// Collab.FileUpdated
 		/// </summary>
-		public static readonly GUIContent CollabFileupdated = EditorGUIUtility.IconContent("Collab.FileUpdated");
+		public static GUIContent CollabFileupdated => EditorGUIUtility.IconContent("Collab.FileUpdated");
 
 		/// <summary>
 		/// Collab.FolderAdded
 		/// </summary>
-		public static readonly GUIContent CollabFolderadded = EditorGUIUtility.IconContent("Collab.FolderAdded");
+		public static GUIContent CollabFolderadded => EditorGUIUtility.IconContent("Collab.FolderAdded");
 
 		/// <summary>
 		/// Collab.FolderConflict
 		/// </summary>
-		public static readonly GUIContent CollabFolderconflict = EditorGUIUtility.IconContent("Collab.FolderConflict");
+		public static GUIContent CollabFolderconflict => EditorGUIUtility.IconContent("Collab.FolderConflict");
 
 		/// <summary>
 		/// Collab.FolderDeleted
 		/// </summary>
-		public static readonly GUIContent CollabFolderdeleted = EditorGUIUtility.IconContent("Collab.FolderDeleted");
+		public static GUIContent CollabFolderdeleted => EditorGUIUtility.IconContent("Collab.FolderDeleted");
 
 		/// <summary>
 		/// Collab.FolderIgnored
 		/// </summary>
-		public static readonly GUIContent CollabFolderignored = EditorGUIUtility.IconContent("Collab.FolderIgnored");
+		public static GUIContent CollabFolderignored => EditorGUIUtility.IconContent("Collab.FolderIgnored");
 
 		/// <summary>
 		/// Collab.FolderMoved
 		/// </summary>
-		public static readonly GUIContent CollabFoldermoved = EditorGUIUtility.IconContent("Collab.FolderMoved");
+		public static GUIContent CollabFoldermoved => EditorGUIUtility.IconContent("Collab.FolderMoved");
 
 		/// <summary>
 		/// Collab.FolderUpdated
 		/// </summary>
-		public static readonly GUIContent CollabFolderupdated = EditorGUIUtility.IconContent("Collab.FolderUpdated");
+		public static GUIContent CollabFolderupdated => EditorGUIUtility.IconContent("Collab.FolderUpdated");
 
 		/// <summary>
 		/// Collab.NoInternet
 		/// </summary>
-		public static readonly GUIContent CollabNointernet = EditorGUIUtility.IconContent("Collab.NoInternet");
+		public static GUIContent CollabNointernet => EditorGUIUtility.IconContent("Collab.NoInternet");
 
 		/// <summary>
 		/// Collab
 		/// </summary>
-		public static readonly GUIContent Collab = EditorGUIUtility.IconContent("Collab");
+		public static GUIContent Collab => EditorGUIUtility.IconContent("Collab");
 
 		/// <summary>
 		/// Collab.Warning
 		/// </summary>
-		public static readonly GUIContent CollabWarning = EditorGUIUtility.IconContent("Collab.Warning");
+		public static GUIContent CollabWarning => EditorGUIUtility.IconContent("Collab.Warning");
 
 		/// <summary>
 		/// Collab@2x
 		/// </summary>
-		public static readonly GUIContent Collab2X = EditorGUIUtility.IconContent("Collab@2x");
+		public static GUIContent Collab2X => EditorGUIUtility.IconContent("Collab@2x");
 
 		/// <summary>
 		/// CollabConflict
 		/// </summary>
-		public static readonly GUIContent Collabconflict = EditorGUIUtility.IconContent("CollabConflict");
+		public static GUIContent Collabconflict => EditorGUIUtility.IconContent("CollabConflict");
 
 		/// <summary>
 		/// CollabError
 		/// </summary>
-		public static readonly GUIContent Collaberror = EditorGUIUtility.IconContent("CollabError");
+		public static GUIContent Collaberror => EditorGUIUtility.IconContent("CollabError");
 
 		/// <summary>
 		/// CollabNew
 		/// </summary>
-		public static readonly GUIContent Collabnew = EditorGUIUtility.IconContent("CollabNew");
+		public static GUIContent Collabnew => EditorGUIUtility.IconContent("CollabNew");
 
 		/// <summary>
 		/// CollabOffline
 		/// </summary>
-		public static readonly GUIContent Collaboffline = EditorGUIUtility.IconContent("CollabOffline");
+		public static GUIContent Collaboffline => EditorGUIUtility.IconContent("CollabOffline");
 
 		/// <summary>
 		/// CollabProgress
 		/// </summary>
-		public static readonly GUIContent Collabprogress = EditorGUIUtility.IconContent("CollabProgress");
+		public static GUIContent Collabprogress => EditorGUIUtility.IconContent("CollabProgress");
 
 		/// <summary>
 		/// CollabPull
 		/// </summary>
-		public static readonly GUIContent Collabpull = EditorGUIUtility.IconContent("CollabPull");
+		public static GUIContent Collabpull => EditorGUIUtility.IconContent("CollabPull");
 
 		/// <summary>
 		/// CollabPush
 		/// </summary>
-		public static readonly GUIContent Collabpush = EditorGUIUtility.IconContent("CollabPush");
+		public static GUIContent Collabpush => EditorGUIUtility.IconContent("CollabPush");
 
 		/// <summary>
 		/// ColorPicker.ColorCycle
 		/// </summary>
-		public static readonly GUIContent
-			ColorpickerColorcycle = EditorGUIUtility.IconContent("ColorPicker.ColorCycle");
+		public static GUIContent
+			ColorpickerColorcycle => EditorGUIUtility.IconContent("ColorPicker.ColorCycle");
 
 		/// <summary>
 		/// ColorPicker.CycleColor
 		/// </summary>
-		public static readonly GUIContent
-			ColorpickerCyclecolor = EditorGUIUtility.IconContent("ColorPicker.CycleColor");
+		public static GUIContent
+			ColorpickerCyclecolor => EditorGUIUtility.IconContent("ColorPicker.CycleColor");
 
 		/// <summary>
 		/// ColorPicker.CycleSlider
 		/// </summary>
-		public static readonly GUIContent ColorpickerCycleslider =
+		public static GUIContent ColorpickerCycleslider =>
 			EditorGUIUtility.IconContent("ColorPicker.CycleSlider");
 
 		/// <summary>
 		/// ColorPicker.SliderCycle
 		/// </summary>
-		public static readonly GUIContent ColorpickerSlidercycle =
+		public static GUIContent ColorpickerSlidercycle =>
 			EditorGUIUtility.IconContent("ColorPicker.SliderCycle");
 
 		/// <summary>
 		/// console.erroricon.inactive.sml
 		/// </summary>
-		public static readonly GUIContent ConsoleErroriconInactiveSml =
+		public static GUIContent ConsoleErroriconInactiveSml =>
 			EditorGUIUtility.IconContent("console.erroricon.inactive.sml");
 
 		/// <summary>
 		/// console.erroricon.inactive.sml@2x
 		/// </summary>
-		public static readonly GUIContent ConsoleErroriconInactiveSml2X =
+		public static GUIContent ConsoleErroriconInactiveSml2X =>
 			EditorGUIUtility.IconContent("console.erroricon.inactive.sml@2x");
 
 		/// <summary>
 		/// console.erroricon
 		/// </summary>
-		public static readonly GUIContent ConsoleErroricon = EditorGUIUtility.IconContent("console.erroricon");
+		public static GUIContent ConsoleErroricon => EditorGUIUtility.IconContent("console.erroricon");
 
 		/// <summary>
 		/// console.erroricon.sml
 		/// </summary>
-		public static readonly GUIContent ConsoleErroriconSml = EditorGUIUtility.IconContent("console.erroricon.sml");
+		public static GUIContent ConsoleErroriconSml => EditorGUIUtility.IconContent("console.erroricon.sml");
 
 		/// <summary>
 		/// console.erroricon.sml@2x
 		/// </summary>
-		public static readonly GUIContent ConsoleErroriconSml2X =
+		public static GUIContent ConsoleErroriconSml2X =>
 			EditorGUIUtility.IconContent("console.erroricon.sml@2x");
 
 		/// <summary>
 		/// console.erroricon@2x
 		/// </summary>
-		public static readonly GUIContent ConsoleErroricon2X = EditorGUIUtility.IconContent("console.erroricon@2x");
+		public static GUIContent ConsoleErroricon2X => EditorGUIUtility.IconContent("console.erroricon@2x");
 
 		/// <summary>
 		/// console.infoicon.inactive.sml
 		/// </summary>
-		public static readonly GUIContent ConsoleInfoiconInactiveSml =
+		public static GUIContent ConsoleInfoiconInactiveSml =>
 			EditorGUIUtility.IconContent("console.infoicon.inactive.sml");
 
 		/// <summary>
 		/// console.infoicon.inactive.sml@2x
 		/// </summary>
-		public static readonly GUIContent ConsoleInfoiconInactiveSml2X =
+		public static GUIContent ConsoleInfoiconInactiveSml2X =>
 			EditorGUIUtility.IconContent("console.infoicon.inactive.sml@2x");
 
 		/// <summary>
 		/// console.infoicon
 		/// </summary>
-		public static readonly GUIContent ConsoleInfoicon = EditorGUIUtility.IconContent("console.infoicon");
+		public static GUIContent ConsoleInfoicon => EditorGUIUtility.IconContent("console.infoicon");
 
 		/// <summary>
 		/// console.infoicon.sml
 		/// </summary>
-		public static readonly GUIContent ConsoleInfoiconSml = EditorGUIUtility.IconContent("console.infoicon.sml");
+		public static GUIContent ConsoleInfoiconSml => EditorGUIUtility.IconContent("console.infoicon.sml");
 
 		/// <summary>
 		/// console.infoicon.sml@2x
 		/// </summary>
-		public static readonly GUIContent
-			ConsoleInfoiconSml2X = EditorGUIUtility.IconContent("console.infoicon.sml@2x");
+		public static GUIContent
+			ConsoleInfoiconSml2X => EditorGUIUtility.IconContent("console.infoicon.sml@2x");
 
 		/// <summary>
 		/// console.infoicon@2x
 		/// </summary>
-		public static readonly GUIContent ConsoleInfoicon2X = EditorGUIUtility.IconContent("console.infoicon@2x");
+		public static GUIContent ConsoleInfoicon2X => EditorGUIUtility.IconContent("console.infoicon@2x");
 
 		/// <summary>
 		/// console.warnicon.inactive.sml
 		/// </summary>
-		public static readonly GUIContent ConsoleWarniconInactiveSml =
+		public static GUIContent ConsoleWarniconInactiveSml =>
 			EditorGUIUtility.IconContent("console.warnicon.inactive.sml");
 
 		/// <summary>
 		/// console.warnicon.inactive.sml@2x
 		/// </summary>
-		public static readonly GUIContent ConsoleWarniconInactiveSml2X =
+		public static GUIContent ConsoleWarniconInactiveSml2X =>
 			EditorGUIUtility.IconContent("console.warnicon.inactive.sml@2x");
 
 		/// <summary>
 		/// console.warnicon
 		/// </summary>
-		public static readonly GUIContent ConsoleWarnicon = EditorGUIUtility.IconContent("console.warnicon");
+		public static GUIContent ConsoleWarnicon => EditorGUIUtility.IconContent("console.warnicon");
 
 		/// <summary>
 		/// console.warnicon.sml
 		/// </summary>
-		public static readonly GUIContent ConsoleWarniconSml = EditorGUIUtility.IconContent("console.warnicon.sml");
+		public static GUIContent ConsoleWarniconSml => EditorGUIUtility.IconContent("console.warnicon.sml");
 
 		/// <summary>
 		/// console.warnicon.sml@2x
 		/// </summary>
-		public static readonly GUIContent
-			ConsoleWarniconSml2X = EditorGUIUtility.IconContent("console.warnicon.sml@2x");
+		public static GUIContent
+			ConsoleWarniconSml2X => EditorGUIUtility.IconContent("console.warnicon.sml@2x");
 
 		/// <summary>
 		/// console.warnicon@2x
 		/// </summary>
-		public static readonly GUIContent ConsoleWarnicon2X = EditorGUIUtility.IconContent("console.warnicon@2x");
+		public static GUIContent ConsoleWarnicon2X => EditorGUIUtility.IconContent("console.warnicon@2x");
 
 		/// <summary>
 		/// CreateAddNew
 		/// </summary>
-		public static readonly GUIContent Createaddnew = EditorGUIUtility.IconContent("CreateAddNew");
+		public static GUIContent Createaddnew => EditorGUIUtility.IconContent("CreateAddNew");
 
 		/// <summary>
 		/// CreateAddNew@2x
 		/// </summary>
-		public static readonly GUIContent Createaddnew2X = EditorGUIUtility.IconContent("CreateAddNew@2x");
+		public static GUIContent Createaddnew2X => EditorGUIUtility.IconContent("CreateAddNew@2x");
 
 		/// <summary>
 		/// CrossIcon
 		/// </summary>
-		public static readonly GUIContent Crossicon = EditorGUIUtility.IconContent("CrossIcon");
+		public static GUIContent Crossicon => EditorGUIUtility.IconContent("CrossIcon");
 
 		/// <summary>
 		/// curvekeyframe
 		/// </summary>
-		public static readonly GUIContent Curvekeyframe = EditorGUIUtility.IconContent("curvekeyframe");
+		public static GUIContent Curvekeyframe => EditorGUIUtility.IconContent("curvekeyframe");
 
 		/// <summary>
 		/// curvekeyframeselected
 		/// </summary>
-		public static readonly GUIContent Curvekeyframeselected = EditorGUIUtility.IconContent("curvekeyframeselected");
+		public static GUIContent Curvekeyframeselected => EditorGUIUtility.IconContent("curvekeyframeselected");
 
 		/// <summary>
 		/// curvekeyframeselectedoverlay
 		/// </summary>
-		public static readonly GUIContent Curvekeyframeselectedoverlay =
+		public static GUIContent Curvekeyframeselectedoverlay =>
 			EditorGUIUtility.IconContent("curvekeyframeselectedoverlay");
 
 		/// <summary>
 		/// curvekeyframesemiselectedoverlay
 		/// </summary>
-		public static readonly GUIContent Curvekeyframesemiselectedoverlay =
+		public static GUIContent Curvekeyframesemiselectedoverlay =>
 			EditorGUIUtility.IconContent("curvekeyframesemiselectedoverlay");
 
 		/// <summary>
 		/// curvekeyframeweighted
 		/// </summary>
-		public static readonly GUIContent Curvekeyframeweighted = EditorGUIUtility.IconContent("curvekeyframeweighted");
+		public static GUIContent Curvekeyframeweighted => EditorGUIUtility.IconContent("curvekeyframeweighted");
 
 		/// <summary>
 		/// CustomSorting
 		/// </summary>
-		public static readonly GUIContent Customsorting = EditorGUIUtility.IconContent("CustomSorting");
+		public static GUIContent Customsorting => EditorGUIUtility.IconContent("CustomSorting");
 
 		/// <summary>
 		/// CustomTool
 		/// </summary>
-		public static readonly GUIContent Customtool = EditorGUIUtility.IconContent("CustomTool");
+		public static GUIContent Customtool => EditorGUIUtility.IconContent("CustomTool");
 
 		/// <summary>
 		/// CustomTool@2x
 		/// </summary>
-		public static readonly GUIContent Customtool2X = EditorGUIUtility.IconContent("CustomTool@2x");
+		public static GUIContent Customtool2X => EditorGUIUtility.IconContent("CustomTool@2x");
 
 		/// <summary>
 		/// d__Help
 		/// </summary>
-		public static readonly GUIContent DHelp = EditorGUIUtility.IconContent("d__Help");
+		public static GUIContent DHelp => EditorGUIUtility.IconContent("d__Help");
 
 		/// <summary>
 		/// d__Help@2x
 		/// </summary>
-		public static readonly GUIContent DHelp2X = EditorGUIUtility.IconContent("d__Help@2x");
+		public static GUIContent DHelp2X => EditorGUIUtility.IconContent("d__Help@2x");
 
 		/// <summary>
 		/// d__Menu
 		/// </summary>
-		public static readonly GUIContent DMenu = EditorGUIUtility.IconContent("d__Menu");
+		public static GUIContent DMenu => EditorGUIUtility.IconContent("d__Menu");
 
 		/// <summary>
 		/// d__Menu@2x
 		/// </summary>
-		public static readonly GUIContent DMenu2X = EditorGUIUtility.IconContent("d__Menu@2x");
+		public static GUIContent DMenu2X => EditorGUIUtility.IconContent("d__Menu@2x");
 
 		/// <summary>
 		/// d__Popup
 		/// </summary>
-		public static readonly GUIContent DPopup = EditorGUIUtility.IconContent("d__Popup");
+		public static GUIContent DPopup => EditorGUIUtility.IconContent("d__Popup");
 
 		/// <summary>
 		/// d__Popup@2x
 		/// </summary>
-		public static readonly GUIContent DPopup2X = EditorGUIUtility.IconContent("d__Popup@2x");
+		public static GUIContent DPopup2X => EditorGUIUtility.IconContent("d__Popup@2x");
 
 		/// <summary>
 		/// d_aboutwindow.mainheader
 		/// </summary>
-		public static readonly GUIContent DAboutwindowMainheader =
+		public static GUIContent DAboutwindowMainheader =>
 			EditorGUIUtility.IconContent("d_aboutwindow.mainheader");
 
 		/// <summary>
 		/// d_ageialogo
 		/// </summary>
-		public static readonly GUIContent DAgeialogo = EditorGUIUtility.IconContent("d_ageialogo");
+		public static GUIContent DAgeialogo => EditorGUIUtility.IconContent("d_ageialogo");
 
 		/// <summary>
 		/// d_AlphabeticalSorting
 		/// </summary>
-		public static readonly GUIContent DAlphabeticalsorting = EditorGUIUtility.IconContent("d_AlphabeticalSorting");
+		public static GUIContent DAlphabeticalsorting => EditorGUIUtility.IconContent("d_AlphabeticalSorting");
 
 		/// <summary>
 		/// d_AlphabeticalSorting@2x
 		/// </summary>
-		public static readonly GUIContent DAlphabeticalsorting2X =
+		public static GUIContent DAlphabeticalsorting2X =>
 			EditorGUIUtility.IconContent("d_AlphabeticalSorting@2x");
 
 		/// <summary>
 		/// d_Animation.AddEvent
 		/// </summary>
-		public static readonly GUIContent DAnimationAddevent = EditorGUIUtility.IconContent("d_Animation.AddEvent");
+		public static GUIContent DAnimationAddevent => EditorGUIUtility.IconContent("d_Animation.AddEvent");
 
 		/// <summary>
 		/// d_Animation.AddKeyframe
 		/// </summary>
-		public static readonly GUIContent DAnimationAddkeyframe =
+		public static GUIContent DAnimationAddkeyframe =>
 			EditorGUIUtility.IconContent("d_Animation.AddKeyframe");
 
 		/// <summary>
 		/// d_Animation.EventMarker
 		/// </summary>
-		public static readonly GUIContent DAnimationEventmarker =
+		public static GUIContent DAnimationEventmarker =>
 			EditorGUIUtility.IconContent("d_Animation.EventMarker");
 
 		/// <summary>
 		/// d_Animation.FilterBySelection
 		/// </summary>
-		public static readonly GUIContent DAnimationFilterbyselection =
+		public static GUIContent DAnimationFilterbyselection =>
 			EditorGUIUtility.IconContent("d_Animation.FilterBySelection");
 
 		/// <summary>
 		/// d_Animation.FirstKey
 		/// </summary>
-		public static readonly GUIContent DAnimationFirstkey = EditorGUIUtility.IconContent("d_Animation.FirstKey");
+		public static GUIContent DAnimationFirstkey => EditorGUIUtility.IconContent("d_Animation.FirstKey");
 
 		/// <summary>
 		/// d_Animation.LastKey
 		/// </summary>
-		public static readonly GUIContent DAnimationLastkey = EditorGUIUtility.IconContent("d_Animation.LastKey");
+		public static GUIContent DAnimationLastkey => EditorGUIUtility.IconContent("d_Animation.LastKey");
 
 		/// <summary>
 		/// d_Animation.NextKey
 		/// </summary>
-		public static readonly GUIContent DAnimationNextkey = EditorGUIUtility.IconContent("d_Animation.NextKey");
+		public static GUIContent DAnimationNextkey => EditorGUIUtility.IconContent("d_Animation.NextKey");
 
 		/// <summary>
 		/// d_Animation.Play
 		/// </summary>
-		public static readonly GUIContent DAnimationPlay = EditorGUIUtility.IconContent("d_Animation.Play");
+		public static GUIContent DAnimationPlay => EditorGUIUtility.IconContent("d_Animation.Play");
 
 		/// <summary>
 		/// d_Animation.PrevKey
 		/// </summary>
-		public static readonly GUIContent DAnimationPrevkey = EditorGUIUtility.IconContent("d_Animation.PrevKey");
+		public static GUIContent DAnimationPrevkey => EditorGUIUtility.IconContent("d_Animation.PrevKey");
 
 		/// <summary>
 		/// d_Animation.Record
 		/// </summary>
-		public static readonly GUIContent DAnimationRecord = EditorGUIUtility.IconContent("d_Animation.Record");
+		public static GUIContent DAnimationRecord => EditorGUIUtility.IconContent("d_Animation.Record");
 
 		/// <summary>
 		/// d_Animation.Record@2x
 		/// </summary>
-		public static readonly GUIContent DAnimationRecord2X = EditorGUIUtility.IconContent("d_Animation.Record@2x");
+		public static GUIContent DAnimationRecord2X => EditorGUIUtility.IconContent("d_Animation.Record@2x");
 
 		/// <summary>
 		/// d_Animation.SequencerLink
 		/// </summary>
-		public static readonly GUIContent DAnimationSequencerlink =
+		public static GUIContent DAnimationSequencerlink =>
 			EditorGUIUtility.IconContent("d_Animation.SequencerLink");
 
 		/// <summary>
 		/// d_animationanimated
 		/// </summary>
-		public static readonly GUIContent DAnimationanimated = EditorGUIUtility.IconContent("d_animationanimated");
+		public static GUIContent DAnimationanimated => EditorGUIUtility.IconContent("d_animationanimated");
 
 		/// <summary>
 		/// d_animationkeyframe
 		/// </summary>
-		public static readonly GUIContent DAnimationkeyframe = EditorGUIUtility.IconContent("d_animationkeyframe");
+		public static GUIContent DAnimationkeyframe => EditorGUIUtility.IconContent("d_animationkeyframe");
 
 		/// <summary>
 		/// d_animationnocurve
 		/// </summary>
-		public static readonly GUIContent DAnimationnocurve = EditorGUIUtility.IconContent("d_animationnocurve");
+		public static GUIContent DAnimationnocurve => EditorGUIUtility.IconContent("d_animationnocurve");
 
 		/// <summary>
 		/// d_animationvisibilitytoggleoff
 		/// </summary>
-		public static readonly GUIContent DAnimationvisibilitytoggleoff =
+		public static GUIContent DAnimationvisibilitytoggleoff =>
 			EditorGUIUtility.IconContent("d_animationvisibilitytoggleoff");
 
 		/// <summary>
 		/// d_animationvisibilitytoggleoff@2x
 		/// </summary>
-		public static readonly GUIContent DAnimationvisibilitytoggleoff2X =
+		public static GUIContent DAnimationvisibilitytoggleoff2X =>
 			EditorGUIUtility.IconContent("d_animationvisibilitytoggleoff@2x");
 
 		/// <summary>
 		/// d_animationvisibilitytoggleon
 		/// </summary>
-		public static readonly GUIContent DAnimationvisibilitytoggleon =
+		public static GUIContent DAnimationvisibilitytoggleon =>
 			EditorGUIUtility.IconContent("d_animationvisibilitytoggleon");
 
 		/// <summary>
 		/// d_animationvisibilitytoggleon@2x
 		/// </summary>
-		public static readonly GUIContent DAnimationvisibilitytoggleon2X =
+		public static GUIContent DAnimationvisibilitytoggleon2X =>
 			EditorGUIUtility.IconContent("d_animationvisibilitytoggleon@2x");
 
 		/// <summary>
 		/// d_AnimationWrapModeMenu
 		/// </summary>
-		public static readonly GUIContent DAnimationwrapmodemenu =
+		public static GUIContent DAnimationwrapmodemenu =>
 			EditorGUIUtility.IconContent("d_AnimationWrapModeMenu");
 
 		/// <summary>
 		/// d_AssemblyLock
 		/// </summary>
-		public static readonly GUIContent DAssemblylock = EditorGUIUtility.IconContent("d_AssemblyLock");
+		public static GUIContent DAssemblylock => EditorGUIUtility.IconContent("d_AssemblyLock");
 
 		/// <summary>
 		/// d_AutoLightbakingOff
 		/// </summary>
-		public static readonly GUIContent DAutolightbakingoff = EditorGUIUtility.IconContent("d_AutoLightbakingOff");
+		public static GUIContent DAutolightbakingoff => EditorGUIUtility.IconContent("d_AutoLightbakingOff");
 
 		/// <summary>
 		/// d_AutoLightbakingOff@2x
 		/// </summary>
-		public static readonly GUIContent DAutolightbakingoff2X =
+		public static GUIContent DAutolightbakingoff2X =>
 			EditorGUIUtility.IconContent("d_AutoLightbakingOff@2x");
 
 		/// <summary>
 		/// d_AutoLightbakingOn
 		/// </summary>
-		public static readonly GUIContent DAutolightbakingon = EditorGUIUtility.IconContent("d_AutoLightbakingOn");
+		public static GUIContent DAutolightbakingon => EditorGUIUtility.IconContent("d_AutoLightbakingOn");
 
 		/// <summary>
 		/// d_AutoLightbakingOn@2x
 		/// </summary>
-		public static readonly GUIContent DAutolightbakingon2X = EditorGUIUtility.IconContent("d_AutoLightbakingOn@2x");
+		public static GUIContent DAutolightbakingon2X => EditorGUIUtility.IconContent("d_AutoLightbakingOn@2x");
 
 		/// <summary>
 		/// d_AvatarBlendBackground
 		/// </summary>
-		public static readonly GUIContent DAvatarblendbackground =
+		public static GUIContent DAvatarblendbackground =>
 			EditorGUIUtility.IconContent("d_AvatarBlendBackground");
 
 		/// <summary>
 		/// d_AvatarBlendLeft
 		/// </summary>
-		public static readonly GUIContent DAvatarblendleft = EditorGUIUtility.IconContent("d_AvatarBlendLeft");
+		public static GUIContent DAvatarblendleft => EditorGUIUtility.IconContent("d_AvatarBlendLeft");
 
 		/// <summary>
 		/// d_AvatarBlendLeftA
 		/// </summary>
-		public static readonly GUIContent DAvatarblendlefta = EditorGUIUtility.IconContent("d_AvatarBlendLeftA");
+		public static GUIContent DAvatarblendlefta => EditorGUIUtility.IconContent("d_AvatarBlendLeftA");
 
 		/// <summary>
 		/// d_AvatarBlendRight
 		/// </summary>
-		public static readonly GUIContent DAvatarblendright = EditorGUIUtility.IconContent("d_AvatarBlendRight");
+		public static GUIContent DAvatarblendright => EditorGUIUtility.IconContent("d_AvatarBlendRight");
 
 		/// <summary>
 		/// d_AvatarBlendRightA
 		/// </summary>
-		public static readonly GUIContent DAvatarblendrighta = EditorGUIUtility.IconContent("d_AvatarBlendRightA");
+		public static GUIContent DAvatarblendrighta => EditorGUIUtility.IconContent("d_AvatarBlendRightA");
 
 		/// <summary>
 		/// d_AvatarCompass
 		/// </summary>
-		public static readonly GUIContent DAvatarcompass = EditorGUIUtility.IconContent("d_AvatarCompass");
+		public static GUIContent DAvatarcompass => EditorGUIUtility.IconContent("d_AvatarCompass");
 
 		/// <summary>
 		/// d_AvatarPivot
 		/// </summary>
-		public static readonly GUIContent DAvatarpivot = EditorGUIUtility.IconContent("d_AvatarPivot");
+		public static GUIContent DAvatarpivot => EditorGUIUtility.IconContent("d_AvatarPivot");
 
 		/// <summary>
 		/// d_AvatarPivot@2x
 		/// </summary>
-		public static readonly GUIContent DAvatarpivot2X = EditorGUIUtility.IconContent("d_AvatarPivot@2x");
+		public static GUIContent DAvatarpivot2X => EditorGUIUtility.IconContent("d_AvatarPivot@2x");
 
 		/// <summary>
 		/// d_AvatarSelector
 		/// </summary>
-		public static readonly GUIContent DAvatarselector = EditorGUIUtility.IconContent("d_AvatarSelector");
+		public static GUIContent DAvatarselector => EditorGUIUtility.IconContent("d_AvatarSelector");
 
 		/// <summary>
 		/// d_AvatarSelector@2x
 		/// </summary>
-		public static readonly GUIContent DAvatarselector2X = EditorGUIUtility.IconContent("d_AvatarSelector@2x");
+		public static GUIContent DAvatarselector2X => EditorGUIUtility.IconContent("d_AvatarSelector@2x");
 
 		/// <summary>
 		/// d_back
 		/// </summary>
-		public static readonly GUIContent DBack = EditorGUIUtility.IconContent("d_back");
+		public static GUIContent DBack => EditorGUIUtility.IconContent("d_back");
 
 		/// <summary>
 		/// d_back@2x
 		/// </summary>
-		public static readonly GUIContent DBack2X = EditorGUIUtility.IconContent("d_back@2x");
+		public static GUIContent DBack2X => EditorGUIUtility.IconContent("d_back@2x");
 
 		/// <summary>
 		/// d_beginButton-On
 		/// </summary>
-		public static readonly GUIContent DBeginbuttonOn = EditorGUIUtility.IconContent("d_beginButton-On");
+		public static GUIContent DBeginbuttonOn => EditorGUIUtility.IconContent("d_beginButton-On");
 
 		/// <summary>
 		/// d_beginButton
 		/// </summary>
-		public static readonly GUIContent DBeginbutton = EditorGUIUtility.IconContent("d_beginButton");
+		public static GUIContent DBeginbutton => EditorGUIUtility.IconContent("d_beginButton");
 
 		/// <summary>
 		/// d_blueGroove
 		/// </summary>
-		public static readonly GUIContent DBluegroove = EditorGUIUtility.IconContent("d_blueGroove");
+		public static GUIContent DBluegroove => EditorGUIUtility.IconContent("d_blueGroove");
 
 		/// <summary>
 		/// d_BuildSettings.Android
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsAndroid =
+		public static GUIContent DBuildsettingsAndroid =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Android");
 
 		/// <summary>
 		/// d_BuildSettings.Android.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsAndroidSmall =
+		public static GUIContent DBuildsettingsAndroidSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Android.Small");
 
 		/// <summary>
 		/// d_BuildSettings.Android.Small@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsAndroidSmall2X =
+		public static GUIContent DBuildsettingsAndroidSmall2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Android.Small@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Android@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsAndroid2X =
+		public static GUIContent DBuildsettingsAndroid2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Android@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Broadcom
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsBroadcom =
+		public static GUIContent DBuildsettingsBroadcom =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Broadcom");
 
 		/// <summary>
 		/// d_BuildSettings.Facebook
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsFacebook =
+		public static GUIContent DBuildsettingsFacebook =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Facebook");
 
 		/// <summary>
 		/// d_BuildSettings.Facebook.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsFacebookSmall =
+		public static GUIContent DBuildsettingsFacebookSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Facebook.Small");
 
 		/// <summary>
 		/// d_BuildSettings.Facebook.Small@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsFacebookSmall2X =
+		public static GUIContent DBuildsettingsFacebookSmall2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Facebook.Small@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Facebook@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsFacebook2X =
+		public static GUIContent DBuildsettingsFacebook2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Facebook@2x");
 
 		/// <summary>
 		/// d_BuildSettings.FlashPlayer
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsFlashplayer =
+		public static GUIContent DBuildsettingsFlashplayer =>
 			EditorGUIUtility.IconContent("d_BuildSettings.FlashPlayer");
 
 		/// <summary>
 		/// d_BuildSettings.FlashPlayer.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsFlashplayerSmall =
+		public static GUIContent DBuildsettingsFlashplayerSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.FlashPlayer.Small");
 
 		/// <summary>
 		/// d_BuildSettings.iPhone
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsIphone = EditorGUIUtility.IconContent("d_BuildSettings.iPhone");
+		public static GUIContent DBuildsettingsIphone => EditorGUIUtility.IconContent("d_BuildSettings.iPhone");
 
 		/// <summary>
 		/// d_BuildSettings.iPhone.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsIphoneSmall =
+		public static GUIContent DBuildsettingsIphoneSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.iPhone.Small");
 
 		/// <summary>
 		/// d_BuildSettings.iPhone.Small@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsIphoneSmall2X =
+		public static GUIContent DBuildsettingsIphoneSmall2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.iPhone.Small@2x");
 
 		/// <summary>
 		/// d_BuildSettings.iPhone@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsIphone2X =
+		public static GUIContent DBuildsettingsIphone2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.iPhone@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Lumin
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsLumin = EditorGUIUtility.IconContent("d_BuildSettings.Lumin");
+		public static GUIContent DBuildsettingsLumin => EditorGUIUtility.IconContent("d_BuildSettings.Lumin");
 
 		/// <summary>
 		/// d_BuildSettings.Lumin.small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsLuminSmall =
+		public static GUIContent DBuildsettingsLuminSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Lumin.small");
 
 		/// <summary>
 		/// d_BuildSettings.Lumin.small@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsLuminSmall2X =
+		public static GUIContent DBuildsettingsLuminSmall2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Lumin.small@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Lumin@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsLumin2X =
+		public static GUIContent DBuildsettingsLumin2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Lumin@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Metro
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsMetro = EditorGUIUtility.IconContent("d_BuildSettings.Metro");
+		public static GUIContent DBuildsettingsMetro => EditorGUIUtility.IconContent("d_BuildSettings.Metro");
 
 		/// <summary>
 		/// d_BuildSettings.Metro.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsMetroSmall =
+		public static GUIContent DBuildsettingsMetroSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Metro.Small");
 
 		/// <summary>
 		/// d_BuildSettings.Metro.Small@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsMetroSmall2X =
+		public static GUIContent DBuildsettingsMetroSmall2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Metro.Small@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Metro@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsMetro2X =
+		public static GUIContent DBuildsettingsMetro2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Metro@2x");
 
 		/// <summary>
 		/// d_BuildSettings.N3DS
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsN3Ds = EditorGUIUtility.IconContent("d_BuildSettings.N3DS");
+		public static GUIContent DBuildsettingsN3Ds => EditorGUIUtility.IconContent("d_BuildSettings.N3DS");
 
 		/// <summary>
 		/// d_BuildSettings.N3DS.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsN3DsSmall =
+		public static GUIContent DBuildsettingsN3DsSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.N3DS.Small");
 
 		/// <summary>
 		/// d_BuildSettings.N3DS.Small@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsN3DsSmall2X =
+		public static GUIContent DBuildsettingsN3DsSmall2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.N3DS.Small@2x");
 
 		/// <summary>
 		/// d_BuildSettings.N3DS@2x
 		/// </summary>
-		public static readonly GUIContent
-			DBuildsettingsN3Ds2X = EditorGUIUtility.IconContent("d_BuildSettings.N3DS@2x");
+		public static GUIContent
+			DBuildsettingsN3Ds2X => EditorGUIUtility.IconContent("d_BuildSettings.N3DS@2x");
 
 		/// <summary>
 		/// d_BuildSettings.PS4
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsPs4 = EditorGUIUtility.IconContent("d_BuildSettings.PS4");
+		public static GUIContent DBuildsettingsPs4 => EditorGUIUtility.IconContent("d_BuildSettings.PS4");
 
 		/// <summary>
 		/// d_BuildSettings.PS4.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsPs4Small =
+		public static GUIContent DBuildsettingsPs4Small =>
 			EditorGUIUtility.IconContent("d_BuildSettings.PS4.Small");
 
 		/// <summary>
 		/// d_BuildSettings.PS4.Small@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsPs4Small2X =
+		public static GUIContent DBuildsettingsPs4Small2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.PS4.Small@2x");
 
 		/// <summary>
 		/// d_BuildSettings.PS4@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsPs42X = EditorGUIUtility.IconContent("d_BuildSettings.PS4@2x");
+		public static GUIContent DBuildsettingsPs42X => EditorGUIUtility.IconContent("d_BuildSettings.PS4@2x");
 
 		/// <summary>
 		/// d_BuildSettings.PSP2
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsPsp2 = EditorGUIUtility.IconContent("d_BuildSettings.PSP2");
+		public static GUIContent DBuildsettingsPsp2 => EditorGUIUtility.IconContent("d_BuildSettings.PSP2");
 
 		/// <summary>
 		/// d_BuildSettings.PSP2.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsPsp2Small =
+		public static GUIContent DBuildsettingsPsp2Small =>
 			EditorGUIUtility.IconContent("d_BuildSettings.PSP2.Small");
 
 		/// <summary>
 		/// d_BuildSettings.SelectedIcon
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsSelectedicon =
+		public static GUIContent DBuildsettingsSelectedicon =>
 			EditorGUIUtility.IconContent("d_BuildSettings.SelectedIcon");
 
 		/// <summary>
 		/// d_BuildSettings.Stadia
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsStadia = EditorGUIUtility.IconContent("d_BuildSettings.Stadia");
+		public static GUIContent DBuildsettingsStadia => EditorGUIUtility.IconContent("d_BuildSettings.Stadia");
 
 		/// <summary>
 		/// d_BuildSettings.Stadia.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsStadiaSmall =
+		public static GUIContent DBuildsettingsStadiaSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Stadia.Small");
 
 		/// <summary>
 		/// d_BuildSettings.Stadia.Small@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsStadiaSmall2X =
+		public static GUIContent DBuildsettingsStadiaSmall2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Stadia.Small@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Stadia@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsStadia2X =
+		public static GUIContent DBuildsettingsStadia2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Stadia@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Standalone
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsStandalone =
+		public static GUIContent DBuildsettingsStandalone =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Standalone");
 
 		/// <summary>
 		/// d_BuildSettings.Standalone.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsStandaloneSmall =
+		public static GUIContent DBuildsettingsStandaloneSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Standalone.Small");
 
 		/// <summary>
 		/// d_BuildSettings.Standalone.Small@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsStandaloneSmall2X =
+		public static GUIContent DBuildsettingsStandaloneSmall2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Standalone.Small@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Standalone@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsStandalone2X =
+		public static GUIContent DBuildsettingsStandalone2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Standalone@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Switch
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsSwitch = EditorGUIUtility.IconContent("d_BuildSettings.Switch");
+		public static GUIContent DBuildsettingsSwitch => EditorGUIUtility.IconContent("d_BuildSettings.Switch");
 
 		/// <summary>
 		/// d_BuildSettings.Switch.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsSwitchSmall =
+		public static GUIContent DBuildsettingsSwitchSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Switch.Small");
 
 		/// <summary>
 		/// d_BuildSettings.Switch.Small@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsSwitchSmall2X =
+		public static GUIContent DBuildsettingsSwitchSmall2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Switch.Small@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Switch@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsSwitch2X =
+		public static GUIContent DBuildsettingsSwitch2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Switch@2x");
 
 		/// <summary>
 		/// d_BuildSettings.tvOS
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsTvos = EditorGUIUtility.IconContent("d_BuildSettings.tvOS");
+		public static GUIContent DBuildsettingsTvos => EditorGUIUtility.IconContent("d_BuildSettings.tvOS");
 
 		/// <summary>
 		/// d_BuildSettings.tvOS.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsTvosSmall =
+		public static GUIContent DBuildsettingsTvosSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.tvOS.Small");
 
 		/// <summary>
 		/// d_BuildSettings.tvOS.Small@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsTvosSmall2X =
+		public static GUIContent DBuildsettingsTvosSmall2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.tvOS.Small@2x");
 
 		/// <summary>
 		/// d_BuildSettings.tvOS@2x
 		/// </summary>
-		public static readonly GUIContent
-			DBuildsettingsTvos2X = EditorGUIUtility.IconContent("d_BuildSettings.tvOS@2x");
+		public static GUIContent
+			DBuildsettingsTvos2X => EditorGUIUtility.IconContent("d_BuildSettings.tvOS@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Web
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsWeb = EditorGUIUtility.IconContent("d_BuildSettings.Web");
+		public static GUIContent DBuildsettingsWeb => EditorGUIUtility.IconContent("d_BuildSettings.Web");
 
 		/// <summary>
 		/// d_BuildSettings.Web.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsWebSmall =
+		public static GUIContent DBuildsettingsWebSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Web.Small");
 
 		/// <summary>
 		/// d_BuildSettings.WebGL
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsWebgl = EditorGUIUtility.IconContent("d_BuildSettings.WebGL");
+		public static GUIContent DBuildsettingsWebgl => EditorGUIUtility.IconContent("d_BuildSettings.WebGL");
 
 		/// <summary>
 		/// d_BuildSettings.WebGL.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsWebglSmall =
+		public static GUIContent DBuildsettingsWebglSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.WebGL.Small");
 
 		/// <summary>
 		/// d_BuildSettings.WebGL.Small@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsWebglSmall2X =
+		public static GUIContent DBuildsettingsWebglSmall2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.WebGL.Small@2x");
 
 		/// <summary>
 		/// d_BuildSettings.WebGL@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsWebgl2X =
+		public static GUIContent DBuildsettingsWebgl2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.WebGL@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Xbox360
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsXbox360 =
+		public static GUIContent DBuildsettingsXbox360 =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Xbox360");
 
 		/// <summary>
 		/// d_BuildSettings.Xbox360.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsXbox360Small =
+		public static GUIContent DBuildsettingsXbox360Small =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Xbox360.Small");
 
 		/// <summary>
 		/// d_BuildSettings.XboxOne
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsXboxone =
+		public static GUIContent DBuildsettingsXboxone =>
 			EditorGUIUtility.IconContent("d_BuildSettings.XboxOne");
 
 		/// <summary>
 		/// d_BuildSettings.XboxOne.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsXboxoneSmall =
+		public static GUIContent DBuildsettingsXboxoneSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.XboxOne.Small");
 
 		/// <summary>
 		/// d_BuildSettings.XboxOne.Small@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsXboxoneSmall2X =
+		public static GUIContent DBuildsettingsXboxoneSmall2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.XboxOne.Small@2x");
 
 		/// <summary>
 		/// d_BuildSettings.XboxOne@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsXboxone2X =
+		public static GUIContent DBuildsettingsXboxone2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.XboxOne@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Xiaomi
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsXiaomi = EditorGUIUtility.IconContent("d_BuildSettings.Xiaomi");
+		public static GUIContent DBuildsettingsXiaomi => EditorGUIUtility.IconContent("d_BuildSettings.Xiaomi");
 
 		/// <summary>
 		/// d_BuildSettings.Xiaomi.Small
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsXiaomiSmall =
+		public static GUIContent DBuildsettingsXiaomiSmall =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Xiaomi.Small");
 
 		/// <summary>
 		/// d_BuildSettings.Xiaomi.Small@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsXiaomiSmall2X =
+		public static GUIContent DBuildsettingsXiaomiSmall2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Xiaomi.Small@2x");
 
 		/// <summary>
 		/// d_BuildSettings.Xiaomi@2x
 		/// </summary>
-		public static readonly GUIContent DBuildsettingsXiaomi2X =
+		public static GUIContent DBuildsettingsXiaomi2X =>
 			EditorGUIUtility.IconContent("d_BuildSettings.Xiaomi@2x");
 
 		/// <summary>
 		/// d_CacheServerConnected
 		/// </summary>
-		public static readonly GUIContent
-			DCacheserverconnected = EditorGUIUtility.IconContent("d_CacheServerConnected");
+		public static GUIContent
+			DCacheserverconnected => EditorGUIUtility.IconContent("d_CacheServerConnected");
 
 		/// <summary>
 		/// d_CacheServerConnected@2x
 		/// </summary>
-		public static readonly GUIContent DCacheserverconnected2X =
+		public static GUIContent DCacheserverconnected2X =>
 			EditorGUIUtility.IconContent("d_CacheServerConnected@2x");
 
 		/// <summary>
 		/// d_CacheServerDisabled
 		/// </summary>
-		public static readonly GUIContent DCacheserverdisabled = EditorGUIUtility.IconContent("d_CacheServerDisabled");
+		public static GUIContent DCacheserverdisabled => EditorGUIUtility.IconContent("d_CacheServerDisabled");
 
 		/// <summary>
 		/// d_CacheServerDisabled@2x
 		/// </summary>
-		public static readonly GUIContent DCacheserverdisabled2X =
+		public static GUIContent DCacheserverdisabled2X =>
 			EditorGUIUtility.IconContent("d_CacheServerDisabled@2x");
 
 		/// <summary>
 		/// d_CacheServerDisconnected
 		/// </summary>
-		public static readonly GUIContent DCacheserverdisconnected =
+		public static GUIContent DCacheserverdisconnected =>
 			EditorGUIUtility.IconContent("d_CacheServerDisconnected");
 
 		/// <summary>
 		/// d_CacheServerDisconnected@2x
 		/// </summary>
-		public static readonly GUIContent DCacheserverdisconnected2X =
+		public static GUIContent DCacheserverdisconnected2X =>
 			EditorGUIUtility.IconContent("d_CacheServerDisconnected@2x");
 
 		/// <summary>
 		/// d_CheckerFloor
 		/// </summary>
-		public static readonly GUIContent DCheckerfloor = EditorGUIUtility.IconContent("d_CheckerFloor");
+		public static GUIContent DCheckerfloor => EditorGUIUtility.IconContent("d_CheckerFloor");
 
 		/// <summary>
 		/// d_CloudConnect
 		/// </summary>
-		public static readonly GUIContent DCloudconnect = EditorGUIUtility.IconContent("d_CloudConnect");
+		public static GUIContent DCloudconnect => EditorGUIUtility.IconContent("d_CloudConnect");
 
 		/// <summary>
 		/// d_CloudConnect@2x
 		/// </summary>
-		public static readonly GUIContent DCloudconnect2X = EditorGUIUtility.IconContent("d_CloudConnect@2x");
+		public static GUIContent DCloudconnect2X => EditorGUIUtility.IconContent("d_CloudConnect@2x");
 
 		/// <summary>
 		/// d_Collab.FileAdded
 		/// </summary>
-		public static readonly GUIContent DCollabFileadded = EditorGUIUtility.IconContent("d_Collab.FileAdded");
+		public static GUIContent DCollabFileadded => EditorGUIUtility.IconContent("d_Collab.FileAdded");
 
 		/// <summary>
 		/// d_Collab.FileConflict
 		/// </summary>
-		public static readonly GUIContent DCollabFileconflict = EditorGUIUtility.IconContent("d_Collab.FileConflict");
+		public static GUIContent DCollabFileconflict => EditorGUIUtility.IconContent("d_Collab.FileConflict");
 
 		/// <summary>
 		/// d_Collab.FileDeleted
 		/// </summary>
-		public static readonly GUIContent DCollabFiledeleted = EditorGUIUtility.IconContent("d_Collab.FileDeleted");
+		public static GUIContent DCollabFiledeleted => EditorGUIUtility.IconContent("d_Collab.FileDeleted");
 
 		/// <summary>
 		/// d_Collab.FileIgnored
 		/// </summary>
-		public static readonly GUIContent DCollabFileignored = EditorGUIUtility.IconContent("d_Collab.FileIgnored");
+		public static GUIContent DCollabFileignored => EditorGUIUtility.IconContent("d_Collab.FileIgnored");
 
 		/// <summary>
 		/// d_Collab.FileMoved
 		/// </summary>
-		public static readonly GUIContent DCollabFilemoved = EditorGUIUtility.IconContent("d_Collab.FileMoved");
+		public static GUIContent DCollabFilemoved => EditorGUIUtility.IconContent("d_Collab.FileMoved");
 
 		/// <summary>
 		/// d_Collab.FileUpdated
 		/// </summary>
-		public static readonly GUIContent DCollabFileupdated = EditorGUIUtility.IconContent("d_Collab.FileUpdated");
+		public static GUIContent DCollabFileupdated => EditorGUIUtility.IconContent("d_Collab.FileUpdated");
 
 		/// <summary>
 		/// d_Collab.FolderAdded
 		/// </summary>
-		public static readonly GUIContent DCollabFolderadded = EditorGUIUtility.IconContent("d_Collab.FolderAdded");
+		public static GUIContent DCollabFolderadded => EditorGUIUtility.IconContent("d_Collab.FolderAdded");
 
 		/// <summary>
 		/// d_Collab.FolderConflict
 		/// </summary>
-		public static readonly GUIContent DCollabFolderconflict =
+		public static GUIContent DCollabFolderconflict =>
 			EditorGUIUtility.IconContent("d_Collab.FolderConflict");
 
 		/// <summary>
 		/// d_Collab.FolderDeleted
 		/// </summary>
-		public static readonly GUIContent DCollabFolderdeleted = EditorGUIUtility.IconContent("d_Collab.FolderDeleted");
+		public static GUIContent DCollabFolderdeleted => EditorGUIUtility.IconContent("d_Collab.FolderDeleted");
 
 		/// <summary>
 		/// d_Collab.FolderIgnored
 		/// </summary>
-		public static readonly GUIContent DCollabFolderignored = EditorGUIUtility.IconContent("d_Collab.FolderIgnored");
+		public static GUIContent DCollabFolderignored => EditorGUIUtility.IconContent("d_Collab.FolderIgnored");
 
 		/// <summary>
 		/// d_Collab.FolderMoved
 		/// </summary>
-		public static readonly GUIContent DCollabFoldermoved = EditorGUIUtility.IconContent("d_Collab.FolderMoved");
+		public static GUIContent DCollabFoldermoved => EditorGUIUtility.IconContent("d_Collab.FolderMoved");
 
 		/// <summary>
 		/// d_Collab.FolderUpdated
 		/// </summary>
-		public static readonly GUIContent DCollabFolderupdated = EditorGUIUtility.IconContent("d_Collab.FolderUpdated");
+		public static GUIContent DCollabFolderupdated => EditorGUIUtility.IconContent("d_Collab.FolderUpdated");
 
 		/// <summary>
 		/// d_Collab
 		/// </summary>
-		public static readonly GUIContent DCollab = EditorGUIUtility.IconContent("d_Collab");
+		public static GUIContent DCollab => EditorGUIUtility.IconContent("d_Collab");
 
 		/// <summary>
 		/// d_Collab@2x
 		/// </summary>
-		public static readonly GUIContent DCollab2X = EditorGUIUtility.IconContent("d_Collab@2x");
+		public static GUIContent DCollab2X => EditorGUIUtility.IconContent("d_Collab@2x");
 
 		/// <summary>
 		/// d_ColorPicker.CycleColor
 		/// </summary>
-		public static readonly GUIContent DColorpickerCyclecolor =
+		public static GUIContent DColorpickerCyclecolor =>
 			EditorGUIUtility.IconContent("d_ColorPicker.CycleColor");
 
 		/// <summary>
 		/// d_ColorPicker.CycleSlider
 		/// </summary>
-		public static readonly GUIContent DColorpickerCycleslider =
+		public static GUIContent DColorpickerCycleslider =>
 			EditorGUIUtility.IconContent("d_ColorPicker.CycleSlider");
 
 		/// <summary>
 		/// d_console.erroricon.inactive.sml
 		/// </summary>
-		public static readonly GUIContent DConsoleErroriconInactiveSml =
+		public static GUIContent DConsoleErroriconInactiveSml =>
 			EditorGUIUtility.IconContent("d_console.erroricon.inactive.sml");
 
 		/// <summary>
 		/// d_console.erroricon.inactive.sml@2x
 		/// </summary>
-		public static readonly GUIContent DConsoleErroriconInactiveSml2X =
+		public static GUIContent DConsoleErroriconInactiveSml2X =>
 			EditorGUIUtility.IconContent("d_console.erroricon.inactive.sml@2x");
 
 		/// <summary>
 		/// d_console.erroricon
 		/// </summary>
-		public static readonly GUIContent DConsoleErroricon = EditorGUIUtility.IconContent("d_console.erroricon");
+		public static GUIContent DConsoleErroricon => EditorGUIUtility.IconContent("d_console.erroricon");
 
 		/// <summary>
 		/// d_console.erroricon.sml
 		/// </summary>
-		public static readonly GUIContent
-			DConsoleErroriconSml = EditorGUIUtility.IconContent("d_console.erroricon.sml");
+		public static GUIContent
+			DConsoleErroriconSml => EditorGUIUtility.IconContent("d_console.erroricon.sml");
 
 		/// <summary>
 		/// d_console.erroricon.sml@2x
 		/// </summary>
-		public static readonly GUIContent DConsoleErroriconSml2X =
+		public static GUIContent DConsoleErroriconSml2X =>
 			EditorGUIUtility.IconContent("d_console.erroricon.sml@2x");
 
 		/// <summary>
 		/// d_console.erroricon@2x
 		/// </summary>
-		public static readonly GUIContent DConsoleErroricon2X = EditorGUIUtility.IconContent("d_console.erroricon@2x");
+		public static GUIContent DConsoleErroricon2X => EditorGUIUtility.IconContent("d_console.erroricon@2x");
 
 		/// <summary>
 		/// d_console.infoicon.inactive.sml
 		/// </summary>
-		public static readonly GUIContent DConsoleInfoiconInactiveSml =
+		public static GUIContent DConsoleInfoiconInactiveSml =>
 			EditorGUIUtility.IconContent("d_console.infoicon.inactive.sml");
 
 		/// <summary>
 		/// d_console.infoicon.inactive.sml@2x
 		/// </summary>
-		public static readonly GUIContent DConsoleInfoiconInactiveSml2X =
+		public static GUIContent DConsoleInfoiconInactiveSml2X =>
 			EditorGUIUtility.IconContent("d_console.infoicon.inactive.sml@2x");
 
 		/// <summary>
 		/// d_console.infoicon
 		/// </summary>
-		public static readonly GUIContent DConsoleInfoicon = EditorGUIUtility.IconContent("d_console.infoicon");
+		public static GUIContent DConsoleInfoicon => EditorGUIUtility.IconContent("d_console.infoicon");
 
 		/// <summary>
 		/// d_console.infoicon.sml
 		/// </summary>
-		public static readonly GUIContent DConsoleInfoiconSml = EditorGUIUtility.IconContent("d_console.infoicon.sml");
+		public static GUIContent DConsoleInfoiconSml => EditorGUIUtility.IconContent("d_console.infoicon.sml");
 
 		/// <summary>
 		/// d_console.infoicon.sml@2x
 		/// </summary>
-		public static readonly GUIContent DConsoleInfoiconSml2X =
+		public static GUIContent DConsoleInfoiconSml2X =>
 			EditorGUIUtility.IconContent("d_console.infoicon.sml@2x");
 
 		/// <summary>
 		/// d_console.infoicon@2x
 		/// </summary>
-		public static readonly GUIContent DConsoleInfoicon2X = EditorGUIUtility.IconContent("d_console.infoicon@2x");
+		public static GUIContent DConsoleInfoicon2X => EditorGUIUtility.IconContent("d_console.infoicon@2x");
 
 		/// <summary>
 		/// d_console.warnicon.inactive.sml
 		/// </summary>
-		public static readonly GUIContent DConsoleWarniconInactiveSml =
+		public static GUIContent DConsoleWarniconInactiveSml =>
 			EditorGUIUtility.IconContent("d_console.warnicon.inactive.sml");
 
 		/// <summary>
 		/// d_console.warnicon.inactive.sml@2x
 		/// </summary>
-		public static readonly GUIContent DConsoleWarniconInactiveSml2X =
+		public static GUIContent DConsoleWarniconInactiveSml2X =>
 			EditorGUIUtility.IconContent("d_console.warnicon.inactive.sml@2x");
 
 		/// <summary>
 		/// d_console.warnicon
 		/// </summary>
-		public static readonly GUIContent DConsoleWarnicon = EditorGUIUtility.IconContent("d_console.warnicon");
+		public static GUIContent DConsoleWarnicon => EditorGUIUtility.IconContent("d_console.warnicon");
 
 		/// <summary>
 		/// d_console.warnicon.sml
 		/// </summary>
-		public static readonly GUIContent DConsoleWarniconSml = EditorGUIUtility.IconContent("d_console.warnicon.sml");
+		public static GUIContent DConsoleWarniconSml => EditorGUIUtility.IconContent("d_console.warnicon.sml");
 
 		/// <summary>
 		/// d_console.warnicon.sml@2x
 		/// </summary>
-		public static readonly GUIContent DConsoleWarniconSml2X =
+		public static GUIContent DConsoleWarniconSml2X =>
 			EditorGUIUtility.IconContent("d_console.warnicon.sml@2x");
 
 		/// <summary>
 		/// d_console.warnicon@2x
 		/// </summary>
-		public static readonly GUIContent DConsoleWarnicon2X = EditorGUIUtility.IconContent("d_console.warnicon@2x");
+		public static GUIContent DConsoleWarnicon2X => EditorGUIUtility.IconContent("d_console.warnicon@2x");
 
 		/// <summary>
 		/// d_CreateAddNew
 		/// </summary>
-		public static readonly GUIContent DCreateaddnew = EditorGUIUtility.IconContent("d_CreateAddNew");
+		public static GUIContent DCreateaddnew => EditorGUIUtility.IconContent("d_CreateAddNew");
 
 		/// <summary>
 		/// d_CreateAddNew@2x
 		/// </summary>
-		public static readonly GUIContent DCreateaddnew2X = EditorGUIUtility.IconContent("d_CreateAddNew@2x");
+		public static GUIContent DCreateaddnew2X => EditorGUIUtility.IconContent("d_CreateAddNew@2x");
 
 		/// <summary>
 		/// d_curvekeyframe
 		/// </summary>
-		public static readonly GUIContent DCurvekeyframe = EditorGUIUtility.IconContent("d_curvekeyframe");
+		public static GUIContent DCurvekeyframe => EditorGUIUtility.IconContent("d_curvekeyframe");
 
 		/// <summary>
 		/// d_curvekeyframeselected
 		/// </summary>
-		public static readonly GUIContent DCurvekeyframeselected =
+		public static GUIContent DCurvekeyframeselected =>
 			EditorGUIUtility.IconContent("d_curvekeyframeselected");
 
 		/// <summary>
 		/// d_curvekeyframeselectedoverlay
 		/// </summary>
-		public static readonly GUIContent DCurvekeyframeselectedoverlay =
+		public static GUIContent DCurvekeyframeselectedoverlay =>
 			EditorGUIUtility.IconContent("d_curvekeyframeselectedoverlay");
 
 		/// <summary>
 		/// d_curvekeyframesemiselectedoverlay
 		/// </summary>
-		public static readonly GUIContent DCurvekeyframesemiselectedoverlay =
+		public static GUIContent DCurvekeyframesemiselectedoverlay =>
 			EditorGUIUtility.IconContent("d_curvekeyframesemiselectedoverlay");
 
 		/// <summary>
 		/// d_curvekeyframeweighted
 		/// </summary>
-		public static readonly GUIContent DCurvekeyframeweighted =
+		public static GUIContent DCurvekeyframeweighted =>
 			EditorGUIUtility.IconContent("d_curvekeyframeweighted");
 
 		/// <summary>
 		/// d_CustomSorting
 		/// </summary>
-		public static readonly GUIContent DCustomsorting = EditorGUIUtility.IconContent("d_CustomSorting");
+		public static GUIContent DCustomsorting => EditorGUIUtility.IconContent("d_CustomSorting");
 
 		/// <summary>
 		/// d_CustomTool
 		/// </summary>
-		public static readonly GUIContent DCustomtool = EditorGUIUtility.IconContent("d_CustomTool");
+		public static GUIContent DCustomtool => EditorGUIUtility.IconContent("d_CustomTool");
 
 		/// <summary>
 		/// d_CustomTool@2x
 		/// </summary>
-		public static readonly GUIContent DCustomtool2X = EditorGUIUtility.IconContent("d_CustomTool@2x");
+		public static GUIContent DCustomtool2X => EditorGUIUtility.IconContent("d_CustomTool@2x");
 
 		/// <summary>
 		/// d_DebuggerAttached
 		/// </summary>
-		public static readonly GUIContent DDebuggerattached = EditorGUIUtility.IconContent("d_DebuggerAttached");
+		public static GUIContent DDebuggerattached => EditorGUIUtility.IconContent("d_DebuggerAttached");
 
 		/// <summary>
 		/// d_DebuggerAttached@2x
 		/// </summary>
-		public static readonly GUIContent DDebuggerattached2X = EditorGUIUtility.IconContent("d_DebuggerAttached@2x");
+		public static GUIContent DDebuggerattached2X => EditorGUIUtility.IconContent("d_DebuggerAttached@2x");
 
 		/// <summary>
 		/// d_DebuggerDisabled
 		/// </summary>
-		public static readonly GUIContent DDebuggerdisabled = EditorGUIUtility.IconContent("d_DebuggerDisabled");
+		public static GUIContent DDebuggerdisabled => EditorGUIUtility.IconContent("d_DebuggerDisabled");
 
 		/// <summary>
 		/// d_DebuggerDisabled@2x
 		/// </summary>
-		public static readonly GUIContent DDebuggerdisabled2X = EditorGUIUtility.IconContent("d_DebuggerDisabled@2x");
+		public static GUIContent DDebuggerdisabled2X => EditorGUIUtility.IconContent("d_DebuggerDisabled@2x");
 
 		/// <summary>
 		/// d_DebuggerEnabled
 		/// </summary>
-		public static readonly GUIContent DDebuggerenabled = EditorGUIUtility.IconContent("d_DebuggerEnabled");
+		public static GUIContent DDebuggerenabled => EditorGUIUtility.IconContent("d_DebuggerEnabled");
 
 		/// <summary>
 		/// d_DebuggerEnabled@2x
 		/// </summary>
-		public static readonly GUIContent DDebuggerenabled2X = EditorGUIUtility.IconContent("d_DebuggerEnabled@2x");
+		public static GUIContent DDebuggerenabled2X => EditorGUIUtility.IconContent("d_DebuggerEnabled@2x");
 
 		/// <summary>
 		/// d_DefaultSorting
 		/// </summary>
-		public static readonly GUIContent DDefaultsorting = EditorGUIUtility.IconContent("d_DefaultSorting");
+		public static GUIContent DDefaultsorting => EditorGUIUtility.IconContent("d_DefaultSorting");
 
 		/// <summary>
 		/// d_DefaultSorting@2x
 		/// </summary>
-		public static readonly GUIContent DDefaultsorting2X = EditorGUIUtility.IconContent("d_DefaultSorting@2x");
+		public static GUIContent DDefaultsorting2X => EditorGUIUtility.IconContent("d_DefaultSorting@2x");
 
 		/// <summary>
 		/// d_EditCollider
 		/// </summary>
-		public static readonly GUIContent DEditcollider = EditorGUIUtility.IconContent("d_EditCollider");
+		public static GUIContent DEditcollider => EditorGUIUtility.IconContent("d_EditCollider");
 
 		/// <summary>
 		/// d_editcollision_16
 		/// </summary>
-		public static readonly GUIContent DEditcollision16 = EditorGUIUtility.IconContent("d_editcollision_16");
+		public static GUIContent DEditcollision16 => EditorGUIUtility.IconContent("d_editcollision_16");
 
 		/// <summary>
 		/// d_editcollision_16@2x
 		/// </summary>
-		public static readonly GUIContent DEditcollision162X = EditorGUIUtility.IconContent("d_editcollision_16@2x");
+		public static GUIContent DEditcollision162X => EditorGUIUtility.IconContent("d_editcollision_16@2x");
 
 		/// <summary>
 		/// d_editcollision_32
 		/// </summary>
-		public static readonly GUIContent DEditcollision32 = EditorGUIUtility.IconContent("d_editcollision_32");
+		public static GUIContent DEditcollision32 => EditorGUIUtility.IconContent("d_editcollision_32");
 
 		/// <summary>
 		/// d_editconstraints_16
 		/// </summary>
-		public static readonly GUIContent DEditconstraints16 = EditorGUIUtility.IconContent("d_editconstraints_16");
+		public static GUIContent DEditconstraints16 => EditorGUIUtility.IconContent("d_editconstraints_16");
 
 		/// <summary>
 		/// d_editconstraints_16@2x
 		/// </summary>
-		public static readonly GUIContent
-			DEditconstraints162X = EditorGUIUtility.IconContent("d_editconstraints_16@2x");
+		public static GUIContent
+			DEditconstraints162X => EditorGUIUtility.IconContent("d_editconstraints_16@2x");
 
 		/// <summary>
 		/// d_editconstraints_32
 		/// </summary>
-		public static readonly GUIContent DEditconstraints32 = EditorGUIUtility.IconContent("d_editconstraints_32");
+		public static GUIContent DEditconstraints32 => EditorGUIUtility.IconContent("d_editconstraints_32");
 
 		/// <summary>
 		/// d_editicon.sml
 		/// </summary>
-		public static readonly GUIContent DEditiconSml = EditorGUIUtility.IconContent("d_editicon.sml");
+		public static GUIContent DEditiconSml => EditorGUIUtility.IconContent("d_editicon.sml");
 
 		/// <summary>
 		/// d_endButton-On
 		/// </summary>
-		public static readonly GUIContent DEndbuttonOn = EditorGUIUtility.IconContent("d_endButton-On");
+		public static GUIContent DEndbuttonOn => EditorGUIUtility.IconContent("d_endButton-On");
 
 		/// <summary>
 		/// d_endButton
 		/// </summary>
-		public static readonly GUIContent DEndbutton = EditorGUIUtility.IconContent("d_endButton");
+		public static GUIContent DEndbutton => EditorGUIUtility.IconContent("d_endButton");
 
 		/// <summary>
 		/// d_Exposure
 		/// </summary>
-		public static readonly GUIContent DExposure = EditorGUIUtility.IconContent("d_Exposure");
+		public static GUIContent DExposure => EditorGUIUtility.IconContent("d_Exposure");
 
 		/// <summary>
 		/// d_Exposure@2x
 		/// </summary>
-		public static readonly GUIContent DExposure2X = EditorGUIUtility.IconContent("d_Exposure@2x");
+		public static GUIContent DExposure2X => EditorGUIUtility.IconContent("d_Exposure@2x");
 
 		/// <summary>
 		/// d_eyeDropper.Large
 		/// </summary>
-		public static readonly GUIContent DEyedropperLarge = EditorGUIUtility.IconContent("d_eyeDropper.Large");
+		public static GUIContent DEyedropperLarge => EditorGUIUtility.IconContent("d_eyeDropper.Large");
 
 		/// <summary>
 		/// d_eyeDropper.Large@2x
 		/// </summary>
-		public static readonly GUIContent DEyedropperLarge2X = EditorGUIUtility.IconContent("d_eyeDropper.Large@2x");
+		public static GUIContent DEyedropperLarge2X => EditorGUIUtility.IconContent("d_eyeDropper.Large@2x");
 
 		/// <summary>
 		/// d_eyeDropper.sml
 		/// </summary>
-		public static readonly GUIContent DEyedropperSml = EditorGUIUtility.IconContent("d_eyeDropper.sml");
+		public static GUIContent DEyedropperSml => EditorGUIUtility.IconContent("d_eyeDropper.sml");
 
 		/// <summary>
 		/// d_Favorite
 		/// </summary>
-		public static readonly GUIContent DFavorite = EditorGUIUtility.IconContent("d_Favorite");
+		public static GUIContent DFavorite => EditorGUIUtility.IconContent("d_Favorite");
 
 		/// <summary>
 		/// d_Favorite@2x
 		/// </summary>
-		public static readonly GUIContent DFavorite2X = EditorGUIUtility.IconContent("d_Favorite@2x");
+		public static GUIContent DFavorite2X => EditorGUIUtility.IconContent("d_Favorite@2x");
 
 		/// <summary>
 		/// d_FilterByLabel
 		/// </summary>
-		public static readonly GUIContent DFilterbylabel = EditorGUIUtility.IconContent("d_FilterByLabel");
+		public static GUIContent DFilterbylabel => EditorGUIUtility.IconContent("d_FilterByLabel");
 
 		/// <summary>
 		/// d_FilterByLabel@2x
 		/// </summary>
-		public static readonly GUIContent DFilterbylabel2X = EditorGUIUtility.IconContent("d_FilterByLabel@2x");
+		public static GUIContent DFilterbylabel2X => EditorGUIUtility.IconContent("d_FilterByLabel@2x");
 
 		/// <summary>
 		/// d_FilterByType
 		/// </summary>
-		public static readonly GUIContent DFilterbytype = EditorGUIUtility.IconContent("d_FilterByType");
+		public static GUIContent DFilterbytype => EditorGUIUtility.IconContent("d_FilterByType");
 
 		/// <summary>
 		/// d_FilterByType@2x
 		/// </summary>
-		public static readonly GUIContent DFilterbytype2X = EditorGUIUtility.IconContent("d_FilterByType@2x");
+		public static GUIContent DFilterbytype2X => EditorGUIUtility.IconContent("d_FilterByType@2x");
 
 		/// <summary>
 		/// d_FilterSelectedOnly
 		/// </summary>
-		public static readonly GUIContent DFilterselectedonly = EditorGUIUtility.IconContent("d_FilterSelectedOnly");
+		public static GUIContent DFilterselectedonly => EditorGUIUtility.IconContent("d_FilterSelectedOnly");
 
 		/// <summary>
 		/// d_FilterSelectedOnly@2x
 		/// </summary>
-		public static readonly GUIContent DFilterselectedonly2X =
+		public static GUIContent DFilterselectedonly2X =>
 			EditorGUIUtility.IconContent("d_FilterSelectedOnly@2x");
 
 		/// <summary>
 		/// d_forward
 		/// </summary>
-		public static readonly GUIContent DForward = EditorGUIUtility.IconContent("d_forward");
+		public static GUIContent DForward => EditorGUIUtility.IconContent("d_forward");
 
 		/// <summary>
 		/// d_forward@2x
 		/// </summary>
-		public static readonly GUIContent DForward2X = EditorGUIUtility.IconContent("d_forward@2x");
+		public static GUIContent DForward2X => EditorGUIUtility.IconContent("d_forward@2x");
 
 		/// <summary>
 		/// d_FrameCapture
 		/// </summary>
-		public static readonly GUIContent DFramecapture = EditorGUIUtility.IconContent("d_FrameCapture");
+		public static GUIContent DFramecapture => EditorGUIUtility.IconContent("d_FrameCapture");
 
 		/// <summary>
 		/// d_FrameCapture@2x
 		/// </summary>
-		public static readonly GUIContent DFramecapture2X = EditorGUIUtility.IconContent("d_FrameCapture@2x");
+		public static GUIContent DFramecapture2X => EditorGUIUtility.IconContent("d_FrameCapture@2x");
 
 		/// <summary>
 		/// d_GEAR
 		/// </summary>
-		public static readonly GUIContent DGear = EditorGUIUtility.IconContent("d_GEAR");
+		public static GUIContent DGear => EditorGUIUtility.IconContent("d_GEAR");
 
 		/// <summary>
 		/// d_Grid.BoxTool
 		/// </summary>
-		public static readonly GUIContent DGridBoxtool = EditorGUIUtility.IconContent("d_Grid.BoxTool");
+		public static GUIContent DGridBoxtool => EditorGUIUtility.IconContent("d_Grid.BoxTool");
 
 		/// <summary>
 		/// d_Grid.BoxTool@2x
 		/// </summary>
-		public static readonly GUIContent DGridBoxtool2X = EditorGUIUtility.IconContent("d_Grid.BoxTool@2x");
+		public static GUIContent DGridBoxtool2X => EditorGUIUtility.IconContent("d_Grid.BoxTool@2x");
 
 		/// <summary>
 		/// d_Grid.Default
 		/// </summary>
-		public static readonly GUIContent DGridDefault = EditorGUIUtility.IconContent("d_Grid.Default");
+		public static GUIContent DGridDefault => EditorGUIUtility.IconContent("d_Grid.Default");
 
 		/// <summary>
 		/// d_Grid.Default@2x
 		/// </summary>
-		public static readonly GUIContent DGridDefault2X = EditorGUIUtility.IconContent("d_Grid.Default@2x");
+		public static GUIContent DGridDefault2X => EditorGUIUtility.IconContent("d_Grid.Default@2x");
 
 		/// <summary>
 		/// d_Grid.EraserTool
 		/// </summary>
-		public static readonly GUIContent DGridErasertool = EditorGUIUtility.IconContent("d_Grid.EraserTool");
+		public static GUIContent DGridErasertool => EditorGUIUtility.IconContent("d_Grid.EraserTool");
 
 		/// <summary>
 		/// d_Grid.EraserTool@2x
 		/// </summary>
-		public static readonly GUIContent DGridErasertool2X = EditorGUIUtility.IconContent("d_Grid.EraserTool@2x");
+		public static GUIContent DGridErasertool2X => EditorGUIUtility.IconContent("d_Grid.EraserTool@2x");
 
 		/// <summary>
 		/// d_Grid.FillTool
 		/// </summary>
-		public static readonly GUIContent DGridFilltool = EditorGUIUtility.IconContent("d_Grid.FillTool");
+		public static GUIContent DGridFilltool => EditorGUIUtility.IconContent("d_Grid.FillTool");
 
 		/// <summary>
 		/// d_Grid.FillTool@2x
 		/// </summary>
-		public static readonly GUIContent DGridFilltool2X = EditorGUIUtility.IconContent("d_Grid.FillTool@2x");
+		public static GUIContent DGridFilltool2X => EditorGUIUtility.IconContent("d_Grid.FillTool@2x");
 
 		/// <summary>
 		/// d_Grid.MoveTool
 		/// </summary>
-		public static readonly GUIContent DGridMovetool = EditorGUIUtility.IconContent("d_Grid.MoveTool");
+		public static GUIContent DGridMovetool => EditorGUIUtility.IconContent("d_Grid.MoveTool");
 
 		/// <summary>
 		/// d_Grid.MoveTool@2x
 		/// </summary>
-		public static readonly GUIContent DGridMovetool2X = EditorGUIUtility.IconContent("d_Grid.MoveTool@2x");
+		public static GUIContent DGridMovetool2X => EditorGUIUtility.IconContent("d_Grid.MoveTool@2x");
 
 		/// <summary>
 		/// d_Grid.PaintTool
 		/// </summary>
-		public static readonly GUIContent DGridPainttool = EditorGUIUtility.IconContent("d_Grid.PaintTool");
+		public static GUIContent DGridPainttool => EditorGUIUtility.IconContent("d_Grid.PaintTool");
 
 		/// <summary>
 		/// d_Grid.PaintTool@2x
 		/// </summary>
-		public static readonly GUIContent DGridPainttool2X = EditorGUIUtility.IconContent("d_Grid.PaintTool@2x");
+		public static GUIContent DGridPainttool2X => EditorGUIUtility.IconContent("d_Grid.PaintTool@2x");
 
 		/// <summary>
 		/// d_Grid.PickingTool
 		/// </summary>
-		public static readonly GUIContent DGridPickingtool = EditorGUIUtility.IconContent("d_Grid.PickingTool");
+		public static GUIContent DGridPickingtool => EditorGUIUtility.IconContent("d_Grid.PickingTool");
 
 		/// <summary>
 		/// d_Grid.PickingTool@2x
 		/// </summary>
-		public static readonly GUIContent DGridPickingtool2X = EditorGUIUtility.IconContent("d_Grid.PickingTool@2x");
+		public static GUIContent DGridPickingtool2X => EditorGUIUtility.IconContent("d_Grid.PickingTool@2x");
 
 		/// <summary>
 		/// d_Groove
 		/// </summary>
-		public static readonly GUIContent DGroove = EditorGUIUtility.IconContent("d_Groove");
+		public static GUIContent DGroove => EditorGUIUtility.IconContent("d_Groove");
 
 		/// <summary>
 		/// d_HorizontalSplit
 		/// </summary>
-		public static readonly GUIContent DHorizontalsplit = EditorGUIUtility.IconContent("d_HorizontalSplit");
+		public static GUIContent DHorizontalsplit => EditorGUIUtility.IconContent("d_HorizontalSplit");
 
 		/// <summary>
 		/// d_Import
 		/// </summary>
-		public static readonly GUIContent DImport = EditorGUIUtility.IconContent("d_Import");
+		public static GUIContent DImport => EditorGUIUtility.IconContent("d_Import");
 
 		/// <summary>
 		/// d_Import@2x
 		/// </summary>
-		public static readonly GUIContent DImport2X = EditorGUIUtility.IconContent("d_Import@2x");
+		public static GUIContent DImport2X => EditorGUIUtility.IconContent("d_Import@2x");
 
 		/// <summary>
 		/// d_InspectorLock
 		/// </summary>
-		public static readonly GUIContent DInspectorlock = EditorGUIUtility.IconContent("d_InspectorLock");
+		public static GUIContent DInspectorlock => EditorGUIUtility.IconContent("d_InspectorLock");
 
 		/// <summary>
 		/// d_Invalid
 		/// </summary>
-		public static readonly GUIContent DInvalid = EditorGUIUtility.IconContent("d_Invalid");
+		public static GUIContent DInvalid => EditorGUIUtility.IconContent("d_Invalid");
 
 		/// <summary>
 		/// d_Invalid@2x
 		/// </summary>
-		public static readonly GUIContent DInvalid2X = EditorGUIUtility.IconContent("d_Invalid@2x");
+		public static GUIContent DInvalid2X => EditorGUIUtility.IconContent("d_Invalid@2x");
 
 		/// <summary>
 		/// d_JointAngularLimits
 		/// </summary>
-		public static readonly GUIContent DJointangularlimits = EditorGUIUtility.IconContent("d_JointAngularLimits");
+		public static GUIContent DJointangularlimits => EditorGUIUtility.IconContent("d_JointAngularLimits");
 
 		/// <summary>
 		/// d_leftBracket
 		/// </summary>
-		public static readonly GUIContent DLeftbracket = EditorGUIUtility.IconContent("d_leftBracket");
+		public static GUIContent DLeftbracket => EditorGUIUtility.IconContent("d_leftBracket");
 
 		/// <summary>
 		/// d_Lighting
 		/// </summary>
-		public static readonly GUIContent DLighting = EditorGUIUtility.IconContent("d_Lighting");
+		public static GUIContent DLighting => EditorGUIUtility.IconContent("d_Lighting");
 
 		/// <summary>
 		/// d_Lighting@2x
 		/// </summary>
-		public static readonly GUIContent DLighting2X = EditorGUIUtility.IconContent("d_Lighting@2x");
+		public static GUIContent DLighting2X => EditorGUIUtility.IconContent("d_Lighting@2x");
 
 		/// <summary>
 		/// d_LightmapEditor.WindowTitle
 		/// </summary>
-		public static readonly GUIContent DLightmapeditorWindowtitle =
+		public static GUIContent DLightmapeditorWindowtitle =>
 			EditorGUIUtility.IconContent("d_LightmapEditor.WindowTitle");
 
 		/// <summary>
 		/// d_LightmapEditor.WindowTitle@2x
 		/// </summary>
-		public static readonly GUIContent DLightmapeditorWindowtitle2X =
+		public static GUIContent DLightmapeditorWindowtitle2X =>
 			EditorGUIUtility.IconContent("d_LightmapEditor.WindowTitle@2x");
 
 		/// <summary>
 		/// d_Linked
 		/// </summary>
-		public static readonly GUIContent DLinked = EditorGUIUtility.IconContent("d_Linked");
+		public static GUIContent DLinked => EditorGUIUtility.IconContent("d_Linked");
 
 		/// <summary>
 		/// d_Linked@2x
 		/// </summary>
-		public static readonly GUIContent DLinked2X = EditorGUIUtility.IconContent("d_Linked@2x");
+		public static GUIContent DLinked2X => EditorGUIUtility.IconContent("d_Linked@2x");
 
 		/// <summary>
 		/// d_MainStageView
 		/// </summary>
-		public static readonly GUIContent DMainstageview = EditorGUIUtility.IconContent("d_MainStageView");
+		public static GUIContent DMainstageview => EditorGUIUtility.IconContent("d_MainStageView");
 
 		/// <summary>
 		/// d_MainStageView@2x
 		/// </summary>
-		public static readonly GUIContent DMainstageview2X = EditorGUIUtility.IconContent("d_MainStageView@2x");
+		public static GUIContent DMainstageview2X => EditorGUIUtility.IconContent("d_MainStageView@2x");
 
 		/// <summary>
 		/// d_Mirror
 		/// </summary>
-		public static readonly GUIContent DMirror = EditorGUIUtility.IconContent("d_Mirror");
+		public static GUIContent DMirror => EditorGUIUtility.IconContent("d_Mirror");
 
 		/// <summary>
 		/// d_monologo
 		/// </summary>
-		public static readonly GUIContent DMonologo = EditorGUIUtility.IconContent("d_monologo");
+		public static GUIContent DMonologo => EditorGUIUtility.IconContent("d_monologo");
 
 		/// <summary>
 		/// d_MoreOptions
 		/// </summary>
-		public static readonly GUIContent DMoreoptions = EditorGUIUtility.IconContent("d_MoreOptions");
+		public static GUIContent DMoreoptions => EditorGUIUtility.IconContent("d_MoreOptions");
 
 		/// <summary>
 		/// d_MoreOptions@2x
 		/// </summary>
-		public static readonly GUIContent DMoreoptions2X = EditorGUIUtility.IconContent("d_MoreOptions@2x");
+		public static GUIContent DMoreoptions2X => EditorGUIUtility.IconContent("d_MoreOptions@2x");
 
 		/// <summary>
 		/// d_MoveTool
 		/// </summary>
-		public static readonly GUIContent DMovetool = EditorGUIUtility.IconContent("d_MoveTool");
+		public static GUIContent DMovetool => EditorGUIUtility.IconContent("d_MoveTool");
 
 		/// <summary>
 		/// d_MoveTool@2x
 		/// </summary>
-		public static readonly GUIContent DMovetool2X = EditorGUIUtility.IconContent("d_MoveTool@2x");
+		public static GUIContent DMovetool2X => EditorGUIUtility.IconContent("d_MoveTool@2x");
 
 		/// <summary>
 		/// d_Navigation
 		/// </summary>
-		public static readonly GUIContent DNavigation = EditorGUIUtility.IconContent("d_Navigation");
+		public static GUIContent DNavigation => EditorGUIUtility.IconContent("d_Navigation");
 
 		/// <summary>
 		/// d_Occlusion
 		/// </summary>
-		public static readonly GUIContent DOcclusion = EditorGUIUtility.IconContent("d_Occlusion");
+		public static GUIContent DOcclusion => EditorGUIUtility.IconContent("d_Occlusion");
 
 		/// <summary>
 		/// d_Occlusion@2x
 		/// </summary>
-		public static readonly GUIContent DOcclusion2X = EditorGUIUtility.IconContent("d_Occlusion@2x");
+		public static GUIContent DOcclusion2X => EditorGUIUtility.IconContent("d_Occlusion@2x");
 
 		/// <summary>
 		/// d_ParticleShapeTool
 		/// </summary>
-		public static readonly GUIContent DParticleshapetool = EditorGUIUtility.IconContent("d_ParticleShapeTool");
+		public static GUIContent DParticleshapetool => EditorGUIUtility.IconContent("d_ParticleShapeTool");
 
 		/// <summary>
 		/// d_ParticleShapeTool@2x
 		/// </summary>
-		public static readonly GUIContent DParticleshapetool2X = EditorGUIUtility.IconContent("d_ParticleShapeTool@2x");
+		public static GUIContent DParticleshapetool2X => EditorGUIUtility.IconContent("d_ParticleShapeTool@2x");
 
 		/// <summary>
 		/// d_ParticleShapeTool@3x
 		/// </summary>
-		public static readonly GUIContent DParticleshapetool3X = EditorGUIUtility.IconContent("d_ParticleShapeTool@3x");
+		public static GUIContent DParticleshapetool3X => EditorGUIUtility.IconContent("d_ParticleShapeTool@3x");
 
 		/// <summary>
 		/// d_ParticleShapeTool@4x
 		/// </summary>
-		public static readonly GUIContent DParticleshapetool4X = EditorGUIUtility.IconContent("d_ParticleShapeTool@4x");
+		public static GUIContent DParticleshapetool4X => EditorGUIUtility.IconContent("d_ParticleShapeTool@4x");
 
 		/// <summary>
 		/// d_PauseButton
 		/// </summary>
-		public static readonly GUIContent DPausebutton = EditorGUIUtility.IconContent("d_PauseButton");
+		public static GUIContent DPausebutton => EditorGUIUtility.IconContent("d_PauseButton");
 
 		/// <summary>
 		/// d_PauseButton@2x
 		/// </summary>
-		public static readonly GUIContent DPausebutton2X = EditorGUIUtility.IconContent("d_PauseButton@2x");
+		public static GUIContent DPausebutton2X => EditorGUIUtility.IconContent("d_PauseButton@2x");
 
 		/// <summary>
 		/// d_PlayButton
 		/// </summary>
-		public static readonly GUIContent DPlaybutton = EditorGUIUtility.IconContent("d_PlayButton");
+		public static GUIContent DPlaybutton => EditorGUIUtility.IconContent("d_PlayButton");
 
 		/// <summary>
 		/// d_PlayButton@2x
 		/// </summary>
-		public static readonly GUIContent DPlaybutton2X = EditorGUIUtility.IconContent("d_PlayButton@2x");
+		public static GUIContent DPlaybutton2X => EditorGUIUtility.IconContent("d_PlayButton@2x");
 
 		/// <summary>
 		/// d_PlayButtonProfile
 		/// </summary>
-		public static readonly GUIContent DPlaybuttonprofile = EditorGUIUtility.IconContent("d_PlayButtonProfile");
+		public static GUIContent DPlaybuttonprofile => EditorGUIUtility.IconContent("d_PlayButtonProfile");
 
 		/// <summary>
 		/// d_playLoopOff
 		/// </summary>
-		public static readonly GUIContent DPlayloopoff = EditorGUIUtility.IconContent("d_playLoopOff");
+		public static GUIContent DPlayloopoff => EditorGUIUtility.IconContent("d_playLoopOff");
 
 		/// <summary>
 		/// d_playLoopOn
 		/// </summary>
-		public static readonly GUIContent DPlayloopon = EditorGUIUtility.IconContent("d_playLoopOn");
+		public static GUIContent DPlayloopon => EditorGUIUtility.IconContent("d_playLoopOn");
 
 		/// <summary>
 		/// d_preAudioAutoPlayOff
 		/// </summary>
-		public static readonly GUIContent DPreaudioautoplayoff = EditorGUIUtility.IconContent("d_preAudioAutoPlayOff");
+		public static GUIContent DPreaudioautoplayoff => EditorGUIUtility.IconContent("d_preAudioAutoPlayOff");
 
 		/// <summary>
 		/// d_preAudioAutoPlayOff@2x
 		/// </summary>
-		public static readonly GUIContent DPreaudioautoplayoff2X =
+		public static GUIContent DPreaudioautoplayoff2X =>
 			EditorGUIUtility.IconContent("d_preAudioAutoPlayOff@2x");
 
 		/// <summary>
 		/// d_preAudioAutoPlayOn
 		/// </summary>
-		public static readonly GUIContent DPreaudioautoplayon = EditorGUIUtility.IconContent("d_preAudioAutoPlayOn");
+		public static GUIContent DPreaudioautoplayon => EditorGUIUtility.IconContent("d_preAudioAutoPlayOn");
 
 		/// <summary>
 		/// d_preAudioLoopOff
 		/// </summary>
-		public static readonly GUIContent DPreaudioloopoff = EditorGUIUtility.IconContent("d_preAudioLoopOff");
+		public static GUIContent DPreaudioloopoff => EditorGUIUtility.IconContent("d_preAudioLoopOff");
 
 		/// <summary>
 		/// d_preAudioLoopOff@2x
 		/// </summary>
-		public static readonly GUIContent DPreaudioloopoff2X = EditorGUIUtility.IconContent("d_preAudioLoopOff@2x");
+		public static GUIContent DPreaudioloopoff2X => EditorGUIUtility.IconContent("d_preAudioLoopOff@2x");
 
 		/// <summary>
 		/// d_preAudioLoopOn
 		/// </summary>
-		public static readonly GUIContent DPreaudioloopon = EditorGUIUtility.IconContent("d_preAudioLoopOn");
+		public static GUIContent DPreaudioloopon => EditorGUIUtility.IconContent("d_preAudioLoopOn");
 
 		/// <summary>
 		/// d_preAudioPlayOff
 		/// </summary>
-		public static readonly GUIContent DPreaudioplayoff = EditorGUIUtility.IconContent("d_preAudioPlayOff");
+		public static GUIContent DPreaudioplayoff => EditorGUIUtility.IconContent("d_preAudioPlayOff");
 
 		/// <summary>
 		/// d_preAudioPlayOn
 		/// </summary>
-		public static readonly GUIContent DPreaudioplayon = EditorGUIUtility.IconContent("d_preAudioPlayOn");
+		public static GUIContent DPreaudioplayon => EditorGUIUtility.IconContent("d_preAudioPlayOn");
 
 		/// <summary>
 		/// d_PreMatCube
 		/// </summary>
-		public static readonly GUIContent DPrematcube = EditorGUIUtility.IconContent("d_PreMatCube");
+		public static GUIContent DPrematcube => EditorGUIUtility.IconContent("d_PreMatCube");
 
 		/// <summary>
 		/// d_PreMatCube@2x
 		/// </summary>
-		public static readonly GUIContent DPrematcube2X = EditorGUIUtility.IconContent("d_PreMatCube@2x");
+		public static GUIContent DPrematcube2X => EditorGUIUtility.IconContent("d_PreMatCube@2x");
 
 		/// <summary>
 		/// d_PreMatCylinder
 		/// </summary>
-		public static readonly GUIContent DPrematcylinder = EditorGUIUtility.IconContent("d_PreMatCylinder");
+		public static GUIContent DPrematcylinder => EditorGUIUtility.IconContent("d_PreMatCylinder");
 
 		/// <summary>
 		/// d_PreMatCylinder@2x
 		/// </summary>
-		public static readonly GUIContent DPrematcylinder2X = EditorGUIUtility.IconContent("d_PreMatCylinder@2x");
+		public static GUIContent DPrematcylinder2X => EditorGUIUtility.IconContent("d_PreMatCylinder@2x");
 
 		/// <summary>
 		/// d_PreMatLight0
 		/// </summary>
-		public static readonly GUIContent DPrematlight0 = EditorGUIUtility.IconContent("d_PreMatLight0");
+		public static GUIContent DPrematlight0 => EditorGUIUtility.IconContent("d_PreMatLight0");
 
 		/// <summary>
 		/// d_PreMatLight0@2x
 		/// </summary>
-		public static readonly GUIContent DPrematlight02X = EditorGUIUtility.IconContent("d_PreMatLight0@2x");
+		public static GUIContent DPrematlight02X => EditorGUIUtility.IconContent("d_PreMatLight0@2x");
 
 		/// <summary>
 		/// d_PreMatLight1
 		/// </summary>
-		public static readonly GUIContent DPrematlight1 = EditorGUIUtility.IconContent("d_PreMatLight1");
+		public static GUIContent DPrematlight1 => EditorGUIUtility.IconContent("d_PreMatLight1");
 
 		/// <summary>
 		/// d_PreMatLight1@2x
 		/// </summary>
-		public static readonly GUIContent DPrematlight12X = EditorGUIUtility.IconContent("d_PreMatLight1@2x");
+		public static GUIContent DPrematlight12X => EditorGUIUtility.IconContent("d_PreMatLight1@2x");
 
 		/// <summary>
 		/// d_PreMatQuad
 		/// </summary>
-		public static readonly GUIContent DPrematquad = EditorGUIUtility.IconContent("d_PreMatQuad");
+		public static GUIContent DPrematquad => EditorGUIUtility.IconContent("d_PreMatQuad");
 
 		/// <summary>
 		/// d_PreMatQuad@2x
 		/// </summary>
-		public static readonly GUIContent DPrematquad2X = EditorGUIUtility.IconContent("d_PreMatQuad@2x");
+		public static GUIContent DPrematquad2X => EditorGUIUtility.IconContent("d_PreMatQuad@2x");
 
 		/// <summary>
 		/// d_PreMatSphere
 		/// </summary>
-		public static readonly GUIContent DPrematsphere = EditorGUIUtility.IconContent("d_PreMatSphere");
+		public static GUIContent DPrematsphere => EditorGUIUtility.IconContent("d_PreMatSphere");
 
 		/// <summary>
 		/// d_PreMatSphere@2x
 		/// </summary>
-		public static readonly GUIContent DPrematsphere2X = EditorGUIUtility.IconContent("d_PreMatSphere@2x");
+		public static GUIContent DPrematsphere2X => EditorGUIUtility.IconContent("d_PreMatSphere@2x");
 
 		/// <summary>
 		/// d_PreMatTorus
 		/// </summary>
-		public static readonly GUIContent DPremattorus = EditorGUIUtility.IconContent("d_PreMatTorus");
+		public static GUIContent DPremattorus => EditorGUIUtility.IconContent("d_PreMatTorus");
 
 		/// <summary>
 		/// d_PreMatTorus@2x
 		/// </summary>
-		public static readonly GUIContent DPremattorus2X = EditorGUIUtility.IconContent("d_PreMatTorus@2x");
+		public static GUIContent DPremattorus2X => EditorGUIUtility.IconContent("d_PreMatTorus@2x");
 
 		/// <summary>
 		/// d_Preset.Context
 		/// </summary>
-		public static readonly GUIContent DPresetContext = EditorGUIUtility.IconContent("d_Preset.Context");
+		public static GUIContent DPresetContext => EditorGUIUtility.IconContent("d_Preset.Context");
 
 		/// <summary>
 		/// d_Preset.Context@2x
 		/// </summary>
-		public static readonly GUIContent DPresetContext2X = EditorGUIUtility.IconContent("d_Preset.Context@2x");
+		public static GUIContent DPresetContext2X => EditorGUIUtility.IconContent("d_Preset.Context@2x");
 
 		/// <summary>
 		/// d_PreTexA
 		/// </summary>
-		public static readonly GUIContent DPretexa = EditorGUIUtility.IconContent("d_PreTexA");
+		public static GUIContent DPretexa => EditorGUIUtility.IconContent("d_PreTexA");
 
 		/// <summary>
 		/// d_PreTexA@2x
 		/// </summary>
-		public static readonly GUIContent DPretexa2X = EditorGUIUtility.IconContent("d_PreTexA@2x");
+		public static GUIContent DPretexa2X => EditorGUIUtility.IconContent("d_PreTexA@2x");
 
 		/// <summary>
 		/// d_PreTexB
 		/// </summary>
-		public static readonly GUIContent DPretexb = EditorGUIUtility.IconContent("d_PreTexB");
+		public static GUIContent DPretexb => EditorGUIUtility.IconContent("d_PreTexB");
 
 		/// <summary>
 		/// d_PreTexB@2x
 		/// </summary>
-		public static readonly GUIContent DPretexb2X = EditorGUIUtility.IconContent("d_PreTexB@2x");
+		public static GUIContent DPretexb2X => EditorGUIUtility.IconContent("d_PreTexB@2x");
 
 		/// <summary>
 		/// d_PreTexG
 		/// </summary>
-		public static readonly GUIContent DPretexg = EditorGUIUtility.IconContent("d_PreTexG");
+		public static GUIContent DPretexg => EditorGUIUtility.IconContent("d_PreTexG");
 
 		/// <summary>
 		/// d_PreTexG@2x
 		/// </summary>
-		public static readonly GUIContent DPretexg2X = EditorGUIUtility.IconContent("d_PreTexG@2x");
+		public static GUIContent DPretexg2X => EditorGUIUtility.IconContent("d_PreTexG@2x");
 
 		/// <summary>
 		/// d_PreTexR
 		/// </summary>
-		public static readonly GUIContent DPretexr = EditorGUIUtility.IconContent("d_PreTexR");
+		public static GUIContent DPretexr => EditorGUIUtility.IconContent("d_PreTexR");
 
 		/// <summary>
 		/// d_PreTexR@2x
 		/// </summary>
-		public static readonly GUIContent DPretexr2X = EditorGUIUtility.IconContent("d_PreTexR@2x");
+		public static GUIContent DPretexr2X => EditorGUIUtility.IconContent("d_PreTexR@2x");
 
 		/// <summary>
 		/// d_PreTexRGB
 		/// </summary>
-		public static readonly GUIContent DPretexrgb = EditorGUIUtility.IconContent("d_PreTexRGB");
+		public static GUIContent DPretexrgb => EditorGUIUtility.IconContent("d_PreTexRGB");
 
 		/// <summary>
 		/// d_PreTexRGB@2x
 		/// </summary>
-		public static readonly GUIContent DPretexrgb2X = EditorGUIUtility.IconContent("d_PreTexRGB@2x");
+		public static GUIContent DPretexrgb2X => EditorGUIUtility.IconContent("d_PreTexRGB@2x");
 
 		/// <summary>
 		/// d_PreTextureAlpha
 		/// </summary>
-		public static readonly GUIContent DPretexturealpha = EditorGUIUtility.IconContent("d_PreTextureAlpha");
+		public static GUIContent DPretexturealpha => EditorGUIUtility.IconContent("d_PreTextureAlpha");
 
 		/// <summary>
 		/// d_PreTextureMipMapHigh
 		/// </summary>
-		public static readonly GUIContent
-			DPretexturemipmaphigh = EditorGUIUtility.IconContent("d_PreTextureMipMapHigh");
+		public static GUIContent
+			DPretexturemipmaphigh => EditorGUIUtility.IconContent("d_PreTextureMipMapHigh");
 
 		/// <summary>
 		/// d_PreTextureMipMapLow
 		/// </summary>
-		public static readonly GUIContent DPretexturemipmaplow = EditorGUIUtility.IconContent("d_PreTextureMipMapLow");
+		public static GUIContent DPretexturemipmaplow => EditorGUIUtility.IconContent("d_PreTextureMipMapLow");
 
 		/// <summary>
 		/// d_PreTextureRGB
 		/// </summary>
-		public static readonly GUIContent DPretexturergb = EditorGUIUtility.IconContent("d_PreTextureRGB");
+		public static GUIContent DPretexturergb => EditorGUIUtility.IconContent("d_PreTextureRGB");
 
 		/// <summary>
 		/// d_Profiler.Audio
 		/// </summary>
-		public static readonly GUIContent DProfilerAudio = EditorGUIUtility.IconContent("d_Profiler.Audio");
+		public static GUIContent DProfilerAudio => EditorGUIUtility.IconContent("d_Profiler.Audio");
 
 		/// <summary>
 		/// d_Profiler.Audio@2x
 		/// </summary>
-		public static readonly GUIContent DProfilerAudio2X = EditorGUIUtility.IconContent("d_Profiler.Audio@2x");
+		public static GUIContent DProfilerAudio2X => EditorGUIUtility.IconContent("d_Profiler.Audio@2x");
 
 		/// <summary>
 		/// d_Profiler.CPU
 		/// </summary>
-		public static readonly GUIContent DProfilerCpu = EditorGUIUtility.IconContent("d_Profiler.CPU");
+		public static GUIContent DProfilerCpu => EditorGUIUtility.IconContent("d_Profiler.CPU");
 
 		/// <summary>
 		/// d_Profiler.CPU@2x
 		/// </summary>
-		public static readonly GUIContent DProfilerCpu2X = EditorGUIUtility.IconContent("d_Profiler.CPU@2x");
+		public static GUIContent DProfilerCpu2X => EditorGUIUtility.IconContent("d_Profiler.CPU@2x");
 
 		/// <summary>
 		/// d_Profiler.FirstFrame
 		/// </summary>
-		public static readonly GUIContent DProfilerFirstframe = EditorGUIUtility.IconContent("d_Profiler.FirstFrame");
+		public static GUIContent DProfilerFirstframe => EditorGUIUtility.IconContent("d_Profiler.FirstFrame");
 
 		/// <summary>
 		/// d_Profiler.GlobalIllumination
 		/// </summary>
-		public static readonly GUIContent DProfilerGlobalillumination =
+		public static GUIContent DProfilerGlobalillumination =>
 			EditorGUIUtility.IconContent("d_Profiler.GlobalIllumination");
 
 		/// <summary>
 		/// d_Profiler.GlobalIllumination@2x
 		/// </summary>
-		public static readonly GUIContent DProfilerGlobalillumination2X =
+		public static GUIContent DProfilerGlobalillumination2X =>
 			EditorGUIUtility.IconContent("d_Profiler.GlobalIllumination@2x");
 
 		/// <summary>
 		/// d_Profiler.GPU
 		/// </summary>
-		public static readonly GUIContent DProfilerGpu = EditorGUIUtility.IconContent("d_Profiler.GPU");
+		public static GUIContent DProfilerGpu => EditorGUIUtility.IconContent("d_Profiler.GPU");
 
 		/// <summary>
 		/// d_Profiler.GPU@2x
 		/// </summary>
-		public static readonly GUIContent DProfilerGpu2X = EditorGUIUtility.IconContent("d_Profiler.GPU@2x");
+		public static GUIContent DProfilerGpu2X => EditorGUIUtility.IconContent("d_Profiler.GPU@2x");
 
 		/// <summary>
 		/// d_Profiler.LastFrame
 		/// </summary>
-		public static readonly GUIContent DProfilerLastframe = EditorGUIUtility.IconContent("d_Profiler.LastFrame");
+		public static GUIContent DProfilerLastframe => EditorGUIUtility.IconContent("d_Profiler.LastFrame");
 
 		/// <summary>
 		/// d_Profiler.Memory
 		/// </summary>
-		public static readonly GUIContent DProfilerMemory = EditorGUIUtility.IconContent("d_Profiler.Memory");
+		public static GUIContent DProfilerMemory => EditorGUIUtility.IconContent("d_Profiler.Memory");
 
 		/// <summary>
 		/// d_Profiler.Memory@2x
 		/// </summary>
-		public static readonly GUIContent DProfilerMemory2X = EditorGUIUtility.IconContent("d_Profiler.Memory@2x");
+		public static GUIContent DProfilerMemory2X => EditorGUIUtility.IconContent("d_Profiler.Memory@2x");
 
 		/// <summary>
 		/// d_Profiler.Network
 		/// </summary>
-		public static readonly GUIContent DProfilerNetwork = EditorGUIUtility.IconContent("d_Profiler.Network");
+		public static GUIContent DProfilerNetwork => EditorGUIUtility.IconContent("d_Profiler.Network");
 
 		/// <summary>
 		/// d_Profiler.NetworkMessages
 		/// </summary>
-		public static readonly GUIContent DProfilerNetworkmessages =
+		public static GUIContent DProfilerNetworkmessages =>
 			EditorGUIUtility.IconContent("d_Profiler.NetworkMessages");
 
 		/// <summary>
 		/// d_Profiler.NetworkMessages@2x
 		/// </summary>
-		public static readonly GUIContent DProfilerNetworkmessages2X =
+		public static GUIContent DProfilerNetworkmessages2X =>
 			EditorGUIUtility.IconContent("d_Profiler.NetworkMessages@2x");
 
 		/// <summary>
 		/// d_Profiler.NetworkOperations
 		/// </summary>
-		public static readonly GUIContent DProfilerNetworkoperations =
+		public static GUIContent DProfilerNetworkoperations =>
 			EditorGUIUtility.IconContent("d_Profiler.NetworkOperations");
 
 		/// <summary>
 		/// d_Profiler.NetworkOperations@2x
 		/// </summary>
-		public static readonly GUIContent DProfilerNetworkoperations2X =
+		public static GUIContent DProfilerNetworkoperations2X =>
 			EditorGUIUtility.IconContent("d_Profiler.NetworkOperations@2x");
 
 		/// <summary>
 		/// d_Profiler.NextFrame
 		/// </summary>
-		public static readonly GUIContent DProfilerNextframe = EditorGUIUtility.IconContent("d_Profiler.NextFrame");
+		public static GUIContent DProfilerNextframe => EditorGUIUtility.IconContent("d_Profiler.NextFrame");
 
 		/// <summary>
 		/// d_Profiler.Physics
 		/// </summary>
-		public static readonly GUIContent DProfilerPhysics = EditorGUIUtility.IconContent("d_Profiler.Physics");
+		public static GUIContent DProfilerPhysics => EditorGUIUtility.IconContent("d_Profiler.Physics");
 
 		/// <summary>
 		/// d_Profiler.Physics2D
 		/// </summary>
-		public static readonly GUIContent DProfilerPhysics2D = EditorGUIUtility.IconContent("d_Profiler.Physics2D");
+		public static GUIContent DProfilerPhysics2D => EditorGUIUtility.IconContent("d_Profiler.Physics2D");
 
 		/// <summary>
 		/// d_Profiler.Physics2D@2x
 		/// </summary>
-		public static readonly GUIContent
-			DProfilerPhysics2D2X = EditorGUIUtility.IconContent("d_Profiler.Physics2D@2x");
+		public static GUIContent
+			DProfilerPhysics2D2X => EditorGUIUtility.IconContent("d_Profiler.Physics2D@2x");
 
 		/// <summary>
 		/// d_Profiler.Physics@2x
 		/// </summary>
-		public static readonly GUIContent DProfilerPhysics2X = EditorGUIUtility.IconContent("d_Profiler.Physics@2x");
+		public static GUIContent DProfilerPhysics2X => EditorGUIUtility.IconContent("d_Profiler.Physics@2x");
 
 		/// <summary>
 		/// d_Profiler.PrevFrame
 		/// </summary>
-		public static readonly GUIContent DProfilerPrevframe = EditorGUIUtility.IconContent("d_Profiler.PrevFrame");
+		public static GUIContent DProfilerPrevframe => EditorGUIUtility.IconContent("d_Profiler.PrevFrame");
 
 		/// <summary>
 		/// d_Profiler.Record
 		/// </summary>
-		public static readonly GUIContent DProfilerRecord = EditorGUIUtility.IconContent("d_Profiler.Record");
+		public static GUIContent DProfilerRecord => EditorGUIUtility.IconContent("d_Profiler.Record");
 
 		/// <summary>
 		/// d_Profiler.Rendering
 		/// </summary>
-		public static readonly GUIContent DProfilerRendering = EditorGUIUtility.IconContent("d_Profiler.Rendering");
+		public static GUIContent DProfilerRendering => EditorGUIUtility.IconContent("d_Profiler.Rendering");
 
 		/// <summary>
 		/// d_Profiler.Rendering@2x
 		/// </summary>
-		public static readonly GUIContent
-			DProfilerRendering2X = EditorGUIUtility.IconContent("d_Profiler.Rendering@2x");
+		public static GUIContent
+			DProfilerRendering2X => EditorGUIUtility.IconContent("d_Profiler.Rendering@2x");
 
 		/// <summary>
 		/// d_Profiler.UI
 		/// </summary>
-		public static readonly GUIContent DProfilerUi = EditorGUIUtility.IconContent("d_Profiler.UI");
+		public static GUIContent DProfilerUi => EditorGUIUtility.IconContent("d_Profiler.UI");
 
 		/// <summary>
 		/// d_Profiler.UI@2x
 		/// </summary>
-		public static readonly GUIContent DProfilerUi2X = EditorGUIUtility.IconContent("d_Profiler.UI@2x");
+		public static GUIContent DProfilerUi2X => EditorGUIUtility.IconContent("d_Profiler.UI@2x");
 
 		/// <summary>
 		/// d_Profiler.UIDetails
 		/// </summary>
-		public static readonly GUIContent DProfilerUidetails = EditorGUIUtility.IconContent("d_Profiler.UIDetails");
+		public static GUIContent DProfilerUidetails => EditorGUIUtility.IconContent("d_Profiler.UIDetails");
 
 		/// <summary>
 		/// d_Profiler.UIDetails@2x
 		/// </summary>
-		public static readonly GUIContent
-			DProfilerUidetails2X = EditorGUIUtility.IconContent("d_Profiler.UIDetails@2x");
+		public static GUIContent
+			DProfilerUidetails2X => EditorGUIUtility.IconContent("d_Profiler.UIDetails@2x");
 
 		/// <summary>
 		/// d_Profiler.Video
 		/// </summary>
-		public static readonly GUIContent DProfilerVideo = EditorGUIUtility.IconContent("d_Profiler.Video");
+		public static GUIContent DProfilerVideo => EditorGUIUtility.IconContent("d_Profiler.Video");
 
 		/// <summary>
 		/// d_Profiler.Video@2x
 		/// </summary>
-		public static readonly GUIContent DProfilerVideo2X = EditorGUIUtility.IconContent("d_Profiler.Video@2x");
+		public static GUIContent DProfilerVideo2X => EditorGUIUtility.IconContent("d_Profiler.Video@2x");
 
 		/// <summary>
 		/// d_ProfilerColumn.WarningCount
 		/// </summary>
-		public static readonly GUIContent DProfilercolumnWarningcount =
+		public static GUIContent DProfilercolumnWarningcount =>
 			EditorGUIUtility.IconContent("d_ProfilerColumn.WarningCount");
 
 		/// <summary>
 		/// d_Progress
 		/// </summary>
-		public static readonly GUIContent DProgress = EditorGUIUtility.IconContent("d_Progress");
+		public static GUIContent DProgress => EditorGUIUtility.IconContent("d_Progress");
 
 		/// <summary>
 		/// d_Progress@2x
 		/// </summary>
-		public static readonly GUIContent DProgress2X = EditorGUIUtility.IconContent("d_Progress@2x");
+		public static GUIContent DProgress2X => EditorGUIUtility.IconContent("d_Progress@2x");
 
 		/// <summary>
 		/// d_Project
 		/// </summary>
-		public static readonly GUIContent DProject = EditorGUIUtility.IconContent("d_Project");
+		public static GUIContent DProject => EditorGUIUtility.IconContent("d_Project");
 
 		/// <summary>
 		/// d_Project@2x
 		/// </summary>
-		public static readonly GUIContent DProject2X = EditorGUIUtility.IconContent("d_Project@2x");
+		public static GUIContent DProject2X => EditorGUIUtility.IconContent("d_Project@2x");
 
 		/// <summary>
 		/// d_RectTool
 		/// </summary>
-		public static readonly GUIContent DRecttool = EditorGUIUtility.IconContent("d_RectTool");
+		public static GUIContent DRecttool => EditorGUIUtility.IconContent("d_RectTool");
 
 		/// <summary>
 		/// d_RectTool@2x
 		/// </summary>
-		public static readonly GUIContent DRecttool2X = EditorGUIUtility.IconContent("d_RectTool@2x");
+		public static GUIContent DRecttool2X => EditorGUIUtility.IconContent("d_RectTool@2x");
 
 		/// <summary>
 		/// d_RectTransformBlueprint
 		/// </summary>
-		public static readonly GUIContent DRecttransformblueprint =
+		public static GUIContent DRecttransformblueprint =>
 			EditorGUIUtility.IconContent("d_RectTransformBlueprint");
 
 		/// <summary>
 		/// d_RectTransformRaw
 		/// </summary>
-		public static readonly GUIContent DRecttransformraw = EditorGUIUtility.IconContent("d_RectTransformRaw");
+		public static GUIContent DRecttransformraw => EditorGUIUtility.IconContent("d_RectTransformRaw");
 
 		/// <summary>
 		/// d_redGroove
 		/// </summary>
-		public static readonly GUIContent DRedgroove = EditorGUIUtility.IconContent("d_redGroove");
+		public static GUIContent DRedgroove => EditorGUIUtility.IconContent("d_redGroove");
 
 		/// <summary>
 		/// d_ReflectionProbeSelector
 		/// </summary>
-		public static readonly GUIContent DReflectionprobeselector =
+		public static GUIContent DReflectionprobeselector =>
 			EditorGUIUtility.IconContent("d_ReflectionProbeSelector");
 
 		/// <summary>
 		/// d_ReflectionProbeSelector@2x
 		/// </summary>
-		public static readonly GUIContent DReflectionprobeselector2X =
+		public static GUIContent DReflectionprobeselector2X =>
 			EditorGUIUtility.IconContent("d_ReflectionProbeSelector@2x");
 
 		/// <summary>
 		/// d_Refresh
 		/// </summary>
-		public static readonly GUIContent DRefresh = EditorGUIUtility.IconContent("d_Refresh");
+		public static GUIContent DRefresh => EditorGUIUtility.IconContent("d_Refresh");
 
 		/// <summary>
 		/// d_Refresh@2x
 		/// </summary>
-		public static readonly GUIContent DRefresh2X = EditorGUIUtility.IconContent("d_Refresh@2x");
+		public static GUIContent DRefresh2X => EditorGUIUtility.IconContent("d_Refresh@2x");
 
 		/// <summary>
 		/// d_rightBracket
 		/// </summary>
-		public static readonly GUIContent DRightbracket = EditorGUIUtility.IconContent("d_rightBracket");
+		public static GUIContent DRightbracket => EditorGUIUtility.IconContent("d_rightBracket");
 
 		/// <summary>
 		/// d_RotateTool
 		/// </summary>
-		public static readonly GUIContent DRotatetool = EditorGUIUtility.IconContent("d_RotateTool");
+		public static GUIContent DRotatetool => EditorGUIUtility.IconContent("d_RotateTool");
 
 		/// <summary>
 		/// d_RotateTool@2x
 		/// </summary>
-		public static readonly GUIContent DRotatetool2X = EditorGUIUtility.IconContent("d_RotateTool@2x");
+		public static GUIContent DRotatetool2X => EditorGUIUtility.IconContent("d_RotateTool@2x");
 
 		/// <summary>
 		/// d_SaveAs
 		/// </summary>
-		public static readonly GUIContent DSaveas = EditorGUIUtility.IconContent("d_SaveAs");
+		public static GUIContent DSaveas => EditorGUIUtility.IconContent("d_SaveAs");
 
 		/// <summary>
 		/// d_SaveAs@2x
 		/// </summary>
-		public static readonly GUIContent DSaveas2X = EditorGUIUtility.IconContent("d_SaveAs@2x");
+		public static GUIContent DSaveas2X => EditorGUIUtility.IconContent("d_SaveAs@2x");
 
 		/// <summary>
 		/// d_ScaleTool
 		/// </summary>
-		public static readonly GUIContent DScaletool = EditorGUIUtility.IconContent("d_ScaleTool");
+		public static GUIContent DScaletool => EditorGUIUtility.IconContent("d_ScaleTool");
 
 		/// <summary>
 		/// d_ScaleTool@2x
 		/// </summary>
-		public static readonly GUIContent DScaletool2X = EditorGUIUtility.IconContent("d_ScaleTool@2x");
+		public static GUIContent DScaletool2X => EditorGUIUtility.IconContent("d_ScaleTool@2x");
 
 		/// <summary>
 		/// d_scenepicking_notpickable-mixed
 		/// </summary>
-		public static readonly GUIContent DScenepickingNotpickableMixed =
+		public static GUIContent DScenepickingNotpickableMixed =>
 			EditorGUIUtility.IconContent("d_scenepicking_notpickable-mixed");
 
 		/// <summary>
 		/// d_scenepicking_notpickable-mixed@2x
 		/// </summary>
-		public static readonly GUIContent DScenepickingNotpickableMixed2X =
+		public static GUIContent DScenepickingNotpickableMixed2X =>
 			EditorGUIUtility.IconContent("d_scenepicking_notpickable-mixed@2x");
 
 		/// <summary>
 		/// d_scenepicking_notpickable-mixed_hover
 		/// </summary>
-		public static readonly GUIContent DScenepickingNotpickableMixedHover =
+		public static GUIContent DScenepickingNotpickableMixedHover =>
 			EditorGUIUtility.IconContent("d_scenepicking_notpickable-mixed_hover");
 
 		/// <summary>
 		/// d_scenepicking_notpickable-mixed_hover@2x
 		/// </summary>
-		public static readonly GUIContent DScenepickingNotpickableMixedHover2X =
+		public static GUIContent DScenepickingNotpickableMixedHover2X =>
 			EditorGUIUtility.IconContent("d_scenepicking_notpickable-mixed_hover@2x");
 
 		/// <summary>
 		/// d_scenepicking_notpickable
 		/// </summary>
-		public static readonly GUIContent DScenepickingNotpickable =
+		public static GUIContent DScenepickingNotpickable =>
 			EditorGUIUtility.IconContent("d_scenepicking_notpickable");
 
 		/// <summary>
 		/// d_scenepicking_notpickable@2x
 		/// </summary>
-		public static readonly GUIContent DScenepickingNotpickable2X =
+		public static GUIContent DScenepickingNotpickable2X =>
 			EditorGUIUtility.IconContent("d_scenepicking_notpickable@2x");
 
 		/// <summary>
 		/// d_scenepicking_notpickable_hover
 		/// </summary>
-		public static readonly GUIContent DScenepickingNotpickableHover =
+		public static GUIContent DScenepickingNotpickableHover =>
 			EditorGUIUtility.IconContent("d_scenepicking_notpickable_hover");
 
 		/// <summary>
 		/// d_scenepicking_notpickable_hover@2x
 		/// </summary>
-		public static readonly GUIContent DScenepickingNotpickableHover2X =
+		public static GUIContent DScenepickingNotpickableHover2X =>
 			EditorGUIUtility.IconContent("d_scenepicking_notpickable_hover@2x");
 
 		/// <summary>
 		/// d_scenepicking_pickable-mixed
 		/// </summary>
-		public static readonly GUIContent DScenepickingPickableMixed =
+		public static GUIContent DScenepickingPickableMixed =>
 			EditorGUIUtility.IconContent("d_scenepicking_pickable-mixed");
 
 		/// <summary>
 		/// d_scenepicking_pickable-mixed@2x
 		/// </summary>
-		public static readonly GUIContent DScenepickingPickableMixed2X =
+		public static GUIContent DScenepickingPickableMixed2X =>
 			EditorGUIUtility.IconContent("d_scenepicking_pickable-mixed@2x");
 
 		/// <summary>
 		/// d_scenepicking_pickable-mixed_hover
 		/// </summary>
-		public static readonly GUIContent DScenepickingPickableMixedHover =
+		public static GUIContent DScenepickingPickableMixedHover =>
 			EditorGUIUtility.IconContent("d_scenepicking_pickable-mixed_hover");
 
 		/// <summary>
 		/// d_scenepicking_pickable-mixed_hover@2x
 		/// </summary>
-		public static readonly GUIContent DScenepickingPickableMixedHover2X =
+		public static GUIContent DScenepickingPickableMixedHover2X =>
 			EditorGUIUtility.IconContent("d_scenepicking_pickable-mixed_hover@2x");
 
 		/// <summary>
 		/// d_scenepicking_pickable
 		/// </summary>
-		public static readonly GUIContent DScenepickingPickable =
+		public static GUIContent DScenepickingPickable =>
 			EditorGUIUtility.IconContent("d_scenepicking_pickable");
 
 		/// <summary>
 		/// d_scenepicking_pickable@2x
 		/// </summary>
-		public static readonly GUIContent DScenepickingPickable2X =
+		public static GUIContent DScenepickingPickable2X =>
 			EditorGUIUtility.IconContent("d_scenepicking_pickable@2x");
 
 		/// <summary>
 		/// d_scenepicking_pickable_hover
 		/// </summary>
-		public static readonly GUIContent DScenepickingPickableHover =
+		public static GUIContent DScenepickingPickableHover =>
 			EditorGUIUtility.IconContent("d_scenepicking_pickable_hover");
 
 		/// <summary>
 		/// d_scenepicking_pickable_hover@2x
 		/// </summary>
-		public static readonly GUIContent DScenepickingPickableHover2X =
+		public static GUIContent DScenepickingPickableHover2X =>
 			EditorGUIUtility.IconContent("d_scenepicking_pickable_hover@2x");
 
 		/// <summary>
 		/// d_SceneView2D
 		/// </summary>
-		public static readonly GUIContent DSceneview2D = EditorGUIUtility.IconContent("d_SceneView2D");
+		public static GUIContent DSceneview2D => EditorGUIUtility.IconContent("d_SceneView2D");
 
 		/// <summary>
 		/// d_SceneView2D@2x
 		/// </summary>
-		public static readonly GUIContent DSceneview2D2X = EditorGUIUtility.IconContent("d_SceneView2D@2x");
+		public static GUIContent DSceneview2D2X => EditorGUIUtility.IconContent("d_SceneView2D@2x");
 
 		/// <summary>
 		/// d_SceneViewAlpha
 		/// </summary>
-		public static readonly GUIContent DSceneviewalpha = EditorGUIUtility.IconContent("d_SceneViewAlpha");
+		public static GUIContent DSceneviewalpha => EditorGUIUtility.IconContent("d_SceneViewAlpha");
 
 		/// <summary>
 		/// d_SceneViewAudio
 		/// </summary>
-		public static readonly GUIContent DSceneviewaudio = EditorGUIUtility.IconContent("d_SceneViewAudio");
+		public static GUIContent DSceneviewaudio => EditorGUIUtility.IconContent("d_SceneViewAudio");
 
 		/// <summary>
 		/// d_SceneViewAudio@2x
 		/// </summary>
-		public static readonly GUIContent DSceneviewaudio2X = EditorGUIUtility.IconContent("d_SceneViewAudio@2x");
+		public static GUIContent DSceneviewaudio2X => EditorGUIUtility.IconContent("d_SceneViewAudio@2x");
 
 		/// <summary>
 		/// d_SceneViewCamera
 		/// </summary>
-		public static readonly GUIContent DSceneviewcamera = EditorGUIUtility.IconContent("d_SceneViewCamera");
+		public static GUIContent DSceneviewcamera => EditorGUIUtility.IconContent("d_SceneViewCamera");
 
 		/// <summary>
 		/// d_SceneViewCamera@2x
 		/// </summary>
-		public static readonly GUIContent DSceneviewcamera2X = EditorGUIUtility.IconContent("d_SceneViewCamera@2x");
+		public static GUIContent DSceneviewcamera2X => EditorGUIUtility.IconContent("d_SceneViewCamera@2x");
 
 		/// <summary>
 		/// d_SceneViewFx
 		/// </summary>
-		public static readonly GUIContent DSceneviewfx = EditorGUIUtility.IconContent("d_SceneViewFx");
+		public static GUIContent DSceneviewfx => EditorGUIUtility.IconContent("d_SceneViewFx");
 
 		/// <summary>
 		/// d_SceneViewFX@2x
 		/// </summary>
-		public static readonly GUIContent DSceneviewfx2X = EditorGUIUtility.IconContent("d_SceneViewFX@2x");
+		public static GUIContent DSceneviewfx2X => EditorGUIUtility.IconContent("d_SceneViewFX@2x");
 
 		/// <summary>
 		/// d_SceneViewLighting
 		/// </summary>
-		public static readonly GUIContent DSceneviewlighting = EditorGUIUtility.IconContent("d_SceneViewLighting");
+		public static GUIContent DSceneviewlighting => EditorGUIUtility.IconContent("d_SceneViewLighting");
 
 		/// <summary>
 		/// d_SceneViewLighting@2x
 		/// </summary>
-		public static readonly GUIContent DSceneviewlighting2X = EditorGUIUtility.IconContent("d_SceneViewLighting@2x");
+		public static GUIContent DSceneviewlighting2X => EditorGUIUtility.IconContent("d_SceneViewLighting@2x");
 
 		/// <summary>
 		/// d_SceneViewOrtho
 		/// </summary>
-		public static readonly GUIContent DSceneviewortho = EditorGUIUtility.IconContent("d_SceneViewOrtho");
+		public static GUIContent DSceneviewortho => EditorGUIUtility.IconContent("d_SceneViewOrtho");
 
 		/// <summary>
 		/// d_SceneViewRGB
 		/// </summary>
-		public static readonly GUIContent DSceneviewrgb = EditorGUIUtility.IconContent("d_SceneViewRGB");
+		public static GUIContent DSceneviewrgb => EditorGUIUtility.IconContent("d_SceneViewRGB");
 
 		/// <summary>
 		/// d_SceneViewTools
 		/// </summary>
-		public static readonly GUIContent DSceneviewtools = EditorGUIUtility.IconContent("d_SceneViewTools");
+		public static GUIContent DSceneviewtools => EditorGUIUtility.IconContent("d_SceneViewTools");
 
 		/// <summary>
 		/// d_SceneViewTools@2x
 		/// </summary>
-		public static readonly GUIContent DSceneviewtools2X = EditorGUIUtility.IconContent("d_SceneViewTools@2x");
+		public static GUIContent DSceneviewtools2X => EditorGUIUtility.IconContent("d_SceneViewTools@2x");
 
 		/// <summary>
 		/// d_SceneViewVisibility
 		/// </summary>
-		public static readonly GUIContent DSceneviewvisibility = EditorGUIUtility.IconContent("d_SceneViewVisibility");
+		public static GUIContent DSceneviewvisibility => EditorGUIUtility.IconContent("d_SceneViewVisibility");
 
 		/// <summary>
 		/// d_SceneViewVisibility@2x
 		/// </summary>
-		public static readonly GUIContent DSceneviewvisibility2X =
+		public static GUIContent DSceneviewvisibility2X =>
 			EditorGUIUtility.IconContent("d_SceneViewVisibility@2x");
 
 		/// <summary>
 		/// d_scenevis_hidden-mixed
 		/// </summary>
-		public static readonly GUIContent
-			DScenevisHiddenMixed = EditorGUIUtility.IconContent("d_scenevis_hidden-mixed");
+		public static GUIContent
+			DScenevisHiddenMixed => EditorGUIUtility.IconContent("d_scenevis_hidden-mixed");
 
 		/// <summary>
 		/// d_scenevis_hidden-mixed@2x
 		/// </summary>
-		public static readonly GUIContent DScenevisHiddenMixed2X =
+		public static GUIContent DScenevisHiddenMixed2X =>
 			EditorGUIUtility.IconContent("d_scenevis_hidden-mixed@2x");
 
 		/// <summary>
 		/// d_scenevis_hidden-mixed_hover
 		/// </summary>
-		public static readonly GUIContent DScenevisHiddenMixedHover =
+		public static GUIContent DScenevisHiddenMixedHover =>
 			EditorGUIUtility.IconContent("d_scenevis_hidden-mixed_hover");
 
 		/// <summary>
 		/// d_scenevis_hidden-mixed_hover@2x
 		/// </summary>
-		public static readonly GUIContent DScenevisHiddenMixedHover2X =
+		public static GUIContent DScenevisHiddenMixedHover2X =>
 			EditorGUIUtility.IconContent("d_scenevis_hidden-mixed_hover@2x");
 
 		/// <summary>
 		/// d_scenevis_hidden
 		/// </summary>
-		public static readonly GUIContent DScenevisHidden = EditorGUIUtility.IconContent("d_scenevis_hidden");
+		public static GUIContent DScenevisHidden => EditorGUIUtility.IconContent("d_scenevis_hidden");
 
 		/// <summary>
 		/// d_scenevis_hidden@2x
 		/// </summary>
-		public static readonly GUIContent DScenevisHidden2X = EditorGUIUtility.IconContent("d_scenevis_hidden@2x");
+		public static GUIContent DScenevisHidden2X => EditorGUIUtility.IconContent("d_scenevis_hidden@2x");
 
 		/// <summary>
 		/// d_scenevis_hidden_hover
 		/// </summary>
-		public static readonly GUIContent
-			DScenevisHiddenHover = EditorGUIUtility.IconContent("d_scenevis_hidden_hover");
+		public static GUIContent
+			DScenevisHiddenHover => EditorGUIUtility.IconContent("d_scenevis_hidden_hover");
 
 		/// <summary>
 		/// d_scenevis_hidden_hover@2x
 		/// </summary>
-		public static readonly GUIContent DScenevisHiddenHover2X =
+		public static GUIContent DScenevisHiddenHover2X =>
 			EditorGUIUtility.IconContent("d_scenevis_hidden_hover@2x");
 
 		/// <summary>
 		/// d_scenevis_scene_hover
 		/// </summary>
-		public static readonly GUIContent DScenevisSceneHover = EditorGUIUtility.IconContent("d_scenevis_scene_hover");
+		public static GUIContent DScenevisSceneHover => EditorGUIUtility.IconContent("d_scenevis_scene_hover");
 
 		/// <summary>
 		/// d_scenevis_scene_hover@2x
 		/// </summary>
-		public static readonly GUIContent DScenevisSceneHover2X =
+		public static GUIContent DScenevisSceneHover2X =>
 			EditorGUIUtility.IconContent("d_scenevis_scene_hover@2x");
 
 		/// <summary>
 		/// d_scenevis_visible-mixed
 		/// </summary>
-		public static readonly GUIContent DScenevisVisibleMixed =
+		public static GUIContent DScenevisVisibleMixed =>
 			EditorGUIUtility.IconContent("d_scenevis_visible-mixed");
 
 		/// <summary>
 		/// d_scenevis_visible-mixed@2x
 		/// </summary>
-		public static readonly GUIContent DScenevisVisibleMixed2X =
+		public static GUIContent DScenevisVisibleMixed2X =>
 			EditorGUIUtility.IconContent("d_scenevis_visible-mixed@2x");
 
 		/// <summary>
 		/// d_scenevis_visible-mixed_hover
 		/// </summary>
-		public static readonly GUIContent DScenevisVisibleMixedHover =
+		public static GUIContent DScenevisVisibleMixedHover =>
 			EditorGUIUtility.IconContent("d_scenevis_visible-mixed_hover");
 
 		/// <summary>
 		/// d_scenevis_visible-mixed_hover@2x
 		/// </summary>
-		public static readonly GUIContent DScenevisVisibleMixedHover2X =
+		public static GUIContent DScenevisVisibleMixedHover2X =>
 			EditorGUIUtility.IconContent("d_scenevis_visible-mixed_hover@2x");
 
 		/// <summary>
 		/// d_scenevis_visible
 		/// </summary>
-		public static readonly GUIContent DScenevisVisible = EditorGUIUtility.IconContent("d_scenevis_visible");
+		public static GUIContent DScenevisVisible => EditorGUIUtility.IconContent("d_scenevis_visible");
 
 		/// <summary>
 		/// d_scenevis_visible@2x
 		/// </summary>
-		public static readonly GUIContent DScenevisVisible2X = EditorGUIUtility.IconContent("d_scenevis_visible@2x");
+		public static GUIContent DScenevisVisible2X => EditorGUIUtility.IconContent("d_scenevis_visible@2x");
 
 		/// <summary>
 		/// d_scenevis_visible_hover
 		/// </summary>
-		public static readonly GUIContent DScenevisVisibleHover =
+		public static GUIContent DScenevisVisibleHover =>
 			EditorGUIUtility.IconContent("d_scenevis_visible_hover");
 
 		/// <summary>
 		/// d_scenevis_visible_hover@2x
 		/// </summary>
-		public static readonly GUIContent DScenevisVisibleHover2X =
+		public static GUIContent DScenevisVisibleHover2X =>
 			EditorGUIUtility.IconContent("d_scenevis_visible_hover@2x");
 
 		/// <summary>
 		/// d_ScrollShadow
 		/// </summary>
-		public static readonly GUIContent DScrollshadow = EditorGUIUtility.IconContent("d_ScrollShadow");
+		public static GUIContent DScrollshadow => EditorGUIUtility.IconContent("d_ScrollShadow");
 
 		/// <summary>
 		/// d_Settings
 		/// </summary>
-		public static readonly GUIContent DSettings = EditorGUIUtility.IconContent("d_Settings");
+		public static GUIContent DSettings => EditorGUIUtility.IconContent("d_Settings");
 
 		/// <summary>
 		/// d_Settings@2x
 		/// </summary>
-		public static readonly GUIContent DSettings2X = EditorGUIUtility.IconContent("d_Settings@2x");
+		public static GUIContent DSettings2X => EditorGUIUtility.IconContent("d_Settings@2x");
 
 		/// <summary>
 		/// d_SettingsIcon
 		/// </summary>
-		public static readonly GUIContent DSettingsicon = EditorGUIUtility.IconContent("d_SettingsIcon");
+		public static GUIContent DSettingsicon => EditorGUIUtility.IconContent("d_SettingsIcon");
 
 		/// <summary>
 		/// d_SettingsIcon@2x
 		/// </summary>
-		public static readonly GUIContent DSettingsicon2X = EditorGUIUtility.IconContent("d_SettingsIcon@2x");
+		public static GUIContent DSettingsicon2X => EditorGUIUtility.IconContent("d_SettingsIcon@2x");
 
 		/// <summary>
 		/// d_SocialNetworks.FacebookShare
 		/// </summary>
-		public static readonly GUIContent DSocialnetworksFacebookshare =
+		public static GUIContent DSocialnetworksFacebookshare =>
 			EditorGUIUtility.IconContent("d_SocialNetworks.FacebookShare");
 
 		/// <summary>
 		/// d_SocialNetworks.LinkedInShare
 		/// </summary>
-		public static readonly GUIContent DSocialnetworksLinkedinshare =
+		public static GUIContent DSocialnetworksLinkedinshare =>
 			EditorGUIUtility.IconContent("d_SocialNetworks.LinkedInShare");
 
 		/// <summary>
 		/// d_SocialNetworks.Tweet
 		/// </summary>
-		public static readonly GUIContent DSocialnetworksTweet = EditorGUIUtility.IconContent("d_SocialNetworks.Tweet");
+		public static GUIContent DSocialnetworksTweet => EditorGUIUtility.IconContent("d_SocialNetworks.Tweet");
 
 		/// <summary>
 		/// d_SocialNetworks.UDNOpen
 		/// </summary>
-		public static readonly GUIContent DSocialnetworksUdnopen =
+		public static GUIContent DSocialnetworksUdnopen =>
 			EditorGUIUtility.IconContent("d_SocialNetworks.UDNOpen");
 
 		/// <summary>
 		/// d_SpeedScale
 		/// </summary>
-		public static readonly GUIContent DSpeedscale = EditorGUIUtility.IconContent("d_SpeedScale");
+		public static GUIContent DSpeedscale => EditorGUIUtility.IconContent("d_SpeedScale");
 
 		/// <summary>
 		/// d_StepButton
 		/// </summary>
-		public static readonly GUIContent DStepbutton = EditorGUIUtility.IconContent("d_StepButton");
+		public static GUIContent DStepbutton => EditorGUIUtility.IconContent("d_StepButton");
 
 		/// <summary>
 		/// d_StepButton@2x
 		/// </summary>
-		public static readonly GUIContent DStepbutton2X = EditorGUIUtility.IconContent("d_StepButton@2x");
+		public static GUIContent DStepbutton2X => EditorGUIUtility.IconContent("d_StepButton@2x");
 
 		/// <summary>
 		/// d_StepLeftButton-On
 		/// </summary>
-		public static readonly GUIContent DStepleftbuttonOn = EditorGUIUtility.IconContent("d_StepLeftButton-On");
+		public static GUIContent DStepleftbuttonOn => EditorGUIUtility.IconContent("d_StepLeftButton-On");
 
 		/// <summary>
 		/// d_StepLeftButton
 		/// </summary>
-		public static readonly GUIContent DStepleftbutton = EditorGUIUtility.IconContent("d_StepLeftButton");
+		public static GUIContent DStepleftbutton => EditorGUIUtility.IconContent("d_StepLeftButton");
 
 		/// <summary>
 		/// d_tab_next
 		/// </summary>
-		public static readonly GUIContent DTabNext = EditorGUIUtility.IconContent("d_tab_next");
+		public static GUIContent DTabNext => EditorGUIUtility.IconContent("d_tab_next");
 
 		/// <summary>
 		/// d_tab_next@2x
 		/// </summary>
-		public static readonly GUIContent DTabNext2X = EditorGUIUtility.IconContent("d_tab_next@2x");
+		public static GUIContent DTabNext2X => EditorGUIUtility.IconContent("d_tab_next@2x");
 
 		/// <summary>
 		/// d_tab_prev
 		/// </summary>
-		public static readonly GUIContent DTabPrev = EditorGUIUtility.IconContent("d_tab_prev");
+		public static GUIContent DTabPrev => EditorGUIUtility.IconContent("d_tab_prev");
 
 		/// <summary>
 		/// d_tab_prev@2x
 		/// </summary>
-		public static readonly GUIContent DTabPrev2X = EditorGUIUtility.IconContent("d_tab_prev@2x");
+		public static GUIContent DTabPrev2X => EditorGUIUtility.IconContent("d_tab_prev@2x");
 
 		/// <summary>
 		/// d_TerrainInspector.TerrainToolLowerAlt
 		/// </summary>
-		public static readonly GUIContent DTerraininspectorTerraintoolloweralt =
+		public static GUIContent DTerraininspectorTerraintoolloweralt =>
 			EditorGUIUtility.IconContent("d_TerrainInspector.TerrainToolLowerAlt");
 
 		/// <summary>
 		/// d_TerrainInspector.TerrainToolPlants
 		/// </summary>
-		public static readonly GUIContent DTerraininspectorTerraintoolplants =
+		public static GUIContent DTerraininspectorTerraintoolplants =>
 			EditorGUIUtility.IconContent("d_TerrainInspector.TerrainToolPlants");
 
 		/// <summary>
 		/// d_TerrainInspector.TerrainToolPlantsAlt
 		/// </summary>
-		public static readonly GUIContent DTerraininspectorTerraintoolplantsalt =
+		public static GUIContent DTerraininspectorTerraintoolplantsalt =>
 			EditorGUIUtility.IconContent("d_TerrainInspector.TerrainToolPlantsAlt");
 
 		/// <summary>
 		/// d_TerrainInspector.TerrainToolRaise
 		/// </summary>
-		public static readonly GUIContent DTerraininspectorTerraintoolraise =
+		public static GUIContent DTerraininspectorTerraintoolraise =>
 			EditorGUIUtility.IconContent("d_TerrainInspector.TerrainToolRaise");
 
 		/// <summary>
 		/// d_TerrainInspector.TerrainToolSetheight
 		/// </summary>
-		public static readonly GUIContent DTerraininspectorTerraintoolsetheight =
+		public static GUIContent DTerraininspectorTerraintoolsetheight =>
 			EditorGUIUtility.IconContent("d_TerrainInspector.TerrainToolSetheight");
 
 		/// <summary>
 		/// d_TerrainInspector.TerrainToolSetheightAlt
 		/// </summary>
-		public static readonly GUIContent DTerraininspectorTerraintoolsetheightalt =
+		public static GUIContent DTerraininspectorTerraintoolsetheightalt =>
 			EditorGUIUtility.IconContent("d_TerrainInspector.TerrainToolSetheightAlt");
 
 		/// <summary>
 		/// d_TerrainInspector.TerrainToolSettings
 		/// </summary>
-		public static readonly GUIContent DTerraininspectorTerraintoolsettings =
+		public static GUIContent DTerraininspectorTerraintoolsettings =>
 			EditorGUIUtility.IconContent("d_TerrainInspector.TerrainToolSettings");
 
 		/// <summary>
 		/// d_TerrainInspector.TerrainToolSmoothHeight
 		/// </summary>
-		public static readonly GUIContent DTerraininspectorTerraintoolsmoothheight =
+		public static GUIContent DTerraininspectorTerraintoolsmoothheight =>
 			EditorGUIUtility.IconContent("d_TerrainInspector.TerrainToolSmoothHeight");
 
 		/// <summary>
 		/// d_TerrainInspector.TerrainToolSplat
 		/// </summary>
-		public static readonly GUIContent DTerraininspectorTerraintoolsplat =
+		public static GUIContent DTerraininspectorTerraintoolsplat =>
 			EditorGUIUtility.IconContent("d_TerrainInspector.TerrainToolSplat");
 
 		/// <summary>
 		/// d_TerrainInspector.TerrainToolSplatAlt
 		/// </summary>
-		public static readonly GUIContent DTerraininspectorTerraintoolsplatalt =
+		public static GUIContent DTerraininspectorTerraintoolsplatalt =>
 			EditorGUIUtility.IconContent("d_TerrainInspector.TerrainToolSplatAlt");
 
 		/// <summary>
 		/// d_TerrainInspector.TerrainToolTrees
 		/// </summary>
-		public static readonly GUIContent DTerraininspectorTerraintooltrees =
+		public static GUIContent DTerraininspectorTerraintooltrees =>
 			EditorGUIUtility.IconContent("d_TerrainInspector.TerrainToolTrees");
 
 		/// <summary>
 		/// d_TerrainInspector.TerrainToolTreesAlt
 		/// </summary>
-		public static readonly GUIContent DTerraininspectorTerraintooltreesalt =
+		public static GUIContent DTerraininspectorTerraintooltreesalt =>
 			EditorGUIUtility.IconContent("d_TerrainInspector.TerrainToolTreesAlt");
 
 		/// <summary>
 		/// d_ToggleUVOverlay
 		/// </summary>
-		public static readonly GUIContent DToggleuvoverlay = EditorGUIUtility.IconContent("d_ToggleUVOverlay");
+		public static GUIContent DToggleuvoverlay => EditorGUIUtility.IconContent("d_ToggleUVOverlay");
 
 		/// <summary>
 		/// d_ToggleUVOverlay@2x
 		/// </summary>
-		public static readonly GUIContent DToggleuvoverlay2X = EditorGUIUtility.IconContent("d_ToggleUVOverlay@2x");
+		public static GUIContent DToggleuvoverlay2X => EditorGUIUtility.IconContent("d_ToggleUVOverlay@2x");
 
 		/// <summary>
 		/// d_ToolHandleCenter
 		/// </summary>
-		public static readonly GUIContent DToolhandlecenter = EditorGUIUtility.IconContent("d_ToolHandleCenter");
+		public static GUIContent DToolhandlecenter => EditorGUIUtility.IconContent("d_ToolHandleCenter");
 
 		/// <summary>
 		/// d_ToolHandleCenter@2x
 		/// </summary>
-		public static readonly GUIContent DToolhandlecenter2X = EditorGUIUtility.IconContent("d_ToolHandleCenter@2x");
+		public static GUIContent DToolhandlecenter2X => EditorGUIUtility.IconContent("d_ToolHandleCenter@2x");
 
 		/// <summary>
 		/// d_ToolHandleGlobal
 		/// </summary>
-		public static readonly GUIContent DToolhandleglobal = EditorGUIUtility.IconContent("d_ToolHandleGlobal");
+		public static GUIContent DToolhandleglobal => EditorGUIUtility.IconContent("d_ToolHandleGlobal");
 
 		/// <summary>
 		/// d_ToolHandleGlobal@2x
 		/// </summary>
-		public static readonly GUIContent DToolhandleglobal2X = EditorGUIUtility.IconContent("d_ToolHandleGlobal@2x");
+		public static GUIContent DToolhandleglobal2X => EditorGUIUtility.IconContent("d_ToolHandleGlobal@2x");
 
 		/// <summary>
 		/// d_ToolHandleLocal
 		/// </summary>
-		public static readonly GUIContent DToolhandlelocal = EditorGUIUtility.IconContent("d_ToolHandleLocal");
+		public static GUIContent DToolhandlelocal => EditorGUIUtility.IconContent("d_ToolHandleLocal");
 
 		/// <summary>
 		/// d_ToolHandleLocal@2x
 		/// </summary>
-		public static readonly GUIContent DToolhandlelocal2X = EditorGUIUtility.IconContent("d_ToolHandleLocal@2x");
+		public static GUIContent DToolhandlelocal2X => EditorGUIUtility.IconContent("d_ToolHandleLocal@2x");
 
 		/// <summary>
 		/// d_ToolHandlePivot
 		/// </summary>
-		public static readonly GUIContent DToolhandlepivot = EditorGUIUtility.IconContent("d_ToolHandlePivot");
+		public static GUIContent DToolhandlepivot => EditorGUIUtility.IconContent("d_ToolHandlePivot");
 
 		/// <summary>
 		/// d_ToolHandlePivot@2x
 		/// </summary>
-		public static readonly GUIContent DToolhandlepivot2X = EditorGUIUtility.IconContent("d_ToolHandlePivot@2x");
+		public static GUIContent DToolhandlepivot2X => EditorGUIUtility.IconContent("d_ToolHandlePivot@2x");
 
 		/// <summary>
 		/// d_ToolsIcon
 		/// </summary>
-		public static readonly GUIContent DToolsicon = EditorGUIUtility.IconContent("d_ToolsIcon");
+		public static GUIContent DToolsicon => EditorGUIUtility.IconContent("d_ToolsIcon");
 
 		/// <summary>
 		/// d_tranp
 		/// </summary>
-		public static readonly GUIContent DTranp = EditorGUIUtility.IconContent("d_tranp");
+		public static GUIContent DTranp => EditorGUIUtility.IconContent("d_tranp");
 
 		/// <summary>
 		/// d_TransformTool
 		/// </summary>
-		public static readonly GUIContent DTransformtool = EditorGUIUtility.IconContent("d_TransformTool");
+		public static GUIContent DTransformtool => EditorGUIUtility.IconContent("d_TransformTool");
 
 		/// <summary>
 		/// d_TransformTool@2x
 		/// </summary>
-		public static readonly GUIContent DTransformtool2X = EditorGUIUtility.IconContent("d_TransformTool@2x");
+		public static GUIContent DTransformtool2X => EditorGUIUtility.IconContent("d_TransformTool@2x");
 
 		/// <summary>
 		/// d_tree_icon
 		/// </summary>
-		public static readonly GUIContent DTreeIcon = EditorGUIUtility.IconContent("d_tree_icon");
+		public static GUIContent DTreeIcon => EditorGUIUtility.IconContent("d_tree_icon");
 
 		/// <summary>
 		/// d_tree_icon_branch
 		/// </summary>
-		public static readonly GUIContent DTreeIconBranch = EditorGUIUtility.IconContent("d_tree_icon_branch");
+		public static GUIContent DTreeIconBranch => EditorGUIUtility.IconContent("d_tree_icon_branch");
 
 		/// <summary>
 		/// d_tree_icon_branch_frond
 		/// </summary>
-		public static readonly GUIContent DTreeIconBranchFrond =
+		public static GUIContent DTreeIconBranchFrond =>
 			EditorGUIUtility.IconContent("d_tree_icon_branch_frond");
 
 		/// <summary>
 		/// d_tree_icon_frond
 		/// </summary>
-		public static readonly GUIContent DTreeIconFrond = EditorGUIUtility.IconContent("d_tree_icon_frond");
+		public static GUIContent DTreeIconFrond => EditorGUIUtility.IconContent("d_tree_icon_frond");
 
 		/// <summary>
 		/// d_tree_icon_leaf
 		/// </summary>
-		public static readonly GUIContent DTreeIconLeaf = EditorGUIUtility.IconContent("d_tree_icon_leaf");
+		public static GUIContent DTreeIconLeaf => EditorGUIUtility.IconContent("d_tree_icon_leaf");
 
 		/// <summary>
 		/// d_TreeEditor.AddBranches
 		/// </summary>
-		public static readonly GUIContent DTreeeditorAddbranches =
+		public static GUIContent DTreeeditorAddbranches =>
 			EditorGUIUtility.IconContent("d_TreeEditor.AddBranches");
 
 		/// <summary>
 		/// d_TreeEditor.AddLeaves
 		/// </summary>
-		public static readonly GUIContent DTreeeditorAddleaves = EditorGUIUtility.IconContent("d_TreeEditor.AddLeaves");
+		public static GUIContent DTreeeditorAddleaves => EditorGUIUtility.IconContent("d_TreeEditor.AddLeaves");
 
 		/// <summary>
 		/// d_TreeEditor.Branch
 		/// </summary>
-		public static readonly GUIContent DTreeeditorBranch = EditorGUIUtility.IconContent("d_TreeEditor.Branch");
+		public static GUIContent DTreeeditorBranch => EditorGUIUtility.IconContent("d_TreeEditor.Branch");
 
 		/// <summary>
 		/// d_TreeEditor.BranchFreeHand
 		/// </summary>
-		public static readonly GUIContent DTreeeditorBranchfreehand =
+		public static GUIContent DTreeeditorBranchfreehand =>
 			EditorGUIUtility.IconContent("d_TreeEditor.BranchFreeHand");
 
 		/// <summary>
 		/// d_TreeEditor.BranchRotate
 		/// </summary>
-		public static readonly GUIContent DTreeeditorBranchrotate =
+		public static GUIContent DTreeeditorBranchrotate =>
 			EditorGUIUtility.IconContent("d_TreeEditor.BranchRotate");
 
 		/// <summary>
 		/// d_TreeEditor.BranchScale
 		/// </summary>
-		public static readonly GUIContent DTreeeditorBranchscale =
+		public static GUIContent DTreeeditorBranchscale =>
 			EditorGUIUtility.IconContent("d_TreeEditor.BranchScale");
 
 		/// <summary>
 		/// d_TreeEditor.BranchTranslate
 		/// </summary>
-		public static readonly GUIContent DTreeeditorBranchtranslate =
+		public static GUIContent DTreeeditorBranchtranslate =>
 			EditorGUIUtility.IconContent("d_TreeEditor.BranchTranslate");
 
 		/// <summary>
 		/// d_TreeEditor.Distribution
 		/// </summary>
-		public static readonly GUIContent DTreeeditorDistribution =
+		public static GUIContent DTreeeditorDistribution =>
 			EditorGUIUtility.IconContent("d_TreeEditor.Distribution");
 
 		/// <summary>
 		/// d_TreeEditor.Duplicate
 		/// </summary>
-		public static readonly GUIContent DTreeeditorDuplicate = EditorGUIUtility.IconContent("d_TreeEditor.Duplicate");
+		public static GUIContent DTreeeditorDuplicate => EditorGUIUtility.IconContent("d_TreeEditor.Duplicate");
 
 		/// <summary>
 		/// d_TreeEditor.Geometry
 		/// </summary>
-		public static readonly GUIContent DTreeeditorGeometry = EditorGUIUtility.IconContent("d_TreeEditor.Geometry");
+		public static GUIContent DTreeeditorGeometry => EditorGUIUtility.IconContent("d_TreeEditor.Geometry");
 
 		/// <summary>
 		/// d_TreeEditor.Leaf
 		/// </summary>
-		public static readonly GUIContent DTreeeditorLeaf = EditorGUIUtility.IconContent("d_TreeEditor.Leaf");
+		public static GUIContent DTreeeditorLeaf => EditorGUIUtility.IconContent("d_TreeEditor.Leaf");
 
 		/// <summary>
 		/// d_TreeEditor.LeafFreeHand
 		/// </summary>
-		public static readonly GUIContent DTreeeditorLeaffreehand =
+		public static GUIContent DTreeeditorLeaffreehand =>
 			EditorGUIUtility.IconContent("d_TreeEditor.LeafFreeHand");
 
 		/// <summary>
 		/// d_TreeEditor.LeafRotate
 		/// </summary>
-		public static readonly GUIContent DTreeeditorLeafrotate =
+		public static GUIContent DTreeeditorLeafrotate =>
 			EditorGUIUtility.IconContent("d_TreeEditor.LeafRotate");
 
 		/// <summary>
 		/// d_TreeEditor.LeafScale
 		/// </summary>
-		public static readonly GUIContent DTreeeditorLeafscale = EditorGUIUtility.IconContent("d_TreeEditor.LeafScale");
+		public static GUIContent DTreeeditorLeafscale => EditorGUIUtility.IconContent("d_TreeEditor.LeafScale");
 
 		/// <summary>
 		/// d_TreeEditor.LeafTranslate
 		/// </summary>
-		public static readonly GUIContent DTreeeditorLeaftranslate =
+		public static GUIContent DTreeeditorLeaftranslate =>
 			EditorGUIUtility.IconContent("d_TreeEditor.LeafTranslate");
 
 		/// <summary>
 		/// d_TreeEditor.Material
 		/// </summary>
-		public static readonly GUIContent DTreeeditorMaterial = EditorGUIUtility.IconContent("d_TreeEditor.Material");
+		public static GUIContent DTreeeditorMaterial => EditorGUIUtility.IconContent("d_TreeEditor.Material");
 
 		/// <summary>
 		/// d_TreeEditor.Refresh
 		/// </summary>
-		public static readonly GUIContent DTreeeditorRefresh = EditorGUIUtility.IconContent("d_TreeEditor.Refresh");
+		public static GUIContent DTreeeditorRefresh => EditorGUIUtility.IconContent("d_TreeEditor.Refresh");
 
 		/// <summary>
 		/// d_TreeEditor.Trash
 		/// </summary>
-		public static readonly GUIContent DTreeeditorTrash = EditorGUIUtility.IconContent("d_TreeEditor.Trash");
+		public static GUIContent DTreeeditorTrash => EditorGUIUtility.IconContent("d_TreeEditor.Trash");
 
 		/// <summary>
 		/// d_TreeEditor.Wind
 		/// </summary>
-		public static readonly GUIContent DTreeeditorWind = EditorGUIUtility.IconContent("d_TreeEditor.Wind");
+		public static GUIContent DTreeeditorWind => EditorGUIUtility.IconContent("d_TreeEditor.Wind");
 
 		/// <summary>
 		/// d_UnityEditor.AnimationWindow
 		/// </summary>
-		public static readonly GUIContent DUnityeditorAnimationwindow =
+		public static GUIContent DUnityeditorAnimationwindow =>
 			EditorGUIUtility.IconContent("d_UnityEditor.AnimationWindow");
 
 		/// <summary>
 		/// d_UnityEditor.AnimationWindow@2x
 		/// </summary>
-		public static readonly GUIContent DUnityeditorAnimationwindow2X =
+		public static GUIContent DUnityeditorAnimationwindow2X =>
 			EditorGUIUtility.IconContent("d_UnityEditor.AnimationWindow@2x");
 
 		/// <summary>
 		/// d_UnityEditor.ConsoleWindow
 		/// </summary>
-		public static readonly GUIContent DUnityeditorConsolewindow =
+		public static GUIContent DUnityeditorConsolewindow =>
 			EditorGUIUtility.IconContent("d_UnityEditor.ConsoleWindow");
 
 		/// <summary>
 		/// d_UnityEditor.ConsoleWindow@2x
 		/// </summary>
-		public static readonly GUIContent DUnityeditorConsolewindow2X =
+		public static GUIContent DUnityeditorConsolewindow2X =>
 			EditorGUIUtility.IconContent("d_UnityEditor.ConsoleWindow@2x");
 
 		/// <summary>
 		/// d_UnityEditor.DebugInspectorWindow
 		/// </summary>
-		public static readonly GUIContent DUnityeditorDebuginspectorwindow =
+		public static GUIContent DUnityeditorDebuginspectorwindow =>
 			EditorGUIUtility.IconContent("d_UnityEditor.DebugInspectorWindow");
 
 		/// <summary>
 		/// d_UnityEditor.FindDependencies
 		/// </summary>
-		public static readonly GUIContent DUnityeditorFinddependencies =
+		public static GUIContent DUnityeditorFinddependencies =>
 			EditorGUIUtility.IconContent("d_UnityEditor.FindDependencies");
 
 		/// <summary>
 		/// d_UnityEditor.GameView
 		/// </summary>
-		public static readonly GUIContent DUnityeditorGameview = EditorGUIUtility.IconContent("d_UnityEditor.GameView");
+		public static GUIContent DUnityeditorGameview => EditorGUIUtility.IconContent("d_UnityEditor.GameView");
 
 		/// <summary>
 		/// d_UnityEditor.GameView@2x
 		/// </summary>
-		public static readonly GUIContent DUnityeditorGameview2X =
+		public static GUIContent DUnityeditorGameview2X =>
 			EditorGUIUtility.IconContent("d_UnityEditor.GameView@2x");
 
 		/// <summary>
 		/// d_UnityEditor.Graphs.AnimatorControllerTool
 		/// </summary>
-		public static readonly GUIContent DUnityeditorGraphsAnimatorcontrollertool =
+		public static GUIContent DUnityeditorGraphsAnimatorcontrollertool =>
 			EditorGUIUtility.IconContent("d_UnityEditor.Graphs.AnimatorControllerTool");
 
 		/// <summary>
 		/// d_UnityEditor.Graphs.AnimatorControllerTool@2x
 		/// </summary>
-		public static readonly GUIContent DUnityeditorGraphsAnimatorcontrollertool2X =
+		public static GUIContent DUnityeditorGraphsAnimatorcontrollertool2X =>
 			EditorGUIUtility.IconContent("d_UnityEditor.Graphs.AnimatorControllerTool@2x");
 
 		/// <summary>
 		/// d_UnityEditor.HierarchyWindow
 		/// </summary>
-		public static readonly GUIContent DUnityeditorHierarchywindow =
+		public static GUIContent DUnityeditorHierarchywindow =>
 			EditorGUIUtility.IconContent("d_UnityEditor.HierarchyWindow");
 
 		/// <summary>
 		/// d_UnityEditor.InspectorWindow
 		/// </summary>
-		public static readonly GUIContent DUnityeditorInspectorwindow =
+		public static GUIContent DUnityeditorInspectorwindow =>
 			EditorGUIUtility.IconContent("d_UnityEditor.InspectorWindow");
 
 		/// <summary>
 		/// d_UnityEditor.InspectorWindow@2x
 		/// </summary>
-		public static readonly GUIContent DUnityeditorInspectorwindow2X =
+		public static GUIContent DUnityeditorInspectorwindow2X =>
 			EditorGUIUtility.IconContent("d_UnityEditor.InspectorWindow@2x");
 
 		/// <summary>
 		/// d_UnityEditor.ProfilerWindow
 		/// </summary>
-		public static readonly GUIContent DUnityeditorProfilerwindow =
+		public static GUIContent DUnityeditorProfilerwindow =>
 			EditorGUIUtility.IconContent("d_UnityEditor.ProfilerWindow");
 
 		/// <summary>
 		/// d_UnityEditor.ProfilerWindow@2x
 		/// </summary>
-		public static readonly GUIContent DUnityeditorProfilerwindow2X =
+		public static GUIContent DUnityeditorProfilerwindow2X =>
 			EditorGUIUtility.IconContent("d_UnityEditor.ProfilerWindow@2x");
 
 		/// <summary>
 		/// d_UnityEditor.SceneHierarchyWindow
 		/// </summary>
-		public static readonly GUIContent DUnityeditorScenehierarchywindow =
+		public static GUIContent DUnityeditorScenehierarchywindow =>
 			EditorGUIUtility.IconContent("d_UnityEditor.SceneHierarchyWindow");
 
 		/// <summary>
 		/// d_UnityEditor.SceneHierarchyWindow@2x
 		/// </summary>
-		public static readonly GUIContent DUnityeditorScenehierarchywindow2X =
+		public static GUIContent DUnityeditorScenehierarchywindow2X =>
 			EditorGUIUtility.IconContent("d_UnityEditor.SceneHierarchyWindow@2x");
 
 		/// <summary>
 		/// d_UnityEditor.SceneView
 		/// </summary>
-		public static readonly GUIContent DUnityeditorSceneview =
+		public static GUIContent DUnityeditorSceneview =>
 			EditorGUIUtility.IconContent("d_UnityEditor.SceneView");
 
 		/// <summary>
 		/// d_UnityEditor.SceneView@2x
 		/// </summary>
-		public static readonly GUIContent DUnityeditorSceneview2X =
+		public static GUIContent DUnityeditorSceneview2X =>
 			EditorGUIUtility.IconContent("d_UnityEditor.SceneView@2x");
 
 		/// <summary>
 		/// d_UnityEditor.Timeline.TimelineWindow
 		/// </summary>
-		public static readonly GUIContent DUnityeditorTimelineTimelinewindow =
+		public static GUIContent DUnityeditorTimelineTimelinewindow =>
 			EditorGUIUtility.IconContent("d_UnityEditor.Timeline.TimelineWindow");
 
 		/// <summary>
 		/// d_UnityEditor.Timeline.TimelineWindow@2x
 		/// </summary>
-		public static readonly GUIContent DUnityeditorTimelineTimelinewindow2X =
+		public static GUIContent DUnityeditorTimelineTimelinewindow2X =>
 			EditorGUIUtility.IconContent("d_UnityEditor.Timeline.TimelineWindow@2x");
 
 		/// <summary>
 		/// d_UnityEditor.VersionControl
 		/// </summary>
-		public static readonly GUIContent DUnityeditorVersioncontrol =
+		public static GUIContent DUnityeditorVersioncontrol =>
 			EditorGUIUtility.IconContent("d_UnityEditor.VersionControl");
 
 		/// <summary>
 		/// d_UnityLogo
 		/// </summary>
-		public static readonly GUIContent DUnitylogo = EditorGUIUtility.IconContent("d_UnityLogo");
+		public static GUIContent DUnitylogo => EditorGUIUtility.IconContent("d_UnityLogo");
 
 		/// <summary>
 		/// d_Unlinked
 		/// </summary>
-		public static readonly GUIContent DUnlinked = EditorGUIUtility.IconContent("d_Unlinked");
+		public static GUIContent DUnlinked => EditorGUIUtility.IconContent("d_Unlinked");
 
 		/// <summary>
 		/// d_Unlinked@2x
 		/// </summary>
-		public static readonly GUIContent DUnlinked2X = EditorGUIUtility.IconContent("d_Unlinked@2x");
+		public static GUIContent DUnlinked2X => EditorGUIUtility.IconContent("d_Unlinked@2x");
 
 		/// <summary>
 		/// d_Valid
 		/// </summary>
-		public static readonly GUIContent DValid = EditorGUIUtility.IconContent("d_Valid");
+		public static GUIContent DValid => EditorGUIUtility.IconContent("d_Valid");
 
 		/// <summary>
 		/// d_Valid@2x
 		/// </summary>
-		public static readonly GUIContent DValid2X = EditorGUIUtility.IconContent("d_Valid@2x");
+		public static GUIContent DValid2X => EditorGUIUtility.IconContent("d_Valid@2x");
 
 		/// <summary>
 		/// d_VerticalSplit
 		/// </summary>
-		public static readonly GUIContent DVerticalsplit = EditorGUIUtility.IconContent("d_VerticalSplit");
+		public static GUIContent DVerticalsplit => EditorGUIUtility.IconContent("d_VerticalSplit");
 
 		/// <summary>
 		/// d_ViewToolMove
 		/// </summary>
-		public static readonly GUIContent DViewtoolmove = EditorGUIUtility.IconContent("d_ViewToolMove");
+		public static GUIContent DViewtoolmove => EditorGUIUtility.IconContent("d_ViewToolMove");
 
 		/// <summary>
 		/// d_ViewToolMove@2x
 		/// </summary>
-		public static readonly GUIContent DViewtoolmove2X = EditorGUIUtility.IconContent("d_ViewToolMove@2x");
+		public static GUIContent DViewtoolmove2X => EditorGUIUtility.IconContent("d_ViewToolMove@2x");
 
 		/// <summary>
 		/// d_ViewToolOrbit
 		/// </summary>
-		public static readonly GUIContent DViewtoolorbit = EditorGUIUtility.IconContent("d_ViewToolOrbit");
+		public static GUIContent DViewtoolorbit => EditorGUIUtility.IconContent("d_ViewToolOrbit");
 
 		/// <summary>
 		/// d_ViewToolOrbit@2x
 		/// </summary>
-		public static readonly GUIContent DViewtoolorbit2X = EditorGUIUtility.IconContent("d_ViewToolOrbit@2x");
+		public static GUIContent DViewtoolorbit2X => EditorGUIUtility.IconContent("d_ViewToolOrbit@2x");
 
 		/// <summary>
 		/// d_ViewToolZoom
 		/// </summary>
-		public static readonly GUIContent DViewtoolzoom = EditorGUIUtility.IconContent("d_ViewToolZoom");
+		public static GUIContent DViewtoolzoom => EditorGUIUtility.IconContent("d_ViewToolZoom");
 
 		/// <summary>
 		/// d_ViewToolZoom@2x
 		/// </summary>
-		public static readonly GUIContent DViewtoolzoom2X = EditorGUIUtility.IconContent("d_ViewToolZoom@2x");
+		public static GUIContent DViewtoolzoom2X => EditorGUIUtility.IconContent("d_ViewToolZoom@2x");
 
 		/// <summary>
 		/// d_VisibilityOff
 		/// </summary>
-		public static readonly GUIContent DVisibilityoff = EditorGUIUtility.IconContent("d_VisibilityOff");
+		public static GUIContent DVisibilityoff => EditorGUIUtility.IconContent("d_VisibilityOff");
 
 		/// <summary>
 		/// d_VisibilityOn
 		/// </summary>
-		public static readonly GUIContent DVisibilityon = EditorGUIUtility.IconContent("d_VisibilityOn");
+		public static GUIContent DVisibilityon => EditorGUIUtility.IconContent("d_VisibilityOn");
 
 		/// <summary>
 		/// d_VUMeterTextureHorizontal
 		/// </summary>
-		public static readonly GUIContent DVumetertexturehorizontal =
+		public static GUIContent DVumetertexturehorizontal =>
 			EditorGUIUtility.IconContent("d_VUMeterTextureHorizontal");
 
 		/// <summary>
 		/// d_VUMeterTextureVertical
 		/// </summary>
-		public static readonly GUIContent DVumetertexturevertical =
+		public static GUIContent DVumetertexturevertical =>
 			EditorGUIUtility.IconContent("d_VUMeterTextureVertical");
 
 		/// <summary>
 		/// d_WaitSpin00
 		/// </summary>
-		public static readonly GUIContent DWaitspin00 = EditorGUIUtility.IconContent("d_WaitSpin00");
+		public static GUIContent DWaitspin00 => EditorGUIUtility.IconContent("d_WaitSpin00");
 
 		/// <summary>
 		/// d_WaitSpin01
 		/// </summary>
-		public static readonly GUIContent DWaitspin01 = EditorGUIUtility.IconContent("d_WaitSpin01");
+		public static GUIContent DWaitspin01 => EditorGUIUtility.IconContent("d_WaitSpin01");
 
 		/// <summary>
 		/// d_WaitSpin02
 		/// </summary>
-		public static readonly GUIContent DWaitspin02 = EditorGUIUtility.IconContent("d_WaitSpin02");
+		public static GUIContent DWaitspin02 => EditorGUIUtility.IconContent("d_WaitSpin02");
 
 		/// <summary>
 		/// d_WaitSpin03
 		/// </summary>
-		public static readonly GUIContent DWaitspin03 = EditorGUIUtility.IconContent("d_WaitSpin03");
+		public static GUIContent DWaitspin03 => EditorGUIUtility.IconContent("d_WaitSpin03");
 
 		/// <summary>
 		/// d_WaitSpin04
 		/// </summary>
-		public static readonly GUIContent DWaitspin04 = EditorGUIUtility.IconContent("d_WaitSpin04");
+		public static GUIContent DWaitspin04 => EditorGUIUtility.IconContent("d_WaitSpin04");
 
 		/// <summary>
 		/// d_WaitSpin05
 		/// </summary>
-		public static readonly GUIContent DWaitspin05 = EditorGUIUtility.IconContent("d_WaitSpin05");
+		public static GUIContent DWaitspin05 => EditorGUIUtility.IconContent("d_WaitSpin05");
 
 		/// <summary>
 		/// d_WaitSpin06
 		/// </summary>
-		public static readonly GUIContent DWaitspin06 = EditorGUIUtility.IconContent("d_WaitSpin06");
+		public static GUIContent DWaitspin06 => EditorGUIUtility.IconContent("d_WaitSpin06");
 
 		/// <summary>
 		/// d_WaitSpin07
 		/// </summary>
-		public static readonly GUIContent DWaitspin07 = EditorGUIUtility.IconContent("d_WaitSpin07");
+		public static GUIContent DWaitspin07 => EditorGUIUtility.IconContent("d_WaitSpin07");
 
 		/// <summary>
 		/// d_WaitSpin08
 		/// </summary>
-		public static readonly GUIContent DWaitspin08 = EditorGUIUtility.IconContent("d_WaitSpin08");
+		public static GUIContent DWaitspin08 => EditorGUIUtility.IconContent("d_WaitSpin08");
 
 		/// <summary>
 		/// d_WaitSpin09
 		/// </summary>
-		public static readonly GUIContent DWaitspin09 = EditorGUIUtility.IconContent("d_WaitSpin09");
+		public static GUIContent DWaitspin09 => EditorGUIUtility.IconContent("d_WaitSpin09");
 
 		/// <summary>
 		/// d_WaitSpin10
 		/// </summary>
-		public static readonly GUIContent DWaitspin10 = EditorGUIUtility.IconContent("d_WaitSpin10");
+		public static GUIContent DWaitspin10 => EditorGUIUtility.IconContent("d_WaitSpin10");
 
 		/// <summary>
 		/// d_WaitSpin11
 		/// </summary>
-		public static readonly GUIContent DWaitspin11 = EditorGUIUtility.IconContent("d_WaitSpin11");
+		public static GUIContent DWaitspin11 => EditorGUIUtility.IconContent("d_WaitSpin11");
 
 		/// <summary>
 		/// d_WelcomeScreen.AssetStoreLogo
 		/// </summary>
-		public static readonly GUIContent DWelcomescreenAssetstorelogo =
+		public static GUIContent DWelcomescreenAssetstorelogo =>
 			EditorGUIUtility.IconContent("d_WelcomeScreen.AssetStoreLogo");
 
 		/// <summary>
 		/// d_winbtn_graph
 		/// </summary>
-		public static readonly GUIContent DWinbtnGraph = EditorGUIUtility.IconContent("d_winbtn_graph");
+		public static GUIContent DWinbtnGraph => EditorGUIUtility.IconContent("d_winbtn_graph");
 
 		/// <summary>
 		/// d_winbtn_graph_close_h
 		/// </summary>
-		public static readonly GUIContent DWinbtnGraphCloseH = EditorGUIUtility.IconContent("d_winbtn_graph_close_h");
+		public static GUIContent DWinbtnGraphCloseH => EditorGUIUtility.IconContent("d_winbtn_graph_close_h");
 
 		/// <summary>
 		/// d_winbtn_graph_max_h
 		/// </summary>
-		public static readonly GUIContent DWinbtnGraphMaxH = EditorGUIUtility.IconContent("d_winbtn_graph_max_h");
+		public static GUIContent DWinbtnGraphMaxH => EditorGUIUtility.IconContent("d_winbtn_graph_max_h");
 
 		/// <summary>
 		/// d_winbtn_graph_min_h
 		/// </summary>
-		public static readonly GUIContent DWinbtnGraphMinH = EditorGUIUtility.IconContent("d_winbtn_graph_min_h");
+		public static GUIContent DWinbtnGraphMinH => EditorGUIUtility.IconContent("d_winbtn_graph_min_h");
 
 		/// <summary>
 		/// d_winbtn_mac_close
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacClose = EditorGUIUtility.IconContent("d_winbtn_mac_close");
+		public static GUIContent DWinbtnMacClose => EditorGUIUtility.IconContent("d_winbtn_mac_close");
 
 		/// <summary>
 		/// d_winbtn_mac_close@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacClose2X = EditorGUIUtility.IconContent("d_winbtn_mac_close@2x");
+		public static GUIContent DWinbtnMacClose2X => EditorGUIUtility.IconContent("d_winbtn_mac_close@2x");
 
 		/// <summary>
 		/// d_winbtn_mac_close_a
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacCloseA = EditorGUIUtility.IconContent("d_winbtn_mac_close_a");
+		public static GUIContent DWinbtnMacCloseA => EditorGUIUtility.IconContent("d_winbtn_mac_close_a");
 
 		/// <summary>
 		/// d_winbtn_mac_close_a@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacCloseA2X = EditorGUIUtility.IconContent("d_winbtn_mac_close_a@2x");
+		public static GUIContent DWinbtnMacCloseA2X => EditorGUIUtility.IconContent("d_winbtn_mac_close_a@2x");
 
 		/// <summary>
 		/// d_winbtn_mac_close_h
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacCloseH = EditorGUIUtility.IconContent("d_winbtn_mac_close_h");
+		public static GUIContent DWinbtnMacCloseH => EditorGUIUtility.IconContent("d_winbtn_mac_close_h");
 
 		/// <summary>
 		/// d_winbtn_mac_close_h@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacCloseH2X = EditorGUIUtility.IconContent("d_winbtn_mac_close_h@2x");
+		public static GUIContent DWinbtnMacCloseH2X => EditorGUIUtility.IconContent("d_winbtn_mac_close_h@2x");
 
 		/// <summary>
 		/// d_winbtn_mac_inact
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacInact = EditorGUIUtility.IconContent("d_winbtn_mac_inact");
+		public static GUIContent DWinbtnMacInact => EditorGUIUtility.IconContent("d_winbtn_mac_inact");
 
 		/// <summary>
 		/// d_winbtn_mac_max
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacMax = EditorGUIUtility.IconContent("d_winbtn_mac_max");
+		public static GUIContent DWinbtnMacMax => EditorGUIUtility.IconContent("d_winbtn_mac_max");
 
 		/// <summary>
 		/// d_winbtn_mac_max@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacMax2X = EditorGUIUtility.IconContent("d_winbtn_mac_max@2x");
+		public static GUIContent DWinbtnMacMax2X => EditorGUIUtility.IconContent("d_winbtn_mac_max@2x");
 
 		/// <summary>
 		/// d_winbtn_mac_max_a
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacMaxA = EditorGUIUtility.IconContent("d_winbtn_mac_max_a");
+		public static GUIContent DWinbtnMacMaxA => EditorGUIUtility.IconContent("d_winbtn_mac_max_a");
 
 		/// <summary>
 		/// d_winbtn_mac_max_a@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacMaxA2X = EditorGUIUtility.IconContent("d_winbtn_mac_max_a@2x");
+		public static GUIContent DWinbtnMacMaxA2X => EditorGUIUtility.IconContent("d_winbtn_mac_max_a@2x");
 
 		/// <summary>
 		/// d_winbtn_mac_max_h
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacMaxH = EditorGUIUtility.IconContent("d_winbtn_mac_max_h");
+		public static GUIContent DWinbtnMacMaxH => EditorGUIUtility.IconContent("d_winbtn_mac_max_h");
 
 		/// <summary>
 		/// d_winbtn_mac_max_h@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacMaxH2X = EditorGUIUtility.IconContent("d_winbtn_mac_max_h@2x");
+		public static GUIContent DWinbtnMacMaxH2X => EditorGUIUtility.IconContent("d_winbtn_mac_max_h@2x");
 
 		/// <summary>
 		/// d_winbtn_mac_min
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacMin = EditorGUIUtility.IconContent("d_winbtn_mac_min");
+		public static GUIContent DWinbtnMacMin => EditorGUIUtility.IconContent("d_winbtn_mac_min");
 
 		/// <summary>
 		/// d_winbtn_mac_min@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacMin2X = EditorGUIUtility.IconContent("d_winbtn_mac_min@2x");
+		public static GUIContent DWinbtnMacMin2X => EditorGUIUtility.IconContent("d_winbtn_mac_min@2x");
 
 		/// <summary>
 		/// d_winbtn_mac_min_a
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacMinA = EditorGUIUtility.IconContent("d_winbtn_mac_min_a");
+		public static GUIContent DWinbtnMacMinA => EditorGUIUtility.IconContent("d_winbtn_mac_min_a");
 
 		/// <summary>
 		/// d_winbtn_mac_min_a@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacMinA2X = EditorGUIUtility.IconContent("d_winbtn_mac_min_a@2x");
+		public static GUIContent DWinbtnMacMinA2X => EditorGUIUtility.IconContent("d_winbtn_mac_min_a@2x");
 
 		/// <summary>
 		/// d_winbtn_mac_min_h
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacMinH = EditorGUIUtility.IconContent("d_winbtn_mac_min_h");
+		public static GUIContent DWinbtnMacMinH => EditorGUIUtility.IconContent("d_winbtn_mac_min_h");
 
 		/// <summary>
 		/// d_winbtn_mac_min_h@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnMacMinH2X = EditorGUIUtility.IconContent("d_winbtn_mac_min_h@2x");
+		public static GUIContent DWinbtnMacMinH2X => EditorGUIUtility.IconContent("d_winbtn_mac_min_h@2x");
 
 		/// <summary>
 		/// d_winbtn_win_close
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinClose = EditorGUIUtility.IconContent("d_winbtn_win_close");
+		public static GUIContent DWinbtnWinClose => EditorGUIUtility.IconContent("d_winbtn_win_close");
 
 		/// <summary>
 		/// d_winbtn_win_close@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinClose2X = EditorGUIUtility.IconContent("d_winbtn_win_close@2x");
+		public static GUIContent DWinbtnWinClose2X => EditorGUIUtility.IconContent("d_winbtn_win_close@2x");
 
 		/// <summary>
 		/// d_winbtn_win_close_a
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinCloseA = EditorGUIUtility.IconContent("d_winbtn_win_close_a");
+		public static GUIContent DWinbtnWinCloseA => EditorGUIUtility.IconContent("d_winbtn_win_close_a");
 
 		/// <summary>
 		/// d_winbtn_win_close_a@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinCloseA2X = EditorGUIUtility.IconContent("d_winbtn_win_close_a@2x");
+		public static GUIContent DWinbtnWinCloseA2X => EditorGUIUtility.IconContent("d_winbtn_win_close_a@2x");
 
 		/// <summary>
 		/// d_winbtn_win_close_h
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinCloseH = EditorGUIUtility.IconContent("d_winbtn_win_close_h");
+		public static GUIContent DWinbtnWinCloseH => EditorGUIUtility.IconContent("d_winbtn_win_close_h");
 
 		/// <summary>
 		/// d_winbtn_win_close_h@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinCloseH2X = EditorGUIUtility.IconContent("d_winbtn_win_close_h@2x");
+		public static GUIContent DWinbtnWinCloseH2X => EditorGUIUtility.IconContent("d_winbtn_win_close_h@2x");
 
 		/// <summary>
 		/// d_winbtn_win_max
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinMax = EditorGUIUtility.IconContent("d_winbtn_win_max");
+		public static GUIContent DWinbtnWinMax => EditorGUIUtility.IconContent("d_winbtn_win_max");
 
 		/// <summary>
 		/// d_winbtn_win_max@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinMax2X = EditorGUIUtility.IconContent("d_winbtn_win_max@2x");
+		public static GUIContent DWinbtnWinMax2X => EditorGUIUtility.IconContent("d_winbtn_win_max@2x");
 
 		/// <summary>
 		/// d_winbtn_win_max_a
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinMaxA = EditorGUIUtility.IconContent("d_winbtn_win_max_a");
+		public static GUIContent DWinbtnWinMaxA => EditorGUIUtility.IconContent("d_winbtn_win_max_a");
 
 		/// <summary>
 		/// d_winbtn_win_max_a@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinMaxA2X = EditorGUIUtility.IconContent("d_winbtn_win_max_a@2x");
+		public static GUIContent DWinbtnWinMaxA2X => EditorGUIUtility.IconContent("d_winbtn_win_max_a@2x");
 
 		/// <summary>
 		/// d_winbtn_win_max_h
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinMaxH = EditorGUIUtility.IconContent("d_winbtn_win_max_h");
+		public static GUIContent DWinbtnWinMaxH => EditorGUIUtility.IconContent("d_winbtn_win_max_h");
 
 		/// <summary>
 		/// d_winbtn_win_max_h@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinMaxH2X = EditorGUIUtility.IconContent("d_winbtn_win_max_h@2x");
+		public static GUIContent DWinbtnWinMaxH2X => EditorGUIUtility.IconContent("d_winbtn_win_max_h@2x");
 
 		/// <summary>
 		/// d_winbtn_win_min
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinMin = EditorGUIUtility.IconContent("d_winbtn_win_min");
+		public static GUIContent DWinbtnWinMin => EditorGUIUtility.IconContent("d_winbtn_win_min");
 
 		/// <summary>
 		/// d_winbtn_win_min_a
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinMinA = EditorGUIUtility.IconContent("d_winbtn_win_min_a");
+		public static GUIContent DWinbtnWinMinA => EditorGUIUtility.IconContent("d_winbtn_win_min_a");
 
 		/// <summary>
 		/// d_winbtn_win_min_h
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinMinH = EditorGUIUtility.IconContent("d_winbtn_win_min_h");
+		public static GUIContent DWinbtnWinMinH => EditorGUIUtility.IconContent("d_winbtn_win_min_h");
 
 		/// <summary>
 		/// d_winbtn_win_rest
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinRest = EditorGUIUtility.IconContent("d_winbtn_win_rest");
+		public static GUIContent DWinbtnWinRest => EditorGUIUtility.IconContent("d_winbtn_win_rest");
 
 		/// <summary>
 		/// d_winbtn_win_rest_a
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinRestA = EditorGUIUtility.IconContent("d_winbtn_win_rest_a");
+		public static GUIContent DWinbtnWinRestA => EditorGUIUtility.IconContent("d_winbtn_win_rest_a");
 
 		/// <summary>
 		/// d_winbtn_win_rest_h
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinRestH = EditorGUIUtility.IconContent("d_winbtn_win_rest_h");
+		public static GUIContent DWinbtnWinRestH => EditorGUIUtility.IconContent("d_winbtn_win_rest_h");
 
 		/// <summary>
 		/// d_winbtn_win_restore
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinRestore = EditorGUIUtility.IconContent("d_winbtn_win_restore");
+		public static GUIContent DWinbtnWinRestore => EditorGUIUtility.IconContent("d_winbtn_win_restore");
 
 		/// <summary>
 		/// d_winbtn_win_restore@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinRestore2X = EditorGUIUtility.IconContent("d_winbtn_win_restore@2x");
+		public static GUIContent DWinbtnWinRestore2X => EditorGUIUtility.IconContent("d_winbtn_win_restore@2x");
 
 		/// <summary>
 		/// d_winbtn_win_restore_a
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinRestoreA = EditorGUIUtility.IconContent("d_winbtn_win_restore_a");
+		public static GUIContent DWinbtnWinRestoreA => EditorGUIUtility.IconContent("d_winbtn_win_restore_a");
 
 		/// <summary>
 		/// d_winbtn_win_restore_a@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinRestoreA2X =
+		public static GUIContent DWinbtnWinRestoreA2X =>
 			EditorGUIUtility.IconContent("d_winbtn_win_restore_a@2x");
 
 		/// <summary>
 		/// d_winbtn_win_restore_h
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinRestoreH = EditorGUIUtility.IconContent("d_winbtn_win_restore_h");
+		public static GUIContent DWinbtnWinRestoreH => EditorGUIUtility.IconContent("d_winbtn_win_restore_h");
 
 		/// <summary>
 		/// d_winbtn_win_restore_h@2x
 		/// </summary>
-		public static readonly GUIContent DWinbtnWinRestoreH2X =
+		public static GUIContent DWinbtnWinRestoreH2X =>
 			EditorGUIUtility.IconContent("d_winbtn_win_restore_h@2x");
 
 		/// <summary>
 		/// DebuggerAttached
 		/// </summary>
-		public static readonly GUIContent Debuggerattached = EditorGUIUtility.IconContent("DebuggerAttached");
+		public static GUIContent Debuggerattached => EditorGUIUtility.IconContent("DebuggerAttached");
 
 		/// <summary>
 		/// DebuggerAttached@2x
 		/// </summary>
-		public static readonly GUIContent Debuggerattached2X = EditorGUIUtility.IconContent("DebuggerAttached@2x");
+		public static GUIContent Debuggerattached2X => EditorGUIUtility.IconContent("DebuggerAttached@2x");
 
 		/// <summary>
 		/// DebuggerDisabled
 		/// </summary>
-		public static readonly GUIContent Debuggerdisabled = EditorGUIUtility.IconContent("DebuggerDisabled");
+		public static GUIContent Debuggerdisabled => EditorGUIUtility.IconContent("DebuggerDisabled");
 
 		/// <summary>
 		/// DebuggerDisabled@2x
 		/// </summary>
-		public static readonly GUIContent Debuggerdisabled2X = EditorGUIUtility.IconContent("DebuggerDisabled@2x");
+		public static GUIContent Debuggerdisabled2X => EditorGUIUtility.IconContent("DebuggerDisabled@2x");
 
 		/// <summary>
 		/// DebuggerEnabled
 		/// </summary>
-		public static readonly GUIContent Debuggerenabled = EditorGUIUtility.IconContent("DebuggerEnabled");
+		public static GUIContent Debuggerenabled => EditorGUIUtility.IconContent("DebuggerEnabled");
 
 		/// <summary>
 		/// DebuggerEnabled@2x
 		/// </summary>
-		public static readonly GUIContent Debuggerenabled2X = EditorGUIUtility.IconContent("DebuggerEnabled@2x");
+		public static GUIContent Debuggerenabled2X => EditorGUIUtility.IconContent("DebuggerEnabled@2x");
 
 		/// <summary>
 		/// DefaultSorting
 		/// </summary>
-		public static readonly GUIContent Defaultsorting = EditorGUIUtility.IconContent("DefaultSorting");
+		public static GUIContent Defaultsorting => EditorGUIUtility.IconContent("DefaultSorting");
 
 		/// <summary>
 		/// DefaultSorting@2x
 		/// </summary>
-		public static readonly GUIContent Defaultsorting2X = EditorGUIUtility.IconContent("DefaultSorting@2x");
+		public static GUIContent Defaultsorting2X => EditorGUIUtility.IconContent("DefaultSorting@2x");
 
 		/// <summary>
 		/// EditCollider
 		/// </summary>
-		public static readonly GUIContent Editcollider = EditorGUIUtility.IconContent("EditCollider");
+		public static GUIContent Editcollider => EditorGUIUtility.IconContent("EditCollider");
 
 		/// <summary>
 		/// editcollision_16
 		/// </summary>
-		public static readonly GUIContent Editcollision16 = EditorGUIUtility.IconContent("editcollision_16");
+		public static GUIContent Editcollision16 => EditorGUIUtility.IconContent("editcollision_16");
 
 		/// <summary>
 		/// editcollision_16@2x
 		/// </summary>
-		public static readonly GUIContent Editcollision162X = EditorGUIUtility.IconContent("editcollision_16@2x");
+		public static GUIContent Editcollision162X => EditorGUIUtility.IconContent("editcollision_16@2x");
 
 		/// <summary>
 		/// editcollision_32
 		/// </summary>
-		public static readonly GUIContent Editcollision32 = EditorGUIUtility.IconContent("editcollision_32");
+		public static GUIContent Editcollision32 => EditorGUIUtility.IconContent("editcollision_32");
 
 		/// <summary>
 		/// editconstraints_16
 		/// </summary>
-		public static readonly GUIContent Editconstraints16 = EditorGUIUtility.IconContent("editconstraints_16");
+		public static GUIContent Editconstraints16 => EditorGUIUtility.IconContent("editconstraints_16");
 
 		/// <summary>
 		/// editconstraints_16@2x
 		/// </summary>
-		public static readonly GUIContent Editconstraints162X = EditorGUIUtility.IconContent("editconstraints_16@2x");
+		public static GUIContent Editconstraints162X => EditorGUIUtility.IconContent("editconstraints_16@2x");
 
 		/// <summary>
 		/// editconstraints_32
 		/// </summary>
-		public static readonly GUIContent Editconstraints32 = EditorGUIUtility.IconContent("editconstraints_32");
+		public static GUIContent Editconstraints32 => EditorGUIUtility.IconContent("editconstraints_32");
 
 		/// <summary>
 		/// editicon.sml
 		/// </summary>
-		public static readonly GUIContent EditiconSml = EditorGUIUtility.IconContent("editicon.sml");
+		public static GUIContent EditiconSml => EditorGUIUtility.IconContent("editicon.sml");
 
 		/// <summary>
 		/// endButton-On
 		/// </summary>
-		public static readonly GUIContent EndbuttonOn = EditorGUIUtility.IconContent("endButton-On");
+		public static GUIContent EndbuttonOn => EditorGUIUtility.IconContent("endButton-On");
 
 		/// <summary>
 		/// endButton
 		/// </summary>
-		public static readonly GUIContent Endbutton = EditorGUIUtility.IconContent("endButton");
+		public static GUIContent Endbutton => EditorGUIUtility.IconContent("endButton");
 
 		/// <summary>
 		/// Exposure
 		/// </summary>
-		public static readonly GUIContent Exposure = EditorGUIUtility.IconContent("Exposure");
+		public static GUIContent Exposure => EditorGUIUtility.IconContent("Exposure");
 
 		/// <summary>
 		/// Exposure@2x
 		/// </summary>
-		public static readonly GUIContent Exposure2X = EditorGUIUtility.IconContent("Exposure@2x");
+		public static GUIContent Exposure2X => EditorGUIUtility.IconContent("Exposure@2x");
 
 		/// <summary>
 		/// eyeDropper.Large
 		/// </summary>
-		public static readonly GUIContent EyedropperLarge = EditorGUIUtility.IconContent("eyeDropper.Large");
+		public static GUIContent EyedropperLarge => EditorGUIUtility.IconContent("eyeDropper.Large");
 
 		/// <summary>
 		/// eyeDropper.Large@2x
 		/// </summary>
-		public static readonly GUIContent EyedropperLarge2X = EditorGUIUtility.IconContent("eyeDropper.Large@2x");
+		public static GUIContent EyedropperLarge2X => EditorGUIUtility.IconContent("eyeDropper.Large@2x");
 
 		/// <summary>
 		/// eyeDropper.sml
 		/// </summary>
-		public static readonly GUIContent EyedropperSml = EditorGUIUtility.IconContent("eyeDropper.sml");
+		public static GUIContent EyedropperSml => EditorGUIUtility.IconContent("eyeDropper.sml");
 
 		/// <summary>
 		/// Favorite
 		/// </summary>
-		public static readonly GUIContent Favorite = EditorGUIUtility.IconContent("Favorite");
+		public static GUIContent Favorite => EditorGUIUtility.IconContent("Favorite");
 
 		/// <summary>
 		/// Favorite@2x
 		/// </summary>
-		public static readonly GUIContent Favorite2X = EditorGUIUtility.IconContent("Favorite@2x");
+		public static GUIContent Favorite2X => EditorGUIUtility.IconContent("Favorite@2x");
 
 		/// <summary>
 		/// FilterByLabel
 		/// </summary>
-		public static readonly GUIContent Filterbylabel = EditorGUIUtility.IconContent("FilterByLabel");
+		public static GUIContent Filterbylabel => EditorGUIUtility.IconContent("FilterByLabel");
 
 		/// <summary>
 		/// FilterByLabel@2x
 		/// </summary>
-		public static readonly GUIContent Filterbylabel2X = EditorGUIUtility.IconContent("FilterByLabel@2x");
+		public static GUIContent Filterbylabel2X => EditorGUIUtility.IconContent("FilterByLabel@2x");
 
 		/// <summary>
 		/// FilterByType
 		/// </summary>
-		public static readonly GUIContent Filterbytype = EditorGUIUtility.IconContent("FilterByType");
+		public static GUIContent Filterbytype => EditorGUIUtility.IconContent("FilterByType");
 
 		/// <summary>
 		/// FilterByType@2x
 		/// </summary>
-		public static readonly GUIContent Filterbytype2X = EditorGUIUtility.IconContent("FilterByType@2x");
+		public static GUIContent Filterbytype2X => EditorGUIUtility.IconContent("FilterByType@2x");
 
 		/// <summary>
 		/// FilterSelectedOnly
 		/// </summary>
-		public static readonly GUIContent Filterselectedonly = EditorGUIUtility.IconContent("FilterSelectedOnly");
+		public static GUIContent Filterselectedonly => EditorGUIUtility.IconContent("FilterSelectedOnly");
 
 		/// <summary>
 		/// FilterSelectedOnly@2x
 		/// </summary>
-		public static readonly GUIContent Filterselectedonly2X = EditorGUIUtility.IconContent("FilterSelectedOnly@2x");
+		public static GUIContent Filterselectedonly2X => EditorGUIUtility.IconContent("FilterSelectedOnly@2x");
 
 		/// <summary>
 		/// forward
 		/// </summary>
-		public static readonly GUIContent Forward = EditorGUIUtility.IconContent("forward");
+		public static GUIContent Forward => EditorGUIUtility.IconContent("forward");
 
 		/// <summary>
 		/// forward@2x
 		/// </summary>
-		public static readonly GUIContent Forward2X = EditorGUIUtility.IconContent("forward@2x");
+		public static GUIContent Forward2X => EditorGUIUtility.IconContent("forward@2x");
 
 		/// <summary>
 		/// FrameCapture
 		/// </summary>
-		public static readonly GUIContent Framecapture = EditorGUIUtility.IconContent("FrameCapture");
+		public static GUIContent Framecapture => EditorGUIUtility.IconContent("FrameCapture");
 
 		/// <summary>
 		/// FrameCapture@2x
 		/// </summary>
-		public static readonly GUIContent Framecapture2X = EditorGUIUtility.IconContent("FrameCapture@2x");
+		public static GUIContent Framecapture2X => EditorGUIUtility.IconContent("FrameCapture@2x");
 
 		/// <summary>
 		/// GEAR
 		/// </summary>
-		public static readonly GUIContent Gear = EditorGUIUtility.IconContent("GEAR");
+		public static GUIContent Gear => EditorGUIUtility.IconContent("GEAR");
 
 		/// <summary>
 		/// Grid.BoxTool
 		/// </summary>
-		public static readonly GUIContent GridBoxtool = EditorGUIUtility.IconContent("Grid.BoxTool");
+		public static GUIContent GridBoxtool => EditorGUIUtility.IconContent("Grid.BoxTool");
 
 		/// <summary>
 		/// Grid.BoxTool@2x
 		/// </summary>
-		public static readonly GUIContent GridBoxtool2X = EditorGUIUtility.IconContent("Grid.BoxTool@2x");
+		public static GUIContent GridBoxtool2X => EditorGUIUtility.IconContent("Grid.BoxTool@2x");
 
 		/// <summary>
 		/// Grid.Default
 		/// </summary>
-		public static readonly GUIContent GridDefault = EditorGUIUtility.IconContent("Grid.Default");
+		public static GUIContent GridDefault => EditorGUIUtility.IconContent("Grid.Default");
 
 		/// <summary>
 		/// Grid.Default@2x
 		/// </summary>
-		public static readonly GUIContent GridDefault2X = EditorGUIUtility.IconContent("Grid.Default@2x");
+		public static GUIContent GridDefault2X => EditorGUIUtility.IconContent("Grid.Default@2x");
 
 		/// <summary>
 		/// Grid.EraserTool
 		/// </summary>
-		public static readonly GUIContent GridErasertool = EditorGUIUtility.IconContent("Grid.EraserTool");
+		public static GUIContent GridErasertool => EditorGUIUtility.IconContent("Grid.EraserTool");
 
 		/// <summary>
 		/// Grid.EraserTool@2x
 		/// </summary>
-		public static readonly GUIContent GridErasertool2X = EditorGUIUtility.IconContent("Grid.EraserTool@2x");
+		public static GUIContent GridErasertool2X => EditorGUIUtility.IconContent("Grid.EraserTool@2x");
 
 		/// <summary>
 		/// Grid.FillTool
 		/// </summary>
-		public static readonly GUIContent GridFilltool = EditorGUIUtility.IconContent("Grid.FillTool");
+		public static GUIContent GridFilltool => EditorGUIUtility.IconContent("Grid.FillTool");
 
 		/// <summary>
 		/// Grid.FillTool@2x
 		/// </summary>
-		public static readonly GUIContent GridFilltool2X = EditorGUIUtility.IconContent("Grid.FillTool@2x");
+		public static GUIContent GridFilltool2X => EditorGUIUtility.IconContent("Grid.FillTool@2x");
 
 		/// <summary>
 		/// Grid.MoveTool
 		/// </summary>
-		public static readonly GUIContent GridMovetool = EditorGUIUtility.IconContent("Grid.MoveTool");
+		public static GUIContent GridMovetool => EditorGUIUtility.IconContent("Grid.MoveTool");
 
 		/// <summary>
 		/// Grid.MoveTool@2x
 		/// </summary>
-		public static readonly GUIContent GridMovetool2X = EditorGUIUtility.IconContent("Grid.MoveTool@2x");
+		public static GUIContent GridMovetool2X => EditorGUIUtility.IconContent("Grid.MoveTool@2x");
 
 		/// <summary>
 		/// Grid.PaintTool
 		/// </summary>
-		public static readonly GUIContent GridPainttool = EditorGUIUtility.IconContent("Grid.PaintTool");
+		public static GUIContent GridPainttool => EditorGUIUtility.IconContent("Grid.PaintTool");
 
 		/// <summary>
 		/// Grid.PaintTool@2x
 		/// </summary>
-		public static readonly GUIContent GridPainttool2X = EditorGUIUtility.IconContent("Grid.PaintTool@2x");
+		public static GUIContent GridPainttool2X => EditorGUIUtility.IconContent("Grid.PaintTool@2x");
 
 		/// <summary>
 		/// Grid.PickingTool
 		/// </summary>
-		public static readonly GUIContent GridPickingtool = EditorGUIUtility.IconContent("Grid.PickingTool");
+		public static GUIContent GridPickingtool => EditorGUIUtility.IconContent("Grid.PickingTool");
 
 		/// <summary>
 		/// Grid.PickingTool@2x
 		/// </summary>
-		public static readonly GUIContent GridPickingtool2X = EditorGUIUtility.IconContent("Grid.PickingTool@2x");
+		public static GUIContent GridPickingtool2X => EditorGUIUtility.IconContent("Grid.PickingTool@2x");
 
 		/// <summary>
 		/// Groove
 		/// </summary>
-		public static readonly GUIContent Groove = EditorGUIUtility.IconContent("Groove");
+		public static GUIContent Groove => EditorGUIUtility.IconContent("Groove");
 
 		/// <summary>
 		/// align_horizontally
 		/// </summary>
-		public static readonly GUIContent AlignHorizontally = EditorGUIUtility.IconContent("align_horizontally");
+		public static GUIContent AlignHorizontally => EditorGUIUtility.IconContent("align_horizontally");
 
 		/// <summary>
 		/// align_horizontally_center
 		/// </summary>
-		public static readonly GUIContent AlignHorizontallyCenter =
+		public static GUIContent AlignHorizontallyCenter =>
 			EditorGUIUtility.IconContent("align_horizontally_center");
 
 		/// <summary>
 		/// align_horizontally_center_active
 		/// </summary>
-		public static readonly GUIContent AlignHorizontallyCenterActive =
+		public static GUIContent AlignHorizontallyCenterActive =>
 			EditorGUIUtility.IconContent("align_horizontally_center_active");
 
 		/// <summary>
 		/// align_horizontally_left
 		/// </summary>
-		public static readonly GUIContent AlignHorizontallyLeft =
+		public static GUIContent AlignHorizontallyLeft =>
 			EditorGUIUtility.IconContent("align_horizontally_left");
 
 		/// <summary>
 		/// align_horizontally_left_active
 		/// </summary>
-		public static readonly GUIContent AlignHorizontallyLeftActive =
+		public static GUIContent AlignHorizontallyLeftActive =>
 			EditorGUIUtility.IconContent("align_horizontally_left_active");
 
 		/// <summary>
 		/// align_horizontally_right
 		/// </summary>
-		public static readonly GUIContent AlignHorizontallyRight =
+		public static GUIContent AlignHorizontallyRight =>
 			EditorGUIUtility.IconContent("align_horizontally_right");
 
 		/// <summary>
 		/// align_horizontally_right_active
 		/// </summary>
-		public static readonly GUIContent AlignHorizontallyRightActive =
+		public static GUIContent AlignHorizontallyRightActive =>
 			EditorGUIUtility.IconContent("align_horizontally_right_active");
 
 		/// <summary>
 		/// align_vertically
 		/// </summary>
-		public static readonly GUIContent AlignVertically = EditorGUIUtility.IconContent("align_vertically");
+		public static GUIContent AlignVertically => EditorGUIUtility.IconContent("align_vertically");
 
 		/// <summary>
 		/// align_vertically_bottom
 		/// </summary>
-		public static readonly GUIContent AlignVerticallyBottom =
+		public static GUIContent AlignVerticallyBottom =>
 			EditorGUIUtility.IconContent("align_vertically_bottom");
 
 		/// <summary>
 		/// align_vertically_bottom_active
 		/// </summary>
-		public static readonly GUIContent AlignVerticallyBottomActive =
+		public static GUIContent AlignVerticallyBottomActive =>
 			EditorGUIUtility.IconContent("align_vertically_bottom_active");
 
 		/// <summary>
 		/// align_vertically_center
 		/// </summary>
-		public static readonly GUIContent AlignVerticallyCenter =
+		public static GUIContent AlignVerticallyCenter =>
 			EditorGUIUtility.IconContent("align_vertically_center");
 
 		/// <summary>
 		/// align_vertically_center_active
 		/// </summary>
-		public static readonly GUIContent AlignVerticallyCenterActive =
+		public static GUIContent AlignVerticallyCenterActive =>
 			EditorGUIUtility.IconContent("align_vertically_center_active");
 
 		/// <summary>
 		/// align_vertically_top
 		/// </summary>
-		public static readonly GUIContent AlignVerticallyTop = EditorGUIUtility.IconContent("align_vertically_top");
+		public static GUIContent AlignVerticallyTop => EditorGUIUtility.IconContent("align_vertically_top");
 
 		/// <summary>
 		/// align_vertically_top_active
 		/// </summary>
-		public static readonly GUIContent AlignVerticallyTopActive =
+		public static GUIContent AlignVerticallyTopActive =>
 			EditorGUIUtility.IconContent("align_vertically_top_active");
 
 		/// <summary>
 		/// d_align_horizontally
 		/// </summary>
-		public static readonly GUIContent DAlignHorizontally = EditorGUIUtility.IconContent("d_align_horizontally");
+		public static GUIContent DAlignHorizontally => EditorGUIUtility.IconContent("d_align_horizontally");
 
 		/// <summary>
 		/// d_align_horizontally_center
 		/// </summary>
-		public static readonly GUIContent DAlignHorizontallyCenter =
+		public static GUIContent DAlignHorizontallyCenter =>
 			EditorGUIUtility.IconContent("d_align_horizontally_center");
 
 		/// <summary>
 		/// d_align_horizontally_center_active
 		/// </summary>
-		public static readonly GUIContent DAlignHorizontallyCenterActive =
+		public static GUIContent DAlignHorizontallyCenterActive =>
 			EditorGUIUtility.IconContent("d_align_horizontally_center_active");
 
 		/// <summary>
 		/// d_align_horizontally_left
 		/// </summary>
-		public static readonly GUIContent DAlignHorizontallyLeft =
+		public static GUIContent DAlignHorizontallyLeft =>
 			EditorGUIUtility.IconContent("d_align_horizontally_left");
 
 		/// <summary>
 		/// d_align_horizontally_left_active
 		/// </summary>
-		public static readonly GUIContent DAlignHorizontallyLeftActive =
+		public static GUIContent DAlignHorizontallyLeftActive =>
 			EditorGUIUtility.IconContent("d_align_horizontally_left_active");
 
 		/// <summary>
 		/// d_align_horizontally_right
 		/// </summary>
-		public static readonly GUIContent DAlignHorizontallyRight =
+		public static GUIContent DAlignHorizontallyRight =>
 			EditorGUIUtility.IconContent("d_align_horizontally_right");
 
 		/// <summary>
 		/// d_align_horizontally_right_active
 		/// </summary>
-		public static readonly GUIContent DAlignHorizontallyRightActive =
+		public static GUIContent DAlignHorizontallyRightActive =>
 			EditorGUIUtility.IconContent("d_align_horizontally_right_active");
 
 		/// <summary>
 		/// d_align_vertically
 		/// </summary>
-		public static readonly GUIContent DAlignVertically = EditorGUIUtility.IconContent("d_align_vertically");
+		public static GUIContent DAlignVertically => EditorGUIUtility.IconContent("d_align_vertically");
 
 		/// <summary>
 		/// d_align_vertically_bottom
 		/// </summary>
-		public static readonly GUIContent DAlignVerticallyBottom =
+		public static GUIContent DAlignVerticallyBottom =>
 			EditorGUIUtility.IconContent("d_align_vertically_bottom");
 
 		/// <summary>
 		/// d_align_vertically_bottom_active
 		/// </summary>
-		public static readonly GUIContent DAlignVerticallyBottomActive =
+		public static GUIContent DAlignVerticallyBottomActive =>
 			EditorGUIUtility.IconContent("d_align_vertically_bottom_active");
 
 		/// <summary>
 		/// d_align_vertically_center
 		/// </summary>
-		public static readonly GUIContent DAlignVerticallyCenter =
+		public static GUIContent DAlignVerticallyCenter =>
 			EditorGUIUtility.IconContent("d_align_vertically_center");
 
 		/// <summary>
 		/// d_align_vertically_center_active
 		/// </summary>
-		public static readonly GUIContent DAlignVerticallyCenterActive =
+		public static GUIContent DAlignVerticallyCenterActive =>
 			EditorGUIUtility.IconContent("d_align_vertically_center_active");
 
 		/// <summary>
 		/// d_align_vertically_top
 		/// </summary>
-		public static readonly GUIContent DAlignVerticallyTop = EditorGUIUtility.IconContent("d_align_vertically_top");
+		public static GUIContent DAlignVerticallyTop => EditorGUIUtility.IconContent("d_align_vertically_top");
 
 		/// <summary>
 		/// d_align_vertically_top_active
 		/// </summary>
-		public static readonly GUIContent DAlignVerticallyTopActive =
+		public static GUIContent DAlignVerticallyTopActive =>
 			EditorGUIUtility.IconContent("d_align_vertically_top_active");
 
 		/// <summary>
 		/// HorizontalSplit
 		/// </summary>
-		public static readonly GUIContent Horizontalsplit = EditorGUIUtility.IconContent("HorizontalSplit");
+		public static GUIContent Horizontalsplit => EditorGUIUtility.IconContent("HorizontalSplit");
 
 		/// <summary>
 		/// Import
 		/// </summary>
-		public static readonly GUIContent Import = EditorGUIUtility.IconContent("Import");
+		public static GUIContent Import => EditorGUIUtility.IconContent("Import");
 
 		/// <summary>
 		/// Import@2x
 		/// </summary>
-		public static readonly GUIContent Import2X = EditorGUIUtility.IconContent("Import@2x");
+		public static GUIContent Import2X => EditorGUIUtility.IconContent("Import@2x");
 
 		/// <summary>
 		/// InspectorLock
 		/// </summary>
-		public static readonly GUIContent Inspectorlock = EditorGUIUtility.IconContent("InspectorLock");
+		public static GUIContent Inspectorlock => EditorGUIUtility.IconContent("InspectorLock");
 
 		/// <summary>
 		/// Invalid
 		/// </summary>
-		public static readonly GUIContent Invalid = EditorGUIUtility.IconContent("Invalid");
+		public static GUIContent Invalid => EditorGUIUtility.IconContent("Invalid");
 
 		/// <summary>
 		/// Invalid@2x
 		/// </summary>
-		public static readonly GUIContent Invalid2X = EditorGUIUtility.IconContent("Invalid@2x");
+		public static GUIContent Invalid2X => EditorGUIUtility.IconContent("Invalid@2x");
 
 		/// <summary>
 		/// JointAngularLimits
 		/// </summary>
-		public static readonly GUIContent Jointangularlimits = EditorGUIUtility.IconContent("JointAngularLimits");
+		public static GUIContent Jointangularlimits => EditorGUIUtility.IconContent("JointAngularLimits");
 
 		/// <summary>
 		/// KnobCShape
 		/// </summary>
-		public static readonly GUIContent Knobcshape = EditorGUIUtility.IconContent("KnobCShape");
+		public static GUIContent Knobcshape => EditorGUIUtility.IconContent("KnobCShape");
 
 		/// <summary>
 		/// KnobCShapeMini
 		/// </summary>
-		public static readonly GUIContent Knobcshapemini = EditorGUIUtility.IconContent("KnobCShapeMini");
+		public static GUIContent Knobcshapemini => EditorGUIUtility.IconContent("KnobCShapeMini");
 
 		/// <summary>
 		/// leftBracket
 		/// </summary>
-		public static readonly GUIContent Leftbracket = EditorGUIUtility.IconContent("leftBracket");
+		public static GUIContent Leftbracket => EditorGUIUtility.IconContent("leftBracket");
 
 		/// <summary>
 		/// Lighting
 		/// </summary>
-		public static readonly GUIContent Lighting = EditorGUIUtility.IconContent("Lighting");
+		public static GUIContent Lighting => EditorGUIUtility.IconContent("Lighting");
 
 		/// <summary>
 		/// Lighting@2x
 		/// </summary>
-		public static readonly GUIContent Lighting2X = EditorGUIUtility.IconContent("Lighting@2x");
+		public static GUIContent Lighting2X => EditorGUIUtility.IconContent("Lighting@2x");
 
 		/// <summary>
 		/// LightmapEditor.WindowTitle
 		/// </summary>
-		public static readonly GUIContent LightmapeditorWindowtitle =
+		public static GUIContent LightmapeditorWindowtitle =>
 			EditorGUIUtility.IconContent("LightmapEditor.WindowTitle");
 
 		/// <summary>
 		/// LightmapEditor.WindowTitle@2x
 		/// </summary>
-		public static readonly GUIContent LightmapeditorWindowtitle2X =
+		public static GUIContent LightmapeditorWindowtitle2X =>
 			EditorGUIUtility.IconContent("LightmapEditor.WindowTitle@2x");
 
 		/// <summary>
 		/// Lightmapping
 		/// </summary>
-		public static readonly GUIContent Lightmapping = EditorGUIUtility.IconContent("Lightmapping");
+		public static GUIContent Lightmapping => EditorGUIUtility.IconContent("Lightmapping");
 
 		/// <summary>
 		/// d_greenLight
 		/// </summary>
-		public static readonly GUIContent DGreenlight = EditorGUIUtility.IconContent("d_greenLight");
+		public static GUIContent DGreenlight => EditorGUIUtility.IconContent("d_greenLight");
 
 		/// <summary>
 		/// d_lightOff
 		/// </summary>
-		public static readonly GUIContent DLightoff = EditorGUIUtility.IconContent("d_lightOff");
+		public static GUIContent DLightoff => EditorGUIUtility.IconContent("d_lightOff");
 
 		/// <summary>
 		/// d_lightRim
 		/// </summary>
-		public static readonly GUIContent DLightrim = EditorGUIUtility.IconContent("d_lightRim");
+		public static GUIContent DLightrim => EditorGUIUtility.IconContent("d_lightRim");
 
 		/// <summary>
 		/// d_orangeLight
 		/// </summary>
-		public static readonly GUIContent DOrangelight = EditorGUIUtility.IconContent("d_orangeLight");
+		public static GUIContent DOrangelight => EditorGUIUtility.IconContent("d_orangeLight");
 
 		/// <summary>
 		/// d_redLight
 		/// </summary>
-		public static readonly GUIContent DRedlight = EditorGUIUtility.IconContent("d_redLight");
+		public static GUIContent DRedlight => EditorGUIUtility.IconContent("d_redLight");
 
 		/// <summary>
 		/// greenLight
 		/// </summary>
-		public static readonly GUIContent Greenlight = EditorGUIUtility.IconContent("greenLight");
+		public static GUIContent Greenlight => EditorGUIUtility.IconContent("greenLight");
 
 		/// <summary>
 		/// lightOff
 		/// </summary>
-		public static readonly GUIContent Lightoff = EditorGUIUtility.IconContent("lightOff");
+		public static GUIContent Lightoff => EditorGUIUtility.IconContent("lightOff");
 
 		/// <summary>
 		/// lightRim
 		/// </summary>
-		public static readonly GUIContent Lightrim = EditorGUIUtility.IconContent("lightRim");
+		public static GUIContent Lightrim => EditorGUIUtility.IconContent("lightRim");
 
 		/// <summary>
 		/// orangeLight
 		/// </summary>
-		public static readonly GUIContent Orangelight = EditorGUIUtility.IconContent("orangeLight");
+		public static GUIContent Orangelight => EditorGUIUtility.IconContent("orangeLight");
 
 		/// <summary>
 		/// redLight
 		/// </summary>
-		public static readonly GUIContent Redlight = EditorGUIUtility.IconContent("redLight");
+		public static GUIContent Redlight => EditorGUIUtility.IconContent("redLight");
 
 		/// <summary>
 		/// Linked
 		/// </summary>
-		public static readonly GUIContent Linked = EditorGUIUtility.IconContent("Linked");
+		public static GUIContent Linked => EditorGUIUtility.IconContent("Linked");
 
 		/// <summary>
 		/// Linked@2x
 		/// </summary>
-		public static readonly GUIContent Linked2X = EditorGUIUtility.IconContent("Linked@2x");
+		public static GUIContent Linked2X => EditorGUIUtility.IconContent("Linked@2x");
 
 		/// <summary>
 		/// LockIcon-On
 		/// </summary>
-		public static readonly GUIContent LockiconOn = EditorGUIUtility.IconContent("LockIcon-On");
+		public static GUIContent LockiconOn => EditorGUIUtility.IconContent("LockIcon-On");
 
 		/// <summary>
 		/// LockIcon
 		/// </summary>
-		public static readonly GUIContent Lockicon = EditorGUIUtility.IconContent("LockIcon");
+		public static GUIContent Lockicon => EditorGUIUtility.IconContent("LockIcon");
 
 		/// <summary>
 		/// loop
 		/// </summary>
-		public static readonly GUIContent Loop = EditorGUIUtility.IconContent("loop");
+		public static GUIContent Loop => EditorGUIUtility.IconContent("loop");
 
 		/// <summary>
 		/// MainStageView
 		/// </summary>
-		public static readonly GUIContent Mainstageview = EditorGUIUtility.IconContent("MainStageView");
+		public static GUIContent Mainstageview => EditorGUIUtility.IconContent("MainStageView");
 
 		/// <summary>
 		/// MainStageView@2x
 		/// </summary>
-		public static readonly GUIContent Mainstageview2X = EditorGUIUtility.IconContent("MainStageView@2x");
+		public static GUIContent Mainstageview2X => EditorGUIUtility.IconContent("MainStageView@2x");
 
 		/// <summary>
 		/// Mirror
 		/// </summary>
-		public static readonly GUIContent Mirror = EditorGUIUtility.IconContent("Mirror");
+		public static GUIContent Mirror => EditorGUIUtility.IconContent("Mirror");
 
 		/// <summary>
 		/// monologo
 		/// </summary>
-		public static readonly GUIContent Monologo = EditorGUIUtility.IconContent("monologo");
+		public static GUIContent Monologo => EditorGUIUtility.IconContent("monologo");
 
 		/// <summary>
 		/// MoreOptions
 		/// </summary>
-		public static readonly GUIContent Moreoptions = EditorGUIUtility.IconContent("MoreOptions");
+		public static GUIContent Moreoptions => EditorGUIUtility.IconContent("MoreOptions");
 
 		/// <summary>
 		/// MoreOptions@2x
 		/// </summary>
-		public static readonly GUIContent Moreoptions2X = EditorGUIUtility.IconContent("MoreOptions@2x");
+		public static GUIContent Moreoptions2X => EditorGUIUtility.IconContent("MoreOptions@2x");
 
 		/// <summary>
 		/// MoveTool
 		/// </summary>
-		public static readonly GUIContent Movetool = EditorGUIUtility.IconContent("MoveTool");
+		public static GUIContent Movetool => EditorGUIUtility.IconContent("MoveTool");
 
 		/// <summary>
 		/// MoveTool@2x
 		/// </summary>
-		public static readonly GUIContent Movetool2X = EditorGUIUtility.IconContent("MoveTool@2x");
+		public static GUIContent Movetool2X => EditorGUIUtility.IconContent("MoveTool@2x");
 
 		/// <summary>
 		/// Navigation
 		/// </summary>
-		public static readonly GUIContent Navigation = EditorGUIUtility.IconContent("Navigation");
+		public static GUIContent Navigation => EditorGUIUtility.IconContent("Navigation");
 
 		/// <summary>
 		/// Occlusion
 		/// </summary>
-		public static readonly GUIContent Occlusion = EditorGUIUtility.IconContent("Occlusion");
+		public static GUIContent Occlusion => EditorGUIUtility.IconContent("Occlusion");
 
 		/// <summary>
 		/// Occlusion@2x
 		/// </summary>
-		public static readonly GUIContent Occlusion2X = EditorGUIUtility.IconContent("Occlusion@2x");
+		public static GUIContent Occlusion2X => EditorGUIUtility.IconContent("Occlusion@2x");
 
 		/// <summary>
 		/// PackageBadgeNew
 		/// </summary>
-		public static readonly GUIContent Packagebadgenew = EditorGUIUtility.IconContent("PackageBadgeNew");
+		public static GUIContent Packagebadgenew => EditorGUIUtility.IconContent("PackageBadgeNew");
 
 		/// <summary>
 		/// ParticleShapeTool
 		/// </summary>
-		public static readonly GUIContent Particleshapetool = EditorGUIUtility.IconContent("ParticleShapeTool");
+		public static GUIContent Particleshapetool => EditorGUIUtility.IconContent("ParticleShapeTool");
 
 		/// <summary>
 		/// ParticleShapeTool@2x
 		/// </summary>
-		public static readonly GUIContent Particleshapetool2X = EditorGUIUtility.IconContent("ParticleShapeTool@2x");
+		public static GUIContent Particleshapetool2X => EditorGUIUtility.IconContent("ParticleShapeTool@2x");
 
 		/// <summary>
 		/// ParticleShapeTool@3x
 		/// </summary>
-		public static readonly GUIContent Particleshapetool3X = EditorGUIUtility.IconContent("ParticleShapeTool@3x");
+		public static GUIContent Particleshapetool3X => EditorGUIUtility.IconContent("ParticleShapeTool@3x");
 
 		/// <summary>
 		/// ParticleShapeTool@4x
 		/// </summary>
-		public static readonly GUIContent Particleshapetool4X = EditorGUIUtility.IconContent("ParticleShapeTool@4x");
+		public static GUIContent Particleshapetool4X => EditorGUIUtility.IconContent("ParticleShapeTool@4x");
 
 		/// <summary>
 		/// PauseButton
 		/// </summary>
-		public static readonly GUIContent Pausebutton = EditorGUIUtility.IconContent("PauseButton");
+		public static GUIContent Pausebutton => EditorGUIUtility.IconContent("PauseButton");
 
 		/// <summary>
 		/// PauseButton@2x
 		/// </summary>
-		public static readonly GUIContent Pausebutton2X = EditorGUIUtility.IconContent("PauseButton@2x");
+		public static GUIContent Pausebutton2X => EditorGUIUtility.IconContent("PauseButton@2x");
 
 		/// <summary>
 		/// PlayButton
 		/// </summary>
-		public static readonly GUIContent Playbutton = EditorGUIUtility.IconContent("PlayButton");
+		public static GUIContent Playbutton => EditorGUIUtility.IconContent("PlayButton");
 
 		/// <summary>
 		/// PlayButton@2x
 		/// </summary>
-		public static readonly GUIContent Playbutton2X = EditorGUIUtility.IconContent("PlayButton@2x");
+		public static GUIContent Playbutton2X => EditorGUIUtility.IconContent("PlayButton@2x");
 
 		/// <summary>
 		/// PlayButtonProfile
 		/// </summary>
-		public static readonly GUIContent Playbuttonprofile = EditorGUIUtility.IconContent("PlayButtonProfile");
+		public static GUIContent Playbuttonprofile => EditorGUIUtility.IconContent("PlayButtonProfile");
 
 		/// <summary>
 		/// playLoopOff
 		/// </summary>
-		public static readonly GUIContent Playloopoff = EditorGUIUtility.IconContent("playLoopOff");
+		public static GUIContent Playloopoff => EditorGUIUtility.IconContent("playLoopOff");
 
 		/// <summary>
 		/// playLoopOn
 		/// </summary>
-		public static readonly GUIContent Playloopon = EditorGUIUtility.IconContent("playLoopOn");
+		public static GUIContent Playloopon => EditorGUIUtility.IconContent("playLoopOn");
 
 		/// <summary>
 		/// playSpeed
 		/// </summary>
-		public static readonly GUIContent Playspeed = EditorGUIUtility.IconContent("playSpeed");
+		public static GUIContent Playspeed => EditorGUIUtility.IconContent("playSpeed");
 
 		/// <summary>
 		/// preAudioAutoPlayOff
 		/// </summary>
-		public static readonly GUIContent Preaudioautoplayoff = EditorGUIUtility.IconContent("preAudioAutoPlayOff");
+		public static GUIContent Preaudioautoplayoff => EditorGUIUtility.IconContent("preAudioAutoPlayOff");
 
 		/// <summary>
 		/// preAudioAutoPlayOff@2x
 		/// </summary>
-		public static readonly GUIContent
-			Preaudioautoplayoff2X = EditorGUIUtility.IconContent("preAudioAutoPlayOff@2x");
+		public static GUIContent
+			Preaudioautoplayoff2X => EditorGUIUtility.IconContent("preAudioAutoPlayOff@2x");
 
 		/// <summary>
 		/// preAudioAutoPlayOn
 		/// </summary>
-		public static readonly GUIContent Preaudioautoplayon = EditorGUIUtility.IconContent("preAudioAutoPlayOn");
+		public static GUIContent Preaudioautoplayon => EditorGUIUtility.IconContent("preAudioAutoPlayOn");
 
 		/// <summary>
 		/// preAudioLoopOff
 		/// </summary>
-		public static readonly GUIContent Preaudioloopoff = EditorGUIUtility.IconContent("preAudioLoopOff");
+		public static GUIContent Preaudioloopoff => EditorGUIUtility.IconContent("preAudioLoopOff");
 
 		/// <summary>
 		/// preAudioLoopOff@2x
 		/// </summary>
-		public static readonly GUIContent Preaudioloopoff2X = EditorGUIUtility.IconContent("preAudioLoopOff@2x");
+		public static GUIContent Preaudioloopoff2X => EditorGUIUtility.IconContent("preAudioLoopOff@2x");
 
 		/// <summary>
 		/// preAudioLoopOn
 		/// </summary>
-		public static readonly GUIContent Preaudioloopon = EditorGUIUtility.IconContent("preAudioLoopOn");
+		public static GUIContent Preaudioloopon => EditorGUIUtility.IconContent("preAudioLoopOn");
 
 		/// <summary>
 		/// preAudioPlayOff
 		/// </summary>
-		public static readonly GUIContent Preaudioplayoff = EditorGUIUtility.IconContent("preAudioPlayOff");
+		public static GUIContent Preaudioplayoff => EditorGUIUtility.IconContent("preAudioPlayOff");
 
 		/// <summary>
 		/// preAudioPlayOn
 		/// </summary>
-		public static readonly GUIContent Preaudioplayon = EditorGUIUtility.IconContent("preAudioPlayOn");
+		public static GUIContent Preaudioplayon => EditorGUIUtility.IconContent("preAudioPlayOn");
 
 		/// <summary>
 		/// PreMatCube
 		/// </summary>
-		public static readonly GUIContent Prematcube = EditorGUIUtility.IconContent("PreMatCube");
+		public static GUIContent Prematcube => EditorGUIUtility.IconContent("PreMatCube");
 
 		/// <summary>
 		/// PreMatCube@2x
 		/// </summary>
-		public static readonly GUIContent Prematcube2X = EditorGUIUtility.IconContent("PreMatCube@2x");
+		public static GUIContent Prematcube2X => EditorGUIUtility.IconContent("PreMatCube@2x");
 
 		/// <summary>
 		/// PreMatCylinder
 		/// </summary>
-		public static readonly GUIContent Prematcylinder = EditorGUIUtility.IconContent("PreMatCylinder");
+		public static GUIContent Prematcylinder => EditorGUIUtility.IconContent("PreMatCylinder");
 
 		/// <summary>
 		/// PreMatCylinder@2x
 		/// </summary>
-		public static readonly GUIContent Prematcylinder2X = EditorGUIUtility.IconContent("PreMatCylinder@2x");
+		public static GUIContent Prematcylinder2X => EditorGUIUtility.IconContent("PreMatCylinder@2x");
 
 		/// <summary>
 		/// PreMatLight0
 		/// </summary>
-		public static readonly GUIContent Prematlight0 = EditorGUIUtility.IconContent("PreMatLight0");
+		public static GUIContent Prematlight0 => EditorGUIUtility.IconContent("PreMatLight0");
 
 		/// <summary>
 		/// PreMatLight0@2x
 		/// </summary>
-		public static readonly GUIContent Prematlight02X = EditorGUIUtility.IconContent("PreMatLight0@2x");
+		public static GUIContent Prematlight02X => EditorGUIUtility.IconContent("PreMatLight0@2x");
 
 		/// <summary>
 		/// PreMatLight1
 		/// </summary>
-		public static readonly GUIContent Prematlight1 = EditorGUIUtility.IconContent("PreMatLight1");
+		public static GUIContent Prematlight1 => EditorGUIUtility.IconContent("PreMatLight1");
 
 		/// <summary>
 		/// PreMatLight1@2x
 		/// </summary>
-		public static readonly GUIContent Prematlight12X = EditorGUIUtility.IconContent("PreMatLight1@2x");
+		public static GUIContent Prematlight12X => EditorGUIUtility.IconContent("PreMatLight1@2x");
 
 		/// <summary>
 		/// PreMatQuad
 		/// </summary>
-		public static readonly GUIContent Prematquad = EditorGUIUtility.IconContent("PreMatQuad");
+		public static GUIContent Prematquad => EditorGUIUtility.IconContent("PreMatQuad");
 
 		/// <summary>
 		/// PreMatQuad@2x
 		/// </summary>
-		public static readonly GUIContent Prematquad2X = EditorGUIUtility.IconContent("PreMatQuad@2x");
+		public static GUIContent Prematquad2X => EditorGUIUtility.IconContent("PreMatQuad@2x");
 
 		/// <summary>
 		/// PreMatSphere
 		/// </summary>
-		public static readonly GUIContent Prematsphere = EditorGUIUtility.IconContent("PreMatSphere");
+		public static GUIContent Prematsphere => EditorGUIUtility.IconContent("PreMatSphere");
 
 		/// <summary>
 		/// PreMatSphere@2x
 		/// </summary>
-		public static readonly GUIContent Prematsphere2X = EditorGUIUtility.IconContent("PreMatSphere@2x");
+		public static GUIContent Prematsphere2X => EditorGUIUtility.IconContent("PreMatSphere@2x");
 
 		/// <summary>
 		/// PreMatTorus
 		/// </summary>
-		public static readonly GUIContent Premattorus = EditorGUIUtility.IconContent("PreMatTorus");
+		public static GUIContent Premattorus => EditorGUIUtility.IconContent("PreMatTorus");
 
 		/// <summary>
 		/// PreMatTorus@2x
 		/// </summary>
-		public static readonly GUIContent Premattorus2X = EditorGUIUtility.IconContent("PreMatTorus@2x");
+		public static GUIContent Premattorus2X => EditorGUIUtility.IconContent("PreMatTorus@2x");
 
 		/// <summary>
 		/// Preset.Context
 		/// </summary>
-		public static readonly GUIContent PresetContext = EditorGUIUtility.IconContent("Preset.Context");
+		public static GUIContent PresetContext => EditorGUIUtility.IconContent("Preset.Context");
 
 		/// <summary>
 		/// Preset.Context@2x
 		/// </summary>
-		public static readonly GUIContent PresetContext2X = EditorGUIUtility.IconContent("Preset.Context@2x");
+		public static GUIContent PresetContext2X => EditorGUIUtility.IconContent("Preset.Context@2x");
 
 		/// <summary>
 		/// PreTexA
 		/// </summary>
-		public static readonly GUIContent Pretexa = EditorGUIUtility.IconContent("PreTexA");
+		public static GUIContent Pretexa => EditorGUIUtility.IconContent("PreTexA");
 
 		/// <summary>
 		/// PreTexA@2x
 		/// </summary>
-		public static readonly GUIContent Pretexa2X = EditorGUIUtility.IconContent("PreTexA@2x");
+		public static GUIContent Pretexa2X => EditorGUIUtility.IconContent("PreTexA@2x");
 
 		/// <summary>
 		/// PreTexB
 		/// </summary>
-		public static readonly GUIContent Pretexb = EditorGUIUtility.IconContent("PreTexB");
+		public static GUIContent Pretexb => EditorGUIUtility.IconContent("PreTexB");
 
 		/// <summary>
 		/// PreTexB@2x
 		/// </summary>
-		public static readonly GUIContent Pretexb2X = EditorGUIUtility.IconContent("PreTexB@2x");
+		public static GUIContent Pretexb2X => EditorGUIUtility.IconContent("PreTexB@2x");
 
 		/// <summary>
 		/// PreTexG
 		/// </summary>
-		public static readonly GUIContent Pretexg = EditorGUIUtility.IconContent("PreTexG");
+		public static GUIContent Pretexg => EditorGUIUtility.IconContent("PreTexG");
 
 		/// <summary>
 		/// PreTexG@2x
 		/// </summary>
-		public static readonly GUIContent Pretexg2X = EditorGUIUtility.IconContent("PreTexG@2x");
+		public static GUIContent Pretexg2X => EditorGUIUtility.IconContent("PreTexG@2x");
 
 		/// <summary>
 		/// PreTexR
 		/// </summary>
-		public static readonly GUIContent Pretexr = EditorGUIUtility.IconContent("PreTexR");
+		public static GUIContent Pretexr => EditorGUIUtility.IconContent("PreTexR");
 
 		/// <summary>
 		/// PreTexR@2x
 		/// </summary>
-		public static readonly GUIContent Pretexr2X = EditorGUIUtility.IconContent("PreTexR@2x");
+		public static GUIContent Pretexr2X => EditorGUIUtility.IconContent("PreTexR@2x");
 
 		/// <summary>
 		/// PreTexRGB
 		/// </summary>
-		public static readonly GUIContent Pretexrgb = EditorGUIUtility.IconContent("PreTexRGB");
+		public static GUIContent Pretexrgb => EditorGUIUtility.IconContent("PreTexRGB");
 
 		/// <summary>
 		/// PreTexRGB@2x
 		/// </summary>
-		public static readonly GUIContent Pretexrgb2X = EditorGUIUtility.IconContent("PreTexRGB@2x");
+		public static GUIContent Pretexrgb2X => EditorGUIUtility.IconContent("PreTexRGB@2x");
 
 		/// <summary>
 		/// PreTextureAlpha
 		/// </summary>
-		public static readonly GUIContent Pretexturealpha = EditorGUIUtility.IconContent("PreTextureAlpha");
+		public static GUIContent Pretexturealpha => EditorGUIUtility.IconContent("PreTextureAlpha");
 
 		/// <summary>
 		/// PreTextureArrayFirstSlice
 		/// </summary>
-		public static readonly GUIContent Pretexturearrayfirstslice =
+		public static GUIContent Pretexturearrayfirstslice =>
 			EditorGUIUtility.IconContent("PreTextureArrayFirstSlice");
 
 		/// <summary>
 		/// PreTextureArrayLastSlice
 		/// </summary>
-		public static readonly GUIContent Pretexturearraylastslice =
+		public static GUIContent Pretexturearraylastslice =>
 			EditorGUIUtility.IconContent("PreTextureArrayLastSlice");
 
 		/// <summary>
 		/// PreTextureMipMapHigh
 		/// </summary>
-		public static readonly GUIContent Pretexturemipmaphigh = EditorGUIUtility.IconContent("PreTextureMipMapHigh");
+		public static GUIContent Pretexturemipmaphigh => EditorGUIUtility.IconContent("PreTextureMipMapHigh");
 
 		/// <summary>
 		/// PreTextureMipMapLow
 		/// </summary>
-		public static readonly GUIContent Pretexturemipmaplow = EditorGUIUtility.IconContent("PreTextureMipMapLow");
+		public static GUIContent Pretexturemipmaplow => EditorGUIUtility.IconContent("PreTextureMipMapLow");
 
 		/// <summary>
 		/// PreTextureRGB
 		/// </summary>
-		public static readonly GUIContent Pretexturergb = EditorGUIUtility.IconContent("PreTextureRGB");
+		public static GUIContent Pretexturergb => EditorGUIUtility.IconContent("PreTextureRGB");
 
 		/// <summary>
 		/// PreviewPackageInUse
 		/// </summary>
-		public static readonly GUIContent Previewpackageinuse = EditorGUIUtility.IconContent("PreviewPackageInUse");
+		public static GUIContent Previewpackageinuse => EditorGUIUtility.IconContent("PreviewPackageInUse");
 
 		/// <summary>
 		/// PreviewPackageInUse@2x
 		/// </summary>
-		public static readonly GUIContent
-			Previewpackageinuse2X = EditorGUIUtility.IconContent("PreviewPackageInUse@2x");
+		public static GUIContent
+			Previewpackageinuse2X => EditorGUIUtility.IconContent("PreviewPackageInUse@2x");
 
 		/// <summary>
 		/// sv_icon_dot0_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot0Pix16Gizmo =
+		public static GUIContent SvIconDot0Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot0_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot10_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot10Pix16Gizmo =
+		public static GUIContent SvIconDot10Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot10_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot11_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot11Pix16Gizmo =
+		public static GUIContent SvIconDot11Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot11_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot12_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot12Pix16Gizmo =
+		public static GUIContent SvIconDot12Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot12_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot13_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot13Pix16Gizmo =
+		public static GUIContent SvIconDot13Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot13_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot14_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot14Pix16Gizmo =
+		public static GUIContent SvIconDot14Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot14_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot15_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot15Pix16Gizmo =
+		public static GUIContent SvIconDot15Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot15_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot1_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot1Pix16Gizmo =
+		public static GUIContent SvIconDot1Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot1_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot2_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot2Pix16Gizmo =
+		public static GUIContent SvIconDot2Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot2_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot3_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot3Pix16Gizmo =
+		public static GUIContent SvIconDot3Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot3_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot4_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot4Pix16Gizmo =
+		public static GUIContent SvIconDot4Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot4_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot5_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot5Pix16Gizmo =
+		public static GUIContent SvIconDot5Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot5_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot6_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot6Pix16Gizmo =
+		public static GUIContent SvIconDot6Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot6_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot7_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot7Pix16Gizmo =
+		public static GUIContent SvIconDot7Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot7_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot8_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot8Pix16Gizmo =
+		public static GUIContent SvIconDot8Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot8_pix16_gizmo");
 
 		/// <summary>
 		/// sv_icon_dot9_pix16_gizmo
 		/// </summary>
-		public static readonly GUIContent SvIconDot9Pix16Gizmo =
+		public static GUIContent SvIconDot9Pix16Gizmo =>
 			EditorGUIUtility.IconContent("sv_icon_dot9_pix16_gizmo");
 
 		/// <summary>
 		/// Profiler.Audio
 		/// </summary>
-		public static readonly GUIContent ProfilerAudio = EditorGUIUtility.IconContent("Profiler.Audio");
+		public static GUIContent ProfilerAudio => EditorGUIUtility.IconContent("Profiler.Audio");
 
 		/// <summary>
 		/// Profiler.Audio@2x
 		/// </summary>
-		public static readonly GUIContent ProfilerAudio2X = EditorGUIUtility.IconContent("Profiler.Audio@2x");
+		public static GUIContent ProfilerAudio2X => EditorGUIUtility.IconContent("Profiler.Audio@2x");
 
 		/// <summary>
 		/// Profiler.CPU
 		/// </summary>
-		public static readonly GUIContent ProfilerCpu = EditorGUIUtility.IconContent("Profiler.CPU");
+		public static GUIContent ProfilerCpu => EditorGUIUtility.IconContent("Profiler.CPU");
 
 		/// <summary>
 		/// Profiler.CPU@2x
 		/// </summary>
-		public static readonly GUIContent ProfilerCpu2X = EditorGUIUtility.IconContent("Profiler.CPU@2x");
+		public static GUIContent ProfilerCpu2X => EditorGUIUtility.IconContent("Profiler.CPU@2x");
 
 		/// <summary>
 		/// Profiler.FirstFrame
 		/// </summary>
-		public static readonly GUIContent ProfilerFirstframe = EditorGUIUtility.IconContent("Profiler.FirstFrame");
+		public static GUIContent ProfilerFirstframe => EditorGUIUtility.IconContent("Profiler.FirstFrame");
 
 		/// <summary>
 		/// Profiler.GlobalIllumination
 		/// </summary>
-		public static readonly GUIContent ProfilerGlobalillumination =
+		public static GUIContent ProfilerGlobalillumination =>
 			EditorGUIUtility.IconContent("Profiler.GlobalIllumination");
 
 		/// <summary>
 		/// Profiler.GlobalIllumination@2x
 		/// </summary>
-		public static readonly GUIContent ProfilerGlobalillumination2X =
+		public static GUIContent ProfilerGlobalillumination2X =>
 			EditorGUIUtility.IconContent("Profiler.GlobalIllumination@2x");
 
 		/// <summary>
 		/// Profiler.GPU
 		/// </summary>
-		public static readonly GUIContent ProfilerGpu = EditorGUIUtility.IconContent("Profiler.GPU");
+		public static GUIContent ProfilerGpu => EditorGUIUtility.IconContent("Profiler.GPU");
 
 		/// <summary>
 		/// Profiler.GPU@2x
 		/// </summary>
-		public static readonly GUIContent ProfilerGpu2X = EditorGUIUtility.IconContent("Profiler.GPU@2x");
+		public static GUIContent ProfilerGpu2X => EditorGUIUtility.IconContent("Profiler.GPU@2x");
 
 		/// <summary>
 		/// Profiler.Instrumentation
 		/// </summary>
-		public static readonly GUIContent ProfilerInstrumentation =
+		public static GUIContent ProfilerInstrumentation =>
 			EditorGUIUtility.IconContent("Profiler.Instrumentation");
 
 		/// <summary>
 		/// Profiler.LastFrame
 		/// </summary>
-		public static readonly GUIContent ProfilerLastframe = EditorGUIUtility.IconContent("Profiler.LastFrame");
+		public static GUIContent ProfilerLastframe => EditorGUIUtility.IconContent("Profiler.LastFrame");
 
 		/// <summary>
 		/// Profiler.Memory
 		/// </summary>
-		public static readonly GUIContent ProfilerMemory = EditorGUIUtility.IconContent("Profiler.Memory");
+		public static GUIContent ProfilerMemory => EditorGUIUtility.IconContent("Profiler.Memory");
 
 		/// <summary>
 		/// Profiler.Memory@2x
 		/// </summary>
-		public static readonly GUIContent ProfilerMemory2X = EditorGUIUtility.IconContent("Profiler.Memory@2x");
+		public static GUIContent ProfilerMemory2X => EditorGUIUtility.IconContent("Profiler.Memory@2x");
 
 		/// <summary>
 		/// Profiler.NetworkMessages
 		/// </summary>
-		public static readonly GUIContent ProfilerNetworkmessages =
+		public static GUIContent ProfilerNetworkmessages =>
 			EditorGUIUtility.IconContent("Profiler.NetworkMessages");
 
 		/// <summary>
 		/// Profiler.NetworkMessages@2x
 		/// </summary>
-		public static readonly GUIContent ProfilerNetworkmessages2X =
+		public static GUIContent ProfilerNetworkmessages2X =>
 			EditorGUIUtility.IconContent("Profiler.NetworkMessages@2x");
 
 		/// <summary>
 		/// Profiler.NetworkOperations
 		/// </summary>
-		public static readonly GUIContent ProfilerNetworkoperations =
+		public static GUIContent ProfilerNetworkoperations =>
 			EditorGUIUtility.IconContent("Profiler.NetworkOperations");
 
 		/// <summary>
 		/// Profiler.NetworkOperations@2x
 		/// </summary>
-		public static readonly GUIContent ProfilerNetworkoperations2X =
+		public static GUIContent ProfilerNetworkoperations2X =>
 			EditorGUIUtility.IconContent("Profiler.NetworkOperations@2x");
 
 		/// <summary>
 		/// Profiler.NextFrame
 		/// </summary>
-		public static readonly GUIContent ProfilerNextframe = EditorGUIUtility.IconContent("Profiler.NextFrame");
+		public static GUIContent ProfilerNextframe => EditorGUIUtility.IconContent("Profiler.NextFrame");
 
 		/// <summary>
 		/// Profiler.Physics
 		/// </summary>
-		public static readonly GUIContent ProfilerPhysics = EditorGUIUtility.IconContent("Profiler.Physics");
+		public static GUIContent ProfilerPhysics => EditorGUIUtility.IconContent("Profiler.Physics");
 
 		/// <summary>
 		/// Profiler.Physics2D
 		/// </summary>
-		public static readonly GUIContent ProfilerPhysics2D = EditorGUIUtility.IconContent("Profiler.Physics2D");
+		public static GUIContent ProfilerPhysics2D => EditorGUIUtility.IconContent("Profiler.Physics2D");
 
 		/// <summary>
 		/// Profiler.Physics2D@2x
 		/// </summary>
-		public static readonly GUIContent ProfilerPhysics2D2X = EditorGUIUtility.IconContent("Profiler.Physics2D@2x");
+		public static GUIContent ProfilerPhysics2D2X => EditorGUIUtility.IconContent("Profiler.Physics2D@2x");
 
 		/// <summary>
 		/// Profiler.Physics@2x
 		/// </summary>
-		public static readonly GUIContent ProfilerPhysics2X = EditorGUIUtility.IconContent("Profiler.Physics@2x");
+		public static GUIContent ProfilerPhysics2X => EditorGUIUtility.IconContent("Profiler.Physics@2x");
 
 		/// <summary>
 		/// Profiler.PrevFrame
 		/// </summary>
-		public static readonly GUIContent ProfilerPrevframe = EditorGUIUtility.IconContent("Profiler.PrevFrame");
+		public static GUIContent ProfilerPrevframe => EditorGUIUtility.IconContent("Profiler.PrevFrame");
 
 		/// <summary>
 		/// Profiler.Record
 		/// </summary>
-		public static readonly GUIContent ProfilerRecord = EditorGUIUtility.IconContent("Profiler.Record");
+		public static GUIContent ProfilerRecord => EditorGUIUtility.IconContent("Profiler.Record");
 
 		/// <summary>
 		/// Profiler.Rendering
 		/// </summary>
-		public static readonly GUIContent ProfilerRendering = EditorGUIUtility.IconContent("Profiler.Rendering");
+		public static GUIContent ProfilerRendering => EditorGUIUtility.IconContent("Profiler.Rendering");
 
 		/// <summary>
 		/// Profiler.Rendering@2x
 		/// </summary>
-		public static readonly GUIContent ProfilerRendering2X = EditorGUIUtility.IconContent("Profiler.Rendering@2x");
+		public static GUIContent ProfilerRendering2X => EditorGUIUtility.IconContent("Profiler.Rendering@2x");
 
 		/// <summary>
 		/// Profiler.UI
 		/// </summary>
-		public static readonly GUIContent ProfilerUi = EditorGUIUtility.IconContent("Profiler.UI");
+		public static GUIContent ProfilerUi => EditorGUIUtility.IconContent("Profiler.UI");
 
 		/// <summary>
 		/// Profiler.UI@2x
 		/// </summary>
-		public static readonly GUIContent ProfilerUi2X = EditorGUIUtility.IconContent("Profiler.UI@2x");
+		public static GUIContent ProfilerUi2X => EditorGUIUtility.IconContent("Profiler.UI@2x");
 
 		/// <summary>
 		/// Profiler.UIDetails
 		/// </summary>
-		public static readonly GUIContent ProfilerUidetails = EditorGUIUtility.IconContent("Profiler.UIDetails");
+		public static GUIContent ProfilerUidetails => EditorGUIUtility.IconContent("Profiler.UIDetails");
 
 		/// <summary>
 		/// Profiler.UIDetails@2x
 		/// </summary>
-		public static readonly GUIContent ProfilerUidetails2X = EditorGUIUtility.IconContent("Profiler.UIDetails@2x");
+		public static GUIContent ProfilerUidetails2X => EditorGUIUtility.IconContent("Profiler.UIDetails@2x");
 
 		/// <summary>
 		/// Profiler.Video
 		/// </summary>
-		public static readonly GUIContent ProfilerVideo = EditorGUIUtility.IconContent("Profiler.Video");
+		public static GUIContent ProfilerVideo => EditorGUIUtility.IconContent("Profiler.Video");
 
 		/// <summary>
 		/// Profiler.Video@2x
 		/// </summary>
-		public static readonly GUIContent ProfilerVideo2X = EditorGUIUtility.IconContent("Profiler.Video@2x");
+		public static GUIContent ProfilerVideo2X => EditorGUIUtility.IconContent("Profiler.Video@2x");
 
 		/// <summary>
 		/// ProfilerColumn.WarningCount
 		/// </summary>
-		public static readonly GUIContent ProfilercolumnWarningcount =
+		public static GUIContent ProfilercolumnWarningcount =>
 			EditorGUIUtility.IconContent("ProfilerColumn.WarningCount");
 
 		/// <summary>
 		/// Progress
 		/// </summary>
-		public static readonly GUIContent Progress = EditorGUIUtility.IconContent("Progress");
+		public static GUIContent Progress => EditorGUIUtility.IconContent("Progress");
 
 		/// <summary>
 		/// Progress@2x
 		/// </summary>
-		public static readonly GUIContent Progress2X = EditorGUIUtility.IconContent("Progress@2x");
+		public static GUIContent Progress2X => EditorGUIUtility.IconContent("Progress@2x");
 
 		/// <summary>
 		/// Project
 		/// </summary>
-		public static readonly GUIContent Project = EditorGUIUtility.IconContent("Project");
+		public static GUIContent Project => EditorGUIUtility.IconContent("Project");
 
 		/// <summary>
 		/// Project@2x
 		/// </summary>
-		public static readonly GUIContent Project2X = EditorGUIUtility.IconContent("Project@2x");
+		public static GUIContent Project2X => EditorGUIUtility.IconContent("Project@2x");
 
 		/// <summary>
 		/// RectTool
 		/// </summary>
-		public static readonly GUIContent Recttool = EditorGUIUtility.IconContent("RectTool");
+		public static GUIContent Recttool => EditorGUIUtility.IconContent("RectTool");
 
 		/// <summary>
 		/// RectTool@2x
 		/// </summary>
-		public static readonly GUIContent Recttool2X = EditorGUIUtility.IconContent("RectTool@2x");
+		public static GUIContent Recttool2X => EditorGUIUtility.IconContent("RectTool@2x");
 
 		/// <summary>
 		/// RectTransformBlueprint
 		/// </summary>
-		public static readonly GUIContent Recttransformblueprint =
+		public static GUIContent Recttransformblueprint =>
 			EditorGUIUtility.IconContent("RectTransformBlueprint");
 
 		/// <summary>
 		/// RectTransformRaw
 		/// </summary>
-		public static readonly GUIContent Recttransformraw = EditorGUIUtility.IconContent("RectTransformRaw");
+		public static GUIContent Recttransformraw => EditorGUIUtility.IconContent("RectTransformRaw");
 
 		/// <summary>
 		/// redGroove
 		/// </summary>
-		public static readonly GUIContent Redgroove = EditorGUIUtility.IconContent("redGroove");
+		public static GUIContent Redgroove => EditorGUIUtility.IconContent("redGroove");
 
 		/// <summary>
 		/// ReflectionProbeSelector
 		/// </summary>
-		public static readonly GUIContent Reflectionprobeselector =
+		public static GUIContent Reflectionprobeselector =>
 			EditorGUIUtility.IconContent("ReflectionProbeSelector");
 
 		/// <summary>
 		/// ReflectionProbeSelector@2x
 		/// </summary>
-		public static readonly GUIContent Reflectionprobeselector2X =
+		public static GUIContent Reflectionprobeselector2X =>
 			EditorGUIUtility.IconContent("ReflectionProbeSelector@2x");
 
 		/// <summary>
 		/// Refresh
 		/// </summary>
-		public static readonly GUIContent Refresh = EditorGUIUtility.IconContent("Refresh");
+		public static GUIContent Refresh => EditorGUIUtility.IconContent("Refresh");
 
 		/// <summary>
 		/// Refresh@2x
 		/// </summary>
-		public static readonly GUIContent Refresh2X = EditorGUIUtility.IconContent("Refresh@2x");
+		public static GUIContent Refresh2X => EditorGUIUtility.IconContent("Refresh@2x");
 
 		/// <summary>
 		/// rightBracket
 		/// </summary>
-		public static readonly GUIContent Rightbracket = EditorGUIUtility.IconContent("rightBracket");
+		public static GUIContent Rightbracket => EditorGUIUtility.IconContent("rightBracket");
 
 		/// <summary>
 		/// RotateTool
 		/// </summary>
-		public static readonly GUIContent Rotatetool = EditorGUIUtility.IconContent("RotateTool");
+		public static GUIContent Rotatetool => EditorGUIUtility.IconContent("RotateTool");
 
 		/// <summary>
 		/// RotateTool@2x
 		/// </summary>
-		public static readonly GUIContent Rotatetool2X = EditorGUIUtility.IconContent("RotateTool@2x");
+		public static GUIContent Rotatetool2X => EditorGUIUtility.IconContent("RotateTool@2x");
 
 		/// <summary>
 		/// RotateTool@4x
 		/// </summary>
-		public static readonly GUIContent Rotatetool4X = EditorGUIUtility.IconContent("RotateTool@4x");
+		public static GUIContent Rotatetool4X => EditorGUIUtility.IconContent("RotateTool@4x");
 
 		/// <summary>
 		/// SaveActive
 		/// </summary>
-		public static readonly GUIContent Saveactive = EditorGUIUtility.IconContent("SaveActive");
+		public static GUIContent Saveactive => EditorGUIUtility.IconContent("SaveActive");
 
 		/// <summary>
 		/// SaveAs
 		/// </summary>
-		public static readonly GUIContent Saveas = EditorGUIUtility.IconContent("SaveAs");
+		public static GUIContent Saveas => EditorGUIUtility.IconContent("SaveAs");
 
 		/// <summary>
 		/// SaveAs@2x
 		/// </summary>
-		public static readonly GUIContent Saveas2X = EditorGUIUtility.IconContent("SaveAs@2x");
+		public static GUIContent Saveas2X => EditorGUIUtility.IconContent("SaveAs@2x");
 
 		/// <summary>
 		/// SaveFromPlay
 		/// </summary>
-		public static readonly GUIContent Savefromplay = EditorGUIUtility.IconContent("SaveFromPlay");
+		public static GUIContent Savefromplay => EditorGUIUtility.IconContent("SaveFromPlay");
 
 		/// <summary>
 		/// SavePassive
 		/// </summary>
-		public static readonly GUIContent Savepassive = EditorGUIUtility.IconContent("SavePassive");
+		public static GUIContent Savepassive => EditorGUIUtility.IconContent("SavePassive");
 
 		/// <summary>
 		/// ScaleTool
 		/// </summary>
-		public static readonly GUIContent Scaletool = EditorGUIUtility.IconContent("ScaleTool");
+		public static GUIContent Scaletool => EditorGUIUtility.IconContent("ScaleTool");
 
 		/// <summary>
 		/// ScaleTool@2x
 		/// </summary>
-		public static readonly GUIContent Scaletool2X = EditorGUIUtility.IconContent("ScaleTool@2x");
+		public static GUIContent Scaletool2X => EditorGUIUtility.IconContent("ScaleTool@2x");
 
 		/// <summary>
 		/// SceneLoadIn
 		/// </summary>
-		public static readonly GUIContent Sceneloadin = EditorGUIUtility.IconContent("SceneLoadIn");
+		public static GUIContent Sceneloadin => EditorGUIUtility.IconContent("SceneLoadIn");
 
 		/// <summary>
 		/// SceneLoadOut
 		/// </summary>
-		public static readonly GUIContent Sceneloadout = EditorGUIUtility.IconContent("SceneLoadOut");
+		public static GUIContent Sceneloadout => EditorGUIUtility.IconContent("SceneLoadOut");
 
 		/// <summary>
 		/// scenepicking_notpickable-mixed
 		/// </summary>
-		public static readonly GUIContent ScenepickingNotpickableMixed =
+		public static GUIContent ScenepickingNotpickableMixed =>
 			EditorGUIUtility.IconContent("scenepicking_notpickable-mixed");
 
 		/// <summary>
 		/// scenepicking_notpickable-mixed@2x
 		/// </summary>
-		public static readonly GUIContent ScenepickingNotpickableMixed2X =
+		public static GUIContent ScenepickingNotpickableMixed2X =>
 			EditorGUIUtility.IconContent("scenepicking_notpickable-mixed@2x");
 
 		/// <summary>
 		/// scenepicking_notpickable-mixed_hover
 		/// </summary>
-		public static readonly GUIContent ScenepickingNotpickableMixedHover =
+		public static GUIContent ScenepickingNotpickableMixedHover =>
 			EditorGUIUtility.IconContent("scenepicking_notpickable-mixed_hover");
 
 		/// <summary>
 		/// scenepicking_notpickable-mixed_hover@2x
 		/// </summary>
-		public static readonly GUIContent ScenepickingNotpickableMixedHover2X =
+		public static GUIContent ScenepickingNotpickableMixedHover2X =>
 			EditorGUIUtility.IconContent("scenepicking_notpickable-mixed_hover@2x");
 
 		/// <summary>
 		/// scenepicking_notpickable
 		/// </summary>
-		public static readonly GUIContent ScenepickingNotpickable =
+		public static GUIContent ScenepickingNotpickable =>
 			EditorGUIUtility.IconContent("scenepicking_notpickable");
 
 		/// <summary>
 		/// scenepicking_notpickable@2x
 		/// </summary>
-		public static readonly GUIContent ScenepickingNotpickable2X =
+		public static GUIContent ScenepickingNotpickable2X =>
 			EditorGUIUtility.IconContent("scenepicking_notpickable@2x");
 
 		/// <summary>
 		/// scenepicking_notpickable_hover
 		/// </summary>
-		public static readonly GUIContent ScenepickingNotpickableHover =
+		public static GUIContent ScenepickingNotpickableHover =>
 			EditorGUIUtility.IconContent("scenepicking_notpickable_hover");
 
 		/// <summary>
 		/// scenepicking_notpickable_hover@2x
 		/// </summary>
-		public static readonly GUIContent ScenepickingNotpickableHover2X =
+		public static GUIContent ScenepickingNotpickableHover2X =>
 			EditorGUIUtility.IconContent("scenepicking_notpickable_hover@2x");
 
 		/// <summary>
 		/// scenepicking_pickable-mixed
 		/// </summary>
-		public static readonly GUIContent ScenepickingPickableMixed =
+		public static GUIContent ScenepickingPickableMixed =>
 			EditorGUIUtility.IconContent("scenepicking_pickable-mixed");
 
 		/// <summary>
 		/// scenepicking_pickable-mixed@2x
 		/// </summary>
-		public static readonly GUIContent ScenepickingPickableMixed2X =
+		public static GUIContent ScenepickingPickableMixed2X =>
 			EditorGUIUtility.IconContent("scenepicking_pickable-mixed@2x");
 
 		/// <summary>
 		/// scenepicking_pickable-mixed_hover
 		/// </summary>
-		public static readonly GUIContent ScenepickingPickableMixedHover =
+		public static GUIContent ScenepickingPickableMixedHover =>
 			EditorGUIUtility.IconContent("scenepicking_pickable-mixed_hover");
 
 		/// <summary>
 		/// scenepicking_pickable-mixed_hover@2x
 		/// </summary>
-		public static readonly GUIContent ScenepickingPickableMixedHover2X =
+		public static GUIContent ScenepickingPickableMixedHover2X =>
 			EditorGUIUtility.IconContent("scenepicking_pickable-mixed_hover@2x");
 
 		/// <summary>
 		/// scenepicking_pickable
 		/// </summary>
-		public static readonly GUIContent ScenepickingPickable = EditorGUIUtility.IconContent("scenepicking_pickable");
+		public static GUIContent ScenepickingPickable => EditorGUIUtility.IconContent("scenepicking_pickable");
 
 		/// <summary>
 		/// scenepicking_pickable@2x
 		/// </summary>
-		public static readonly GUIContent ScenepickingPickable2X =
+		public static GUIContent ScenepickingPickable2X =>
 			EditorGUIUtility.IconContent("scenepicking_pickable@2x");
 
 		/// <summary>
 		/// scenepicking_pickable_hover
 		/// </summary>
-		public static readonly GUIContent ScenepickingPickableHover =
+		public static GUIContent ScenepickingPickableHover =>
 			EditorGUIUtility.IconContent("scenepicking_pickable_hover");
 
 		/// <summary>
 		/// scenepicking_pickable_hover@2x
 		/// </summary>
-		public static readonly GUIContent ScenepickingPickableHover2X =
+		public static GUIContent ScenepickingPickableHover2X =>
 			EditorGUIUtility.IconContent("scenepicking_pickable_hover@2x");
 
 		/// <summary>
 		/// SceneSave
 		/// </summary>
-		public static readonly GUIContent Scenesave = EditorGUIUtility.IconContent("SceneSave");
+		public static GUIContent Scenesave => EditorGUIUtility.IconContent("SceneSave");
 
 		/// <summary>
 		/// SceneSaveGrey
 		/// </summary>
-		public static readonly GUIContent Scenesavegrey = EditorGUIUtility.IconContent("SceneSaveGrey");
+		public static GUIContent Scenesavegrey => EditorGUIUtility.IconContent("SceneSaveGrey");
 
 		/// <summary>
 		/// SceneView2D
 		/// </summary>
-		public static readonly GUIContent Sceneview2D = EditorGUIUtility.IconContent("SceneView2D");
+		public static GUIContent Sceneview2D => EditorGUIUtility.IconContent("SceneView2D");
 
 		/// <summary>
 		/// SceneView2D@2x
 		/// </summary>
-		public static readonly GUIContent Sceneview2D2X = EditorGUIUtility.IconContent("SceneView2D@2x");
+		public static GUIContent Sceneview2D2X => EditorGUIUtility.IconContent("SceneView2D@2x");
 
 		/// <summary>
 		/// SceneViewAlpha
 		/// </summary>
-		public static readonly GUIContent Sceneviewalpha = EditorGUIUtility.IconContent("SceneViewAlpha");
+		public static GUIContent Sceneviewalpha => EditorGUIUtility.IconContent("SceneViewAlpha");
 
 		/// <summary>
 		/// SceneViewAudio
 		/// </summary>
-		public static readonly GUIContent Sceneviewaudio = EditorGUIUtility.IconContent("SceneViewAudio");
+		public static GUIContent Sceneviewaudio => EditorGUIUtility.IconContent("SceneViewAudio");
 
 		/// <summary>
 		/// SceneViewAudio@2x
 		/// </summary>
-		public static readonly GUIContent Sceneviewaudio2X = EditorGUIUtility.IconContent("SceneViewAudio@2x");
+		public static GUIContent Sceneviewaudio2X => EditorGUIUtility.IconContent("SceneViewAudio@2x");
 
 		/// <summary>
 		/// SceneViewCamera
 		/// </summary>
-		public static readonly GUIContent Sceneviewcamera = EditorGUIUtility.IconContent("SceneViewCamera");
+		public static GUIContent Sceneviewcamera => EditorGUIUtility.IconContent("SceneViewCamera");
 
 		/// <summary>
 		/// SceneViewCamera@2x
 		/// </summary>
-		public static readonly GUIContent Sceneviewcamera2X = EditorGUIUtility.IconContent("SceneViewCamera@2x");
+		public static GUIContent Sceneviewcamera2X => EditorGUIUtility.IconContent("SceneViewCamera@2x");
 
 		/// <summary>
 		/// SceneViewFx
 		/// </summary>
-		public static readonly GUIContent Sceneviewfx = EditorGUIUtility.IconContent("SceneViewFx");
+		public static GUIContent Sceneviewfx => EditorGUIUtility.IconContent("SceneViewFx");
 
 		/// <summary>
 		/// SceneViewFX@2x
 		/// </summary>
-		public static readonly GUIContent Sceneviewfx2X = EditorGUIUtility.IconContent("SceneViewFX@2x");
+		public static GUIContent Sceneviewfx2X => EditorGUIUtility.IconContent("SceneViewFX@2x");
 
 		/// <summary>
 		/// SceneViewLighting
 		/// </summary>
-		public static readonly GUIContent Sceneviewlighting = EditorGUIUtility.IconContent("SceneViewLighting");
+		public static GUIContent Sceneviewlighting => EditorGUIUtility.IconContent("SceneViewLighting");
 
 		/// <summary>
 		/// SceneViewLighting@2x
 		/// </summary>
-		public static readonly GUIContent Sceneviewlighting2X = EditorGUIUtility.IconContent("SceneViewLighting@2x");
+		public static GUIContent Sceneviewlighting2X => EditorGUIUtility.IconContent("SceneViewLighting@2x");
 
 		/// <summary>
 		/// SceneViewOrtho
 		/// </summary>
-		public static readonly GUIContent Sceneviewortho = EditorGUIUtility.IconContent("SceneViewOrtho");
+		public static GUIContent Sceneviewortho => EditorGUIUtility.IconContent("SceneViewOrtho");
 
 		/// <summary>
 		/// SceneViewRGB
 		/// </summary>
-		public static readonly GUIContent Sceneviewrgb = EditorGUIUtility.IconContent("SceneViewRGB");
+		public static GUIContent Sceneviewrgb => EditorGUIUtility.IconContent("SceneViewRGB");
 
 		/// <summary>
 		/// SceneViewTools
 		/// </summary>
-		public static readonly GUIContent Sceneviewtools = EditorGUIUtility.IconContent("SceneViewTools");
+		public static GUIContent Sceneviewtools => EditorGUIUtility.IconContent("SceneViewTools");
 
 		/// <summary>
 		/// SceneViewTools@2x
 		/// </summary>
-		public static readonly GUIContent Sceneviewtools2X = EditorGUIUtility.IconContent("SceneViewTools@2x");
+		public static GUIContent Sceneviewtools2X => EditorGUIUtility.IconContent("SceneViewTools@2x");
 
 		/// <summary>
 		/// SceneViewVisibility
 		/// </summary>
-		public static readonly GUIContent Sceneviewvisibility = EditorGUIUtility.IconContent("SceneViewVisibility");
+		public static GUIContent Sceneviewvisibility => EditorGUIUtility.IconContent("SceneViewVisibility");
 
 		/// <summary>
 		/// SceneViewVisibility@2x
 		/// </summary>
-		public static readonly GUIContent
-			Sceneviewvisibility2X = EditorGUIUtility.IconContent("SceneViewVisibility@2x");
+		public static GUIContent
+			Sceneviewvisibility2X => EditorGUIUtility.IconContent("SceneViewVisibility@2x");
 
 		/// <summary>
 		/// scenevis_hidden-mixed
 		/// </summary>
-		public static readonly GUIContent ScenevisHiddenMixed = EditorGUIUtility.IconContent("scenevis_hidden-mixed");
+		public static GUIContent ScenevisHiddenMixed => EditorGUIUtility.IconContent("scenevis_hidden-mixed");
 
 		/// <summary>
 		/// scenevis_hidden-mixed@2x
 		/// </summary>
-		public static readonly GUIContent ScenevisHiddenMixed2X =
+		public static GUIContent ScenevisHiddenMixed2X =>
 			EditorGUIUtility.IconContent("scenevis_hidden-mixed@2x");
 
 		/// <summary>
 		/// scenevis_hidden-mixed_hover
 		/// </summary>
-		public static readonly GUIContent ScenevisHiddenMixedHover =
+		public static GUIContent ScenevisHiddenMixedHover =>
 			EditorGUIUtility.IconContent("scenevis_hidden-mixed_hover");
 
 		/// <summary>
 		/// scenevis_hidden-mixed_hover@2x
 		/// </summary>
-		public static readonly GUIContent ScenevisHiddenMixedHover2X =
+		public static GUIContent ScenevisHiddenMixedHover2X =>
 			EditorGUIUtility.IconContent("scenevis_hidden-mixed_hover@2x");
 
 		/// <summary>
 		/// scenevis_hidden
 		/// </summary>
-		public static readonly GUIContent ScenevisHidden = EditorGUIUtility.IconContent("scenevis_hidden");
+		public static GUIContent ScenevisHidden => EditorGUIUtility.IconContent("scenevis_hidden");
 
 		/// <summary>
 		/// scenevis_hidden@2x
 		/// </summary>
-		public static readonly GUIContent ScenevisHidden2X = EditorGUIUtility.IconContent("scenevis_hidden@2x");
+		public static GUIContent ScenevisHidden2X => EditorGUIUtility.IconContent("scenevis_hidden@2x");
 
 		/// <summary>
 		/// scenevis_hidden_hover
 		/// </summary>
-		public static readonly GUIContent ScenevisHiddenHover = EditorGUIUtility.IconContent("scenevis_hidden_hover");
+		public static GUIContent ScenevisHiddenHover => EditorGUIUtility.IconContent("scenevis_hidden_hover");
 
 		/// <summary>
 		/// scenevis_hidden_hover@2x
 		/// </summary>
-		public static readonly GUIContent ScenevisHiddenHover2X =
+		public static GUIContent ScenevisHiddenHover2X =>
 			EditorGUIUtility.IconContent("scenevis_hidden_hover@2x");
 
 		/// <summary>
 		/// scenevis_scene_hover
 		/// </summary>
-		public static readonly GUIContent ScenevisSceneHover = EditorGUIUtility.IconContent("scenevis_scene_hover");
+		public static GUIContent ScenevisSceneHover => EditorGUIUtility.IconContent("scenevis_scene_hover");
 
 		/// <summary>
 		/// scenevis_scene_hover@2x
 		/// </summary>
-		public static readonly GUIContent
-			ScenevisSceneHover2X = EditorGUIUtility.IconContent("scenevis_scene_hover@2x");
+		public static GUIContent
+			ScenevisSceneHover2X => EditorGUIUtility.IconContent("scenevis_scene_hover@2x");
 
 		/// <summary>
 		/// scenevis_visible-mixed
 		/// </summary>
-		public static readonly GUIContent ScenevisVisibleMixed = EditorGUIUtility.IconContent("scenevis_visible-mixed");
+		public static GUIContent ScenevisVisibleMixed => EditorGUIUtility.IconContent("scenevis_visible-mixed");
 
 		/// <summary>
 		/// scenevis_visible-mixed@2x
 		/// </summary>
-		public static readonly GUIContent ScenevisVisibleMixed2X =
+		public static GUIContent ScenevisVisibleMixed2X =>
 			EditorGUIUtility.IconContent("scenevis_visible-mixed@2x");
 
 		/// <summary>
 		/// scenevis_visible-mixed_hover
 		/// </summary>
-		public static readonly GUIContent ScenevisVisibleMixedHover =
+		public static GUIContent ScenevisVisibleMixedHover =>
 			EditorGUIUtility.IconContent("scenevis_visible-mixed_hover");
 
 		/// <summary>
 		/// scenevis_visible-mixed_hover@2x
 		/// </summary>
-		public static readonly GUIContent ScenevisVisibleMixedHover2X =
+		public static GUIContent ScenevisVisibleMixedHover2X =>
 			EditorGUIUtility.IconContent("scenevis_visible-mixed_hover@2x");
 
 		/// <summary>
 		/// scenevis_visible
 		/// </summary>
-		public static readonly GUIContent ScenevisVisible = EditorGUIUtility.IconContent("scenevis_visible");
+		public static GUIContent ScenevisVisible => EditorGUIUtility.IconContent("scenevis_visible");
 
 		/// <summary>
 		/// scenevis_visible@2x
 		/// </summary>
-		public static readonly GUIContent ScenevisVisible2X = EditorGUIUtility.IconContent("scenevis_visible@2x");
+		public static GUIContent ScenevisVisible2X => EditorGUIUtility.IconContent("scenevis_visible@2x");
 
 		/// <summary>
 		/// scenevis_visible_hover
 		/// </summary>
-		public static readonly GUIContent ScenevisVisibleHover = EditorGUIUtility.IconContent("scenevis_visible_hover");
+		public static GUIContent ScenevisVisibleHover => EditorGUIUtility.IconContent("scenevis_visible_hover");
 
 		/// <summary>
 		/// scenevis_visible_hover@2x
 		/// </summary>
-		public static readonly GUIContent ScenevisVisibleHover2X =
+		public static GUIContent ScenevisVisibleHover2X =>
 			EditorGUIUtility.IconContent("scenevis_visible_hover@2x");
 
 		/// <summary>
 		/// ScrollShadow
 		/// </summary>
-		public static readonly GUIContent Scrollshadow = EditorGUIUtility.IconContent("ScrollShadow");
+		public static GUIContent Scrollshadow => EditorGUIUtility.IconContent("ScrollShadow");
 
 		/// <summary>
 		/// Settings
 		/// </summary>
-		public static readonly GUIContent Settings = EditorGUIUtility.IconContent("Settings");
+		public static GUIContent Settings => EditorGUIUtility.IconContent("Settings");
 
 		/// <summary>
 		/// Settings@2x
 		/// </summary>
-		public static readonly GUIContent Settings2X = EditorGUIUtility.IconContent("Settings@2x");
+		public static GUIContent Settings2X => EditorGUIUtility.IconContent("Settings@2x");
 
 		/// <summary>
 		/// SettingsIcon
 		/// </summary>
-		public static readonly GUIContent Settingsicon = EditorGUIUtility.IconContent("SettingsIcon");
+		public static GUIContent Settingsicon => EditorGUIUtility.IconContent("SettingsIcon");
 
 		/// <summary>
 		/// SettingsIcon@2x
 		/// </summary>
-		public static readonly GUIContent Settingsicon2X = EditorGUIUtility.IconContent("SettingsIcon@2x");
+		public static GUIContent Settingsicon2X => EditorGUIUtility.IconContent("SettingsIcon@2x");
 
 		/// <summary>
 		/// alertDialog
 		/// </summary>
-		public static readonly GUIContent Alertdialog = EditorGUIUtility.IconContent("alertDialog");
+		public static GUIContent Alertdialog => EditorGUIUtility.IconContent("alertDialog");
 
 		/// <summary>
 		/// alertDialog@2x
 		/// </summary>
-		public static readonly GUIContent Alertdialog2X = EditorGUIUtility.IconContent("alertDialog@2x");
+		public static GUIContent Alertdialog2X => EditorGUIUtility.IconContent("alertDialog@2x");
 
 		/// <summary>
 		/// conflict-icon
 		/// </summary>
-		public static readonly GUIContent ConflictIcon = EditorGUIUtility.IconContent("conflict-icon");
+		public static GUIContent ConflictIcon => EditorGUIUtility.IconContent("conflict-icon");
 
 		/// <summary>
 		/// conflict-icon@2x
 		/// </summary>
-		public static readonly GUIContent ConflictIcon2X = EditorGUIUtility.IconContent("conflict-icon@2x");
+		public static GUIContent ConflictIcon2X => EditorGUIUtility.IconContent("conflict-icon@2x");
 
 		/// <summary>
 		/// d_GridAxisX
 		/// </summary>
-		public static readonly GUIContent DGridaxisx = EditorGUIUtility.IconContent("d_GridAxisX");
+		public static GUIContent DGridaxisx => EditorGUIUtility.IconContent("d_GridAxisX");
 
 		/// <summary>
 		/// d_GridAxisX@2x
 		/// </summary>
-		public static readonly GUIContent DGridaxisx2X = EditorGUIUtility.IconContent("d_GridAxisX@2x");
+		public static GUIContent DGridaxisx2X => EditorGUIUtility.IconContent("d_GridAxisX@2x");
 
 		/// <summary>
 		/// d_GridAxisY
 		/// </summary>
-		public static readonly GUIContent DGridaxisy = EditorGUIUtility.IconContent("d_GridAxisY");
+		public static GUIContent DGridaxisy => EditorGUIUtility.IconContent("d_GridAxisY");
 
 		/// <summary>
 		/// d_GridAxisY@2x
 		/// </summary>
-		public static readonly GUIContent DGridaxisy2X = EditorGUIUtility.IconContent("d_GridAxisY@2x");
+		public static GUIContent DGridaxisy2X => EditorGUIUtility.IconContent("d_GridAxisY@2x");
 
 		/// <summary>
 		/// d_GridAxisZ
 		/// </summary>
-		public static readonly GUIContent DGridaxisz = EditorGUIUtility.IconContent("d_GridAxisZ");
+		public static GUIContent DGridaxisz => EditorGUIUtility.IconContent("d_GridAxisZ");
 
 		/// <summary>
 		/// d_GridAxisZ@2x
 		/// </summary>
-		public static readonly GUIContent DGridaxisz2X = EditorGUIUtility.IconContent("d_GridAxisZ@2x");
+		public static GUIContent DGridaxisz2X => EditorGUIUtility.IconContent("d_GridAxisZ@2x");
 
 		/// <summary>
 		/// GridAxisX
 		/// </summary>
-		public static readonly GUIContent Gridaxisx = EditorGUIUtility.IconContent("GridAxisX");
+		public static GUIContent Gridaxisx => EditorGUIUtility.IconContent("GridAxisX");
 
 		/// <summary>
 		/// GridAxisX@2x
 		/// </summary>
-		public static readonly GUIContent Gridaxisx2X = EditorGUIUtility.IconContent("GridAxisX@2x");
+		public static GUIContent Gridaxisx2X => EditorGUIUtility.IconContent("GridAxisX@2x");
 
 		/// <summary>
 		/// GridAxisY
 		/// </summary>
-		public static readonly GUIContent Gridaxisy = EditorGUIUtility.IconContent("GridAxisY");
+		public static GUIContent Gridaxisy => EditorGUIUtility.IconContent("GridAxisY");
 
 		/// <summary>
 		/// GridAxisY@2x
 		/// </summary>
-		public static readonly GUIContent Gridaxisy2X = EditorGUIUtility.IconContent("GridAxisY@2x");
+		public static GUIContent Gridaxisy2X => EditorGUIUtility.IconContent("GridAxisY@2x");
 
 		/// <summary>
 		/// GridAxisZ
 		/// </summary>
-		public static readonly GUIContent Gridaxisz = EditorGUIUtility.IconContent("GridAxisZ");
+		public static GUIContent Gridaxisz => EditorGUIUtility.IconContent("GridAxisZ");
 
 		/// <summary>
 		/// GridAxisZ@2x
 		/// </summary>
-		public static readonly GUIContent Gridaxisz2X = EditorGUIUtility.IconContent("GridAxisZ@2x");
+		public static GUIContent Gridaxisz2X => EditorGUIUtility.IconContent("GridAxisZ@2x");
 
 		/// <summary>
 		/// SocialNetworks.FacebookShare
 		/// </summary>
-		public static readonly GUIContent SocialnetworksFacebookshare =
+		public static GUIContent SocialnetworksFacebookshare =>
 			EditorGUIUtility.IconContent("SocialNetworks.FacebookShare");
 
 		/// <summary>
 		/// SocialNetworks.LinkedInShare
 		/// </summary>
-		public static readonly GUIContent SocialnetworksLinkedinshare =
+		public static GUIContent SocialnetworksLinkedinshare =>
 			EditorGUIUtility.IconContent("SocialNetworks.LinkedInShare");
 
 		/// <summary>
 		/// SocialNetworks.Tweet
 		/// </summary>
-		public static readonly GUIContent SocialnetworksTweet = EditorGUIUtility.IconContent("SocialNetworks.Tweet");
+		public static GUIContent SocialnetworksTweet => EditorGUIUtility.IconContent("SocialNetworks.Tweet");
 
 		/// <summary>
 		/// SocialNetworks.UDNLogo
 		/// </summary>
-		public static readonly GUIContent
-			SocialnetworksUdnlogo = EditorGUIUtility.IconContent("SocialNetworks.UDNLogo");
+		public static GUIContent
+			SocialnetworksUdnlogo => EditorGUIUtility.IconContent("SocialNetworks.UDNLogo");
 
 		/// <summary>
 		/// SocialNetworks.UDNOpen
 		/// </summary>
-		public static readonly GUIContent
-			SocialnetworksUdnopen = EditorGUIUtility.IconContent("SocialNetworks.UDNOpen");
+		public static GUIContent
+			SocialnetworksUdnopen => EditorGUIUtility.IconContent("SocialNetworks.UDNOpen");
 
 		/// <summary>
 		/// SoftlockInline
 		/// </summary>
-		public static readonly GUIContent Softlockinline = EditorGUIUtility.IconContent("SoftlockInline");
+		public static GUIContent Softlockinline => EditorGUIUtility.IconContent("SoftlockInline");
 
 		/// <summary>
 		/// SpeedScale
 		/// </summary>
-		public static readonly GUIContent Speedscale = EditorGUIUtility.IconContent("SpeedScale");
+		public static GUIContent Speedscale => EditorGUIUtility.IconContent("SpeedScale");
 
 		/// <summary>
 		/// StateMachineEditor.ArrowTip
 		/// </summary>
-		public static readonly GUIContent StatemachineeditorArrowtip =
+		public static GUIContent StatemachineeditorArrowtip =>
 			EditorGUIUtility.IconContent("StateMachineEditor.ArrowTip");
 
 		/// <summary>
 		/// StateMachineEditor.ArrowTipSelected
 		/// </summary>
-		public static readonly GUIContent StatemachineeditorArrowtipselected =
+		public static GUIContent StatemachineeditorArrowtipselected =>
 			EditorGUIUtility.IconContent("StateMachineEditor.ArrowTipSelected");
 
 		/// <summary>
 		/// StateMachineEditor.Background
 		/// </summary>
-		public static readonly GUIContent StatemachineeditorBackground =
+		public static GUIContent StatemachineeditorBackground =>
 			EditorGUIUtility.IconContent("StateMachineEditor.Background");
 
 		/// <summary>
 		/// StateMachineEditor.State
 		/// </summary>
-		public static readonly GUIContent StatemachineeditorState =
+		public static GUIContent StatemachineeditorState =>
 			EditorGUIUtility.IconContent("StateMachineEditor.State");
 
 		/// <summary>
 		/// StateMachineEditor.StateHover
 		/// </summary>
-		public static readonly GUIContent StatemachineeditorStatehover =
+		public static GUIContent StatemachineeditorStatehover =>
 			EditorGUIUtility.IconContent("StateMachineEditor.StateHover");
 
 		/// <summary>
 		/// StateMachineEditor.StateSelected
 		/// </summary>
-		public static readonly GUIContent StatemachineeditorStateselected =
+		public static GUIContent StatemachineeditorStateselected =>
 			EditorGUIUtility.IconContent("StateMachineEditor.StateSelected");
 
 		/// <summary>
 		/// StateMachineEditor.StateSub
 		/// </summary>
-		public static readonly GUIContent StatemachineeditorStatesub =
+		public static GUIContent StatemachineeditorStatesub =>
 			EditorGUIUtility.IconContent("StateMachineEditor.StateSub");
 
 		/// <summary>
 		/// StateMachineEditor.StateSubHover
 		/// </summary>
-		public static readonly GUIContent StatemachineeditorStatesubhover =
+		public static GUIContent StatemachineeditorStatesubhover =>
 			EditorGUIUtility.IconContent("StateMachineEditor.StateSubHover");
 
 		/// <summary>
 		/// StateMachineEditor.StateSubSelected
 		/// </summary>
-		public static readonly GUIContent StatemachineeditorStatesubselected =
+		public static GUIContent StatemachineeditorStatesubselected =>
 			EditorGUIUtility.IconContent("StateMachineEditor.StateSubSelected");
 
 		/// <summary>
 		/// StateMachineEditor.UpButton
 		/// </summary>
-		public static readonly GUIContent StatemachineeditorUpbutton =
+		public static GUIContent StatemachineeditorUpbutton =>
 			EditorGUIUtility.IconContent("StateMachineEditor.UpButton");
 
 		/// <summary>
 		/// StateMachineEditor.UpButtonHover
 		/// </summary>
-		public static readonly GUIContent StatemachineeditorUpbuttonhover =
+		public static GUIContent StatemachineeditorUpbuttonhover =>
 			EditorGUIUtility.IconContent("StateMachineEditor.UpButtonHover");
 
 		/// <summary>
 		/// StepButton
 		/// </summary>
-		public static readonly GUIContent Stepbutton = EditorGUIUtility.IconContent("StepButton");
+		public static GUIContent Stepbutton => EditorGUIUtility.IconContent("StepButton");
 
 		/// <summary>
 		/// StepButton@2x
 		/// </summary>
-		public static readonly GUIContent Stepbutton2X = EditorGUIUtility.IconContent("StepButton@2x");
+		public static GUIContent Stepbutton2X => EditorGUIUtility.IconContent("StepButton@2x");
 
 		/// <summary>
 		/// StepLeftButton-On
 		/// </summary>
-		public static readonly GUIContent StepleftbuttonOn = EditorGUIUtility.IconContent("StepLeftButton-On");
+		public static GUIContent StepleftbuttonOn => EditorGUIUtility.IconContent("StepLeftButton-On");
 
 		/// <summary>
 		/// StepLeftButton
 		/// </summary>
-		public static readonly GUIContent Stepleftbutton = EditorGUIUtility.IconContent("StepLeftButton");
+		public static GUIContent Stepleftbutton => EditorGUIUtility.IconContent("StepLeftButton");
 
 		/// <summary>
 		/// sv_icon_dot0_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot0Sml = EditorGUIUtility.IconContent("sv_icon_dot0_sml");
+		public static GUIContent SvIconDot0Sml => EditorGUIUtility.IconContent("sv_icon_dot0_sml");
 
 		/// <summary>
 		/// sv_icon_dot10_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot10Sml = EditorGUIUtility.IconContent("sv_icon_dot10_sml");
+		public static GUIContent SvIconDot10Sml => EditorGUIUtility.IconContent("sv_icon_dot10_sml");
 
 		/// <summary>
 		/// sv_icon_dot11_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot11Sml = EditorGUIUtility.IconContent("sv_icon_dot11_sml");
+		public static GUIContent SvIconDot11Sml => EditorGUIUtility.IconContent("sv_icon_dot11_sml");
 
 		/// <summary>
 		/// sv_icon_dot12_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot12Sml = EditorGUIUtility.IconContent("sv_icon_dot12_sml");
+		public static GUIContent SvIconDot12Sml => EditorGUIUtility.IconContent("sv_icon_dot12_sml");
 
 		/// <summary>
 		/// sv_icon_dot13_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot13Sml = EditorGUIUtility.IconContent("sv_icon_dot13_sml");
+		public static GUIContent SvIconDot13Sml => EditorGUIUtility.IconContent("sv_icon_dot13_sml");
 
 		/// <summary>
 		/// sv_icon_dot14_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot14Sml = EditorGUIUtility.IconContent("sv_icon_dot14_sml");
+		public static GUIContent SvIconDot14Sml => EditorGUIUtility.IconContent("sv_icon_dot14_sml");
 
 		/// <summary>
 		/// sv_icon_dot15_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot15Sml = EditorGUIUtility.IconContent("sv_icon_dot15_sml");
+		public static GUIContent SvIconDot15Sml => EditorGUIUtility.IconContent("sv_icon_dot15_sml");
 
 		/// <summary>
 		/// sv_icon_dot1_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot1Sml = EditorGUIUtility.IconContent("sv_icon_dot1_sml");
+		public static GUIContent SvIconDot1Sml => EditorGUIUtility.IconContent("sv_icon_dot1_sml");
 
 		/// <summary>
 		/// sv_icon_dot2_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot2Sml = EditorGUIUtility.IconContent("sv_icon_dot2_sml");
+		public static GUIContent SvIconDot2Sml => EditorGUIUtility.IconContent("sv_icon_dot2_sml");
 
 		/// <summary>
 		/// sv_icon_dot3_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot3Sml = EditorGUIUtility.IconContent("sv_icon_dot3_sml");
+		public static GUIContent SvIconDot3Sml => EditorGUIUtility.IconContent("sv_icon_dot3_sml");
 
 		/// <summary>
 		/// sv_icon_dot4_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot4Sml = EditorGUIUtility.IconContent("sv_icon_dot4_sml");
+		public static GUIContent SvIconDot4Sml => EditorGUIUtility.IconContent("sv_icon_dot4_sml");
 
 		/// <summary>
 		/// sv_icon_dot5_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot5Sml = EditorGUIUtility.IconContent("sv_icon_dot5_sml");
+		public static GUIContent SvIconDot5Sml => EditorGUIUtility.IconContent("sv_icon_dot5_sml");
 
 		/// <summary>
 		/// sv_icon_dot6_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot6Sml = EditorGUIUtility.IconContent("sv_icon_dot6_sml");
+		public static GUIContent SvIconDot6Sml => EditorGUIUtility.IconContent("sv_icon_dot6_sml");
 
 		/// <summary>
 		/// sv_icon_dot7_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot7Sml = EditorGUIUtility.IconContent("sv_icon_dot7_sml");
+		public static GUIContent SvIconDot7Sml => EditorGUIUtility.IconContent("sv_icon_dot7_sml");
 
 		/// <summary>
 		/// sv_icon_dot8_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot8Sml = EditorGUIUtility.IconContent("sv_icon_dot8_sml");
+		public static GUIContent SvIconDot8Sml => EditorGUIUtility.IconContent("sv_icon_dot8_sml");
 
 		/// <summary>
 		/// sv_icon_dot9_sml
 		/// </summary>
-		public static readonly GUIContent SvIconDot9Sml = EditorGUIUtility.IconContent("sv_icon_dot9_sml");
+		public static GUIContent SvIconDot9Sml => EditorGUIUtility.IconContent("sv_icon_dot9_sml");
 
 		/// <summary>
 		/// sv_icon_name0
 		/// </summary>
-		public static readonly GUIContent SvIconName0 = EditorGUIUtility.IconContent("sv_icon_name0");
+		public static GUIContent SvIconName0 => EditorGUIUtility.IconContent("sv_icon_name0");
 
 		/// <summary>
 		/// sv_icon_name1
 		/// </summary>
-		public static readonly GUIContent SvIconName1 = EditorGUIUtility.IconContent("sv_icon_name1");
+		public static GUIContent SvIconName1 => EditorGUIUtility.IconContent("sv_icon_name1");
 
 		/// <summary>
 		/// sv_icon_name2
 		/// </summary>
-		public static readonly GUIContent SvIconName2 = EditorGUIUtility.IconContent("sv_icon_name2");
+		public static GUIContent SvIconName2 => EditorGUIUtility.IconContent("sv_icon_name2");
 
 		/// <summary>
 		/// sv_icon_name3
 		/// </summary>
-		public static readonly GUIContent SvIconName3 = EditorGUIUtility.IconContent("sv_icon_name3");
+		public static GUIContent SvIconName3 => EditorGUIUtility.IconContent("sv_icon_name3");
 
 		/// <summary>
 		/// sv_icon_name4
 		/// </summary>
-		public static readonly GUIContent SvIconName4 = EditorGUIUtility.IconContent("sv_icon_name4");
+		public static GUIContent SvIconName4 => EditorGUIUtility.IconContent("sv_icon_name4");
 
 		/// <summary>
 		/// sv_icon_name5
 		/// </summary>
-		public static readonly GUIContent SvIconName5 = EditorGUIUtility.IconContent("sv_icon_name5");
+		public static GUIContent SvIconName5 => EditorGUIUtility.IconContent("sv_icon_name5");
 
 		/// <summary>
 		/// sv_icon_name6
 		/// </summary>
-		public static readonly GUIContent SvIconName6 = EditorGUIUtility.IconContent("sv_icon_name6");
+		public static GUIContent SvIconName6 => EditorGUIUtility.IconContent("sv_icon_name6");
 
 		/// <summary>
 		/// sv_icon_name7
 		/// </summary>
-		public static readonly GUIContent SvIconName7 = EditorGUIUtility.IconContent("sv_icon_name7");
+		public static GUIContent SvIconName7 => EditorGUIUtility.IconContent("sv_icon_name7");
 
 		/// <summary>
 		/// sv_icon_none
 		/// </summary>
-		public static readonly GUIContent SvIconNone = EditorGUIUtility.IconContent("sv_icon_none");
+		public static GUIContent SvIconNone => EditorGUIUtility.IconContent("sv_icon_none");
 
 		/// <summary>
 		/// sv_label_0
 		/// </summary>
-		public static readonly GUIContent SvLabel0 = EditorGUIUtility.IconContent("sv_label_0");
+		public static GUIContent SvLabel0 => EditorGUIUtility.IconContent("sv_label_0");
 
 		/// <summary>
 		/// sv_label_1
 		/// </summary>
-		public static readonly GUIContent SvLabel1 = EditorGUIUtility.IconContent("sv_label_1");
+		public static GUIContent SvLabel1 => EditorGUIUtility.IconContent("sv_label_1");
 
 		/// <summary>
 		/// sv_label_2
 		/// </summary>
-		public static readonly GUIContent SvLabel2 = EditorGUIUtility.IconContent("sv_label_2");
+		public static GUIContent SvLabel2 => EditorGUIUtility.IconContent("sv_label_2");
 
 		/// <summary>
 		/// sv_label_3
 		/// </summary>
-		public static readonly GUIContent SvLabel3 = EditorGUIUtility.IconContent("sv_label_3");
+		public static GUIContent SvLabel3 => EditorGUIUtility.IconContent("sv_label_3");
 
 		/// <summary>
 		/// sv_label_4
 		/// </summary>
-		public static readonly GUIContent SvLabel4 = EditorGUIUtility.IconContent("sv_label_4");
+		public static GUIContent SvLabel4 => EditorGUIUtility.IconContent("sv_label_4");
 
 		/// <summary>
 		/// sv_label_5
 		/// </summary>
-		public static readonly GUIContent SvLabel5 = EditorGUIUtility.IconContent("sv_label_5");
+		public static GUIContent SvLabel5 => EditorGUIUtility.IconContent("sv_label_5");
 
 		/// <summary>
 		/// sv_label_6
 		/// </summary>
-		public static readonly GUIContent SvLabel6 = EditorGUIUtility.IconContent("sv_label_6");
+		public static GUIContent SvLabel6 => EditorGUIUtility.IconContent("sv_label_6");
 
 		/// <summary>
 		/// sv_label_7
 		/// </summary>
-		public static readonly GUIContent SvLabel7 = EditorGUIUtility.IconContent("sv_label_7");
+		public static GUIContent SvLabel7 => EditorGUIUtility.IconContent("sv_label_7");
 
 		/// <summary>
 		/// tab_next
 		/// </summary>
-		public static readonly GUIContent TabNext = EditorGUIUtility.IconContent("tab_next");
+		public static GUIContent TabNext => EditorGUIUtility.IconContent("tab_next");
 
 		/// <summary>
 		/// tab_next@2x
 		/// </summary>
-		public static readonly GUIContent TabNext2X = EditorGUIUtility.IconContent("tab_next@2x");
+		public static GUIContent TabNext2X => EditorGUIUtility.IconContent("tab_next@2x");
 
 		/// <summary>
 		/// tab_prev
 		/// </summary>
-		public static readonly GUIContent TabPrev = EditorGUIUtility.IconContent("tab_prev");
+		public static GUIContent TabPrev => EditorGUIUtility.IconContent("tab_prev");
 
 		/// <summary>
 		/// tab_prev@2x
 		/// </summary>
-		public static readonly GUIContent TabPrev2X = EditorGUIUtility.IconContent("tab_prev@2x");
+		public static GUIContent TabPrev2X => EditorGUIUtility.IconContent("tab_prev@2x");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolAdd
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintooladd =
+		public static GUIContent TerraininspectorTerraintooladd =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolAdd");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolLower
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintoollower =
+		public static GUIContent TerraininspectorTerraintoollower =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolLower");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolLowerAlt
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintoolloweralt =
+		public static GUIContent TerraininspectorTerraintoolloweralt =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolLowerAlt");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolPlants
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintoolplants =
+		public static GUIContent TerraininspectorTerraintoolplants =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolPlants");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolPlantsAlt
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintoolplantsalt =
+		public static GUIContent TerraininspectorTerraintoolplantsalt =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolPlantsAlt");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolRaise
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintoolraise =
+		public static GUIContent TerraininspectorTerraintoolraise =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolRaise");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolSculpt
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintoolsculpt =
+		public static GUIContent TerraininspectorTerraintoolsculpt =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolSculpt");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolSetheight
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintoolsetheight =
+		public static GUIContent TerraininspectorTerraintoolsetheight =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolSetheight");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolSetheightAlt
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintoolsetheightalt =
+		public static GUIContent TerraininspectorTerraintoolsetheightalt =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolSetheightAlt");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolSettings
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintoolsettings =
+		public static GUIContent TerraininspectorTerraintoolsettings =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolSettings");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolSmoothHeight
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintoolsmoothheight =
+		public static GUIContent TerraininspectorTerraintoolsmoothheight =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolSmoothHeight");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolSplat
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintoolsplat =
+		public static GUIContent TerraininspectorTerraintoolsplat =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolSplat");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolSplatAlt
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintoolsplatalt =
+		public static GUIContent TerraininspectorTerraintoolsplatalt =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolSplatAlt");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolTrees
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintooltrees =
+		public static GUIContent TerraininspectorTerraintooltrees =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolTrees");
 
 		/// <summary>
 		/// TerrainInspector.TerrainToolTreesAlt
 		/// </summary>
-		public static readonly GUIContent TerraininspectorTerraintooltreesalt =
+		public static GUIContent TerraininspectorTerraintooltreesalt =>
 			EditorGUIUtility.IconContent("TerrainInspector.TerrainToolTreesAlt");
 
 		/// <summary>
 		/// TestFailed
 		/// </summary>
-		public static readonly GUIContent Testfailed = EditorGUIUtility.IconContent("TestFailed");
+		public static GUIContent Testfailed => EditorGUIUtility.IconContent("TestFailed");
 
 		/// <summary>
 		/// TestIgnored
 		/// </summary>
-		public static readonly GUIContent Testignored = EditorGUIUtility.IconContent("TestIgnored");
+		public static GUIContent Testignored => EditorGUIUtility.IconContent("TestIgnored");
 
 		/// <summary>
 		/// TestInconclusive
 		/// </summary>
-		public static readonly GUIContent Testinconclusive = EditorGUIUtility.IconContent("TestInconclusive");
+		public static GUIContent Testinconclusive => EditorGUIUtility.IconContent("TestInconclusive");
 
 		/// <summary>
 		/// TestNormal
 		/// </summary>
-		public static readonly GUIContent Testnormal = EditorGUIUtility.IconContent("TestNormal");
+		public static GUIContent Testnormal => EditorGUIUtility.IconContent("TestNormal");
 
 		/// <summary>
 		/// TestPassed
 		/// </summary>
-		public static readonly GUIContent Testpassed = EditorGUIUtility.IconContent("TestPassed");
+		public static GUIContent Testpassed => EditorGUIUtility.IconContent("TestPassed");
 
 		/// <summary>
 		/// TestStopwatch
 		/// </summary>
-		public static readonly GUIContent Teststopwatch = EditorGUIUtility.IconContent("TestStopwatch");
+		public static GUIContent Teststopwatch => EditorGUIUtility.IconContent("TestStopwatch");
 
 		/// <summary>
 		/// ToggleUVOverlay
 		/// </summary>
-		public static readonly GUIContent Toggleuvoverlay = EditorGUIUtility.IconContent("ToggleUVOverlay");
+		public static GUIContent Toggleuvoverlay => EditorGUIUtility.IconContent("ToggleUVOverlay");
 
 		/// <summary>
 		/// ToggleUVOverlay@2x
 		/// </summary>
-		public static readonly GUIContent Toggleuvoverlay2X = EditorGUIUtility.IconContent("ToggleUVOverlay@2x");
+		public static GUIContent Toggleuvoverlay2X => EditorGUIUtility.IconContent("ToggleUVOverlay@2x");
 
 		/// <summary>
 		/// ToolHandleCenter
 		/// </summary>
-		public static readonly GUIContent Toolhandlecenter = EditorGUIUtility.IconContent("ToolHandleCenter");
+		public static GUIContent Toolhandlecenter => EditorGUIUtility.IconContent("ToolHandleCenter");
 
 		/// <summary>
 		/// ToolHandleCenter@2x
 		/// </summary>
-		public static readonly GUIContent Toolhandlecenter2X = EditorGUIUtility.IconContent("ToolHandleCenter@2x");
+		public static GUIContent Toolhandlecenter2X => EditorGUIUtility.IconContent("ToolHandleCenter@2x");
 
 		/// <summary>
 		/// ToolHandleGlobal
 		/// </summary>
-		public static readonly GUIContent Toolhandleglobal = EditorGUIUtility.IconContent("ToolHandleGlobal");
+		public static GUIContent Toolhandleglobal => EditorGUIUtility.IconContent("ToolHandleGlobal");
 
 		/// <summary>
 		/// ToolHandleGlobal@2x
 		/// </summary>
-		public static readonly GUIContent Toolhandleglobal2X = EditorGUIUtility.IconContent("ToolHandleGlobal@2x");
+		public static GUIContent Toolhandleglobal2X => EditorGUIUtility.IconContent("ToolHandleGlobal@2x");
 
 		/// <summary>
 		/// ToolHandleLocal
 		/// </summary>
-		public static readonly GUIContent Toolhandlelocal = EditorGUIUtility.IconContent("ToolHandleLocal");
+		public static GUIContent Toolhandlelocal => EditorGUIUtility.IconContent("ToolHandleLocal");
 
 		/// <summary>
 		/// ToolHandleLocal@2x
 		/// </summary>
-		public static readonly GUIContent Toolhandlelocal2X = EditorGUIUtility.IconContent("ToolHandleLocal@2x");
+		public static GUIContent Toolhandlelocal2X => EditorGUIUtility.IconContent("ToolHandleLocal@2x");
 
 		/// <summary>
 		/// ToolHandlePivot
 		/// </summary>
-		public static readonly GUIContent Toolhandlepivot = EditorGUIUtility.IconContent("ToolHandlePivot");
+		public static GUIContent Toolhandlepivot => EditorGUIUtility.IconContent("ToolHandlePivot");
 
 		/// <summary>
 		/// ToolHandlePivot@2x
 		/// </summary>
-		public static readonly GUIContent Toolhandlepivot2X = EditorGUIUtility.IconContent("ToolHandlePivot@2x");
+		public static GUIContent Toolhandlepivot2X => EditorGUIUtility.IconContent("ToolHandlePivot@2x");
 
 		/// <summary>
 		/// ToolsIcon
 		/// </summary>
-		public static readonly GUIContent Toolsicon = EditorGUIUtility.IconContent("ToolsIcon");
+		public static GUIContent Toolsicon => EditorGUIUtility.IconContent("ToolsIcon");
 
 		/// <summary>
 		/// tranp
 		/// </summary>
-		public static readonly GUIContent Tranp = EditorGUIUtility.IconContent("tranp");
+		public static GUIContent Tranp => EditorGUIUtility.IconContent("tranp");
 
 		/// <summary>
 		/// TransformTool
 		/// </summary>
-		public static readonly GUIContent Transformtool = EditorGUIUtility.IconContent("TransformTool");
+		public static GUIContent Transformtool => EditorGUIUtility.IconContent("TransformTool");
 
 		/// <summary>
 		/// TransformTool@2x
 		/// </summary>
-		public static readonly GUIContent Transformtool2X = EditorGUIUtility.IconContent("TransformTool@2x");
+		public static GUIContent Transformtool2X => EditorGUIUtility.IconContent("TransformTool@2x");
 
 		/// <summary>
 		/// tree_icon
 		/// </summary>
-		public static readonly GUIContent TreeIcon = EditorGUIUtility.IconContent("tree_icon");
+		public static GUIContent TreeIcon => EditorGUIUtility.IconContent("tree_icon");
 
 		/// <summary>
 		/// tree_icon_branch
 		/// </summary>
-		public static readonly GUIContent TreeIconBranch = EditorGUIUtility.IconContent("tree_icon_branch");
+		public static GUIContent TreeIconBranch => EditorGUIUtility.IconContent("tree_icon_branch");
 
 		/// <summary>
 		/// tree_icon_branch_frond
 		/// </summary>
-		public static readonly GUIContent TreeIconBranchFrond = EditorGUIUtility.IconContent("tree_icon_branch_frond");
+		public static GUIContent TreeIconBranchFrond => EditorGUIUtility.IconContent("tree_icon_branch_frond");
 
 		/// <summary>
 		/// tree_icon_frond
 		/// </summary>
-		public static readonly GUIContent TreeIconFrond = EditorGUIUtility.IconContent("tree_icon_frond");
+		public static GUIContent TreeIconFrond => EditorGUIUtility.IconContent("tree_icon_frond");
 
 		/// <summary>
 		/// tree_icon_leaf
 		/// </summary>
-		public static readonly GUIContent TreeIconLeaf = EditorGUIUtility.IconContent("tree_icon_leaf");
+		public static GUIContent TreeIconLeaf => EditorGUIUtility.IconContent("tree_icon_leaf");
 
 		/// <summary>
 		/// TreeEditor.AddBranches
 		/// </summary>
-		public static readonly GUIContent
-			TreeeditorAddbranches = EditorGUIUtility.IconContent("TreeEditor.AddBranches");
+		public static GUIContent
+			TreeeditorAddbranches => EditorGUIUtility.IconContent("TreeEditor.AddBranches");
 
 		/// <summary>
 		/// TreeEditor.AddLeaves
 		/// </summary>
-		public static readonly GUIContent TreeeditorAddleaves = EditorGUIUtility.IconContent("TreeEditor.AddLeaves");
+		public static GUIContent TreeeditorAddleaves => EditorGUIUtility.IconContent("TreeEditor.AddLeaves");
 
 		/// <summary>
 		/// TreeEditor.Branch
 		/// </summary>
-		public static readonly GUIContent TreeeditorBranch = EditorGUIUtility.IconContent("TreeEditor.Branch");
+		public static GUIContent TreeeditorBranch => EditorGUIUtility.IconContent("TreeEditor.Branch");
 
 		/// <summary>
 		/// TreeEditor.BranchFreeHand
 		/// </summary>
-		public static readonly GUIContent TreeeditorBranchfreehand =
+		public static GUIContent TreeeditorBranchfreehand =>
 			EditorGUIUtility.IconContent("TreeEditor.BranchFreeHand");
 
 		/// <summary>
 		/// TreeEditor.BranchRotate
 		/// </summary>
-		public static readonly GUIContent TreeeditorBranchrotate =
+		public static GUIContent TreeeditorBranchrotate =>
 			EditorGUIUtility.IconContent("TreeEditor.BranchRotate");
 
 		/// <summary>
 		/// TreeEditor.BranchScale
 		/// </summary>
-		public static readonly GUIContent
-			TreeeditorBranchscale = EditorGUIUtility.IconContent("TreeEditor.BranchScale");
+		public static GUIContent
+			TreeeditorBranchscale => EditorGUIUtility.IconContent("TreeEditor.BranchScale");
 
 		/// <summary>
 		/// TreeEditor.BranchTranslate
 		/// </summary>
-		public static readonly GUIContent TreeeditorBranchtranslate =
+		public static GUIContent TreeeditorBranchtranslate =>
 			EditorGUIUtility.IconContent("TreeEditor.BranchTranslate");
 
 		/// <summary>
 		/// TreeEditor.Distribution
 		/// </summary>
-		public static readonly GUIContent TreeeditorDistribution =
+		public static GUIContent TreeeditorDistribution =>
 			EditorGUIUtility.IconContent("TreeEditor.Distribution");
 
 		/// <summary>
 		/// TreeEditor.Duplicate
 		/// </summary>
-		public static readonly GUIContent TreeeditorDuplicate = EditorGUIUtility.IconContent("TreeEditor.Duplicate");
+		public static GUIContent TreeeditorDuplicate => EditorGUIUtility.IconContent("TreeEditor.Duplicate");
 
 		/// <summary>
 		/// TreeEditor.Geometry
 		/// </summary>
-		public static readonly GUIContent TreeeditorGeometry = EditorGUIUtility.IconContent("TreeEditor.Geometry");
+		public static GUIContent TreeeditorGeometry => EditorGUIUtility.IconContent("TreeEditor.Geometry");
 
 		/// <summary>
 		/// TreeEditor.Leaf
 		/// </summary>
-		public static readonly GUIContent TreeeditorLeaf = EditorGUIUtility.IconContent("TreeEditor.Leaf");
+		public static GUIContent TreeeditorLeaf => EditorGUIUtility.IconContent("TreeEditor.Leaf");
 
 		/// <summary>
 		/// TreeEditor.LeafFreeHand
 		/// </summary>
-		public static readonly GUIContent TreeeditorLeaffreehand =
+		public static GUIContent TreeeditorLeaffreehand =>
 			EditorGUIUtility.IconContent("TreeEditor.LeafFreeHand");
 
 		/// <summary>
 		/// TreeEditor.LeafRotate
 		/// </summary>
-		public static readonly GUIContent TreeeditorLeafrotate = EditorGUIUtility.IconContent("TreeEditor.LeafRotate");
+		public static GUIContent TreeeditorLeafrotate => EditorGUIUtility.IconContent("TreeEditor.LeafRotate");
 
 		/// <summary>
 		/// TreeEditor.LeafScale
 		/// </summary>
-		public static readonly GUIContent TreeeditorLeafscale = EditorGUIUtility.IconContent("TreeEditor.LeafScale");
+		public static GUIContent TreeeditorLeafscale => EditorGUIUtility.IconContent("TreeEditor.LeafScale");
 
 		/// <summary>
 		/// TreeEditor.LeafTranslate
 		/// </summary>
-		public static readonly GUIContent TreeeditorLeaftranslate =
+		public static GUIContent TreeeditorLeaftranslate =>
 			EditorGUIUtility.IconContent("TreeEditor.LeafTranslate");
 
 		/// <summary>
 		/// TreeEditor.Material
 		/// </summary>
-		public static readonly GUIContent TreeeditorMaterial = EditorGUIUtility.IconContent("TreeEditor.Material");
+		public static GUIContent TreeeditorMaterial => EditorGUIUtility.IconContent("TreeEditor.Material");
 
 		/// <summary>
 		/// TreeEditor.Refresh
 		/// </summary>
-		public static readonly GUIContent TreeeditorRefresh = EditorGUIUtility.IconContent("TreeEditor.Refresh");
+		public static GUIContent TreeeditorRefresh => EditorGUIUtility.IconContent("TreeEditor.Refresh");
 
 		/// <summary>
 		/// TreeEditor.Trash
 		/// </summary>
-		public static readonly GUIContent TreeeditorTrash = EditorGUIUtility.IconContent("TreeEditor.Trash");
+		public static GUIContent TreeeditorTrash => EditorGUIUtility.IconContent("TreeEditor.Trash");
 
 		/// <summary>
 		/// TreeEditor.Wind
 		/// </summary>
-		public static readonly GUIContent TreeeditorWind = EditorGUIUtility.IconContent("TreeEditor.Wind");
+		public static GUIContent TreeeditorWind => EditorGUIUtility.IconContent("TreeEditor.Wind");
 
 		/// <summary>
 		/// UnityEditor.AnimationWindow
 		/// </summary>
-		public static readonly GUIContent UnityeditorAnimationwindow =
+		public static GUIContent UnityeditorAnimationwindow =>
 			EditorGUIUtility.IconContent("UnityEditor.AnimationWindow");
 
 		/// <summary>
 		/// UnityEditor.AnimationWindow@2x
 		/// </summary>
-		public static readonly GUIContent UnityeditorAnimationwindow2X =
+		public static GUIContent UnityeditorAnimationwindow2X =>
 			EditorGUIUtility.IconContent("UnityEditor.AnimationWindow@2x");
 
 		/// <summary>
 		/// UnityEditor.ConsoleWindow
 		/// </summary>
-		public static readonly GUIContent UnityeditorConsolewindow =
+		public static GUIContent UnityeditorConsolewindow =>
 			EditorGUIUtility.IconContent("UnityEditor.ConsoleWindow");
 
 		/// <summary>
 		/// UnityEditor.ConsoleWindow@2x
 		/// </summary>
-		public static readonly GUIContent UnityeditorConsolewindow2X =
+		public static GUIContent UnityeditorConsolewindow2X =>
 			EditorGUIUtility.IconContent("UnityEditor.ConsoleWindow@2x");
 
 		/// <summary>
 		/// UnityEditor.DebugInspectorWindow
 		/// </summary>
-		public static readonly GUIContent UnityeditorDebuginspectorwindow =
+		public static GUIContent UnityeditorDebuginspectorwindow =>
 			EditorGUIUtility.IconContent("UnityEditor.DebugInspectorWindow");
 
 		/// <summary>
 		/// UnityEditor.FindDependencies
 		/// </summary>
-		public static readonly GUIContent UnityeditorFinddependencies =
+		public static GUIContent UnityeditorFinddependencies =>
 			EditorGUIUtility.IconContent("UnityEditor.FindDependencies");
 
 		/// <summary>
 		/// UnityEditor.GameView
 		/// </summary>
-		public static readonly GUIContent UnityeditorGameview = EditorGUIUtility.IconContent("UnityEditor.GameView");
+		public static GUIContent UnityeditorGameview => EditorGUIUtility.IconContent("UnityEditor.GameView");
 
 		/// <summary>
 		/// UnityEditor.GameView@2x
 		/// </summary>
-		public static readonly GUIContent UnityeditorGameview2X =
+		public static GUIContent UnityeditorGameview2X =>
 			EditorGUIUtility.IconContent("UnityEditor.GameView@2x");
 
 		/// <summary>
 		/// UnityEditor.Graphs.AnimatorControllerTool
 		/// </summary>
-		public static readonly GUIContent UnityeditorGraphsAnimatorcontrollertool =
+		public static GUIContent UnityeditorGraphsAnimatorcontrollertool =>
 			EditorGUIUtility.IconContent("UnityEditor.Graphs.AnimatorControllerTool");
 
 		/// <summary>
 		/// UnityEditor.Graphs.AnimatorControllerTool@2x
 		/// </summary>
-		public static readonly GUIContent UnityeditorGraphsAnimatorcontrollertool2X =
+		public static GUIContent UnityeditorGraphsAnimatorcontrollertool2X =>
 			EditorGUIUtility.IconContent("UnityEditor.Graphs.AnimatorControllerTool@2x");
 
 		/// <summary>
 		/// UnityEditor.HierarchyWindow
 		/// </summary>
-		public static readonly GUIContent UnityeditorHierarchywindow =
+		public static GUIContent UnityeditorHierarchywindow =>
 			EditorGUIUtility.IconContent("UnityEditor.HierarchyWindow");
 
 		/// <summary>
 		/// UnityEditor.HierarchyWindow@2x
 		/// </summary>
-		public static readonly GUIContent UnityeditorHierarchywindow2X =
+		public static GUIContent UnityeditorHierarchywindow2X =>
 			EditorGUIUtility.IconContent("UnityEditor.HierarchyWindow@2x");
 
 		/// <summary>
 		/// UnityEditor.InspectorWindow
 		/// </summary>
-		public static readonly GUIContent UnityeditorInspectorwindow =
+		public static GUIContent UnityeditorInspectorwindow =>
 			EditorGUIUtility.IconContent("UnityEditor.InspectorWindow");
 
 		/// <summary>
 		/// UnityEditor.InspectorWindow@2x
 		/// </summary>
-		public static readonly GUIContent UnityeditorInspectorwindow2X =
+		public static GUIContent UnityeditorInspectorwindow2X =>
 			EditorGUIUtility.IconContent("UnityEditor.InspectorWindow@2x");
 
 		/// <summary>
 		/// UnityEditor.ProfilerWindow
 		/// </summary>
-		public static readonly GUIContent UnityeditorProfilerwindow =
+		public static GUIContent UnityeditorProfilerwindow =>
 			EditorGUIUtility.IconContent("UnityEditor.ProfilerWindow");
 
 		/// <summary>
 		/// UnityEditor.ProfilerWindow@2x
 		/// </summary>
-		public static readonly GUIContent UnityeditorProfilerwindow2X =
+		public static GUIContent UnityeditorProfilerwindow2X =>
 			EditorGUIUtility.IconContent("UnityEditor.ProfilerWindow@2x");
 
 		/// <summary>
 		/// UnityEditor.SceneHierarchyWindow
 		/// </summary>
-		public static readonly GUIContent UnityeditorScenehierarchywindow =
+		public static GUIContent UnityeditorScenehierarchywindow =>
 			EditorGUIUtility.IconContent("UnityEditor.SceneHierarchyWindow");
 
 		/// <summary>
 		/// UnityEditor.SceneHierarchyWindow@2x
 		/// </summary>
-		public static readonly GUIContent UnityeditorScenehierarchywindow2X =
+		public static GUIContent UnityeditorScenehierarchywindow2X =>
 			EditorGUIUtility.IconContent("UnityEditor.SceneHierarchyWindow@2x");
 
 		/// <summary>
 		/// UnityEditor.SceneView
 		/// </summary>
-		public static readonly GUIContent UnityeditorSceneview = EditorGUIUtility.IconContent("UnityEditor.SceneView");
+		public static GUIContent UnityeditorSceneview => EditorGUIUtility.IconContent("UnityEditor.SceneView");
 
 		/// <summary>
 		/// UnityEditor.SceneView@2x
 		/// </summary>
-		public static readonly GUIContent UnityeditorSceneview2X =
+		public static GUIContent UnityeditorSceneview2X =>
 			EditorGUIUtility.IconContent("UnityEditor.SceneView@2x");
 
 		/// <summary>
 		/// UnityEditor.Timeline.TimelineWindow
 		/// </summary>
-		public static readonly GUIContent UnityeditorTimelineTimelinewindow =
+		public static GUIContent UnityeditorTimelineTimelinewindow =>
 			EditorGUIUtility.IconContent("UnityEditor.Timeline.TimelineWindow");
 
 		/// <summary>
 		/// UnityEditor.Timeline.TimelineWindow@2x
 		/// </summary>
-		public static readonly GUIContent UnityeditorTimelineTimelinewindow2X =
+		public static GUIContent UnityeditorTimelineTimelinewindow2X =>
 			EditorGUIUtility.IconContent("UnityEditor.Timeline.TimelineWindow@2x");
 
 		/// <summary>
 		/// UnityEditor.VersionControl
 		/// </summary>
-		public static readonly GUIContent UnityeditorVersioncontrol =
+		public static GUIContent UnityeditorVersioncontrol =>
 			EditorGUIUtility.IconContent("UnityEditor.VersionControl");
 
 		/// <summary>
 		/// UnityLogo
 		/// </summary>
-		public static readonly GUIContent Unitylogo = EditorGUIUtility.IconContent("UnityLogo");
+		public static GUIContent Unitylogo => EditorGUIUtility.IconContent("UnityLogo");
 
 		/// <summary>
 		/// UnityLogoLarge
 		/// </summary>
-		public static readonly GUIContent Unitylogolarge = EditorGUIUtility.IconContent("UnityLogoLarge");
+		public static GUIContent Unitylogolarge => EditorGUIUtility.IconContent("UnityLogoLarge");
 
 		/// <summary>
 		/// UnLinked
 		/// </summary>
-		public static readonly GUIContent Unlinked = EditorGUIUtility.IconContent("UnLinked");
+		public static GUIContent Unlinked => EditorGUIUtility.IconContent("UnLinked");
 
 		/// <summary>
 		/// UnLinked@2x
 		/// </summary>
-		public static readonly GUIContent Unlinked2X = EditorGUIUtility.IconContent("UnLinked@2x");
+		public static GUIContent Unlinked2X => EditorGUIUtility.IconContent("UnLinked@2x");
 
 		/// <summary>
 		/// UpArrow
 		/// </summary>
-		public static readonly GUIContent Uparrow = EditorGUIUtility.IconContent("UpArrow");
+		public static GUIContent Uparrow => EditorGUIUtility.IconContent("UpArrow");
 
 		/// <summary>
 		/// Valid
 		/// </summary>
-		public static readonly GUIContent Valid = EditorGUIUtility.IconContent("Valid");
+		public static GUIContent Valid => EditorGUIUtility.IconContent("Valid");
 
 		/// <summary>
 		/// Valid@2x
 		/// </summary>
-		public static readonly GUIContent Valid2X = EditorGUIUtility.IconContent("Valid@2x");
+		public static GUIContent Valid2X => EditorGUIUtility.IconContent("Valid@2x");
 		
 		/// <summary>
 		/// P4_AddedLocal
 		/// </summary>
-		public static readonly GUIContent P4Addedlocal = EditorGUIUtility.IconContent("P4_AddedLocal");
+		public static GUIContent P4Addedlocal => EditorGUIUtility.IconContent("P4_AddedLocal");
 
 		/// <summary>
 		/// P4_AddedLocal@2x
 		/// </summary>
-		public static readonly GUIContent P4Addedlocal2X = EditorGUIUtility.IconContent("P4_AddedLocal@2x");
+		public static GUIContent P4Addedlocal2X => EditorGUIUtility.IconContent("P4_AddedLocal@2x");
 
 		/// <summary>
 		/// P4_AddedRemote
 		/// </summary>
-		public static readonly GUIContent P4Addedremote = EditorGUIUtility.IconContent("P4_AddedRemote");
+		public static GUIContent P4Addedremote => EditorGUIUtility.IconContent("P4_AddedRemote");
 
 		/// <summary>
 		/// P4_AddedRemote@2x
 		/// </summary>
-		public static readonly GUIContent P4Addedremote2X = EditorGUIUtility.IconContent("P4_AddedRemote@2x");
+		public static GUIContent P4Addedremote2X => EditorGUIUtility.IconContent("P4_AddedRemote@2x");
 
 		/// <summary>
 		/// P4_BlueLeftParenthesis
 		/// </summary>
-		public static readonly GUIContent
-			P4Blueleftparenthesis = EditorGUIUtility.IconContent("P4_BlueLeftParenthesis");
+		public static GUIContent
+			P4Blueleftparenthesis => EditorGUIUtility.IconContent("P4_BlueLeftParenthesis");
 
 		/// <summary>
 		/// P4_BlueLeftParenthesis@2x
 		/// </summary>
-		public static readonly GUIContent P4Blueleftparenthesis2X =
+		public static GUIContent P4Blueleftparenthesis2X =>
 			EditorGUIUtility.IconContent("P4_BlueLeftParenthesis@2x");
 
 		/// <summary>
 		/// P4_BlueRightParenthesis
 		/// </summary>
-		public static readonly GUIContent P4Bluerightparenthesis =
+		public static GUIContent P4Bluerightparenthesis =>
 			EditorGUIUtility.IconContent("P4_BlueRightParenthesis");
 
 		/// <summary>
 		/// P4_BlueRightParenthesis@2x
 		/// </summary>
-		public static readonly GUIContent P4Bluerightparenthesis2X =
+		public static GUIContent P4Bluerightparenthesis2X =>
 			EditorGUIUtility.IconContent("P4_BlueRightParenthesis@2x");
 
 		/// <summary>
 		/// P4_CheckOutLocal
 		/// </summary>
-		public static readonly GUIContent P4Checkoutlocal = EditorGUIUtility.IconContent("P4_CheckOutLocal");
+		public static GUIContent P4Checkoutlocal => EditorGUIUtility.IconContent("P4_CheckOutLocal");
 
 		/// <summary>
 		/// P4_CheckOutLocal@2x
 		/// </summary>
-		public static readonly GUIContent P4Checkoutlocal2X = EditorGUIUtility.IconContent("P4_CheckOutLocal@2x");
+		public static GUIContent P4Checkoutlocal2X => EditorGUIUtility.IconContent("P4_CheckOutLocal@2x");
 
 		/// <summary>
 		/// P4_CheckOutRemote
 		/// </summary>
-		public static readonly GUIContent P4Checkoutremote = EditorGUIUtility.IconContent("P4_CheckOutRemote");
+		public static GUIContent P4Checkoutremote => EditorGUIUtility.IconContent("P4_CheckOutRemote");
 
 		/// <summary>
 		/// P4_CheckOutRemote@2x
 		/// </summary>
-		public static readonly GUIContent P4Checkoutremote2X = EditorGUIUtility.IconContent("P4_CheckOutRemote@2x");
+		public static GUIContent P4Checkoutremote2X => EditorGUIUtility.IconContent("P4_CheckOutRemote@2x");
 
 		/// <summary>
 		/// P4_Conflicted
 		/// </summary>
-		public static readonly GUIContent P4Conflicted = EditorGUIUtility.IconContent("P4_Conflicted");
+		public static GUIContent P4Conflicted => EditorGUIUtility.IconContent("P4_Conflicted");
 
 		/// <summary>
 		/// P4_Conflicted@2x
 		/// </summary>
-		public static readonly GUIContent P4Conflicted2X = EditorGUIUtility.IconContent("P4_Conflicted@2x");
+		public static GUIContent P4Conflicted2X => EditorGUIUtility.IconContent("P4_Conflicted@2x");
 
 		/// <summary>
 		/// P4_DeletedLocal
 		/// </summary>
-		public static readonly GUIContent P4Deletedlocal = EditorGUIUtility.IconContent("P4_DeletedLocal");
+		public static GUIContent P4Deletedlocal => EditorGUIUtility.IconContent("P4_DeletedLocal");
 
 		/// <summary>
 		/// P4_DeletedLocal@2x
 		/// </summary>
-		public static readonly GUIContent P4Deletedlocal2X = EditorGUIUtility.IconContent("P4_DeletedLocal@2x");
+		public static GUIContent P4Deletedlocal2X => EditorGUIUtility.IconContent("P4_DeletedLocal@2x");
 
 		/// <summary>
 		/// P4_DeletedRemote
 		/// </summary>
-		public static readonly GUIContent P4Deletedremote = EditorGUIUtility.IconContent("P4_DeletedRemote");
+		public static GUIContent P4Deletedremote => EditorGUIUtility.IconContent("P4_DeletedRemote");
 
 		/// <summary>
 		/// P4_DeletedRemote@2x
 		/// </summary>
-		public static readonly GUIContent P4Deletedremote2X = EditorGUIUtility.IconContent("P4_DeletedRemote@2x");
+		public static GUIContent P4Deletedremote2X => EditorGUIUtility.IconContent("P4_DeletedRemote@2x");
 
 		/// <summary>
 		/// P4_Local
 		/// </summary>
-		public static readonly GUIContent P4Local = EditorGUIUtility.IconContent("P4_Local");
+		public static GUIContent P4Local => EditorGUIUtility.IconContent("P4_Local");
 
 		/// <summary>
 		/// P4_Local@2x
 		/// </summary>
-		public static readonly GUIContent P4Local2X = EditorGUIUtility.IconContent("P4_Local@2x");
+		public static GUIContent P4Local2X => EditorGUIUtility.IconContent("P4_Local@2x");
 
 		/// <summary>
 		/// P4_LockedLocal
 		/// </summary>
-		public static readonly GUIContent P4Lockedlocal = EditorGUIUtility.IconContent("P4_LockedLocal");
+		public static GUIContent P4Lockedlocal => EditorGUIUtility.IconContent("P4_LockedLocal");
 
 		/// <summary>
 		/// P4_LockedLocal@2x
 		/// </summary>
-		public static readonly GUIContent P4Lockedlocal2X = EditorGUIUtility.IconContent("P4_LockedLocal@2x");
+		public static GUIContent P4Lockedlocal2X => EditorGUIUtility.IconContent("P4_LockedLocal@2x");
 
 		/// <summary>
 		/// P4_LockedRemote
 		/// </summary>
-		public static readonly GUIContent P4Lockedremote = EditorGUIUtility.IconContent("P4_LockedRemote");
+		public static GUIContent P4Lockedremote => EditorGUIUtility.IconContent("P4_LockedRemote");
 
 		/// <summary>
 		/// P4_LockedRemote@2x
 		/// </summary>
-		public static readonly GUIContent P4Lockedremote2X = EditorGUIUtility.IconContent("P4_LockedRemote@2x");
+		public static GUIContent P4Lockedremote2X => EditorGUIUtility.IconContent("P4_LockedRemote@2x");
 
 		/// <summary>
 		/// P4_OutOfSync
 		/// </summary>
-		public static readonly GUIContent P4Outofsync = EditorGUIUtility.IconContent("P4_OutOfSync");
+		public static GUIContent P4Outofsync => EditorGUIUtility.IconContent("P4_OutOfSync");
 
 		/// <summary>
 		/// P4_OutOfSync@2x
 		/// </summary>
-		public static readonly GUIContent P4Outofsync2X = EditorGUIUtility.IconContent("P4_OutOfSync@2x");
+		public static GUIContent P4Outofsync2X => EditorGUIUtility.IconContent("P4_OutOfSync@2x");
 
 		/// <summary>
 		/// P4_RedLeftParenthesis
 		/// </summary>
-		public static readonly GUIContent P4Redleftparenthesis = EditorGUIUtility.IconContent("P4_RedLeftParenthesis");
+		public static GUIContent P4Redleftparenthesis => EditorGUIUtility.IconContent("P4_RedLeftParenthesis");
 
 		/// <summary>
 		/// P4_RedLeftParenthesis@2x
 		/// </summary>
-		public static readonly GUIContent P4Redleftparenthesis2X =
+		public static GUIContent P4Redleftparenthesis2X =>
 			EditorGUIUtility.IconContent("P4_RedLeftParenthesis@2x");
 
 		/// <summary>
 		/// P4_RedRightParenthesis
 		/// </summary>
-		public static readonly GUIContent
-			P4Redrightparenthesis = EditorGUIUtility.IconContent("P4_RedRightParenthesis");
+		public static GUIContent
+			P4Redrightparenthesis => EditorGUIUtility.IconContent("P4_RedRightParenthesis");
 
 		/// <summary>
 		/// P4_RedRightParenthesis@2x
 		/// </summary>
-		public static readonly GUIContent P4Redrightparenthesis2X =
+		public static GUIContent P4Redrightparenthesis2X =>
 			EditorGUIUtility.IconContent("P4_RedRightParenthesis@2x");
 
 		/// <summary>
 		/// P4_Updating
 		/// </summary>
-		public static readonly GUIContent P4Updating = EditorGUIUtility.IconContent("P4_Updating");
+		public static GUIContent P4Updating => EditorGUIUtility.IconContent("P4_Updating");
 
 		/// <summary>
 		/// P4_Updating@2x
 		/// </summary>
-		public static readonly GUIContent P4Updating2X = EditorGUIUtility.IconContent("P4_Updating@2x");
+		public static GUIContent P4Updating2X => EditorGUIUtility.IconContent("P4_Updating@2x");
 
 		/// <summary>
 		/// VerticalSplit
 		/// </summary>
-		public static readonly GUIContent Verticalsplit = EditorGUIUtility.IconContent("VerticalSplit");
+		public static GUIContent Verticalsplit => EditorGUIUtility.IconContent("VerticalSplit");
 
 		/// <summary>
 		/// ViewToolMove
 		/// </summary>
-		public static readonly GUIContent Viewtoolmove = EditorGUIUtility.IconContent("ViewToolMove");
+		public static GUIContent Viewtoolmove => EditorGUIUtility.IconContent("ViewToolMove");
 
 		/// <summary>
 		/// ViewToolMove@2x
 		/// </summary>
-		public static readonly GUIContent Viewtoolmove2X = EditorGUIUtility.IconContent("ViewToolMove@2x");
+		public static GUIContent Viewtoolmove2X => EditorGUIUtility.IconContent("ViewToolMove@2x");
 
 		/// <summary>
 		/// ViewToolOrbit
 		/// </summary>
-		public static readonly GUIContent Viewtoolorbit = EditorGUIUtility.IconContent("ViewToolOrbit");
+		public static GUIContent Viewtoolorbit => EditorGUIUtility.IconContent("ViewToolOrbit");
 
 		/// <summary>
 		/// ViewToolOrbit@2x
 		/// </summary>
-		public static readonly GUIContent Viewtoolorbit2X = EditorGUIUtility.IconContent("ViewToolOrbit@2x");
+		public static GUIContent Viewtoolorbit2X => EditorGUIUtility.IconContent("ViewToolOrbit@2x");
 
 		/// <summary>
 		/// ViewToolZoom
 		/// </summary>
-		public static readonly GUIContent Viewtoolzoom = EditorGUIUtility.IconContent("ViewToolZoom");
+		public static GUIContent Viewtoolzoom => EditorGUIUtility.IconContent("ViewToolZoom");
 
 		/// <summary>
 		/// ViewToolZoom@2x
 		/// </summary>
-		public static readonly GUIContent Viewtoolzoom2X = EditorGUIUtility.IconContent("ViewToolZoom@2x");
+		public static GUIContent Viewtoolzoom2X => EditorGUIUtility.IconContent("ViewToolZoom@2x");
 
 		/// <summary>
 		/// VisibilityOff
 		/// </summary>
-		public static readonly GUIContent Visibilityoff = EditorGUIUtility.IconContent("VisibilityOff");
+		public static GUIContent Visibilityoff => EditorGUIUtility.IconContent("VisibilityOff");
 
 		/// <summary>
 		/// VisibilityOn
 		/// </summary>
-		public static readonly GUIContent Visibilityon = EditorGUIUtility.IconContent("VisibilityOn");
+		public static GUIContent Visibilityon => EditorGUIUtility.IconContent("VisibilityOn");
 
 		/// <summary>
 		/// VUMeterTextureHorizontal
 		/// </summary>
-		public static readonly GUIContent Vumetertexturehorizontal =
+		public static GUIContent Vumetertexturehorizontal =>
 			EditorGUIUtility.IconContent("VUMeterTextureHorizontal");
 
 		/// <summary>
 		/// VUMeterTextureVertical
 		/// </summary>
-		public static readonly GUIContent Vumetertexturevertical =
+		public static GUIContent Vumetertexturevertical =>
 			EditorGUIUtility.IconContent("VUMeterTextureVertical");
 
 		/// <summary>
 		/// WaitSpin00
 		/// </summary>
-		public static readonly GUIContent Waitspin00 = EditorGUIUtility.IconContent("WaitSpin00");
+		public static GUIContent Waitspin00 => EditorGUIUtility.IconContent("WaitSpin00");
 
 		/// <summary>
 		/// WaitSpin01
 		/// </summary>
-		public static readonly GUIContent Waitspin01 = EditorGUIUtility.IconContent("WaitSpin01");
+		public static GUIContent Waitspin01 => EditorGUIUtility.IconContent("WaitSpin01");
 
 		/// <summary>
 		/// WaitSpin02
 		/// </summary>
-		public static readonly GUIContent Waitspin02 = EditorGUIUtility.IconContent("WaitSpin02");
+		public static GUIContent Waitspin02 => EditorGUIUtility.IconContent("WaitSpin02");
 
 		/// <summary>
 		/// WaitSpin03
 		/// </summary>
-		public static readonly GUIContent Waitspin03 = EditorGUIUtility.IconContent("WaitSpin03");
+		public static GUIContent Waitspin03 => EditorGUIUtility.IconContent("WaitSpin03");
 
 		/// <summary>
 		/// WaitSpin04
 		/// </summary>
-		public static readonly GUIContent Waitspin04 = EditorGUIUtility.IconContent("WaitSpin04");
+		public static GUIContent Waitspin04 => EditorGUIUtility.IconContent("WaitSpin04");
 
 		/// <summary>
 		/// WaitSpin05
 		/// </summary>
-		public static readonly GUIContent Waitspin05 = EditorGUIUtility.IconContent("WaitSpin05");
+		public static GUIContent Waitspin05 => EditorGUIUtility.IconContent("WaitSpin05");
 
 		/// <summary>
 		/// WaitSpin06
 		/// </summary>
-		public static readonly GUIContent Waitspin06 = EditorGUIUtility.IconContent("WaitSpin06");
+		public static GUIContent Waitspin06 => EditorGUIUtility.IconContent("WaitSpin06");
 
 		/// <summary>
 		/// WaitSpin07
 		/// </summary>
-		public static readonly GUIContent Waitspin07 = EditorGUIUtility.IconContent("WaitSpin07");
+		public static GUIContent Waitspin07 => EditorGUIUtility.IconContent("WaitSpin07");
 
 		/// <summary>
 		/// WaitSpin08
 		/// </summary>
-		public static readonly GUIContent Waitspin08 = EditorGUIUtility.IconContent("WaitSpin08");
+		public static GUIContent Waitspin08 => EditorGUIUtility.IconContent("WaitSpin08");
 
 		/// <summary>
 		/// WaitSpin09
 		/// </summary>
-		public static readonly GUIContent Waitspin09 = EditorGUIUtility.IconContent("WaitSpin09");
+		public static GUIContent Waitspin09 => EditorGUIUtility.IconContent("WaitSpin09");
 
 		/// <summary>
 		/// WaitSpin10
 		/// </summary>
-		public static readonly GUIContent Waitspin10 = EditorGUIUtility.IconContent("WaitSpin10");
+		public static GUIContent Waitspin10 => EditorGUIUtility.IconContent("WaitSpin10");
 
 		/// <summary>
 		/// WaitSpin11
 		/// </summary>
-		public static readonly GUIContent Waitspin11 = EditorGUIUtility.IconContent("WaitSpin11");
+		public static GUIContent Waitspin11 => EditorGUIUtility.IconContent("WaitSpin11");
 
 		/// <summary>
 		/// WelcomeScreen.AssetStoreLogo
 		/// </summary>
-		public static readonly GUIContent WelcomescreenAssetstorelogo =
+		public static GUIContent WelcomescreenAssetstorelogo =>
 			EditorGUIUtility.IconContent("WelcomeScreen.AssetStoreLogo");
 
 		/// <summary>
 		/// winbtn_graph
 		/// </summary>
-		public static readonly GUIContent WinbtnGraph = EditorGUIUtility.IconContent("winbtn_graph");
+		public static GUIContent WinbtnGraph => EditorGUIUtility.IconContent("winbtn_graph");
 
 		/// <summary>
 		/// winbtn_graph_close_h
 		/// </summary>
-		public static readonly GUIContent WinbtnGraphCloseH = EditorGUIUtility.IconContent("winbtn_graph_close_h");
+		public static GUIContent WinbtnGraphCloseH => EditorGUIUtility.IconContent("winbtn_graph_close_h");
 
 		/// <summary>
 		/// winbtn_graph_max_h
 		/// </summary>
-		public static readonly GUIContent WinbtnGraphMaxH = EditorGUIUtility.IconContent("winbtn_graph_max_h");
+		public static GUIContent WinbtnGraphMaxH => EditorGUIUtility.IconContent("winbtn_graph_max_h");
 
 		/// <summary>
 		/// winbtn_graph_min_h
 		/// </summary>
-		public static readonly GUIContent WinbtnGraphMinH = EditorGUIUtility.IconContent("winbtn_graph_min_h");
+		public static GUIContent WinbtnGraphMinH => EditorGUIUtility.IconContent("winbtn_graph_min_h");
 
 		/// <summary>
 		/// winbtn_mac_close
 		/// </summary>
-		public static readonly GUIContent WinbtnMacClose = EditorGUIUtility.IconContent("winbtn_mac_close");
+		public static GUIContent WinbtnMacClose => EditorGUIUtility.IconContent("winbtn_mac_close");
 
 		/// <summary>
 		/// winbtn_mac_close@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnMacClose2X = EditorGUIUtility.IconContent("winbtn_mac_close@2x");
+		public static GUIContent WinbtnMacClose2X => EditorGUIUtility.IconContent("winbtn_mac_close@2x");
 
 		/// <summary>
 		/// winbtn_mac_close_a
 		/// </summary>
-		public static readonly GUIContent WinbtnMacCloseA = EditorGUIUtility.IconContent("winbtn_mac_close_a");
+		public static GUIContent WinbtnMacCloseA => EditorGUIUtility.IconContent("winbtn_mac_close_a");
 
 		/// <summary>
 		/// winbtn_mac_close_a@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnMacCloseA2X = EditorGUIUtility.IconContent("winbtn_mac_close_a@2x");
+		public static GUIContent WinbtnMacCloseA2X => EditorGUIUtility.IconContent("winbtn_mac_close_a@2x");
 
 		/// <summary>
 		/// winbtn_mac_close_h
 		/// </summary>
-		public static readonly GUIContent WinbtnMacCloseH = EditorGUIUtility.IconContent("winbtn_mac_close_h");
+		public static GUIContent WinbtnMacCloseH => EditorGUIUtility.IconContent("winbtn_mac_close_h");
 
 		/// <summary>
 		/// winbtn_mac_close_h@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnMacCloseH2X = EditorGUIUtility.IconContent("winbtn_mac_close_h@2x");
+		public static GUIContent WinbtnMacCloseH2X => EditorGUIUtility.IconContent("winbtn_mac_close_h@2x");
 
 		/// <summary>
 		/// winbtn_mac_inact
 		/// </summary>
-		public static readonly GUIContent WinbtnMacInact = EditorGUIUtility.IconContent("winbtn_mac_inact");
+		public static GUIContent WinbtnMacInact => EditorGUIUtility.IconContent("winbtn_mac_inact");
 
 		/// <summary>
 		/// winbtn_mac_inact@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnMacInact2X = EditorGUIUtility.IconContent("winbtn_mac_inact@2x");
+		public static GUIContent WinbtnMacInact2X => EditorGUIUtility.IconContent("winbtn_mac_inact@2x");
 
 		/// <summary>
 		/// winbtn_mac_max
 		/// </summary>
-		public static readonly GUIContent WinbtnMacMax = EditorGUIUtility.IconContent("winbtn_mac_max");
+		public static GUIContent WinbtnMacMax => EditorGUIUtility.IconContent("winbtn_mac_max");
 
 		/// <summary>
 		/// winbtn_mac_max@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnMacMax2X = EditorGUIUtility.IconContent("winbtn_mac_max@2x");
+		public static GUIContent WinbtnMacMax2X => EditorGUIUtility.IconContent("winbtn_mac_max@2x");
 
 		/// <summary>
 		/// winbtn_mac_max_a
 		/// </summary>
-		public static readonly GUIContent WinbtnMacMaxA = EditorGUIUtility.IconContent("winbtn_mac_max_a");
+		public static GUIContent WinbtnMacMaxA => EditorGUIUtility.IconContent("winbtn_mac_max_a");
 
 		/// <summary>
 		/// winbtn_mac_max_a@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnMacMaxA2X = EditorGUIUtility.IconContent("winbtn_mac_max_a@2x");
+		public static GUIContent WinbtnMacMaxA2X => EditorGUIUtility.IconContent("winbtn_mac_max_a@2x");
 
 		/// <summary>
 		/// winbtn_mac_max_h
 		/// </summary>
-		public static readonly GUIContent WinbtnMacMaxH = EditorGUIUtility.IconContent("winbtn_mac_max_h");
+		public static GUIContent WinbtnMacMaxH => EditorGUIUtility.IconContent("winbtn_mac_max_h");
 
 		/// <summary>
 		/// winbtn_mac_max_h@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnMacMaxH2X = EditorGUIUtility.IconContent("winbtn_mac_max_h@2x");
+		public static GUIContent WinbtnMacMaxH2X => EditorGUIUtility.IconContent("winbtn_mac_max_h@2x");
 
 		/// <summary>
 		/// winbtn_mac_min
 		/// </summary>
-		public static readonly GUIContent WinbtnMacMin = EditorGUIUtility.IconContent("winbtn_mac_min");
+		public static GUIContent WinbtnMacMin => EditorGUIUtility.IconContent("winbtn_mac_min");
 
 		/// <summary>
 		/// winbtn_mac_min@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnMacMin2X = EditorGUIUtility.IconContent("winbtn_mac_min@2x");
+		public static GUIContent WinbtnMacMin2X => EditorGUIUtility.IconContent("winbtn_mac_min@2x");
 
 		/// <summary>
 		/// winbtn_mac_min_a
 		/// </summary>
-		public static readonly GUIContent WinbtnMacMinA = EditorGUIUtility.IconContent("winbtn_mac_min_a");
+		public static GUIContent WinbtnMacMinA => EditorGUIUtility.IconContent("winbtn_mac_min_a");
 
 		/// <summary>
 		/// winbtn_mac_min_a@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnMacMinA2X = EditorGUIUtility.IconContent("winbtn_mac_min_a@2x");
+		public static GUIContent WinbtnMacMinA2X => EditorGUIUtility.IconContent("winbtn_mac_min_a@2x");
 
 		/// <summary>
 		/// winbtn_mac_min_h
 		/// </summary>
-		public static readonly GUIContent WinbtnMacMinH = EditorGUIUtility.IconContent("winbtn_mac_min_h");
+		public static GUIContent WinbtnMacMinH => EditorGUIUtility.IconContent("winbtn_mac_min_h");
 
 		/// <summary>
 		/// winbtn_mac_min_h@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnMacMinH2X = EditorGUIUtility.IconContent("winbtn_mac_min_h@2x");
+		public static GUIContent WinbtnMacMinH2X => EditorGUIUtility.IconContent("winbtn_mac_min_h@2x");
 
 		/// <summary>
 		/// winbtn_win_close
 		/// </summary>
-		public static readonly GUIContent WinbtnWinClose = EditorGUIUtility.IconContent("winbtn_win_close");
+		public static GUIContent WinbtnWinClose => EditorGUIUtility.IconContent("winbtn_win_close");
 
 		/// <summary>
 		/// winbtn_win_close@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnWinClose2X = EditorGUIUtility.IconContent("winbtn_win_close@2x");
+		public static GUIContent WinbtnWinClose2X => EditorGUIUtility.IconContent("winbtn_win_close@2x");
 
 		/// <summary>
 		/// winbtn_win_close_a
 		/// </summary>
-		public static readonly GUIContent WinbtnWinCloseA = EditorGUIUtility.IconContent("winbtn_win_close_a");
+		public static GUIContent WinbtnWinCloseA => EditorGUIUtility.IconContent("winbtn_win_close_a");
 
 		/// <summary>
 		/// winbtn_win_close_a@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnWinCloseA2X = EditorGUIUtility.IconContent("winbtn_win_close_a@2x");
+		public static GUIContent WinbtnWinCloseA2X => EditorGUIUtility.IconContent("winbtn_win_close_a@2x");
 
 		/// <summary>
 		/// winbtn_win_close_h
 		/// </summary>
-		public static readonly GUIContent WinbtnWinCloseH = EditorGUIUtility.IconContent("winbtn_win_close_h");
+		public static GUIContent WinbtnWinCloseH => EditorGUIUtility.IconContent("winbtn_win_close_h");
 
 		/// <summary>
 		/// winbtn_win_close_h@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnWinCloseH2X = EditorGUIUtility.IconContent("winbtn_win_close_h@2x");
+		public static GUIContent WinbtnWinCloseH2X => EditorGUIUtility.IconContent("winbtn_win_close_h@2x");
 
 		/// <summary>
 		/// winbtn_win_max
 		/// </summary>
-		public static readonly GUIContent WinbtnWinMax = EditorGUIUtility.IconContent("winbtn_win_max");
+		public static GUIContent WinbtnWinMax => EditorGUIUtility.IconContent("winbtn_win_max");
 
 		/// <summary>
 		/// winbtn_win_max@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnWinMax2X = EditorGUIUtility.IconContent("winbtn_win_max@2x");
+		public static GUIContent WinbtnWinMax2X => EditorGUIUtility.IconContent("winbtn_win_max@2x");
 
 		/// <summary>
 		/// winbtn_win_max_a
 		/// </summary>
-		public static readonly GUIContent WinbtnWinMaxA = EditorGUIUtility.IconContent("winbtn_win_max_a");
+		public static GUIContent WinbtnWinMaxA => EditorGUIUtility.IconContent("winbtn_win_max_a");
 
 		/// <summary>
 		/// winbtn_win_max_a@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnWinMaxA2X = EditorGUIUtility.IconContent("winbtn_win_max_a@2x");
+		public static GUIContent WinbtnWinMaxA2X => EditorGUIUtility.IconContent("winbtn_win_max_a@2x");
 
 		/// <summary>
 		/// winbtn_win_max_h
 		/// </summary>
-		public static readonly GUIContent WinbtnWinMaxH = EditorGUIUtility.IconContent("winbtn_win_max_h");
+		public static GUIContent WinbtnWinMaxH => EditorGUIUtility.IconContent("winbtn_win_max_h");
 
 		/// <summary>
 		/// winbtn_win_max_h@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnWinMaxH2X = EditorGUIUtility.IconContent("winbtn_win_max_h@2x");
+		public static GUIContent WinbtnWinMaxH2X => EditorGUIUtility.IconContent("winbtn_win_max_h@2x");
 
 		/// <summary>
 		/// winbtn_win_min
 		/// </summary>
-		public static readonly GUIContent WinbtnWinMin = EditorGUIUtility.IconContent("winbtn_win_min");
+		public static GUIContent WinbtnWinMin => EditorGUIUtility.IconContent("winbtn_win_min");
 
 		/// <summary>
 		/// winbtn_win_min_a
 		/// </summary>
-		public static readonly GUIContent WinbtnWinMinA = EditorGUIUtility.IconContent("winbtn_win_min_a");
+		public static GUIContent WinbtnWinMinA => EditorGUIUtility.IconContent("winbtn_win_min_a");
 
 		/// <summary>
 		/// winbtn_win_min_h
 		/// </summary>
-		public static readonly GUIContent WinbtnWinMinH = EditorGUIUtility.IconContent("winbtn_win_min_h");
+		public static GUIContent WinbtnWinMinH => EditorGUIUtility.IconContent("winbtn_win_min_h");
 
 		/// <summary>
 		/// winbtn_win_rest
 		/// </summary>
-		public static readonly GUIContent WinbtnWinRest = EditorGUIUtility.IconContent("winbtn_win_rest");
+		public static GUIContent WinbtnWinRest => EditorGUIUtility.IconContent("winbtn_win_rest");
 
 		/// <summary>
 		/// winbtn_win_rest_a
 		/// </summary>
-		public static readonly GUIContent WinbtnWinRestA = EditorGUIUtility.IconContent("winbtn_win_rest_a");
+		public static GUIContent WinbtnWinRestA => EditorGUIUtility.IconContent("winbtn_win_rest_a");
 
 		/// <summary>
 		/// winbtn_win_rest_h
 		/// </summary>
-		public static readonly GUIContent WinbtnWinRestH = EditorGUIUtility.IconContent("winbtn_win_rest_h");
+		public static GUIContent WinbtnWinRestH => EditorGUIUtility.IconContent("winbtn_win_rest_h");
 
 		/// <summary>
 		/// winbtn_win_restore
 		/// </summary>
-		public static readonly GUIContent WinbtnWinRestore = EditorGUIUtility.IconContent("winbtn_win_restore");
+		public static GUIContent WinbtnWinRestore => EditorGUIUtility.IconContent("winbtn_win_restore");
 
 		/// <summary>
 		/// winbtn_win_restore@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnWinRestore2X = EditorGUIUtility.IconContent("winbtn_win_restore@2x");
+		public static GUIContent WinbtnWinRestore2X => EditorGUIUtility.IconContent("winbtn_win_restore@2x");
 
 		/// <summary>
 		/// winbtn_win_restore_a
 		/// </summary>
-		public static readonly GUIContent WinbtnWinRestoreA = EditorGUIUtility.IconContent("winbtn_win_restore_a");
+		public static GUIContent WinbtnWinRestoreA => EditorGUIUtility.IconContent("winbtn_win_restore_a");
 
 		/// <summary>
 		/// winbtn_win_restore_a@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnWinRestoreA2X = EditorGUIUtility.IconContent("winbtn_win_restore_a@2x");
+		public static GUIContent WinbtnWinRestoreA2X => EditorGUIUtility.IconContent("winbtn_win_restore_a@2x");
 
 		/// <summary>
 		/// winbtn_win_restore_h
 		/// </summary>
-		public static readonly GUIContent WinbtnWinRestoreH = EditorGUIUtility.IconContent("winbtn_win_restore_h");
+		public static GUIContent WinbtnWinRestoreH => EditorGUIUtility.IconContent("winbtn_win_restore_h");
 
 		/// <summary>
 		/// winbtn_win_restore_h@2x
 		/// </summary>
-		public static readonly GUIContent WinbtnWinRestoreH2X = EditorGUIUtility.IconContent("winbtn_win_restore_h@2x");
+		public static GUIContent WinbtnWinRestoreH2X => EditorGUIUtility.IconContent("winbtn_win_restore_h@2x");
 
 	}
 }
