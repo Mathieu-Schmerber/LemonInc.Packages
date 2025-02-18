@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace LemonInc.Core.StateMachine._Samples.SimpleController
 {
-	internal class TimeCondition : ScriptableCondition
+	public class TimeCondition : ScriptableCondition
 	{
 		[SerializeField] private float _duration;
 		private float _lastTick;
 		
-		public override void OnEnteredState(StateComponent stateComponent)
+		public override void OnStateEntered(StateComponent stateComponent)
 		{
 			_lastTick = Time.time;
 		}
