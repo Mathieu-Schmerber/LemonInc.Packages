@@ -139,7 +139,7 @@ namespace LemonInc.Tools.Panels
 		{
 			if (element == null) 
 				return;
-
+			
 			_inspectorPanelController.Bind(element);
 			PanelDefinition.LastSelectedElementId = element.Id;
 		}

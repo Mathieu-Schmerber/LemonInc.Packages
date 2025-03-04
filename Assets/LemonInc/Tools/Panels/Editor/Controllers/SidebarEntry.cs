@@ -1,9 +1,10 @@
 ﻿using System;
+using LemonInc.Core.Utilities.Editor;
 using LemonInc.Tools.Panels.Interfaces;
 using LemonInc.Tools.Panels.Models;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using EditorIcons = Sirenix.Utilities.Editor.EditorIcons;
 
 namespace LemonInc.Tools.Panels.Controllers
 {
@@ -72,6 +73,12 @@ namespace LemonInc.Tools.Panels.Controllers
 			Add(_root);
 		}
 
+		private Texture GetIconForElement(ISidebarElement element)
+		{
+			var customIcon = EditorGUIUtility.GetIconForObject(element.Object);
+			return customIcon == null ? EditorIcons.ScriptableobjectIcon.image : customIcon;
+		}
+
 		/// <summary>
 		/// Binds the specified sidebar element.
 		/// </summary>
@@ -84,11 +91,11 @@ namespace LemonInc.Tools.Panels.Controllers
 			switch (sidebarElement.Type)
 			{
 				case SidebarElementType.ELEMENT:
-					_icon.image = EditorIcons.UnityGameObjectIcon;
+					_icon.image = GetIconForElement(sidebarElement);
 					_root.style.backgroundColor = new StyleColor(new Color(0, 0, 0, 0f));
 					break;
 				case SidebarElementType.GROUP:
-					_icon.image = EditorIcons.Folder.Inactive;
+					_icon.image = EditorIcons.FolderIcon.image;
 					_root.style.backgroundColor = new StyleColor(new Color(0, 0, 0, 0.2f));
 					break;
 				default:
