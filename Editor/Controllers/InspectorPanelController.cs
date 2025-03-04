@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
 using LemonInc.Core.Utilities.Editor.Extensions;
 using LemonInc.Tools.Panels.Interfaces;
 using LemonInc.Tools.Panels.Models;
 using UnityEditor;
 using UnityEditor.UIElements;
+using UnityEngine;
 using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
 
@@ -61,6 +64,13 @@ namespace LemonInc.Tools.Panels.Controllers
 		{
 			_locateBtn.clicked -= LocateAsset;
 			_deleteBtn.clicked -= DeleteAsset;
+
+			// Clean up the editor instance
+			if (_editor != null)
+			{
+				Object.DestroyImmediate(_editor);
+				_editor = null;
+			}
 		}
 
 		/// <summary>
@@ -69,6 +79,14 @@ namespace LemonInc.Tools.Panels.Controllers
 		/// <param name="element">The element.</param>
 		public void Bind(ISidebarElement element)
 		{
+			// Clean up the existing editor instance
+			if (_editor != null)
+			{
+				_editor.serializedObject.Dispose();
+				Object.DestroyImmediate(_editor);
+				_editor = null;
+			}
+
 			_bind = element;
 			Refresh();
 		}
@@ -79,6 +97,13 @@ namespace LemonInc.Tools.Panels.Controllers
 		public void Refresh()
 		{
 			_inspector.Clear();
+
+			// Clean up the existing editor instance
+			if (_editor != null)
+			{
+				Object.DestroyImmediate(_editor);
+				_editor = null;
+			}
 
 			_locateBtn.SetEnabled(_bind?.Type == SidebarElementType.ELEMENT);
 			_deleteBtn.SetEnabled(_bind?.Type == SidebarElementType.ELEMENT);
@@ -107,9 +132,18 @@ namespace LemonInc.Tools.Panels.Controllers
 			if (_bind == null)
 				return;
 
-			if (EditorUtility.DisplayDialog($"Delete {_bind.DisplayName}", "You cannot undo the delete action", "Delete", "Cancel"))
+			if (EditorUtility.DisplayDialog($"Delete {_bind.DisplayName}", "You cannot undo the delete action",
+				    "Delete", "Cancel"))
 			{
 				AssetDatabase.DeleteAsset(_bind.Path.ToAssetPath());
+
+				// Clean up the editor instance
+				if (_editor != null)
+				{
+					Object.DestroyImmediate(_editor);
+					_editor = null;
+				}
+
 				Bind(null);
 			}
 		}
@@ -121,7 +155,7 @@ namespace LemonInc.Tools.Panels.Controllers
 		{
 			if (_bind == null)
 				return;
-			
+
 			EditorGUIUtility.PingObject(_bind.Object);
 		}
 
