@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Game.Editor.Utilities
+namespace LemonInc.Test
 {
      public abstract class EventBasedPropertyDrawer : PropertyDrawer
     {
