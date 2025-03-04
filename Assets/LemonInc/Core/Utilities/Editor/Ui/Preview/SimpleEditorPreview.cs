@@ -8,18 +8,16 @@ namespace LemonInc.Core.Utilities.Editor.Ui.Preview
 {
     public class SimpleEditorPreview : IEditorPreview
     {
-        // Settings
-        
         /// <inheritdoc/>
-        public bool UseSkybox { get; set; } = true;
-        
-        /// <inheritdoc/>
-        public Color? CameraBackgroundColor { get; set; } = null;
+        public bool UseSkybox { get; set; } = false;
 
-        // Controls
+        public Material SkyboxMaterial { get; set; } = RenderSettings.skybox;
+        
+        /// <inheritdoc/>
+        public Color CameraBackgroundColor { get; set; } = new Color32 (45, 45, 45, 255);
+
+        /// <inheritdoc/>
         public bool NeedsRepaint { get; set; }
-
-        // Accesses
         
         /// <inheritdoc/>
         public Camera Camera => _initialized ? _previewUtility.camera : throw new InvalidOperationException("Preview has not been initialized.");
@@ -36,6 +34,7 @@ namespace LemonInc.Core.Utilities.Editor.Ui.Preview
         private bool _disposed;
         private Texture _previewTexture;
         private List<IEventHandleStrategy> _inputHandleStrategies = new();
+        private Skybox _skybox;
 
         public SimpleEditorPreview()
         {
@@ -78,8 +77,11 @@ namespace LemonInc.Core.Utilities.Editor.Ui.Preview
             _previewUtility.camera.farClipPlane = 1000f;
             _previewUtility.lights[0].intensity = 1.5f;
             _previewUtility.lights[0].transform.rotation = Quaternion.Euler(30f, 180f, 0f);
-            
             _initialized = true;
+            
+            _skybox = _previewUtility.camera.GetComponent<Skybox>();
+            if (!_skybox)
+                _skybox = _previewUtility.camera.gameObject.AddComponent<Skybox>();
         }
 
         public T UseInputHandler<T>()
@@ -120,16 +122,19 @@ namespace LemonInc.Core.Utilities.Editor.Ui.Preview
                     break;
             }
             
-            if (CameraBackgroundColor != null)
+            if (!UseSkybox)
             {
                 _previewUtility.camera.clearFlags = CameraClearFlags.SolidColor;
-                _previewUtility.camera.backgroundColor = CameraBackgroundColor.Value;
+                _previewUtility.camera.backgroundColor = CameraBackgroundColor;
             }
             else
             {
                 _previewUtility.camera.clearFlags = CameraClearFlags.Skybox;
+                if (SkyboxMaterial != null)
+                    _skybox.material = SkyboxMaterial;
                 _previewUtility.camera.Render();
             }
+
 
             _previewUtility.camera.aspect = previewRect.width / previewRect.height;
             _previewUtility.Render(true);
@@ -137,7 +142,7 @@ namespace LemonInc.Core.Utilities.Editor.Ui.Preview
 
             GUI.DrawTexture(previewRect, _previewTexture, ScaleMode.ScaleToFit, false);
         }
-
+        
         public void SpawnObject(GameObject prefab, Action<GameObject> callback = null)
         {
             if (!_initialized)
