@@ -5,29 +5,36 @@ namespace LemonInc.Core.Utilities.Editor.Ui.Preview
 {
     public interface IEditorPreview : IDisposable
     {
-        // Settings
-        
         /// <summary>
         /// Should a skybox be used ?
         /// </summary>
         public bool UseSkybox { get; set; }
+        public Material SkyboxMaterial { get; set; }
         
         /// <summary>
         /// Gets or sets the camera background color.
         /// If null, uses a skybox.
         /// </summary>
-        public Color? CameraBackgroundColor { get; set; }
-        
-        // Controls
+        public Color CameraBackgroundColor { get; set; }
         
         /// <summary>
         /// Does the preview need a repaint.
         /// </summary>
         public bool NeedsRepaint { get; set; }
         
-        // Accesses
+        /// <summary>
+        /// The preview camera.
+        /// </summary>
         public Camera Camera { get; }
+        
+        /// <summary>
+        /// The lights.
+        /// </summary>
         public Light[] Lights { get; }
+        
+        /// <summary>
+        /// The gizmos.
+        /// </summary>
         public EditorPreviewGizmos Gizmos { get; }
         
         /// <summary>
