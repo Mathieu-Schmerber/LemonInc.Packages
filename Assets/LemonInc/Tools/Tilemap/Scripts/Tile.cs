@@ -12,7 +12,7 @@ namespace LemonInc.Tools.Tilemap
 	/// <summary>
 	/// Describes a tile.
 	/// </summary>
-	public class Tile : ITile
+	public class Tile
 	{
 		private class PropertySetting
 		{
