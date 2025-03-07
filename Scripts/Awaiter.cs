@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -69,6 +70,49 @@ namespace LemonInc.Core.Utilities
 				while (Time.unscaledTime < end)
 					await Task.Yield();
 			}
+		}
+
+		public enum WaitUntilResult
+		{
+			Completed,
+			TimedOut,
+			Canceled
+		}
+
+		/// <summary>
+		/// Waits until the given predicates is validated and execute an action.
+		/// </summary>
+		/// <param name="predicate">The predicate to wait for</param>
+		/// <param name="callback">The callback to execute.</param>
+		/// <param name="timeout">The timeout in seconds.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		public static async Task WaitUntilTrue(
+			Func<bool> predicate,
+			Action<WaitUntilResult> callback,
+			float timeout,
+			CancellationToken cancellationToken = default)
+		{
+			var startTime = Time.time;
+			var reason = WaitUntilResult.Completed;
+			
+			while (!predicate.Invoke())
+			{
+				if (cancellationToken.IsCancellationRequested)
+				{
+					reason = (WaitUntilResult.Canceled);
+					break;
+				}
+				
+				if (Time.time - startTime >= timeout)
+				{
+					reason = (WaitUntilResult.TimedOut);
+					return;
+				}
+				
+				await Task.Yield();
+			}
+    
+			callback.Invoke(reason);
 		}
 	}
 }
