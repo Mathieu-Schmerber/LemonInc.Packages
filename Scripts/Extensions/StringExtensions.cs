@@ -17,7 +17,7 @@ namespace LemonInc.Core.Utilities.Extensions
 		/// </summary>
 		/// <param name="str">The string.</param>
 		/// <returns>The capitalized string.</returns>
-		public static string ToCapitalized(this string str)
+		public static string CapitalizeFirst(this string str)
 		{
 			if (string.IsNullOrEmpty(str))
 				return str;

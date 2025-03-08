@@ -1,131 +1,133 @@
 ﻿using System;
-using System.Threading.Tasks;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace LemonInc.Core.Utilities
 {
-	/// <summary>
-	/// Flexible timer
-	/// </summary>
-	public class Timer
-	{
-		private float _lastTickFrame;
-		private float _startFrame;
-		private bool _started = false;
+    [Serializable, InlineProperty]
+    public class Timer
+    {
+        [SerializeField] private float _interval;
+        [SerializeField] private float _elapsedTime;
+        
+        private bool _useScaledTime;
+        private bool _autoReset;
+        private bool _isRunning;
+        private Action _onTickCallback;
 
-		/// <summary>
-		/// Does the Timer automatically Stop() after ticking once ?
-		/// </summary>
-		public bool AutoReset { get; set; }
+        /// <summary>
+        /// Gets the elapsed time since the timer started.
+        /// </summary>
+        public float ElapsedTime => _elapsedTime;
 
-		/// <summary>
-		/// Interval between each Timer.OnTick()
-		/// </summary>
-		public float Interval { get; set; }
+        /// <summary>
+        /// Gets the remaining time until the timer finishes.
+        /// </summary>
+        public float TimeLeft => _interval - _elapsedTime;
 
-		/// <summary>
-		/// Callback executed whenever Timer.OnTick() triggers
-		/// </summary>
-		public Action OnTickCallback { get; set; }
+        /// <summary>
+        /// Gets whether the timer is currently running.
+        /// </summary>
+        public bool IsRunning => _isRunning;
 
-		/// <summary>
-		/// Is the Timer running ?
-		/// </summary>
-		public bool IsRunning { get; private set; }
+        /// <summary>
+        /// Gets or sets the interval (duration) of the timer.
+        /// </summary>
+        public float Interval
+        {
+            get => _interval;
+            set => _interval = value;
+        }
 
-		/// <summary>
-		/// The elapsed time (in second) since the Cooldown started. <br/>
-		/// This will only work as expected if the Cooldown is started, and will still be working after the Cooldown Stop() method is called.
-		/// </summary>
-		public float ElapsedTime => Time.time - _startFrame;
+        /// <summary>
+        /// Initializes a new instance of the Timer class.
+        /// </summary>
+        public Timer(float interval = 1f, bool useScaledTime = true, Action onTickCallback = null, bool autoReset = false)
+        {
+            _interval = interval;
+            _useScaledTime = useScaledTime;
+            _onTickCallback = onTickCallback;
+            _autoReset = autoReset;
+        }
 
-		/// <summary>
-		/// The elapsed time (in second) since the Cooldown last ticked.
-		/// </summary>
-		public float TimeSinceLastTick => Time.time - _lastTickFrame;
+        /// <summary>
+        /// Starts the timer asynchronously.
+        /// </summary>
+        public void Start()
+        {
+            if (_isRunning) return;
 
-		/// <summary>
-		/// Time frame of last tick.
-		/// </summary>
-		public float LastTickFrame => _lastTickFrame;
+            _isRunning = true;
+            _elapsedTime = 0f;
+            RunTimerAsync();
+        }
 
-		/// <summary>
-		/// The remaining time (in second) until the Cooldown ticks again.
-		/// </summary>
-		public float TimeUntilNextTick => (_lastTickFrame + Interval) - Time.time;
+        private async void RunTimerAsync()
+        {
+            while (_isRunning)
+            {
+                while (_elapsedTime < _interval && _isRunning)
+                {
+                    await System.Threading.Tasks.Task.Yield();
+                    _elapsedTime += _useScaledTime ? Time.deltaTime : Time.unscaledDeltaTime;
+                    _onTickCallback?.Invoke();
+                }
 
-		/// <summary>
-		/// Starts the Cooldown
-		/// </summary>
-		/// <param name="interval">The time interval in second</param>
-		/// <param name="onTickCallback">The ontick callback that will be called once per interval until the Cooldown is manually stopped.</param>
-		public void Start(float interval, bool autoReset, Action onTickCallback = null)
-		{
-			Interval = interval;
-			AutoReset = autoReset;
-			OnTickCallback = onTickCallback;
+                if (_isRunning)
+                {
+                    if (_autoReset)
+                    {
+                        _onTickCallback?.Invoke(); // Trigger the callback on auto-reset
+                        _elapsedTime = 0f; // Reset elapsed time for the next cycle
+                    }
+                    else
+                    {
+                        _isRunning = false; // Stop the timer if autoReset is false
+                    }
+                }
+            }
+        }
 
-			_startFrame = Time.time;
-			_lastTickFrame = Time.time;
-			_started = true;
+        /// <summary>
+        /// Stops the timer.
+        /// </summary>
+        public void Stop()
+        {
+            _isRunning = false;
+        }
 
-			if (!IsRunning)
-			{
-				IsRunning = true;
-				Run();
-			}
-		}
+        /// <summary>
+        /// Checks if the timer has finished running.
+        /// </summary>
+        public bool IsOver()
+        {
+            return _elapsedTime >= _interval || !_isRunning;
+        }
 
-		/// <summary>
-		/// Stops the Cooldown
-		/// </summary>
-		public void Stop()
-		{
-			IsRunning = false;
-		}
+        /// <summary>
+        /// Resets the timer to its initial state.
+        /// </summary>
+        public void Reset()
+        {
+            _elapsedTime = 0f;
+            _isRunning = false;
+        }
 
-		/// <summary>
-		/// Returns true if the Timer has ticked. <br/>
-		/// This method is useless if AutoReset has been set to true.
-		/// </summary>
-		/// <returns></returns>
-		public bool IsOver() => AutoReset == false && IsRunning == false && _started == true;
+        /// <summary>
+        /// Restarts the timer by resetting it and starting it again.
+        /// </summary>
+        public void Restart()
+        {
+            Reset();
+            Start();
+        }
 
-		/// <summary>
-		/// Restarts the Cooldown. <br/>
-		/// Calls Stop() then Start().
-		/// </summary>
-		public void Restart()
-		{
-			Stop();
-			Start(Interval, AutoReset, OnTickCallback);
-		}
-
-		/// <summary>
-		/// Timer's async management loop
-		/// </summary>
-		private async void Run()
-		{
-			while (IsRunning)
-			{
-				if (Time.time - _lastTickFrame >= Interval)
-				{
-					OnTick();
-					if (!AutoReset)
-					{
-						Stop();
-						break;
-					}
-				}
-				await Task.Yield();
-			}
-			await Task.CompletedTask;
-		}
-
-		private void OnTick()
-		{
-			_lastTickFrame = Time.time;
-			OnTickCallback?.Invoke();
-		}
-	}
+        /// <summary>
+        /// Sets or updates the callback to invoke every frame while the timer is running.
+        /// </summary>
+        public void SetOnTickCallback(Action onTickCallback)
+        {
+            _onTickCallback = onTickCallback;
+        }
+    }
 }

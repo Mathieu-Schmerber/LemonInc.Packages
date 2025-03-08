@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace LemonInc.Core.Utilities.Extensions
@@ -144,5 +145,25 @@ namespace LemonInc.Core.Utilities.Extensions
 		/// <returns></returns>
 		public static Vector2 InverseXy(this Vector2 vector) => new(vector.y, vector.x);
 		public static Vector2 InverseXy(this Vector2Int vector) => new(vector.y, vector.x);
+		
+		public static float2 ToFloat2(this Vector2 vector) => new float2(vector.x, vector.y);
+		public static float2 ToFloat2(this Vector2Int vector) => new float2(vector.x, vector.y);
+		public static float3 ToFloat3(this Vector3 vector) => new float3(vector.x, vector.y, vector.z);
+		public static float3 ToFloat3(this Vector3Int vector) => new float3(vector.x, vector.y, vector.z);
+
+		public static int2 ToInt2(this Vector2 vector) => new int2((int)vector.x, (int)vector.y);
+		public static int2 ToInt2(this Vector2Int vector) => new int2(vector.x, vector.y);
+		public static int3 ToInt3(this Vector3 vector) => new int3((int)vector.x, (int)vector.y, (int)vector.z);
+		public static int3 ToInt3(this Vector3Int vector) => new int3(vector.x, vector.y, vector.z);
+
+		public static Vector2 ToVector2(this float2 value) => new Vector2(value.x, value.y);
+		public static Vector2 ToVector2(this int2 value) => new Vector2(value.x, value.y);
+		public static Vector3 ToVector3(this float3 value) => new Vector3(value.x, value.y, value.z);
+		public static Vector3 ToVector3(this int3 value) => new Vector3(value.x, value.y, value.z);
+
+		public static Vector2Int ToVector2Int(this float2 value) => new Vector2Int((int)value.x, (int)value.y);
+		public static Vector2Int ToVector2Int(this int2 value) => new Vector2Int(value.x, value.y);
+		public static Vector3Int ToVector3Int(this float3 value) => new Vector3Int((int)value.x, (int)value.y, (int)value.z);
+		public static Vector3Int ToVector3Int(this int3 value) => new Vector3Int(value.x, value.y, value.z);
 	}
 }
