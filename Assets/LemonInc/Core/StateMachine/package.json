@@ -2,7 +2,7 @@
     "name": "com.lemon-inc.core.state-machine",
     "displayName": "LemonInc.Core.StateMachine",
     "description": "Core State Machine.",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "unity": "2022.3",
     "author": "Lemon Inc. <mathieu.schmerber@gmail.com> (https://github.com/Mathieu-Schmerber)",
     "repository": {
