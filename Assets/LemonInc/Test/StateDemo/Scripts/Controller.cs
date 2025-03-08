@@ -1,7 +1,11 @@
-using LemonInc.Test.StateMachine.Scripts.Inputs;
+using LemonInc.Core.StateMachine;
+using LemonInc.Core.StateMachine.Extensions;
+using LemonInc.Core.Utilities;
+using LemonInc.Test.StateDemo.Scripts.Inputs;
+using LemonInc.Test.StateDemo.Scripts.States;
 using UnityEngine;
 
-namespace LemonInc.Test.StateMachine.Scripts
+namespace LemonInc.Test.StateDemo.Scripts
 {
     public class Controller : MonoBehaviour
     {
@@ -16,38 +20,40 @@ namespace LemonInc.Test.StateMachine.Scripts
         [SerializeField] private Vector3 _groundCheckOffset;
         [SerializeField] private float _groundCheckRadius;
         [SerializeField] private LayerMask _groundLayer;
+
+        [SerializeField] private Timer _jumpTimer;
         
         private IInputProvider _inputs;
         private Rigidbody _rb;
         private bool _isGrounded;
         
-        private Core.StateMachine.StateMachine _stateMachine;
+        private readonly StateMachine _stateMachine = new();
 
+        public bool CanJump => _isGrounded && _jumpTimer.IsOver();
+        
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
             _inputs = GetComponent<IInputProvider>();
-        }
 
-        private void OnEnable()
-        {
-            _inputs.Jump.OnPressed += Jump;
-        }
-
-        private void OnDisable()
-        {
-            _inputs.Jump.OnPressed -= Jump;
+            _stateMachine.RegisterState(new LocomotionState(gameObject));
+            _stateMachine.RegisterState(new JumpState(gameObject));
+            
+            _stateMachine.AddTransition<LocomotionState, JumpState>(() => _inputs.Jump.Pressed && CanJump);
+            _stateMachine.AddTransition<JumpState, LocomotionState>(() => !_isGrounded);
+            _stateMachine.SetActiveState<LocomotionState>();
         }
 
         private void FixedUpdate()
         {
-            HandleMovements();
+            _stateMachine.FixedUpdate();
         }
         
         private void Update()
         {
+            _stateMachine.Update();
             GroundCheck();
-            _rb.drag = _isGrounded ? _groundDrag : _airDrag;
+            _rb.linearDamping = _isGrounded ? _groundDrag : _airDrag;
         }
 
         private void GroundCheck()
@@ -66,9 +72,11 @@ namespace LemonInc.Test.StateMachine.Scripts
 
         public void Jump()
         {
-            if (!_isGrounded)
+            if (!CanJump)
                 return;
             
+            _jumpTimer.Restart();
+            _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
         }
 

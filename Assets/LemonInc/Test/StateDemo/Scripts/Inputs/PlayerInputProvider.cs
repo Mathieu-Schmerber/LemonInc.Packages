@@ -2,7 +2,7 @@ using LemonInc.Core.Input;
 using LemonInc.Core.Utilities.Extensions;
 using UnityEngine;
 
-namespace LemonInc.Test.StateMachine.Scripts.Inputs
+namespace LemonInc.Test.StateDemo.Scripts.Inputs
 {
     public class PlayerInputProvider : InputProviderBase<Controls>, IInputProvider
     {

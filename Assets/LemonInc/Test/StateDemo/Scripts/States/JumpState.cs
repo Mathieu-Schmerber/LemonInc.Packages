@@ -1,4 +1,5 @@
-using LemonInc.Core.StateMachine.Scripts;
+using LemonInc.Core.StateMachine;
+using UnityEngine;
 
 namespace LemonInc.Test.StateDemo.Scripts.States
 {
@@ -6,11 +7,16 @@ namespace LemonInc.Test.StateDemo.Scripts.States
     {
         private readonly Controller _controller;
 
-        public JumpState(Controller controller)
+        public JumpState(GameObject owner) : base(owner)
         {
-            _controller = controller;
+            _controller = owner.GetComponent<Controller>();
         }
-        
+
+        public override void OnEnter()
+        {
+            _controller.Jump();
+        }
+
         public override void FixedUpdate()
         {
             _controller.HandleMovements();
