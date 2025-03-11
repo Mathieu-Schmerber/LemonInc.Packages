@@ -51,36 +51,36 @@ namespace LemonInc.Core.Utilities.Editor.Extensions
 		}
 		
 		/// <summary>
-		/// Retrieves all child assets of the specified type that are associated with the given parent asset.
+		/// Retrieves all child assets of the specified type or its inheritors that are associated with the given parent asset.
 		/// </summary>
 		/// <typeparam name="T">The type of ScriptableObject to retrieve.</typeparam>
 		/// <param name="parent">The parent asset.</param>
-		/// <returns>An array of child assets of type T, or null if the parent asset has no path.</returns>
-		public static T[] GetChildAssetsOfType<T>(this Object parent) where T : ScriptableObject
+		/// <returns>An array of child assets of type T or its inheritors, or null if the parent asset has no path.</returns>
+		public static T[] GetChildAssetsOfType<T>(this Object parent) where T : Object
 		{
 			var path = parent.GetPath();
 			if (string.IsNullOrEmpty(path)) 
 				return null;
 
 			return AssetDatabase.LoadAllAssetsAtPath(path)
-				.OfType<T>()
-				.Where(asset => asset != parent)
+				.Where(asset => asset is T && asset != parent) // Check if the asset is of type T or inherits from T
+				.Cast<T>()
 				.ToArray();
 		}
 		
 		/// <summary>
-		/// Retrieves the first child asset of the specified type that is associated with the given parent asset.
+		/// Retrieves the first child asset of the specified type or its inheritors that is associated with the given parent asset.
 		/// </summary>
 		/// <typeparam name="T">The type of ScriptableObject to retrieve.</typeparam>
 		/// <param name="parent">The parent asset.</param>
-		/// <returns>The first child asset of type T, or null if none are found.</returns>
-		public static T GetChildAssetOfType<T>(this Object parent) where T : ScriptableObject
+		/// <returns>The first child asset of type T or its inheritors, or null if none are found.</returns>
+		public static T GetChildAssetOfType<T>(this Object parent) where T : Object
 		{
 			var path = parent.GetPath();
 			if (string.IsNullOrEmpty(path)) 
 				return null;
 
-			return AssetDatabase.LoadAllAssetsAtPath(path).FirstOrDefault(x => x.GetType() == typeof(T)) as T;
+			return AssetDatabase.LoadAllAssetsAtPath(path).FirstOrDefault(asset => typeof(T).IsAssignableFrom(asset.GetType())) as T;
 		}
 	}
 }
