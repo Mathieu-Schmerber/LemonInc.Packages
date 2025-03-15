@@ -72,18 +72,14 @@ namespace LemonInc.Core.Utilities
                     _elapsedTime += _useScaledTime ? Time.deltaTime : Time.unscaledDeltaTime;
                 }
 
-                if (_isRunning)
-                {
-                    if (_autoReset)
-                    {
-                        _onTickCallback?.Invoke(); // Trigger the callback on auto-reset
-                        _elapsedTime = 0f; // Reset elapsed time for the next cycle
-                    }
-                    else
-                    {
-                        _isRunning = false; // Stop the timer if autoReset is false
-                    }
-                }
+                if (!_isRunning) 
+                    continue;
+                
+                _onTickCallback?.Invoke();
+                if (_autoReset)
+                    _elapsedTime = 0f;
+                else
+                    _isRunning = false;
             }
         }
 
