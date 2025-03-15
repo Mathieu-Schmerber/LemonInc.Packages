@@ -70,7 +70,6 @@ namespace LemonInc.Core.Utilities
                 {
                     await System.Threading.Tasks.Task.Yield();
                     _elapsedTime += _useScaledTime ? Time.deltaTime : Time.unscaledDeltaTime;
-                    _onTickCallback?.Invoke();
                 }
 
                 if (_isRunning)
