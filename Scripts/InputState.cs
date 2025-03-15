@@ -30,6 +30,9 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		public void Hold()
 		{
+			if (Pressed)
+				return;
+			
 			Pressed = true;
 			OnPressed?.Invoke();
 		}
@@ -48,6 +51,9 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		public void Release()
 		{
+			if (!Pressed)
+				return;
+			
 			Pressed = false;
 			OnReleased?.Invoke();
 		}
