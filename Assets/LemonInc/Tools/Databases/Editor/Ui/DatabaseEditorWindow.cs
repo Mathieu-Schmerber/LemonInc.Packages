@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using LemonInc.Core.Utilities.Editor.Extensions;
+using LemonInc.Core.Utilities.Extensions;
 using LemonInc.Tools.Databases.Editor.Controllers;
 using LemonInc.Tools.Databases.Editor.Generators;
 using LemonInc.Tools.Databases.Editor.Interfaces;
@@ -376,7 +377,7 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 		/// <param name="asset">The asset.</param>
 		private void OnAssetAdded(AssetDefinition asset)
 		{
-			asset.Name = "New asset";
+			asset.Name = asset.Data.name.ToPascalCase();
 			_selectedSection?.Assets.Add(asset);
 			DisplayAssetsForSection(_selectedSection);
 		}
