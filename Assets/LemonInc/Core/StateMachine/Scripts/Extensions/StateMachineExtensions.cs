@@ -21,5 +21,12 @@ namespace LemonInc.Core.StateMachine.Extensions
         {
             stateMachine.AddTransition<TFrom, TTo>(new FuncPredicate(predicate));
         }
+        
+        public static void AddAnyTransition<TFrom, TTo>(this StateMachine stateMachine, Func<bool> predicate)
+            where TFrom : IState
+            where TTo : IState
+        {
+            stateMachine.AddAnyTransition<TTo>(new FuncPredicate(predicate));
+        }
     }
 }
