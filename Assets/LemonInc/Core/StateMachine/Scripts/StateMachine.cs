@@ -12,6 +12,8 @@ namespace LemonInc.Core.StateMachine
         private readonly Dictionary<Type, StateNode> _nodes = new();
         private StateNode _current;
 
+        public IState CurrentState => _current?.State;
+
         public StateNode RegisterState<T>()
             where T : IState, new()
         {
@@ -98,14 +100,14 @@ namespace LemonInc.Core.StateMachine
         private void CheckForTransition()
         {
             var transition = _anyTransitions.FirstOrDefault(x => x.Predicate.Evaluate());
-            if (transition != null)
+            if (transition != null && transition.To.State != _current.State)
             {
                 SetActiveState(transition.To);
                 return;
             }
             
             transition = _current.Transitions.FirstOrDefault(x => x.Predicate.Evaluate());
-            if (transition != null)
+            if (transition != null && transition.To.State != _current.State)
                 SetActiveState(transition.To);
         }
 
