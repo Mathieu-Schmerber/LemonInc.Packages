@@ -15,6 +15,9 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		private InputAction _inputAction;
 
+        /// <inheritdoc/>
+        public override bool PressedThisFrame => _inputAction?.WasPressedThisFrame() == true;
+
         /// <summary>
         /// Performs the specified input.
         /// </summary>
