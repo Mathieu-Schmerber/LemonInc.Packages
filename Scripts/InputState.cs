@@ -8,13 +8,18 @@ namespace LemonInc.Core.Input
 	public class InputState
 	{
 		/// <summary>
-		/// Gets or sets a value indicating whether this <see cref="InputState"/> is pressed.
+		/// Gets a value indicating whether this <see cref="InputState"/> is pressed.
 		/// </summary>
 		/// <value>
 		///   <c>true</c> if pressed; otherwise, <c>false</c>.
 		/// </value>
 		public bool Pressed { get; private set; }
 
+		/// <summary>
+		/// Gets a value indicating whether this <see cref="InputState"/> was pressed this frame.
+		/// </summary>
+        public virtual bool PressedThisFrame { get; protected set; }
+        
 		/// <summary>
 		/// Occurs when [on pressed].
 		/// </summary>
@@ -31,8 +36,12 @@ namespace LemonInc.Core.Input
 		public void Hold()
 		{
 			if (Pressed)
+			{
+				PressedThisFrame = false;
 				return;
-			
+			}
+
+			PressedThisFrame = true;
 			Pressed = true;
 			OnPressed?.Invoke();
 		}

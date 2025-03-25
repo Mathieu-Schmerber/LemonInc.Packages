@@ -2,7 +2,7 @@
     "name": "com.lemon-inc.core.input",
     "displayName": "LemonInc.Core.Input",
     "description": "Input interfaces.",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "unity": "2022.3",
     "author": "Lemon Inc. <mathieu.schmerber@gmail.com> (https://github.com/Mathieu-Schmerber)",
     "repository": {
