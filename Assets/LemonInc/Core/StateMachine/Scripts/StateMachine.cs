@@ -1,18 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using LemonInc.Core.StateMachine.Interfaces;
 using UnityEngine;
 
 namespace LemonInc.Core.StateMachine
 {
-    public class StateMachine
+    public partial class StateMachine
     {
         private readonly List<Transition> _anyTransitions = new();
         private readonly Dictionary<Type, StateNode> _nodes = new();
+        private readonly List<StateGroup> _groups = new();
         private StateNode _current;
 
-        public IState CurrentState => _current?.State;
+        [CanBeNull] public IState CurrentState => _current?.State;
 
         public StateNode RegisterState<T>()
             where T : IState, new()
@@ -24,13 +26,21 @@ namespace LemonInc.Core.StateMachine
             return node;
         }
         
-        public StateNode RegisterState<T>(T instance) 
+        public StateNode RegisterState<T>(T instance)
             where T : IState
         {
             var node = new StateNode(instance);
 
             _nodes.Add(typeof(T), node);
             return node;
+        }
+
+        public StateGroup CreateGroup(params IState[] states)
+        {
+            var group = new StateGroup(this, states);
+            
+            _groups.Add(group);
+            return group;
         }
 
         public void AddTransition<TFrom, TTo>(IPredicate predicate)
@@ -86,6 +96,12 @@ namespace LemonInc.Core.StateMachine
             _current = node;
         }
 
+        [CanBeNull]
+        internal StateNode GetState<T>() where T : IState
+        {
+            return _nodes.GetValueOrDefault(typeof(T), null);
+        }
+
         public void Update()
         {
             _current?.State.Update();
@@ -99,18 +115,32 @@ namespace LemonInc.Core.StateMachine
 
         private void CheckForTransition()
         {
+            // 1. Any transition
             var transition = _anyTransitions.FirstOrDefault(x => x.Predicate.Evaluate());
             if (transition != null && transition.To.State != _current.State)
             {
                 SetActiveState(transition.To);
                 return;
             }
+
+            // 2. Group-level transition
+            var partOfGroups = _groups.Where(x => x.States.Contains(_current.State));
+            foreach (var group in partOfGroups)
+            {
+                foreach (var groupTransition in group.Transitions)
+                {
+                    if (groupTransition.Predicate.Evaluate())
+                    {
+                        SetActiveState(groupTransition.To);
+                        return;
+                    }
+                }
+            }
             
+            // 3. State-level transition
             transition = _current.Transitions.FirstOrDefault(x => x.Predicate.Evaluate());
             if (transition != null && transition.To.State != _current.State)
                 SetActiveState(transition.To);
         }
-
-        
     }
 }
