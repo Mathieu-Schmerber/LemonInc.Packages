@@ -12,7 +12,7 @@ namespace LemonInc.Core.StateMachine
         private readonly List<Transition> _anyTransitions = new();
         private readonly Dictionary<Type, StateNode> _nodes = new();
         private readonly List<StateGroup> _groups = new();
-        private StateNode _current;
+        [CanBeNull] private StateNode _current;
 
         [CanBeNull] public IState CurrentState => _current?.State;
 
@@ -117,7 +117,7 @@ namespace LemonInc.Core.StateMachine
         {
             // 1. Any transition
             var transition = _anyTransitions.FirstOrDefault(x => x.Predicate.Evaluate());
-            if (transition != null && transition.To.State != _current.State)
+            if (transition != null && transition.To.State != _current?.State)
             {
                 SetActiveState(transition.To);
                 return;
