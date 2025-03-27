@@ -123,7 +123,10 @@ namespace LemonInc.Core.StateMachine
                 return;
             }
 
-            // 2. Group-level transition
+            if (_current == null)
+                return;
+            
+            // 2. Group-level transition 
             var partOfGroups = _groups.Where(x => x.States.Contains(_current.State));
             foreach (var group in partOfGroups)
             {
@@ -138,7 +141,7 @@ namespace LemonInc.Core.StateMachine
             }
             
             // 3. State-level transition
-            transition = _current.Transitions.FirstOrDefault(x => x.Predicate.Evaluate());
+            transition = _current?.Transitions.FirstOrDefault(x => x.Predicate.Evaluate());
             if (transition != null && transition.To.State != _current.State)
                 SetActiveState(transition.To);
         }
