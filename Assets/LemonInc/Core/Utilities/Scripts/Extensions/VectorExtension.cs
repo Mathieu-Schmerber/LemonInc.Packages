@@ -138,13 +138,14 @@ namespace LemonInc.Core.Utilities.Extensions
 		public static Vector2 ToVector2Xz(this Vector3 vector) => new(vector.x, vector.z);
 		public static Vector2 ToVector2Yz(this Vector3 vector) => new(vector.y, vector.z);
 
-		/// <summary>
-		/// Switch a vector's X and Y
-		/// </summary>
-		/// <param name="vector"></param>
-		/// <returns></returns>
-		public static Vector2 InverseXy(this Vector2 vector) => new(vector.y, vector.x);
-		public static Vector2 InverseXy(this Vector2Int vector) => new(vector.y, vector.x);
+		public static Vector2 InvertXy(this Vector2 vector) => new(vector.y, vector.x);
+		public static Vector2 InvertXy(this Vector2Int vector) => new(vector.y, vector.x);
+		public static Vector3 InvertXy(this Vector3 vector) => new(vector.y, vector.x, vector.z);
+		public static Vector3 InvertXz(this Vector3 vector) => new(vector.z, vector.y, vector.x);
+		public static Vector3 InvertYz(this Vector3 vector) => new(vector.x, vector.z, vector.y);
+		public static Vector3Int InvertXy(this Vector3Int vector) => new(vector.y, vector.x, vector.z);
+		public static Vector3Int InvertXz(this Vector3Int vector) => new(vector.z, vector.y, vector.x);
+		public static Vector3Int InvertYz(this Vector3Int vector) => new(vector.x, vector.z, vector.y);
 		
 		public static float2 ToFloat2(this Vector2 vector) => new float2(vector.x, vector.y);
 		public static float2 ToFloat2(this Vector2Int vector) => new float2(vector.x, vector.y);
