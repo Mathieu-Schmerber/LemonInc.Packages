@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-namespace LemonInc.Core.Utilities
+namespace LemonInc.Core.Utilities.Singletons
 {
 	/// <summary>
 	/// Defines a Singleton. <br/>
-	/// This Singleton will NOT create a new object if it does not exist.
+	/// This Singleton will NOT create a new object if it does not exist and is bound to its scene.
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
-	public abstract class ManagerSingleton<T> : MonoBehaviour where T : Component
+	public abstract class SceneSingleton<T> : MonoBehaviour where T : Component
 	{
 		/// <summary>
 		/// The instance.

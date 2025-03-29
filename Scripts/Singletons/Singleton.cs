@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace LemonInc.Core.Utilities
+namespace LemonInc.Core.Utilities.Singletons
 {
 	/// <summary>
-	/// Singleton, do not use on MonoBehaviour.
+	/// Default singleton pattern.
 	/// </summary>
 	public abstract class Singleton<T>
 	{
