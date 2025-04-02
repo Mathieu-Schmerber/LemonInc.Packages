@@ -52,5 +52,7 @@ namespace LemonInc.Core.StateMachine.Implementations.Scriptable
 
         public void FixedUpdate() 
             => _stateMachine.FixedUpdate();
+
+        public override string ToString() => _stateMachine.ToString();
     }
 }
