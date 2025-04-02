@@ -52,7 +52,15 @@ namespace LemonInc.Core.StateMachine.Implementations.Scriptable
 
         public void FixedUpdate() 
             => _stateMachine.FixedUpdate();
-
-        public override string ToString() => _stateMachine.ToString();
+        
+        public override string ToString()
+        {
+            return CurrentState switch
+            {
+                null => $"{GetType().Name}",
+                SubStateMachine subStateMachine => $"{GetType().Name} > {subStateMachine}",
+                _ => $"{GetType().Name} > {CurrentState.GetType().Name}"
+            };
+        }
     }
 }
