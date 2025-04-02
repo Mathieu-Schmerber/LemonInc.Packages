@@ -1,149 +1,154 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using LemonInc.Core.StateMachine.Interfaces;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace LemonInc.Core.StateMachine
 {
-    public partial class StateMachine
+    [Serializable]
+    public class StateMachine : IStateMachine
     {
-        private readonly List<Transition> _anyTransitions = new();
-        private readonly Dictionary<Type, StateNode> _nodes = new();
-        private readonly List<StateGroup> _groups = new();
-        [CanBeNull] private StateNode _current;
+        protected readonly Dictionary<Type, StateNode> Nodes = new();
 
-        [CanBeNull] public IState CurrentState => _current?.State;
+        [ShowInInspector, ReadOnly] private string CurrentStateName => ToString();
+        
+        public IState CurrentState => Current?.State;
 
-        public StateNode RegisterState<T>()
+        [CanBeNull] protected StateNode Current;
+
+        [CanBeNull] protected StateNode GetNode<T>() 
+            where T : IState
+            => Nodes.GetValueOrDefault(typeof(T), null);
+
+        [CanBeNull] protected StateNode GetNode(Type type)
+            => Nodes.GetValueOrDefault(type, null);
+        
+        public IState GetState<T>() 
+            where T : IState 
+            => GetNode<T>()?.State;
+        
+        public ISubStateMachine GetSubStateMachine<T>() 
+            where T : ISubStateMachine
+            => GetState<T>() as ISubStateMachine;
+
+        public ISubStateMachine RegisterSubStateMachine(ISubStateMachine subStateMachine)
+        {
+            Nodes[subStateMachine.GetType()] = new StateNode(subStateMachine);
+            return subStateMachine;
+        }
+
+        public ISubStateMachine RegisterSubStateMachine<T>() 
+            where T : ISubStateMachine, new()
+        {
+            var state = new T();
+            return RegisterSubStateMachine(state);
+        }
+
+        public IStateMachine RegisterState(IState state)
+        {
+            Nodes.Add(state.GetType(), new StateNode(state));
+            return this;
+        }
+
+        public IStateMachine RegisterState<T>() 
             where T : IState, new()
         {
             var state = new T();
-            var node = new StateNode(state);
-
-            _nodes.Add(typeof(T), node);
-            return node;
-        }
-        
-        public StateNode RegisterState<T>(T instance)
-            where T : IState
-        {
-            var node = new StateNode(instance);
-
-            _nodes.Add(typeof(T), node);
-            return node;
+            return RegisterState(state);
         }
 
-        public StateGroup CreateGroup(params IState[] states)
+        public void AddLink<TFrom, TTo>(Func<bool> condition) where TFrom : IState where TTo : IState
         {
-            var group = new StateGroup(this, states);
-            
-            _groups.Add(group);
-            return group;
-        }
-
-        public void AddTransition<TFrom, TTo>(IPredicate predicate)
-            where TFrom : IState
-            where TTo : IState
-        {
-            var from = _nodes.GetValueOrDefault(typeof(TFrom));
-            var to = _nodes.GetValueOrDefault(typeof(TTo));
-
-            if (from == null || to == null)
+            var from = GetNode<TFrom>();
+            if (from == null)
             {
-                Debug.LogError($"Tried to register transition between unregistered states. from:{typeof(TFrom)}, to:{typeof(TTo)}");
+                Debug.LogError($"Tried to add a link from an unregistered state: {typeof(TFrom).Name}");
                 return;
             }
             
-            from.AddTransition(to, predicate);
-        }
-
-        public void AddAnyTransition<TTo>(IPredicate predicate)
-            where TTo : IState
-        {
-            var to = _nodes.GetValueOrDefault(typeof(TTo));
+            var to = GetNode<TTo>();
             if (to == null)
             {
-                Debug.LogError($"Tried to register transition to an unregistered states. to:{typeof(TTo)}");
+                Debug.LogError($"Tried to add a link to an unregistered state: {typeof(TTo).Name}");
                 return;
             }
             
-            _anyTransitions.Add(new Transition(to, predicate));
+            from.AddTransition(to, condition);
+        }
+
+        public void AddMutualLink<TFrom, TTo>(Func<bool> condition) where TFrom : IState where TTo : IState
+        {
+            AddLink<TFrom, TTo>(condition);
+            AddLink<TTo, TFrom>(() => !condition.Invoke());
+        }
+
+        public void SetActiveState<T>() where T : IState
+        {
+            var stateNode = GetNode<T>();
+            if (stateNode == null)
+            {
+                Debug.LogError($"Tried to set an unregistered state to active: {typeof(T).Name}");
+                return;
+            }
+            
+            Current = stateNode;
         }
         
-        public void SetActiveState<T>()
-            where T : IState
+        public void SetActiveState(IState state)
         {
-            var node = _nodes.GetValueOrDefault(typeof(T));
-            if (node == null)
+            var stateNode = GetNode(state.GetType());
+            if (stateNode == null)
             {
-                Debug.LogError($"Tried to set state to an unregistered state, T:{typeof(T)}");
+                Debug.LogError($"Tried to set an unregistered state to active: {state.GetType().Name}");
                 return;
             }
+            
+            Current = stateNode;
+        }
 
-            SetActiveState(node);
+        public virtual void Update()
+        {
+            HandleTransitions();
+            CurrentState?.Update();
+        }
+
+        public virtual void FixedUpdate() => CurrentState?.FixedUpdate();
+
+        protected void SwitchToState(StateNode node)
+        {
+            if (Equals(Current, node))
+                return;
+            
+            Current?.State.OnExit();
+            Current = node;
+            Current?.State.OnEnter();
         }
         
-        public void SetActiveState(StateNode node)
+        private void HandleTransitions()
         {
-            if (node == _current)
+            if (Current == null)
                 return;
             
-            _current?.State.OnExit();
-            node.State.OnEnter();
-            
-            _current = node;
-        }
+            foreach (var transition in Current.Transitions)
+            {
+                if (!transition.Predicate())
+                    continue;
 
-        [CanBeNull]
-        internal StateNode GetState<T>() where T : IState
-        {
-            return _nodes.GetValueOrDefault(typeof(T), null);
-        }
-
-        public void Update()
-        {
-            _current?.State.Update();
-            CheckForTransition();
+                SwitchToState(transition.To);
+                return;
+            }
         }
         
-        public void FixedUpdate()
+        public override string ToString()
         {
-            _current?.State.FixedUpdate();
-        }
-
-        private void CheckForTransition()
-        {
-            // 1. Any transition
-            var transition = _anyTransitions.FirstOrDefault(x => x.Predicate.Evaluate());
-            if (transition != null && transition.To.State != _current?.State)
+            return CurrentState switch
             {
-                SetActiveState(transition.To);
-                return;
-            }
-
-            if (_current == null)
-                return;
-            
-            // 2. Group-level transition 
-            var partOfGroups = _groups.Where(x => x.States.Contains(_current.State));
-            foreach (var group in partOfGroups)
-            {
-                foreach (var groupTransition in group.Transitions)
-                {
-                    if (groupTransition.Predicate.Evaluate())
-                    {
-                        SetActiveState(groupTransition.To);
-                        return;
-                    }
-                }
-            }
-            
-            // 3. State-level transition
-            transition = _current?.Transitions.FirstOrDefault(x => x.Predicate.Evaluate());
-            if (transition != null && transition.To.State != _current.State)
-                SetActiveState(transition.To);
+                null => "StateMachine",
+                SubStateMachine subStateMachine => $"StateMachine > {subStateMachine}",
+                _ => $"StateMachine > {CurrentState.GetType().Name}"
+            };
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using LemonInc.Core.StateMachine.Interfaces;
 
@@ -5,7 +6,7 @@ namespace LemonInc.Core.StateMachine
 {
     public class StateNode
     {
-        private List<Transition> _transitions;
+        private readonly List<Transition> _transitions;
         
         public IState State { get; private set; }
         public IReadOnlyList<Transition> Transitions => _transitions;
@@ -16,7 +17,7 @@ namespace LemonInc.Core.StateMachine
             _transitions = new List<Transition>();
         }
 
-        public void AddTransition(StateNode toState, IPredicate predicate)
+        public void AddTransition(StateNode toState, Func<bool> predicate)
         {
             var transition = new Transition(toState, predicate);
             _transitions.Add(transition);

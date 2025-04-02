@@ -14,12 +14,12 @@ namespace LemonInc.Core.StateMachine.Interfaces
         /// Called every frame, while the state is active.
         /// </summary>
         void Update();
-        
+
         /// <summary>
         /// Called every physics frame, while the state is active.
         /// </summary>
         void FixedUpdate();
-        
+
         /// <summary>
         /// Called when exiting the state.
         /// </summary>
