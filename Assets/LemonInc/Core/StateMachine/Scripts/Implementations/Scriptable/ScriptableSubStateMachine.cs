@@ -85,5 +85,7 @@ namespace LemonInc.Core.StateMachine.Implementations.Scriptable
         protected virtual void OnUpdate() {}
         protected virtual void OnFixedUpdate() {}
         protected virtual void Exit() {}
+        
+        public override string ToString() => _subStateMachine.ToString();
     }
 }

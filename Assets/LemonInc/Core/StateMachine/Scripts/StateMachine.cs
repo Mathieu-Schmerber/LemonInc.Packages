@@ -12,7 +12,7 @@ namespace LemonInc.Core.StateMachine
     {
         protected readonly Dictionary<Type, StateNode> Nodes = new();
 
-        [ShowInInspector, ReadOnly] private string CurrentStateName => ToString();
+        [ShowInInspector, ReadOnly, HideLabel] private string CurrentStateName => ToString();
         
         public IState CurrentState => Current?.State;
 
