@@ -86,6 +86,14 @@ namespace LemonInc.Core.StateMachine.Implementations.Scriptable
         protected virtual void OnFixedUpdate() {}
         protected virtual void Exit() {}
         
-        public override string ToString() => _subStateMachine.ToString();
+        public override string ToString()
+        {
+            return CurrentState switch
+            {
+                null => $"{GetType().Name}",
+                SubStateMachine subStateMachine => $"{GetType().Name} > {subStateMachine}",
+                _ => $"{GetType().Name} > {CurrentState.GetType().Name}"
+            };
+        }
     }
 }
