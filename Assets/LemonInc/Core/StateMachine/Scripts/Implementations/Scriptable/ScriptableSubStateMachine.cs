@@ -91,7 +91,7 @@ namespace LemonInc.Core.StateMachine.Implementations.Scriptable
             return CurrentState switch
             {
                 null => $"{GetType().Name}",
-                SubStateMachine subStateMachine => $"{GetType().Name} > {subStateMachine}",
+                ISubStateMachine subStateMachine => $"{GetType().Name} > {subStateMachine}",
                 _ => $"{GetType().Name} > {CurrentState.GetType().Name}"
             };
         }
