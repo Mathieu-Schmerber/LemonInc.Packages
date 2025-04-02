@@ -52,21 +52,38 @@ namespace LemonInc.Core.StateMachine.Implementations.Scriptable
             => _subStateMachine.SetActiveState<T>();
 
         public void OnEnter()
-            => _subStateMachine.OnEnter();
+        {
+            _subStateMachine.OnEnter();
+            Enter();
+        }
 
         void IState.Update()
-            => _subStateMachine.Update();
+        {
+            _subStateMachine.Update();
+            OnUpdate();
+        }
 
         void IState.FixedUpdate()
-            => _subStateMachine.FixedUpdate();
+        {
+            _subStateMachine.FixedUpdate();
+            OnFixedUpdate();
+        }
 
         public void OnExit()
-            => _subStateMachine.OnExit();
+        {
+            _subStateMachine.OnExit();
+            Exit();
+        }
 
         void IStateMachine.Update()
             => _subStateMachine.Update();
 
         void IStateMachine.FixedUpdate()
             => _subStateMachine.FixedUpdate();
+        
+        protected virtual void Enter() {}
+        protected virtual void OnUpdate() {}
+        protected virtual void OnFixedUpdate() {}
+        protected virtual void Exit() {}
     }
 }
