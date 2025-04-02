@@ -11,7 +11,7 @@ namespace LemonInc.Core.StateMachine
         
         public new ISubStateMachine RegisterState(IState state)
         {
-            Nodes.Add(state.GetType(), new StateNode(state));
+            Nodes[state.GetType()] = new StateNode(state);
             return this;
         }
 
