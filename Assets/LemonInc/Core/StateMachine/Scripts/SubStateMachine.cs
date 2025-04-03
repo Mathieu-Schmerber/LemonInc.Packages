@@ -65,7 +65,7 @@ namespace LemonInc.Core.StateMachine
 
         public void OnExit()
         {
-            CurrentState?.OnExit();
+            //CurrentState?.OnExit();
             SwitchToState(null);
             Exit();
         }
