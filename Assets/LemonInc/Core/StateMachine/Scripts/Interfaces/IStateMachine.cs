@@ -7,7 +7,7 @@ namespace LemonInc.Core.StateMachine.Interfaces
     {
         [CanBeNull] IState CurrentState { get; }
         [CanBeNull] IState GetState<T>() where T : IState;
-        [CanBeNull] IState SearchStateRecursively<T>() where T : IState;
+        [CanBeNull] T SearchStateRecursively<T>() where T : IState;
         [CanBeNull] ISubStateMachine GetSubStateMachine<T>() where T : ISubStateMachine;
         
         ISubStateMachine RegisterSubStateMachine(ISubStateMachine subStateMachine);

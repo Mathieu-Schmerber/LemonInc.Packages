@@ -29,11 +29,11 @@ namespace LemonInc.Core.StateMachine
             where T : IState 
             => GetNode<T>()?.State;
 
-        public IState SearchStateRecursively<T>() where T : IState
+        public T SearchStateRecursively<T>() where T : IState
         {
             var state = GetState<T>();
             if (state != null)
-                return state;
+                return (T)state;
 
             foreach (var node in Nodes)
             {
@@ -43,7 +43,7 @@ namespace LemonInc.Core.StateMachine
                 return subState.SearchStateRecursively<T>();
             }
 
-            return null;
+            return default;
         }
 
         public ISubStateMachine GetSubStateMachine<T>() 
