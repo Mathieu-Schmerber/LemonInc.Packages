@@ -28,7 +28,24 @@ namespace LemonInc.Core.StateMachine
         public IState GetState<T>() 
             where T : IState 
             => GetNode<T>()?.State;
-        
+
+        public IState SearchStateRecursively<T>() where T : IState
+        {
+            var state = GetState<T>();
+            if (state != null)
+                return state;
+
+            foreach (var node in Nodes)
+            {
+                if (node.Value.State is not ISubStateMachine subState)
+                    continue;
+                
+                return subState.SearchStateRecursively<T>();
+            }
+
+            return null;
+        }
+
         public ISubStateMachine GetSubStateMachine<T>() 
             where T : ISubStateMachine
             => GetState<T>() as ISubStateMachine;
