@@ -15,7 +15,7 @@ namespace LemonInc.Core.StateMachine.Implementations.Scriptable
         public IState GetState<T>() where T : IState
             => _subStateMachine.GetState<T>();
 
-        public IState SearchStateRecursively<T>() where T : IState
+        public T SearchStateRecursively<T>() where T : IState
             => _subStateMachine.SearchStateRecursively<T>();
 
         public ISubStateMachine GetSubStateMachine<T>() where T : ISubStateMachine
