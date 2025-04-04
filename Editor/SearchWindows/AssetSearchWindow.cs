@@ -16,8 +16,9 @@ namespace LemonInc.Core.Utilities.Editor.SearchWindows
 	public class AssetSearchWindow<T> : ScriptableObject, ISearchWindowProvider
 		where T : UnityEngine.Object
 	{
-		private readonly IList<T> _assets;
-		private readonly Action<T> _onEntrySelected;
+		private IList<T> _assets;
+
+		public Action<T> EntrySelected { get; set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="AssetSearchWindow{T}"/> class.
@@ -25,7 +26,7 @@ namespace LemonInc.Core.Utilities.Editor.SearchWindows
 		/// <param name="onEntrySelected">The on entry selected.</param>
 		public AssetSearchWindow(Action<T> onEntrySelected)
 		{
-			_onEntrySelected = onEntrySelected;
+			EntrySelected = onEntrySelected;
 			_assets = AssetHelper.FindAssetsByType<T>();
 		}
 
@@ -42,6 +43,7 @@ namespace LemonInc.Core.Utilities.Editor.SearchWindows
 			var group = new SearchTreeGroupEntry(new GUIContent("List"));
 
 			searchList.Add(group);
+			_assets = AssetHelper.FindAssetsByType<T>();
 			foreach (var item in _assets)
 			{
 				var entry = new SearchTreeEntry(new GUIContent(item.name, EditorGUIUtility.ObjectContent(item, item.GetType()).image))
@@ -63,7 +65,7 @@ namespace LemonInc.Core.Utilities.Editor.SearchWindows
 		/// <returns></returns>
 		public bool OnSelectEntry(SearchTreeEntry searchTreeEntry, SearchWindowContext context)
 		{
-			_onEntrySelected?.Invoke(searchTreeEntry.userData as T);
+			EntrySelected?.Invoke(searchTreeEntry.userData as T);
 			return true;
 		}
 	}
