@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using LemonInc.Core.Utilities.Extensions;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -28,8 +29,8 @@ namespace LemonInc.Core.Utilities.Editor.SearchWindows
 		{
 			var entries = Build?.Invoke();
 
-			if (entries.IsNullOrEmpty<SearchTreeEntry>())
-				throw new Exception($"The {nameof(GenericSearchWindow)} requires at least one entry.");
+			if (entries.IsNullOrEmpty<SearchTreeEntry>() || !entries.Any(x => x.GetType() == typeof(SearchTreeGroupEntry)))
+				throw new Exception($"The {nameof(GenericSearchWindow)} requires at least one group entry.");
 			return entries;
 		}
 
