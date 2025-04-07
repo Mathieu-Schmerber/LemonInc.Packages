@@ -15,6 +15,7 @@ namespace LemonInc.Core.Utilities
         private bool _autoReset;
         private bool _isRunning;
         private List<Action> _onTickCallbacks;
+        private bool _isPaused;
 
         /// <summary>
         /// Gets the elapsed time since the timer started.
@@ -67,6 +68,9 @@ namespace LemonInc.Core.Utilities
         {
             while (_isRunning)
             {
+                if (_isPaused)
+                    continue;
+                
                 while (_elapsedTime < _interval && _isRunning)
                 {
                     await System.Threading.Tasks.Task.Yield();
@@ -90,6 +94,17 @@ namespace LemonInc.Core.Utilities
         public void Stop()
         {
             _isRunning = false;
+            _isPaused = false;
+        }
+
+        public void Pause()
+        {
+            _isPaused = true;
+        }
+        
+        public void Resume()
+        {
+            _isPaused = false;
         }
 
         /// <summary>
@@ -107,6 +122,7 @@ namespace LemonInc.Core.Utilities
         {
             _elapsedTime = 0f;
             _isRunning = false;
+            _isPaused = false;
         }
 
         /// <summary>
