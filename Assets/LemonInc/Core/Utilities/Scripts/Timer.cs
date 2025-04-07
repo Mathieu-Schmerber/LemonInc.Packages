@@ -14,7 +14,7 @@ namespace LemonInc.Core.Utilities
         private bool _useScaledTime;
         private bool _autoReset;
         private bool _isRunning;
-        private List<Action> _onTickCallbacks = new();
+        private List<Action> _onTickCallbacks;
 
         /// <summary>
         /// Gets the elapsed time since the timer started.
@@ -47,9 +47,7 @@ namespace LemonInc.Core.Utilities
         {
             _interval = interval;
             _useScaledTime = useScaledTime;
-            if (onTickCallback != null)
-                _onTickCallbacks.Add(onTickCallback);
-            
+            AddOnTickListener(onTickCallback);
             _autoReset = autoReset;
         }
 
@@ -78,7 +76,7 @@ namespace LemonInc.Core.Utilities
                 if (!_isRunning) 
                     continue;
                 
-                _onTickCallbacks.ForEach(callback => callback.Invoke());
+                _onTickCallbacks?.ForEach(callback => callback?.Invoke());
                 if (_autoReset)
                     _elapsedTime = 0f;
                 else
@@ -125,17 +123,20 @@ namespace LemonInc.Core.Utilities
         /// </summary>
         public void AddOnTickListener(Action onTickCallback)
         {
-            if (onTickCallback != null) 
+            if (onTickCallback != null)
+            {
+                _onTickCallbacks ??= new List<Action>();
                 _onTickCallbacks.Add(onTickCallback);
+            }
         }
 
         /// <summary>
-        /// Removes an OnTick listener.
+        /// Removes an OnTick listener. 
         /// </summary>
         /// <param name="onTickCallback"></param>
         public void RemoveOnTickListener(Action onTickCallback)
         {
-            _onTickCallbacks.Remove(onTickCallback);
+            _onTickCallbacks?.Remove(onTickCallback);
         }
     }
 }
