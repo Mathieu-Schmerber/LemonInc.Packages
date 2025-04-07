@@ -14,8 +14,8 @@ namespace LemonInc.Core.Utilities
         private bool _useScaledTime;
         private bool _autoReset;
         private bool _isRunning;
-        private List<Action> _onTickCallbacks;
         private bool _isPaused;
+        private List<Action> _onTickCallbacks;
 
         /// <summary>
         /// Gets the elapsed time since the timer started.
@@ -31,6 +31,11 @@ namespace LemonInc.Core.Utilities
         /// Gets whether the timer is currently running.
         /// </summary>
         public bool IsRunning => _isRunning;
+
+        /// <summary>
+        /// Gets whether the timer is currently paused.
+        /// </summary>
+        public bool IsPaused => _isPaused;
 
         /// <summary>
         /// Gets or sets the interval (duration) of the timer.
@@ -60,6 +65,7 @@ namespace LemonInc.Core.Utilities
             if (_isRunning) return;
 
             _isRunning = true;
+            _isPaused = false;
             _elapsedTime = 0f;
             RunTimerAsync();
         }
@@ -68,16 +74,14 @@ namespace LemonInc.Core.Utilities
         {
             while (_isRunning)
             {
-                if (_isPaused)
-                    continue;
-                
                 while (_elapsedTime < _interval && _isRunning)
                 {
-                    if (_isPaused)
-                        continue;
-                    
                     await System.Threading.Tasks.Task.Yield();
-                    _elapsedTime += _useScaledTime ? Time.deltaTime : Time.unscaledDeltaTime;
+                    
+                    if (!_isPaused)
+                    {
+                        _elapsedTime += _useScaledTime ? Time.deltaTime : Time.unscaledDeltaTime;
+                    }
                 }
 
                 if (!_isRunning) 
@@ -100,14 +104,26 @@ namespace LemonInc.Core.Utilities
             _isPaused = false;
         }
 
+        /// <summary>
+        /// Pauses the timer.
+        /// </summary>
         public void Pause()
         {
-            _isPaused = true;
+            if (_isRunning && !_isPaused)
+            {
+                _isPaused = true;
+            }
         }
-        
+
+        /// <summary>
+        /// Resumes the timer if it was paused.
+        /// </summary>
         public void Resume()
         {
-            _isPaused = false;
+            if (_isRunning && _isPaused)
+            {
+                _isPaused = false;
+            }
         }
 
         /// <summary>
