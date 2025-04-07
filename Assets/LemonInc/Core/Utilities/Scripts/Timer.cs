@@ -73,6 +73,9 @@ namespace LemonInc.Core.Utilities
                 
                 while (_elapsedTime < _interval && _isRunning)
                 {
+                    if (_isPaused)
+                        continue;
+                    
                     await System.Threading.Tasks.Task.Yield();
                     _elapsedTime += _useScaledTime ? Time.deltaTime : Time.unscaledDeltaTime;
                 }

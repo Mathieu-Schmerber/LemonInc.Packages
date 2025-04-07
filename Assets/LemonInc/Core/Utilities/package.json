@@ -2,7 +2,7 @@
     "name": "com.lemon-inc.core.utilities",
     "displayName": "LemonInc.Core.Utilities",
     "description": "Provides with core utilities.",
-    "version": "1.4.11",
+    "version": "1.4.12",
     "unity": "2022.3",
     "author": "Lemon Inc. <mathieu.schmerber@gmail.com> (https://github.com/Mathieu-Schmerber)",
     "repository": {
