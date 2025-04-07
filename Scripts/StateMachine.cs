@@ -43,7 +43,9 @@ namespace LemonInc.Core.StateMachine
                 if (node.Value.State is not ISubStateMachine subState)
                     continue;
                 
-                return subState.SearchStateRecursively<T>();
+                state = subState.SearchStateRecursively<T>();
+                if (state != null)
+                    return (T)state;
             }
 
             return default;
@@ -60,7 +62,9 @@ namespace LemonInc.Core.StateMachine
                 if (node.Value.State is not ISubStateMachine subState)
                     continue;
                 
-                return subState.SearchStateRecursively(stateType);
+                state = subState.SearchStateRecursively(stateType);
+                if (state != null)
+                    return state;
             }
 
             return default;
