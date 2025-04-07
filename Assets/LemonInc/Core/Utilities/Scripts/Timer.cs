@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace LemonInc.Core.Utilities
         private bool _useScaledTime;
         private bool _autoReset;
         private bool _isRunning;
-        private Action _onTickCallback;
+        private List<Action> _onTickCallbacks;
 
         /// <summary>
         /// Gets the elapsed time since the timer started.
@@ -46,7 +47,10 @@ namespace LemonInc.Core.Utilities
         {
             _interval = interval;
             _useScaledTime = useScaledTime;
-            _onTickCallback = onTickCallback;
+            _onTickCallbacks = new();
+            if (onTickCallback != null)
+                _onTickCallbacks.Add(onTickCallback);
+            
             _autoReset = autoReset;
         }
 
@@ -75,7 +79,7 @@ namespace LemonInc.Core.Utilities
                 if (!_isRunning) 
                     continue;
                 
-                _onTickCallback?.Invoke();
+                _onTickCallbacks.ForEach(callback => callback.Invoke());
                 if (_autoReset)
                     _elapsedTime = 0f;
                 else
@@ -120,9 +124,18 @@ namespace LemonInc.Core.Utilities
         /// <summary>
         /// Sets or updates the callback to invoke every frame while the timer is running.
         /// </summary>
-        public void SetOnTickCallback(Action onTickCallback)
+        public void AddOnTickListener(Action onTickCallback)
         {
-            _onTickCallback = onTickCallback;
+            _onTickCallbacks.Add(onTickCallback);
+        }
+
+        /// <summary>
+        /// Removes an OnTick listener.
+        /// </summary>
+        /// <param name="onTickCallback"></param>
+        public void RemoveOnTickListener(Action onTickCallback)
+        {
+            _onTickCallbacks.Remove(onTickCallback);
         }
     }
 }
