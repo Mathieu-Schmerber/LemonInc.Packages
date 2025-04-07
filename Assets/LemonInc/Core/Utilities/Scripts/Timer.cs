@@ -14,7 +14,7 @@ namespace LemonInc.Core.Utilities
         private bool _useScaledTime;
         private bool _autoReset;
         private bool _isRunning;
-        private List<Action> _onTickCallbacks;
+        private List<Action> _onTickCallbacks = new();
 
         /// <summary>
         /// Gets the elapsed time since the timer started.
@@ -47,7 +47,6 @@ namespace LemonInc.Core.Utilities
         {
             _interval = interval;
             _useScaledTime = useScaledTime;
-            _onTickCallbacks = new();
             if (onTickCallback != null)
                 _onTickCallbacks.Add(onTickCallback);
             
@@ -126,7 +125,8 @@ namespace LemonInc.Core.Utilities
         /// </summary>
         public void AddOnTickListener(Action onTickCallback)
         {
-            _onTickCallbacks.Add(onTickCallback);
+            if (onTickCallback != null) 
+                _onTickCallbacks.Add(onTickCallback);
         }
 
         /// <summary>
