@@ -45,13 +45,13 @@ namespace LemonInc.Core.Utilities
             return keys is { Length: > 0 };
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             if (_reloadSceneShortcuts.Length == 0 && _pauseShortcuts.Length == 0)
                 Reset();
         }
-
-#if UNITY_EDITOR
+        
         private void Reset()
         {
             _reloadSceneShortcuts = new[] { Key.LeftCtrl, Key.R };
