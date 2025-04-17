@@ -10,7 +10,8 @@
 		"url": "https://github.com/Mathieu-Schmerber/LemonInc.Packages.git"
 	},
     "dependencies": {
-        "com.unity.editorcoroutines": "1.0.0"
+        "com.unity.editorcoroutines": "1.0.0",
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
     },
     "gitDependencies": {
     }
