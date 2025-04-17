@@ -6,9 +6,11 @@ using UnityEditor;
 using UnityEditor.PackageManager;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
+using UnityEngine.WSA;
 using static System.Environment;
 using static System.IO.Path;
 using static UnityEditor.AssetDatabase;
+using Application = UnityEngine.Application;
 
 namespace LemonInc.Tools.Packager.Editor
 {
@@ -28,7 +30,10 @@ namespace LemonInc.Tools.Packager.Editor
         }
 
         [MenuItem("Tools/LemonInc/Setup/Create Folders")]
-        public static void CreateFolders() {
+        public static void CreateFolders()
+        {
+            Folders.Create("Externals");
+            Folders.Create("Plugins");
             Folders.Create("Game", "Animation", "Models", "Materials", "Prefabs", "Resources", "Scripts/Entities", "Scripts/Systems", "Scripts/Utilities");
             Refresh();
             Folders.Move("Game", "Scenes");
