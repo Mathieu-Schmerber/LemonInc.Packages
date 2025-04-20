@@ -377,7 +377,7 @@ namespace LemonInc.Tools.Databases.Editor.Ui
 		/// <param name="asset">The asset.</param>
 		private void OnAssetAdded(AssetDefinition asset)
 		{
-			asset.Name = asset.Data.name.ToPascalCase();
+			asset.Name = asset.Data?.name.ToPascalCase() ?? "New Asset";
 			_selectedSection?.Assets.Add(asset);
 			DisplayAssetsForSection(_selectedSection);
 		}

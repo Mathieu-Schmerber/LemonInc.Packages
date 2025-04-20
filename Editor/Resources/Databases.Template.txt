@@ -3,6 +3,7 @@
 ///
 
 using LemonInc.Core.Utilities;
+using LemonInc.Core.Utilities.Singletons;
 using LemonInc.Tools.Databases.Models;
 using System.Collections.Generic;
 using System.Linq;
