@@ -20,7 +20,7 @@ namespace LemonInc.Tools.Panels.Controllers
 		/// <summary>
 		/// The inspector.
 		/// </summary>
-		private VisualElement _inspector;
+		private readonly VisualElement _inspector;
 
 		/// <summary>
 		/// The locate asset button.
