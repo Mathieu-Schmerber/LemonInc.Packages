@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using LemonInc.Core.Utilities.Extensions;
+using UnityEngine;
 
 namespace LemonInc.Core.Utilities.Editor.Extensions
 {
@@ -21,6 +22,26 @@ namespace LemonInc.Core.Utilities.Editor.Extensions
 
 			var index = fullPath.IndexOf("Assets", StringComparison.Ordinal);
 			return fullPath.Remove(0, index).Replace("\\", "/");
+		}
+		
+		
+		/// <summary>
+		/// Converts an asset path to a system path.
+		/// </summary>
+		/// <param name="assetPath">The asset path.</param>
+		/// <returns>The system path.</returns>
+		public static string ToSystemPath(this string assetPath)
+		{
+			if (string.IsNullOrEmpty(assetPath))
+				return string.Empty;
+        
+			if (!assetPath.StartsWith("Assets", StringComparison.OrdinalIgnoreCase))
+				return assetPath;
+        
+			var normalizedPath = assetPath.Replace('/', Path.DirectorySeparatorChar);
+			var projectRoot = Application.dataPath.Substring(0, Application.dataPath.Length - "Assets".Length);
+    
+			return Path.Combine(projectRoot, normalizedPath);
 		}
 
 		/// <summary>
@@ -113,6 +134,49 @@ namespace LemonInc.Core.Utilities.Editor.Extensions
 			}
 
 			return null;
+		}
+		
+		/// <summary>
+		/// Converts a path name into a unique name.
+		/// </summary>
+		/// <param name="nameWithExtension">The name with extension.</param>
+		/// <param name="parentDirectory">The parent directory.</param>
+		/// <returns>The unique name.</returns>
+		public static string ToUniquePathName(this string nameWithExtension, string parentDirectory)
+		{
+			if (string.IsNullOrEmpty(nameWithExtension) || string.IsNullOrEmpty(parentDirectory))
+				return nameWithExtension;
+        
+			if (!Directory.Exists(parentDirectory))
+				return nameWithExtension;
+        
+			string baseName;
+			string extension = string.Empty;
+			bool isFile = false;
+    
+			if (Path.HasExtension(nameWithExtension))
+			{
+				baseName = Path.GetFileNameWithoutExtension(nameWithExtension);
+				extension = Path.GetExtension(nameWithExtension);
+				isFile = true;
+			}
+			else
+			{
+				baseName = nameWithExtension;
+			}
+    
+			string uniqueName = baseName + extension;
+			string fullPath = Path.Combine(parentDirectory, uniqueName);
+			int counter = 1;
+    
+			while ((isFile && File.Exists(fullPath)) || (!isFile && Directory.Exists(fullPath)))
+			{
+				uniqueName = $"{baseName} {counter}{extension}";
+				fullPath = Path.Combine(parentDirectory, uniqueName);
+				counter++;
+			}
+    
+			return uniqueName;
 		}
 	}
 }

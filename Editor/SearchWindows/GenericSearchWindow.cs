@@ -50,5 +50,14 @@ namespace LemonInc.Core.Utilities.Editor.SearchWindows
 			OnEntrySelected?.Invoke(searchTreeEntry, context);
 			return true;
 		}
+
+		public static void Open(Func<List<SearchTreeEntry>> build, Action<SearchTreeEntry, SearchWindowContext> onEntrySelected, int height = 100, int width = 100)
+		{
+			var context = new SearchWindowContext(GUIUtility.GUIToScreenPoint(Event.current.mousePosition), width, height);
+			var window = CreateInstance<GenericSearchWindow>();
+			window.Build = build;
+			window.OnEntrySelected = onEntrySelected;
+			SearchWindow.Open(context, window);
+		}
 	}
 }
