@@ -27,6 +27,9 @@ namespace LemonInc.Tools.Panels.Models
 		public Object Object { get; set; }
 
 		/// <inheritdoc/>
+		public bool Empty { get; set; }
+
+		/// <inheritdoc/>
 		public SidebarElementType Type => SidebarElementType.GROUP;
 
 		/// <summary>

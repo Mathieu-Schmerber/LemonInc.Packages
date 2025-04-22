@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using JetBrains.Annotations;
 using LemonInc.Core.Utilities.Editor.Events;
 using LemonInc.Core.Utilities.Editor.Extensions;
 using LemonInc.Tools.Panels.Interfaces;
 using LemonInc.Tools.Panels.Models;
-using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEditor.UIElements;
+using UnityEngine;
 using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
 using TreeView = UnityEngine.UIElements.TreeView;
@@ -24,6 +25,8 @@ namespace LemonInc.Tools.Panels.Controllers
 		/// The root.
 		/// </summary>
 		private VisualElement _root;
+
+		private readonly PanelEditorWindow _main;
 
 		/// <summary>
 		/// The target folder.
@@ -54,14 +57,32 @@ namespace LemonInc.Tools.Panels.Controllers
 		public Action<string> OnTargetFolderChanged;
 
 		/// <summary>
+		/// The currently selected element.
+		/// </summary>
+		[CanBeNull] private ISidebarElement _selectedItem;
+
+		/// <summary>
+		/// Field used for renaming entries
+		/// </summary>
+		private TextField _renameField;
+        
+        /// <summary>
+        /// Flag indicating if we're currently reordering items
+        /// </summary>
+        private bool _isReordering = false;
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="SidebarController"/> class.
 		/// </summary>
 		/// <param name="root">The root.</param>
+		/// <param name="main">The main.</param>
 		/// <param name="targetFolder">The target folder.</param>
-		public SidebarController(VisualElement root, string targetFolder)
+		public SidebarController(VisualElement root, PanelEditorWindow main, string targetFolder)
 		{
 			_root = root.Q<VisualElement>("Sidebar");
 			_searchSearchField = root.Q<ToolbarSearchField>("Search");
+			_main = main;
+			_main.OnElementDeleted += OnElementDeleted;
 			_targetFolder = targetFolder;
 
 			EditorEvents.Asset.OnAssetDeleted += OnAssetDeleted;
@@ -70,7 +91,9 @@ namespace LemonInc.Tools.Panels.Controllers
 			
 			BuildUi();
 		}
-		
+
+		private void OnElementDeleted(ISidebarElement obj) => _sidebarElements.Remove(obj);
+
 		/// <inheritdoc/>
 		public void Dispose()
 		{
@@ -86,6 +109,10 @@ namespace LemonInc.Tools.Panels.Controllers
 		/// <param name="newAssetPath">The new asset path.</param>
 		private void OnAssetMoved(string oldAssetPath, string newAssetPath)
 		{
+			// Don't refresh if we're the ones doing the moving via reordering
+            if (_isReordering)
+                return;
+                
 			// TODO: optimize
 			// TODO: if old in tree, remove entry, and if new in tree, add entry
 			Refresh();
@@ -140,14 +167,9 @@ namespace LemonInc.Tools.Panels.Controllers
 			_targetLabel.text = $"Target: {_targetFolder.ToAssetPath()}";
 
 			var settings = _root.Q<ToolbarMenu>("Settings");
-			settings.Add(new Image
-			{
-				image = EditorIcons.SettingsCog.Active,
-				style =
-				{
-					width = new StyleLength(25)
-				}
-			});
+			settings.menu.AppendAction("Create section", CreateRootSection);
+			settings.menu.AppendAction("Create item", CreateRootItem);
+			settings.menu.AppendSeparator();
 			settings.menu.AppendAction("Change target directory", ChangeTargetDirectory);
 
 			_sidebarElements = new List<ISidebarElement>();
@@ -158,17 +180,22 @@ namespace LemonInc.Tools.Panels.Controllers
 				var entry = element as SidebarEntry;
 				var sidebarElement = _elementsView.GetItemDataForIndex<ISidebarElement>(index);
 				entry!.Bind(sidebarElement, _search);
+				entry.OnRenameSuccess = (id, newName) => RenameEntry(sidebarElement, sidebarElement.DisplayName, newName);
+				entry.OnDeleteRequested = () => _main.RequestElementDeletion(sidebarElement);
+				entry.OnCreateItemRequested = () => CreateSubItem(sidebarElement);
+				entry.OnCreateSectionRequested = () => CreateSubSection(sidebarElement);
 				_sidebarElements.Add(sidebarElement);
 			};
 			_elementsView.autoExpand = true;
+			_elementsView.reorderable = false;
 			_elementsView.selectionChanged += SelectionChanged;
-
+			
 			_searchSearchField.RegisterCallback<ChangeEvent<string>>(Search);
 
 			if (!string.IsNullOrEmpty(_targetFolder))
 				PopulateTree();
 		}
-
+		
 		/// <summary>
 		/// Executes a search.
 		/// </summary>
@@ -190,7 +217,8 @@ namespace LemonInc.Tools.Panels.Controllers
 		{
 			var element = obj.FirstOrDefault(x => x is ISidebarElement);
 
-			OnSelectionChanged?.Invoke(element as ISidebarElement);
+			_selectedItem = element as ISidebarElement;
+			OnSelectionChanged?.Invoke(_selectedItem);
 		}
 
 		/// <summary>
@@ -204,7 +232,62 @@ namespace LemonInc.Tools.Panels.Controllers
 			OnTargetFolderChanged?.Invoke(_targetFolder);
 			PopulateTree();
 		}
+		
+		/// <summary>
+		/// Creates a new item at the root.
+		/// </summary>
+		private void CreateRootItem(DropdownMenuAction obj)
+		{
+			var sections = _sidebarElements
+				.Where(x => x.Type == SidebarElementType.GROUP)
+				.ToList();
+			
+			ItemCreatorEditorWindow.Open(sections, _targetFolder);
+		}
 
+		/// <summary>
+		/// Creates a new section at the root.
+		/// </summary>
+		private void CreateRootSection(DropdownMenuAction obj)
+		{
+			var folder = _targetFolder;
+			var name = "New Section";
+			var path = Path.Combine(folder, name.ToUniquePathName(folder));
+    
+			Directory.CreateDirectory(path);
+			AssetDatabase.Refresh();
+		}
+		
+		private void CreateSubSection(ISidebarElement sidebarElement)
+		{
+			var folder = sidebarElement.Path;
+			var name = "New Section";
+			var path = Path.Combine(folder, name.ToUniquePathName(folder));
+    
+			Directory.CreateDirectory(path);
+			AssetDatabase.Refresh();
+		}
+
+		private void CreateSubItem(ISidebarElement sidebarElement)
+		{
+			var sections = _sidebarElements
+				.Where(x => x.Type == SidebarElementType.GROUP)
+				.ToList();
+			
+			ItemCreatorEditorWindow.Open(sections, _targetFolder, sidebarElement);
+		}
+
+		private void RenameEntry(ISidebarElement sidebarElement, string oldName, string newName)
+		{
+			var extension = Path.GetExtension(sidebarElement.Path);
+			var current = $"{newName}{extension}";
+			var name = current.ToUniquePathName(Path.GetDirectoryName(sidebarElement.Path));
+			
+			Debug.Log($"{current} => {name}");
+			AssetDatabase.RenameAsset(sidebarElement.Path.ToAssetPath(), name);
+			AssetDatabase.Refresh();
+		}
+		
 		/// <summary>
 		/// Determines whether the specified path is an object.
 		/// </summary>
@@ -249,25 +332,25 @@ namespace LemonInc.Tools.Panels.Controllers
 			{
 				// Path points to a directory
 				var subDirectories = Directory.GetDirectories(path);
+				foundObjectFile = true;
 				foreach (var subDir in subDirectories)
 				{
 					var branch = AnalyzeFileStructure(subDir);
-					if (branch == null || !branch.Any())
+					if (branch == null)
 						continue;
 
-					foundObjectFile = true;
 					var id = subDir.GetHashCode();
 					fileStructure.Add(new TreeViewItemData<ISidebarElement>(id, new SidebarElementGroup(id)
 					{
 						DisplayName = Path.GetFileNameWithoutExtension(subDir),
-						Path = subDir
+						Path = subDir,
+						Empty = !branch.Any()
 					}, children: branch));
 				}
 
 				var files = Directory.GetFiles(path).Where(x => IsObject(x) && MatchSearch(x, _search));
 				foreach (var file in files)
 				{
-					foundObjectFile = true;
 					var id = file.GetHashCode();
 					fileStructure.Add(new TreeViewItemData<ISidebarElement>(id, new SidebarElement(id)
 					{
@@ -289,6 +372,7 @@ namespace LemonInc.Tools.Panels.Controllers
 		{
 			var roots = AnalyzeFileStructure(_targetFolder);
 
+			_sidebarElements.Clear();
 			_elementsView.Clear();
 			_elementsView.SetRootItems(roots);
 			_elementsView.Rebuild();

@@ -1,4 +1,5 @@
 using System;
+using Sirenix.OdinInspector;
 
 namespace LemonInc.Editor.Uxml
 {
@@ -23,5 +24,11 @@ namespace LemonInc.Editor.Uxml
 		/// The reference class.
 		/// </value>
 		public string ReferenceClass;
+
+		[Button]
+		private void Refresh()
+		{
+			UxmlReferenceCodeGenerator.GenerateCode(this);
+		}
 	}
 }

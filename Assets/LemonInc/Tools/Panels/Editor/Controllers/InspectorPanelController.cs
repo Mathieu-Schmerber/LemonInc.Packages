@@ -17,6 +17,8 @@ namespace LemonInc.Tools.Panels.Controllers
 	/// </summary>
 	public class InspectorPanelController : IDisposable
 	{
+		private readonly PanelEditorWindow _main;
+
 		/// <summary>
 		/// The inspector.
 		/// </summary>
@@ -45,8 +47,9 @@ namespace LemonInc.Tools.Panels.Controllers
 		/// <summary>
 		/// Initializes a new instance of the <see cref="InspectorPanelController"/> class.
 		/// </summary>
-		public InspectorPanelController(VisualElement rootVisualElement)
+		public InspectorPanelController(VisualElement rootVisualElement, PanelEditorWindow main)
 		{
+			_main = main;
 			_inspector = rootVisualElement.Q<ScrollView>("Inspector");
 			_locateBtn = rootVisualElement.Q<ToolbarButton>("LocateAsset");
 			_deleteBtn = rootVisualElement.Q<ToolbarButton>("DeleteAsset");
@@ -55,6 +58,7 @@ namespace LemonInc.Tools.Panels.Controllers
 
 			_locateBtn.clicked += LocateAsset;
 			_deleteBtn.clicked += DeleteAsset;
+			_main.OnElementDeleted += OnElementDeleted;
 		}
 
 		/// <summary>
@@ -132,20 +136,7 @@ namespace LemonInc.Tools.Panels.Controllers
 			if (_bind == null)
 				return;
 
-			if (EditorUtility.DisplayDialog($"Delete {_bind.DisplayName}", "You cannot undo the delete action",
-				    "Delete", "Cancel"))
-			{
-				AssetDatabase.DeleteAsset(_bind.Path.ToAssetPath());
-
-				// Clean up the editor instance
-				if (_editor != null)
-				{
-					Object.DestroyImmediate(_editor);
-					_editor = null;
-				}
-
-				Bind(null);
-			}
+			_main.RequestElementDeletion(_bind);
 		}
 
 		/// <summary>
@@ -168,6 +159,20 @@ namespace LemonInc.Tools.Panels.Controllers
 			{
 				_inspector?.MarkDirtyRepaint();
 			}
+		}
+
+		private void OnElementDeleted(ISidebarElement element)
+		{
+			if (_bind != element)
+				return;
+			
+			if (_editor != null)
+			{
+				Object.DestroyImmediate(_editor);
+				_editor = null;
+			}
+
+			Bind(null);
 		}
 	}
 }
