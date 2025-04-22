@@ -42,6 +42,11 @@ namespace LemonInc.Tools.Panels.Interfaces
 		public Object Object { get; set; }
 
 		/// <summary>
+		/// Gets or sets whether the element is empty, only applicable to <see cref="SidebarElementType.GROUP"/>
+		/// </summary>
+		public bool Empty { get; set; }
+
+		/// <summary>
 		/// Gets the type.
 		/// </summary>
 		/// <value>

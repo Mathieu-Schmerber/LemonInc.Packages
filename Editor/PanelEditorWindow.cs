@@ -1,4 +1,6 @@
+using System;
 using LemonInc.Core.Utilities.Editor;
+using LemonInc.Core.Utilities.Editor.Extensions;
 using LemonInc.Tools.Panels.Controllers;
 using LemonInc.Tools.Panels.Interfaces;
 using LemonInc.Tools.Panels.Models;
@@ -66,6 +68,8 @@ namespace LemonInc.Tools.Panels
 		/// </summary>
 		private InspectorPanelController _inspectorPanelController;
 
+		public event Action<ISidebarElement> OnElementDeleted; 
+
 		/// <inheritdoc/>
 		public void Init(string panelName)
 		{
@@ -77,13 +81,13 @@ namespace LemonInc.Tools.Panels
 			_uxml.CloneTree(rootVisualElement);
 			_name = panelName;
 
-			_sidebarController ??= new SidebarController(rootVisualElement, PanelDefinition.TargetFolder)
+			_sidebarController ??= new SidebarController(rootVisualElement, this, PanelDefinition.TargetFolder)
 			{
 				OnSelectionChanged = OnElementSelected,
 				OnTargetFolderChanged = SetTargetFolder
 			};
 
-			_inspectorPanelController ??= new InspectorPanelController(rootVisualElement);
+			_inspectorPanelController ??= new InspectorPanelController(rootVisualElement, this);
 			_sidebarController.SelectElement(PanelDefinition.LastSelectedElementId);
 		}
 
@@ -142,6 +146,16 @@ namespace LemonInc.Tools.Panels
 			
 			_inspectorPanelController.Bind(element);
 			PanelDefinition.LastSelectedElementId = element.Id;
+		}
+
+		public void RequestElementDeletion(ISidebarElement element)
+		{
+			if (EditorUtility.DisplayDialog($"Delete {element.DisplayName}", "You cannot undo the delete action",
+				    "Delete", "Cancel"))
+			{
+				AssetDatabase.DeleteAsset(element.Path.ToAssetPath());
+				OnElementDeleted?.Invoke(element);
+			}
 		}
     }
 }

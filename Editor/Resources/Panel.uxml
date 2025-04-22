@@ -4,10 +4,10 @@
     <ui:VisualElement name="Root" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
         <ui:VisualElement name="Sidebar" style="flex-grow: 0; background-color: rgba(255, 255, 255, 0.06); width: 20%; min-width: 200px; border-left-color: rgba(0, 0, 0, 0.59); border-right-color: rgba(0, 0, 0, 0.59); border-top-color: rgba(0, 0, 0, 0.59); border-bottom-color: rgba(0, 0, 0, 0.59); border-right-width: 1px;">
             <uie:Toolbar style="height: 25px; width: auto; flex-grow: 0;">
-                <uie:ToolbarSearchField focusable="true" name="Search" style="flex-grow: 0; height: auto; width: auto; flex-shrink: 1; min-width: auto;" />
-                <uie:ToolbarMenu tabindex="-1" display-tooltip-when-elided="true" name="Settings" />
+                <uie:ToolbarSearchField focusable="true" name="Search" style="flex-grow: 1; flex-shrink: 1;" />
+                <uie:ToolbarMenu tabindex="-1" display-tooltip-when-elided="true" name="Settings" style="flex-shrink: 0;" />
             </uie:Toolbar>
-            <ui:Label tabindex="-1" text="Target:" display-tooltip-when-elided="true" name="TargetDirectory" enable-rich-text="true" />
+            <ui:Label tabindex="-1" text="Target:" display-tooltip-when-elided="true" name="TargetDirectory" enable-rich-text="true" style="text-overflow: ellipsis;" />
             <ui:TreeView view-data-key="unity-tree-view" focusable="true" show-border="false" name="Elements" style="flex-grow: 1; min-width: auto; width: auto; max-width: none; flex-basis: 0; background-color: rgba(255, 255, 255, 0); border-left-width: 0; border-right-width: 0; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); flex-shrink: 1; border-top-width: 0; border-bottom-width: 0; -unity-background-image-tint-color: rgba(255, 255, 255, 0);" />
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">

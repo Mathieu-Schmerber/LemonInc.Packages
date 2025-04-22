@@ -25,6 +25,8 @@ namespace LemonInc.Tools.Panels.Models
 
 		/// <inheritdoc/>
 		public Object Object { get; set; }
+		
+		public bool Empty { get; set; }
 
 		/// <inheritdoc/>
 		public SidebarElementType Type => SidebarElementType.ELEMENT;
