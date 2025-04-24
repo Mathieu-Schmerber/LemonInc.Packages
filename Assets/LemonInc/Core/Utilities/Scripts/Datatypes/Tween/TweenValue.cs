@@ -1,9 +1,10 @@
 using System;
-/*
-namespace LemonInc.Core.Utilities.Datatypes
+using PrimeTween;
+
+namespace LemonInc.Core.Utilities.Datatypes.Tween
 {
     [Serializable]
-    public struct TweenParams<TValue>
+    public struct TweenValue<TValue>
     {
         public TValue From;
         public TValue To;
@@ -12,7 +13,7 @@ namespace LemonInc.Core.Utilities.Datatypes
         public Ease EaseIn;
         public Ease EaseOut;
 
-        public TweenParams(TValue from, TValue to, float duration)
+        public TweenValue(TValue from, TValue to, float duration)
         {
             From = from;
             To = to;
@@ -22,7 +23,7 @@ namespace LemonInc.Core.Utilities.Datatypes
             EaseOut = Ease.OutQuad;
         }
         
-        public delegate Tween TweenFromToDelegate<in TTarget>(
+        public delegate PrimeTween.Tween TweenFromToDelegate<in TTarget>(
             TTarget target, 
             TValue startValue, 
             TValue endValue, 
@@ -34,14 +35,14 @@ namespace LemonInc.Core.Utilities.Datatypes
             float endDelay = 0, 
             bool useUnscaledTime = false);
         
-        public Tween Play<TTarget>(TTarget transform, TweenFromToDelegate<TTarget> call)
+        public PrimeTween.Tween Play<TTarget>(TTarget transform, TweenFromToDelegate<TTarget> call)
         {
             return call(transform, From, To, Duration, EaseIn, 1, CycleMode.Restart, Delay);
         }
         
-        public Tween Reverse<TU>(TU transform, TweenFromToDelegate<TU> call)
+        public PrimeTween.Tween Reverse<TU>(TU transform, TweenFromToDelegate<TU> call)
         {
             return call(transform, To, From, Duration, EaseOut, 1, CycleMode.Restart, Delay);
         }
     }
-}*/
+}
