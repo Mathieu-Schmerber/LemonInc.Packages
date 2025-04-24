@@ -59,9 +59,6 @@ namespace LemonInc.Tools.Panels
                 return null;
             
             var full = Path.Combine(_targetFolder, path);
-            Debug.Log(_targetFolder);
-            Debug.Log(path);
-            Debug.Log(full);
             var assetPath = full.ToAssetPath();
             var assets = AssetHelper.FindAssetsByType<ScriptableObject>(assetPath);
             
