@@ -14,11 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   References:
     _keyData:
-    - Assets/LemonInc/Core/StateMachine/Editor/StateMachineEditorWindow.uxml
-    - Assets/LemonInc/Core/StateMachine/Editor/StateNode.uxml
+    - Assets/LemonInc/Tools/Panels/Editor/Resources/CreateItem.uxml
     _valueData:
-    - AssetPath: Assets/LemonInc/Core/StateMachine/Editor/StateMachineEditorWindow.uxml
-      ReferenceClass: Assets/LemonInc/Core/StateMachine/Editor/StateMachineEditorWindowReference.cs
-    - AssetPath: Assets/LemonInc/Core/StateMachine/Editor/StateNode.uxml
-      ReferenceClass: Assets/LemonInc/Core/StateMachine/Editor/StateNodeReference.cs
+    - AssetPath: Assets/LemonInc/Tools/Panels/Editor/Resources/CreateItem.uxml
+      ReferenceClass: Assets/LemonInc/Tools/Panels/Editor/Ui/CreateItemReference.cs
   DoLogTrace: 0

@@ -1,7 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using LemonInc.Core.Utilities.Editor.Helpers;
+using LemonInc.Core.Utilities.Editor.SearchWindows;
 using LemonInc.Editor.Toolbar;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LemonInc.Tools.SceneSwitcher.Editor
 {
@@ -29,8 +36,8 @@ namespace LemonInc.Tools.SceneSwitcher.Editor
 				return;
 
 			GUILayout.FlexibleSpace();
-			bool pressed = GUILayout.Button($"{EditorSceneManager.GetActiveScene().name}", EditorStyles.layerMaskField,
-				GUILayout.Width(200), GUILayout.Height(25));
+			var pressed = GUILayout.Button($"{SceneManager.GetActiveScene().name}", EditorStyles.layerMaskField,
+				GUILayout.Width(200), GUILayout.Height(35));
 
 			if (pressed)
 				SceneSwitcherWindow.Open();

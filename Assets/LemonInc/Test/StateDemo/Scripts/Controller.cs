@@ -1,8 +1,8 @@
 using LemonInc.Core.StateMachine;
-using LemonInc.Core.StateMachine.Extensions;
 using LemonInc.Core.Utilities;
 using LemonInc.Test.StateDemo.Scripts.Inputs;
 using LemonInc.Test.StateDemo.Scripts.States;
+using TMPro;
 using UnityEngine;
 
 namespace LemonInc.Test.StateDemo.Scripts
@@ -25,23 +25,34 @@ namespace LemonInc.Test.StateDemo.Scripts
         
         private IInputProvider _inputs;
         private Rigidbody _rb;
+        private TextMeshPro _textMesh;
         private bool _isGrounded;
         
         private readonly StateMachine _stateMachine = new();
 
-        public bool CanJump => _isGrounded && _jumpTimer.IsOver();
+        public bool CanJump => _inputs.Jump.Pressed && _isGrounded && _jumpTimer.IsOver();
+        public bool IsMoving => _inputs.Movement.Value.magnitude > 0;
         
         private void Awake()
         {
+            _textMesh = GetComponentInChildren<TextMeshPro>();
             _rb = GetComponent<Rigidbody>();
             _inputs = GetComponent<IInputProvider>();
 
-            _stateMachine.RegisterState(new LocomotionState(gameObject));
-            _stateMachine.RegisterState(new JumpState(gameObject));
+            // Demo: setup states and transition within the root script
+            var grounded = _stateMachine.RegisterSubStateMachine(new Grounded(this))
+                .RegisterState(new Idle(transform))
+                .RegisterState(new Run(transform));
+
+            // Demo: setup states and transitions locally
+            _stateMachine.RegisterSubStateMachine(new Airborne(transform));
+
+            grounded.AddEntryLink<Idle>(() => !IsMoving);
+            grounded.AddEntryLink<Run>(() => IsMoving);
+            grounded.AddMutualLink<Idle, Run>(() => IsMoving);
             
-            _stateMachine.AddTransition<LocomotionState, JumpState>(() => _inputs.Jump.Pressed && CanJump);
-            _stateMachine.AddTransition<JumpState, LocomotionState>(() => !_isGrounded);
-            _stateMachine.SetActiveState<LocomotionState>();
+            _stateMachine.AddMutualLink<Grounded, Airborne>(() => !_isGrounded);
+            _stateMachine.SetActiveState<Grounded>();
         }
 
         private void FixedUpdate()
@@ -51,6 +62,7 @@ namespace LemonInc.Test.StateDemo.Scripts
         
         private void Update()
         {
+            _textMesh.text = _stateMachine.ToString();
             _stateMachine.Update();
             GroundCheck();
             _rb.linearDamping = _isGrounded ? _groundDrag : _airDrag;
@@ -70,7 +82,7 @@ namespace LemonInc.Test.StateDemo.Scripts
             _rb.AddForce(moveDir * (speed * Time.fixedDeltaTime), ForceMode.Impulse);
         }
 
-        public void Jump()
+        public void HandleJump()
         {
             if (!CanJump)
                 return;

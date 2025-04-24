@@ -1,18 +1,16 @@
-using LemonInc.Core.StateMachine.FSM;
-using LemonInc.Test.StateDemo.Scripts.Inputs;
-using UnityEngine;
+using LemonInc.Core.StateMachine;
 
 namespace LemonInc.Test.StateDemo.Scripts.States
 {
     public class Grounded : SubStateMachine
     {
         private readonly Controller _controller;
-        private readonly IInputProvider _inputs;
 
-        public Grounded(Transform owner)
+        public Grounded(Controller controller)
         {
-            _controller = owner.gameObject.GetComponent<Controller>();
-            _inputs = owner.gameObject.GetComponent<IInputProvider>();
+            _controller = controller;
         }
+
+        protected override void OnUpdate() => _controller.HandleJump();
     }
 }

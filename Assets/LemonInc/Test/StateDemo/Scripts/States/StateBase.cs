@@ -1,4 +1,4 @@
-using LemonInc.Core.StateMachine.FSM;
+using LemonInc.Core.StateMachine;
 using UnityEngine;
 
 namespace LemonInc.Test.StateDemo.Scripts.States
@@ -6,11 +6,13 @@ namespace LemonInc.Test.StateDemo.Scripts.States
     public abstract class StateBase : State
     {
         private readonly Renderer _renderer;
-        protected Transform Owner { get; set; }
+        protected Transform Owner;
+        protected Controller Controller;
 
         protected StateBase(Transform owner)
         {
             Owner = owner;
+            Controller = owner.GetComponent<Controller>();
             _renderer = owner.gameObject.GetComponent<Renderer>();
         }
 
