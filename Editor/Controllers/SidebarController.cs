@@ -283,7 +283,6 @@ namespace LemonInc.Tools.Panels.Controllers
 			var current = $"{newName}{extension}";
 			var name = current.ToUniquePathName(Path.GetDirectoryName(sidebarElement.Path));
 			
-			Debug.Log($"{current} => {name}");
 			AssetDatabase.RenameAsset(sidebarElement.Path.ToAssetPath(), name);
 			AssetDatabase.Refresh();
 		}
