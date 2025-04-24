@@ -1,8 +1,10 @@
 using System.Linq;
+using LemonInc.Core.Utilities.Editor.Extensions;
 using LemonInc.Core.Utilities.Editor.Helpers;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace LemonInc.Tools.SceneSwitcher.Editor
@@ -36,7 +38,7 @@ namespace LemonInc.Tools.SceneSwitcher.Editor
 		/// </summary>
 		public static void Open()
 		{
-			var window = ScriptableObject.CreateInstance<SceneSwitcherWindow>();
+			var window = CreateInstance<SceneSwitcherWindow>();
 			_scenes = GetScenes();
 			var size = new Vector2(225, ProcessSize(_scenes.Length));
 			var win = EditorGUIUtility.GetMainWindowPosition();
@@ -60,8 +62,13 @@ namespace LemonInc.Tools.SceneSwitcher.Editor
 		/// <returns></returns>
 		private static SceneItem[] GetScenes()
 		{
-			var loaded = EditorSceneManager.GetAllScenes();
-			var result = SceneHelper.GetAllScenesInProject()
+			var loaded = new Scene[SceneManager.sceneCount];
+			for (var i = 0; i < loaded.Length; i++) 
+				loaded[i] = SceneManager.GetSceneAt(i);
+			
+			var externals = "Assets/Externals".ToSystemPath();
+			var plugins = "Assets/Plugins".ToSystemPath();
+			var result = SceneHelper.GetAllScenesInProject(plugins, externals)
 				.Select(x => new SceneItem(x.Path, x.BuildIndex)
 				{
 					Active = loaded.Any(y => y.name.Equals(x.Name))
