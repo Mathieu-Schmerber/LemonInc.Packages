@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using UnityEngine.InputSystem;
 
 namespace LemonInc.Core.Input
@@ -6,25 +7,25 @@ namespace LemonInc.Core.Input
 	/// <summary>
 	/// Represents a physical input.
 	/// </summary>
-	/// <typeparam name="URawInput">The type that's read from the physical input like mouse and keyboard.</typeparam>
+	/// <typeparam name="TRawInput">The type that's read from the physical input like mouse and keyboard.</typeparam>
 	/// <typeparam name="TConverted">The type that's consumed by the game logic.</typeparam>
 	/// <seealso cref="Game.Systems.Input.InputState&lt;T&gt;" />
-	public class PhysicalInputValue<URawInput, TConverted> : InputStateValue<TConverted> 
-		where URawInput : struct
+	public class PhysicalInputValue<TRawInput, TConverted> : InputStateValue<TConverted> 
+		where TRawInput : struct
     {
 		/// <summary>
 		/// The input action.
 		/// </summary>
-		private InputAction _inputAction;
+		[CanBeNull] private InputAction _inputAction;
 
 		/// <summary>
 		/// The value converter.
 		/// </summary>
-		private Func<URawInput, TConverted> _valueConverter;
+		private readonly Func<TRawInput, TConverted> _valueConverter;
 
 		public override TConverted Value { 
 			get {
-				var physicalValue = _inputAction.ReadValue<URawInput>();
+				var physicalValue = _inputAction?.ReadValue<TRawInput>() ?? new TRawInput();
 				if (_valueConverter != null)
 					return _valueConverter(physicalValue);
 				else
@@ -32,7 +33,7 @@ namespace LemonInc.Core.Input
 					if (physicalValue is TConverted value)
 						return value;
 					else
-						throw new InvalidCastException($"Tried to convert {typeof(URawInput).FullName} to {typeof(TConverted).FullName}, when no value convertor was assigned.");
+						throw new InvalidCastException($"Tried to convert {typeof(TRawInput).FullName} to {typeof(TConverted).FullName}, when no value convertor was assigned.");
 				}
 			} 
 			protected set => base.Value = value; 
@@ -57,8 +58,8 @@ namespace LemonInc.Core.Input
 		public void Subscribe(InputAction inputAction)
         {
 			_inputAction = inputAction;
-			_inputAction.performed += Performed;
-			_inputAction.canceled += Cancelled;
+			_inputAction!.performed += Performed;
+			_inputAction!.canceled += Cancelled;
 		}
 
 		/// <summary>
@@ -66,15 +67,15 @@ namespace LemonInc.Core.Input
 		/// </summary>
 		public void UnSubscribe()
         {
-			_inputAction.performed -= Performed;
-			_inputAction.canceled -= Cancelled;
+			_inputAction!.performed -= Performed;
+			_inputAction!.canceled -= Cancelled;
 		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PhysicalInputValue{U, T}"/> class.
 		/// </summary>
 		/// <param name="valueConverter">The value converter. If set, allows the conversion from physical value to game value.</param>
-		public PhysicalInputValue(Func<URawInput, TConverted> valueConverter = null)
+		public PhysicalInputValue(Func<TRawInput, TConverted> valueConverter = null)
         {
             _valueConverter = valueConverter;
         }
