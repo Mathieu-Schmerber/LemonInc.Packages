@@ -1,6 +1,11 @@
+using Sirenix.OdinInspector;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 namespace LemonInc.Core.Utilities.Ui
 {
-    public class UiFeedbacks : MonoBehaviour, 
+    /*public class UiFeedbacks : MonoBehaviour, 
         IPointerEnterHandler, 
         IPointerExitHandler, 
         IPointerDownHandler, 
@@ -44,5 +49,5 @@ namespace LemonInc.Core.Utilities.Ui
             _scaleOnClick.Reverse(transform, Tween.Scale);
             _colorOnClick.Reverse(_graphics, Tween.Color);
         }
-    }
+    }*/
 }

@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Linq;
 using UnityEditor;
@@ -54,10 +55,21 @@ namespace LemonInc.Core.Utilities.Editor.Helpers
 		/// <summary>
 		/// Gets all scenes in the project.
 		/// </summary>
+		/// <param name="excludeFolders">Optional folders full path to exclude.</param>
 		/// <returns>An array of <see cref="SceneInfo"/>.</returns>
-		public static SceneInfo[] GetAllScenesInProject()
+		public static SceneInfo[] GetAllScenesInProject(params string[] excludeFolders)
 		{
-			string[] paths = Directory.GetFiles(Application.dataPath, "*.unity", SearchOption.AllDirectories);
+			var paths = Directory.GetFiles(Application.dataPath, "*.unity", SearchOption.AllDirectories);
+    
+			if (excludeFolders is { Length: > 0 })
+			{
+				paths = paths.Where(path => 
+					!excludeFolders.Any(folder => 
+						path.StartsWith(folder, StringComparison.OrdinalIgnoreCase) || 
+						path.Contains(Path.DirectorySeparatorChar + folder + Path.DirectorySeparatorChar)
+					)
+				).ToArray();
+			}
 
 			return paths.Select(GetSceneAtPath).ToArray();
 		}
