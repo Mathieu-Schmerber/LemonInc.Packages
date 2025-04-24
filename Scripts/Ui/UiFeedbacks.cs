@@ -1,53 +1,46 @@
+using LemonInc.Core.Utilities.Datatypes.Tween;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace LemonInc.Core.Utilities.Ui
 {
-    /*public class UiFeedbacks : MonoBehaviour, 
+    public class UiFeedbacks : MonoBehaviour, 
         IPointerEnterHandler, 
         IPointerExitHandler, 
         IPointerDownHandler, 
         IPointerUpHandler
     {
         [Title("Hover")]
-        [SerializeField] private TweenParams<Vector3> _scaleOnHover = new(Vector3.one, Vector3.one * 1.1f, 0.1f);
-        [SerializeField] private TweenParams<Color> _colorOnHover = new(Color.white, new Color(.9f, .9f, .9f), 0.1f);
+        [SerializeField] private TweenScale _scaleOnHover = new(Vector3.one, Vector3.one * 1.1f, 0.1f);
+        [SerializeField] private TweenColor _colorOnHover = new(Color.white, new Color(.9f, .9f, .9f), 0.1f);
         
         [Title("Click")]
-        [SerializeField] private TweenParams<Vector3> _scaleOnClick = new(Vector3.one, Vector3.one * .9f, 0.1f);
-        [SerializeField] private TweenParams<Color> _colorOnClick = new(Color.white, new Color(.8f, .8f, .8f), 0.1f);
-        
-        private Graphic _graphics;
-
-        protected void Awake()
-        {
-            _graphics = GetComponent<Graphic>();
-        }
+        [SerializeField] private TweenScale _scaleOnClick = new(Vector3.one, Vector3.one * .9f, 0.1f);
+        [SerializeField] private TweenColor _colorOnClick = new(Color.white, new Color(.8f, .8f, .8f), 0.1f);
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            _scaleOnHover.Play(transform, Tween.Scale);
-            _colorOnHover.Play(_graphics, Tween.Color);
+            _scaleOnHover.Play(transform);
+            _colorOnHover.Play(transform);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            _scaleOnHover.Reverse(transform, Tween.Scale);
-            _colorOnHover.Reverse(_graphics, Tween.Color);
+            _scaleOnHover.Reverse(transform);
+            _colorOnHover.Reverse(transform);
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            _scaleOnClick.Play(transform, Tween.Scale);
-            _colorOnClick.Play(_graphics, Tween.Color);
+            _scaleOnClick.Play(transform);
+            _colorOnClick.Play(transform);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            _scaleOnClick.Reverse(transform, Tween.Scale);
-            _colorOnClick.Reverse(_graphics, Tween.Color);
+            _scaleOnClick.Reverse(transform);
+            _colorOnClick.Reverse(transform);
         }
-    }*/
+    }
 }
