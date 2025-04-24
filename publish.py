@@ -1,7 +1,44 @@
 import os
 import subprocess
 import sys
+import json
 from termcolor import colored
+
+def get_package_version(package_path):
+    """Get the version number from the package.json file"""
+    json_path = os.path.join(package_path, 'package.json')
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, 'r') as f:
+                package_data = json.load(f)
+                return package_data.get('version')
+        except (json.JSONDecodeError, IOError) as e:
+            print(colored(f"Error reading package.json: {e}", "red"))
+    return None
+
+def get_last_committed_version(package_path):
+    """Get the last committed version from Git"""
+    package_json_path = os.path.join(package_path, 'package.json')
+    cmd = ['git', 'show', 'HEAD:' + package_json_path.replace('\\', '/')]
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        if result.returncode == 0:
+            package_data = json.loads(result.stdout)
+            return package_data.get('version')
+    except (json.JSONDecodeError, subprocess.SubprocessError) as e:
+        print(colored(f"Error getting last committed version: {e}", "red"))
+    return None
+
+def has_version_changed(package_path):
+    """Check if the version number has changed compared to the last commit"""
+    current_version = get_package_version(package_path)
+    committed_version = get_last_committed_version(package_path)
+    
+    if current_version is None or committed_version is None:
+        # If we can't determine versions, fall back to git status
+        return has_changes(package_path), current_version, committed_version
+    
+    return current_version != committed_version, current_version, committed_version
 
 def has_changes(path):
     cmd = ['git', 'status', '--porcelain', '--', path]
@@ -62,6 +99,20 @@ def execute_git_commands(path, action, scope, feature, commit_msg = None):
         else:
             print(result.stderr)
             print(colored(f"❌ Failed to update package '{package_name}'.", "red", attrs=["bold"]))
+
+def process_package_batch(packages_to_process):
+    """Process a batch of packages at once"""
+    for package_info in packages_to_process:
+        path = package_info["path"]
+        action = package_info["action"]
+        scope = package_info["scope"]
+        feature = package_info["feature"]
+        commit_msg = package_info["commit_msg"]
+        
+        print(colored(f"Processing {scope}.{feature}...", "cyan"))
+        execute_git_commands(path, action, scope, feature, commit_msg)
+    
+    print(colored(f"✅ All packages have been processed successfully.", "green", attrs=["bold"]))
 
 def check_package_validity(path, scope, feature):
     # Define required files and folders
@@ -128,13 +179,24 @@ def sync_packages():
     base_path = "Assets/LemonInc"
     folders = list_folders(base_path)
     folders = [item for item in folders if "Test" not in item]
+    packages_to_process = []
 
     print(folders)
     for folder in folders:
         package_path = folder
         _, scope, feature = package_path.split(os.sep)
+        package_name = f"{scope}.{feature}"
 
+        # First check if the package has any changes
         if has_changes(package_path):
+            # Then check if the version number has changed
+            version_changed, current_version, committed_version = has_version_changed(package_path)
+            
+            if not version_changed:
+                print(colored(f"Package \"{package_name}\" has been changed but its version number has not changed, skipping...", "yellow"))
+                continue
+                
+            # Proceed with the valid package that has a version change
             is_valid_package = check_package_validity(package_path, scope, feature)
             if is_valid_package:
                 if os.path.exists('.git'):
@@ -150,22 +212,42 @@ def sync_packages():
 
                         if package_exists:
                             action = 'update'
-                            print(colored(f"Changes detected for '{package_path}'. Updating the package...", "cyan"))
+                            package_description = f"update package '{package_name}' (version {committed_version} → {current_version})"
                         else:
                             action = 'create'
-                            print(colored(f"Changes detected for '{package_path}'. Creating the package...", "cyan"))
-
-                        execute_git_commands(package_path.replace("\\", "/"), action, scope, feature)
-
+                            package_description = f"create new package '{package_name}' (version {current_version})"
+                        
+                        # Ask the user if they want to upload this package
+                        print(colored(f"The package \"{package_name}\" has been changed (version {committed_version} → {current_version}), should it be uploaded?", "cyan"))
+                        choice = input(colored("[Y] - Yes\n[N] - No\n> ", "cyan")).strip().upper()
+                        
+                        if choice == 'Y':
+                            commit_msg = input(f"Enter commit message for {package_description}: ")
+                            packages_to_process.append({
+                                "path": package_path.replace("\\", "/"),
+                                "action": action,
+                                "scope": scope,
+                                "feature": feature,
+                                "commit_msg": commit_msg
+                            })
+                            print(colored(f"✅ Package '{package_name}' added to upload queue.", "green"))
+                        else:
+                            print(colored(f"⏭️  Skipping package '{package_name}'", "yellow"))
                     else:
                         print(colored("❌ Git remote URL not found.", "red"))
-
                 else:
                     print(colored("❌ Current directory is not a valid Git repository.", "red"))
             else:
                 print(colored(f"❌ The package '{package_path}' is not valid.", "red"))
         else:
             print(colored(f"No changes detected for package '{package_path}', skipping...", "grey"))
+    
+    # Process all packages at once after reviewing all of them
+    if packages_to_process:
+        print(colored(f"\nProcessing {len(packages_to_process)} package(s)...", "cyan"))
+        process_package_batch(packages_to_process)
+    else:
+        print(colored("No packages selected for upload.", "yellow"))
 
 
 def publish_package(package_name, commit_msg):
@@ -177,6 +259,12 @@ def publish_package(package_name, commit_msg):
     path = slicer(path, base_path).replace("\\", "/")
 
     if os.path.exists(path):
+        # Check if version has changed before publishing
+        version_changed, current_version, committed_version = has_version_changed(path)
+        if not version_changed and has_changes(path):
+            print(colored(f"Package \"{scope}.{feature}\" has been changed but its version number has not changed, skipping...", "yellow"))
+            return
+            
         is_valid_package = check_package_validity(path, scope, feature)
         if is_valid_package:
             if os.path.exists('.git'):
@@ -190,10 +278,10 @@ def publish_package(package_name, commit_msg):
 
                     if package_exists:
                         action = 'update'
-                        print(colored(f"The package '{package_name}' already exists in the repository. Updating the package...", "cyan"))
+                        print(colored(f"The package '{package_name}' already exists in the repository. Updating the package (version {committed_version} → {current_version})...", "cyan"))
                     else:
                         action = 'create'
-                        print(colored(f"The package '{package_name}' does not exist in the repository. Creating the package...", "cyan"))
+                        print(colored(f"The package '{package_name}' does not exist in the repository. Creating the package (version {current_version})...", "cyan"))
 
                     execute_git_commands(path, action, scope, feature, commit_msg)
 
