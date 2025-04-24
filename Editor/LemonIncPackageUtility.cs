@@ -63,15 +63,6 @@ namespace LemonInc.Tools.Packager.Editor
 		}
 
 		/// <summary>
-		/// Updates the package.
-		/// </summary>
-		/// <param name="package">The package.</param>
-		public static IEnumerator UpdatePackage(LemonIncPackage package, Action<bool> then = null)
-		{
-			yield return InstallPackage(package, then);
-		}
-
-		/// <summary>
 		/// Removes the package.
 		/// </summary>
 		/// <param name="package">The package.</param>
@@ -84,6 +75,44 @@ namespace LemonInc.Tools.Packager.Editor
 
 			package.Installed = request.Status != StatusCode.Success;
 			then?.Invoke(request.Status == StatusCode.Success);
+		}
+		
+		/// <summary>
+		/// Installs multiple git packages sequentially.
+		/// </summary>
+		/// <param name="packages">List of packages to install.</param>
+		/// <param name="then">Callback with a list of install results (true = success).</param>
+		public static IEnumerator BatchInstall(IEnumerable<LemonIncPackage> packages, Action<List<bool>> then = null)
+		{
+			var results = new List<bool>();
+
+			foreach (var package in packages)
+			{
+				bool result = false;
+				yield return InstallPackage(package, success => result = success);
+				results.Add(result);
+			}
+
+			then?.Invoke(results);
+		}
+
+		/// <summary>
+		/// Removes multiple packages sequentially.
+		/// </summary>
+		/// <param name="packages">List of packages to remove.</param>
+		/// <param name="then">Callback with a list of removal results (true = success).</param>
+		public static IEnumerator BatchRemove(IEnumerable<LemonIncPackage> packages, Action<List<bool>> then = null)
+		{
+			var results = new List<bool>();
+
+			foreach (var package in packages)
+			{
+				bool result = false;
+				yield return RemovePackage(package, success => result = success);
+				results.Add(result);
+			}
+
+			then?.Invoke(results);
 		}
 	}
 }

@@ -12,8 +12,8 @@ namespace LemonInc.Tools.Packager.Editor.Ui
 	/// <seealso cref="UnityEngine.UIElements.VisualElement" />
 	public class PackageScope : VisualElement
 	{
-		private Label _title;
-		private ListView _packageView;
+		private readonly Label _title;
+		private readonly ListView _packageView;
 		private List<LemonIncPackage> _packages;
 
 		/// <summary>
@@ -43,10 +43,9 @@ namespace LemonInc.Tools.Packager.Editor.Ui
 
 			_title = this.Q<Label>();
 			_packageView = this.Q<ListView>();
-
-			// TODO: Create Own package entry
+			
 			_packageView.makeItem = () => new PackageEntry();
-			_packageView.bindItem = (element, index) => (element as PackageEntry).Bind(_packages[index], InstallCallback, DeleteCallback);
+			_packageView.bindItem = (element, index) => (element as PackageEntry)?.Bind(_packages[index], InstallCallback, DeleteCallback);
 		}
 
 		/// <summary>

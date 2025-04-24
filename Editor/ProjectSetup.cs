@@ -18,6 +18,9 @@ namespace LemonInc.Tools.Packager.Editor
         [MenuItem("Tools/LemonInc/Setup/Import essentials")]
         public static void ImportEssentials() {        
             Assets.ImportAsset("Odin Inspector and Serializer.unitypackage", "Sirenix/Editor ExtensionsSystem");
+            Assets.ImportAsset("Feel.unitypackage", "More Mountains/ScriptingEffects");
+            Assets.ImportAsset("FMOD for Unity 202.unitypackage", "FMOD/Editor ExtensionsAudio");
+            Assets.ImportAsset("PrimeTween High-Performance Animations and Sequences.unitypackage", "Kyrylo Kuzyk/Editor ExtensionsAnimation");
         }
 
         [MenuItem("Tools/LemonInc/Setup/Import packages")]
@@ -34,7 +37,25 @@ namespace LemonInc.Tools.Packager.Editor
         {
             Folders.Create("Externals");
             Folders.Create("Plugins");
-            Folders.Create("Game", "Animation", "Models", "Materials", "Prefabs", "Resources", "Scripts/Entities", "Scripts/Systems", "Scripts/Utilities");
+            Folders.Create("Game", new []
+            {
+                "Animations", 
+                "Models", 
+                "Materials", 
+                "Prefabs", 
+                "Resources",
+                "Textures",
+                "Shaders",
+                "Models",
+                "Sprites",
+                "Scripts/Entities", 
+                "Scripts/Entities/Shared", 
+                "Scripts/Entities/Player", 
+                "Scripts/Editor", 
+                "Scripts/Systems", 
+                "Scripts/Systems/Inputs", 
+                "Scripts/Utilities"
+            });
             Refresh();
             Folders.Move("Game", "Scenes");
             Folders.Move("Game", "Settings");
@@ -72,28 +93,28 @@ namespace LemonInc.Tools.Packager.Editor
         }
 
         static class Packages {
-            static AddRequest request;
-            static Queue<string> packagesToInstall = new Queue<string>();
+            private static AddRequest _request;
+            private static readonly Queue<string> PackagesToInstall = new();
 
             public static void InstallPackages(string[] packages) {
                 foreach (var package in packages) {
-                    packagesToInstall.Enqueue(package);
+                    PackagesToInstall.Enqueue(package);
                 }
 
-                if (packagesToInstall.Count > 0) {
+                if (PackagesToInstall.Count > 0) {
                     StartNextPackageInstallation();
                 }
             }
 
             static async void StartNextPackageInstallation() {
-                request = Client.Add(packagesToInstall.Dequeue());
+                _request = Client.Add(PackagesToInstall.Dequeue());
             
-                while (!request.IsCompleted) await Task.Delay(10);
+                while (!_request.IsCompleted) await Task.Delay(10);
             
-                if (request.Status == StatusCode.Success) Debug.Log("Installed: " + request.Result.packageId);
-                else if (request.Status >= StatusCode.Failure) Debug.LogError(request.Error.message);
+                if (_request.Status == StatusCode.Success) Debug.Log("Installed: " + _request.Result.packageId);
+                else if (_request.Status >= StatusCode.Failure) Debug.LogError(_request.Error.message);
 
-                if (packagesToInstall.Count > 0) {
+                if (PackagesToInstall.Count > 0) {
                     await Task.Delay(1000);
                     StartNextPackageInstallation();
                 }
