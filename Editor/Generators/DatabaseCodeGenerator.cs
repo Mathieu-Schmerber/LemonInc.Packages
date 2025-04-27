@@ -73,7 +73,7 @@ namespace LemonInc.Tools.Databases.Editor.Generators
 			builder.AppendLine("#if UNITY_EDITOR");
 			builder.AppendLine($"public {nameof(DatabaseData)} {GetClass(database)}Data => _data ??= AssetDatabase.LoadAllAssetsAtPath(\"{database.GetPath()}\").FirstOrDefault() as {nameof(DatabaseData)};");
 			builder.AppendLine("#else");
-			builder.AppendLine($"public {nameof(DatabaseData)} {GetClass(database)} => _data ??= Resources.Load<{nameof(DatabaseData)}>(\"{database.Name}\");");
+			builder.AppendLine($"public {nameof(DatabaseData)} {GetClass(database)}Data => _data ??= Resources.Load<{nameof(DatabaseData)}>(\"{database.Name}\");");
 			builder.AppendLine("#endif");
 			foreach (var section in DatabaseEditorWindow.GetRoots(database))
 			{
