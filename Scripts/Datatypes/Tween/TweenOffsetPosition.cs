@@ -18,7 +18,7 @@ namespace LemonInc.Core.Utilities.Datatypes.Tween
             _positions = new();
         }
 
-        public PrimeTween.Tween Play(Transform transform)
+        public PrimeTween.Tween Play(Transform transform, bool useTimeScale = true)
         {
             if (!_positions.TryGetValue(transform, out var initialPosition))
             {
@@ -26,10 +26,10 @@ namespace LemonInc.Core.Utilities.Datatypes.Tween
                 _positions[transform] = initialPosition;
             }
 
-            return PrimeTween.Tween.LocalPosition(transform, initialPosition, initialPosition + Value.From, Value.Duration, Value.EaseIn, startDelay: Value.Delay);
+            return PrimeTween.Tween.LocalPosition(transform, initialPosition, initialPosition + Value.From, Value.Duration, Value.EaseIn, startDelay: Value.Delay, useUnscaledTime: !useTimeScale);
         }
         
-        public PrimeTween.Tween Reverse(Transform transform)
+        public PrimeTween.Tween Reverse(Transform transform, bool useTimeScale = true)
         {
             if (!_positions.TryGetValue(transform, out var initialPosition))
             {
@@ -37,7 +37,7 @@ namespace LemonInc.Core.Utilities.Datatypes.Tween
                 _positions[transform] = initialPosition;
             }
             
-            return PrimeTween.Tween.LocalPosition(transform, initialPosition, initialPosition + Value.To, Value.Duration, Value.EaseOut, startDelay: Value.Delay);
+            return PrimeTween.Tween.LocalPosition(transform, initialPosition, initialPosition + Value.To, Value.Duration, Value.EaseOut, startDelay: Value.Delay, useUnscaledTime: !useTimeScale);
         }
     }
 }

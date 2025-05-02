@@ -35,14 +35,14 @@ namespace LemonInc.Core.Utilities.Datatypes.Tween
             float endDelay = 0, 
             bool useUnscaledTime = false);
         
-        public PrimeTween.Tween Play<TTarget>(TTarget transform, TweenFromToDelegate<TTarget> call)
+        public PrimeTween.Tween Play<TTarget>(TTarget transform, TweenFromToDelegate<TTarget> call, bool useTimeScale = true)
         {
-            return call(transform, From, To, Duration, EaseIn, 1, CycleMode.Restart, Delay);
+            return call(transform, From, To, Duration, EaseIn, 1, CycleMode.Restart, Delay,  useUnscaledTime: !useTimeScale);
         }
         
-        public PrimeTween.Tween Reverse<TU>(TU transform, TweenFromToDelegate<TU> call)
+        public PrimeTween.Tween Reverse<TU>(TU transform, TweenFromToDelegate<TU> call, bool useTimeScale = true)
         {
-            return call(transform, To, From, Duration, EaseOut, 1, CycleMode.Restart, Delay);
+            return call(transform, To, From, Duration, EaseOut, 1, CycleMode.Restart, Delay, useUnscaledTime: !useTimeScale);
         }
     }
 }

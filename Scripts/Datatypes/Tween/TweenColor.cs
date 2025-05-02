@@ -19,7 +19,7 @@ namespace LemonInc.Core.Utilities.Datatypes.Tween
             _graphics = new Dictionary<Transform, Graphic>();
         }
 
-        public PrimeTween.Tween Play(Transform transform)
+        public PrimeTween.Tween Play(Transform transform, bool useTimeScale = true)
         {
             if (!_graphics.TryGetValue(transform, out var graphic) || graphic == null)
             {
@@ -28,13 +28,13 @@ namespace LemonInc.Core.Utilities.Datatypes.Tween
             }
 
             if (graphic != null)
-                return Value.Play(graphic, PrimeTween.Tween.Color);
+                return Value.Play(graphic, PrimeTween.Tween.Color, useTimeScale);
 
             Debug.LogError($"TweenColor cannot be played, {transform} has no Graphic component.");
             return default;
         }
 
-        public PrimeTween.Tween Reverse(Transform transform)
+        public PrimeTween.Tween Reverse(Transform transform, bool useTimeScale = true)
         {
             if (!_graphics.TryGetValue(transform, out var graphic) || graphic == null)
             {
@@ -43,7 +43,7 @@ namespace LemonInc.Core.Utilities.Datatypes.Tween
             }
 
             if (graphic != null)
-                return Value.Reverse(graphic, PrimeTween.Tween.Color);
+                return Value.Reverse(graphic, PrimeTween.Tween.Color, useTimeScale);
 
             Debug.LogError($"TweenColor cannot be played, {transform} has no Graphic component.");
             return default;
