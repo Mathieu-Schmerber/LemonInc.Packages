@@ -22,26 +22,26 @@ namespace LemonInc.Core.Utilities.Ui
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            _scaleOnHover.Play(transform);
-            _colorOnHover.Play(transform);
+            _scaleOnHover.Play(transform, false);
+            _colorOnHover.Play(transform, false);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            _scaleOnHover.Reverse(transform);
-            _colorOnHover.Reverse(transform);
+            _scaleOnHover.Reverse(transform, false);
+            _colorOnHover.Reverse(transform, false);
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            _scaleOnClick.Play(transform);
-            _colorOnClick.Play(transform);
+            _scaleOnClick.Play(transform, false);
+            _colorOnClick.Play(transform, false);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            _scaleOnClick.Reverse(transform);
-            _colorOnClick.Reverse(transform);
+            _scaleOnClick.Reverse(transform, false);
+            _colorOnClick.Reverse(transform, false);
         }
     }
 }
