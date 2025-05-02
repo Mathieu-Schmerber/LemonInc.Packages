@@ -14,7 +14,7 @@ namespace LemonInc.Core.Utilities.Datatypes.Tween
             Value = new TweenValue<Vector3>(from, to, duration);
         }
         
-        public PrimeTween.Tween Play(Transform transform) => Value.Play(transform, PrimeTween.Tween.LocalRotation);
-        public PrimeTween.Tween Reverse(Transform transform) => Value.Reverse(transform, PrimeTween.Tween.LocalRotation);
+        public PrimeTween.Tween Play(Transform transform, bool useTimeScale = true) => Value.Play(transform, PrimeTween.Tween.LocalRotation, useTimeScale);
+        public PrimeTween.Tween Reverse(Transform transform, bool useTimeScale = true) => Value.Reverse(transform, PrimeTween.Tween.LocalRotation, useTimeScale);
     }
 }
