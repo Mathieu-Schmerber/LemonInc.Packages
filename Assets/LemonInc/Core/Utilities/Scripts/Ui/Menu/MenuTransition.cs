@@ -13,6 +13,11 @@ namespace LemonInc.Core.Utilities.Ui.Menu
 
         public virtual void OnHideTransition(float progress) {}
         public virtual void OnHideTransitionCompleted() {}
+        
+#if UNITY_EDITOR
+        public virtual void EditorEnter() {}
+        public virtual void EditorExit() {}
+#endif
     }
     
     [Serializable]
@@ -33,52 +38,68 @@ namespace LemonInc.Core.Utilities.Ui.Menu
         
         public override void OnHideTransition(float progress)
         {
-            _canvasGroup.alpha = progress;
+            _canvasGroup.alpha = 1f - progress;
         }
+        
+        public override void OnShowTransitionCompleted() => _canvasGroup.alpha = 1f;
+        public override void OnHideTransitionCompleted() => _canvasGroup.alpha = 0f;
+        
+#if UNITY_EDITOR
+        public override void EditorEnter() => _canvasGroup.alpha = 1f;
+        public override void EditorExit() => _canvasGroup.alpha = 0f;
+#endif
     }
     
     [Serializable]
     public class SlideMenuTransition : MenuTransition
     {
-        public enum SlideDirection
-        {
-            Left,
-            Right,
-            Up,
-            Down
-        }
-        
-        [SerializeField] private SlideDirection _slideDirection = SlideDirection.Left;
-        [SerializeField] private float _slideDistance = 1000f;
-        
+        [SerializeField] private Vector3 _enterPosition = Vector3.zero;
+        [SerializeField] private Vector3 _exitPosition = new(0, -1000, 0);
+    
         private RectTransform _rectTransform;
-        private Vector2 _hiddenPosition;
-        private Vector2 _visiblePosition;
 
         public override void Initialize(MenuUi menu)
         {
             base.Initialize(menu);
             _rectTransform = menu.GetComponent<RectTransform>();
-            _visiblePosition = _rectTransform.anchoredPosition;
-
-            _hiddenPosition = _slideDirection switch
-            {
-                SlideDirection.Left => _visiblePosition + Vector2.left * _slideDistance,
-                SlideDirection.Right => _visiblePosition + Vector2.right * _slideDistance,
-                SlideDirection.Up => _visiblePosition + Vector2.up * _slideDistance,
-                SlideDirection.Down => _visiblePosition + Vector2.down * _slideDistance,
-                _ => _hiddenPosition
-            };
         }
 
         public override void OnShowTransition(float progress)
         {
-            _rectTransform.anchoredPosition = Vector2.Lerp(_hiddenPosition, _visiblePosition, progress);
+            if (_rectTransform != null)
+                _rectTransform.anchoredPosition = Vector3.Lerp(_exitPosition, _enterPosition, progress);
         }
-        
+    
+        public override void OnShowTransitionCompleted()
+        {
+            if (_rectTransform != null)
+                _rectTransform.anchoredPosition = _enterPosition;
+        }
+
         public override void OnHideTransition(float progress)
         {
-            _rectTransform.anchoredPosition = Vector2.Lerp(_visiblePosition, _hiddenPosition, progress);
+            if (_rectTransform != null)
+                _rectTransform.anchoredPosition = Vector3.Lerp(_enterPosition, _exitPosition, progress);
         }
+    
+        public override void OnHideTransitionCompleted()
+        {
+            if (_rectTransform != null)
+                _rectTransform.anchoredPosition = _exitPosition;
+        }
+    
+#if UNITY_EDITOR
+        public override void EditorEnter()
+        {
+            if (_rectTransform != null)
+                _rectTransform.anchoredPosition = _enterPosition;
+        }
+    
+        public override void EditorExit()
+        {
+            if (_rectTransform != null)
+                _rectTransform.anchoredPosition = _exitPosition;
+        }
+#endif
     }
 }
