@@ -7,5 +7,8 @@ namespace LemonInc.Test.StateDemo.Scripts.Inputs
     {
         public InputStateValue<Vector3> Movement { get; }
         public InputState Jump { get; }
+        
+        public InputState Right { get; }
+        public InputState Left { get; }
     }
 }

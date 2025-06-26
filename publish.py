@@ -16,29 +16,49 @@ def get_package_version(package_path):
             print(colored(f"Error reading package.json: {e}", "red"))
     return None
 
-def get_last_committed_version(package_path):
-    """Get the last committed version from Git"""
-    package_json_path = os.path.join(package_path, 'package.json')
-    cmd = ['git', 'show', 'HEAD:' + package_json_path.replace('\\', '/')]
-    try:
-        result = subprocess.run(cmd, capture_output=True, text=True)
-        if result.returncode == 0:
-            package_data = json.loads(result.stdout)
-            return package_data.get('version')
-    except (json.JSONDecodeError, subprocess.SubprocessError) as e:
-        print(colored(f"Error getting last committed version: {e}", "red"))
+def get_remote_package_version(scope, feature):
+    """Get the version from the package branch"""
+    scope = pascal_to_dashed(scope)
+    feature = pascal_to_dashed(feature)
+    branch = f"{scope}.{feature}".lower()
+    remote_url = "https://github.com/Mathieu-Schmerber/LemonInc.Packages"
+    
+    # First check if branch exists
+    check_branch_cmd = ['git', 'ls-remote', '--heads', remote_url, branch]
+    check_result = subprocess.run(check_branch_cmd, capture_output=True, text=True)
+    if check_result.returncode != 0 or not check_result.stdout.strip():
+        # Branch doesn't exist yet
+        return None
+    
+    # Fetch latest package.json from the remote branch
+    with subprocess.Popen(['git', 'show', f'origin/{branch}:package.json'], 
+                         stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True) as proc:
+        stdout, stderr = proc.communicate()
+        if proc.returncode == 0:
+            try:
+                package_data = json.loads(stdout)
+                return package_data.get('version')
+            except json.JSONDecodeError:
+                print(colored(f"Error parsing remote package.json", "red"))
+        else:
+            print(colored(f"Could not fetch remote package.json: {stderr}", "red"))
+    
     return None
 
-def has_version_changed(package_path):
-    """Check if the version number has changed compared to the last commit"""
+def has_version_changed(package_path, scope, feature):
+    """Check if the version number has changed compared to the package branch"""
     current_version = get_package_version(package_path)
-    committed_version = get_last_committed_version(package_path)
+    remote_version = get_remote_package_version(scope, feature)
     
-    if current_version is None or committed_version is None:
-        # If we can't determine versions, fall back to git status
-        return has_changes(package_path), current_version, committed_version
+    if current_version is None:
+        print(colored(f"Could not determine current version", "red"))
+        return False, current_version, remote_version
     
-    return current_version != committed_version, current_version, committed_version
+    if remote_version is None:
+        # This is likely a new package
+        return True, current_version, "new package"
+    
+    return current_version != remote_version, current_version, remote_version
 
 def has_changes(path):
     cmd = ['git', 'status', '--porcelain', '--', path]
@@ -82,6 +102,7 @@ def execute_git_commands(path, action, scope, feature, commit_msg = None):
         print(colored(f"No changes detected for {path}, forcing the update...", "grey"))
 
     if action == 'create':
+        print(colored(f"Creating package '{package_name}', this might take some time...", "yellow"))
         branch = f"{scope}.{feature}".lower()
         result = subprocess.run(['git', 'subtree', 'split', f'--prefix={path}', '--branch', branch])
         if result.returncode == 0:
@@ -90,6 +111,7 @@ def execute_git_commands(path, action, scope, feature, commit_msg = None):
             print(result.stderr)
             print(colored(f"❌ Failed to create package '{package_name}'.", "red", attrs=["bold"]))
     else:
+        print(colored(f"Uploading package '{package_name}', this might take some time...", "yellow"))
         remote_url = "https://github.com/Mathieu-Schmerber/LemonInc.Packages"
         branch = f"{scope}.{feature}".lower()
         subtree_command = ['git', 'subtree', 'push', f'--prefix={path}', remote_url, branch]
@@ -189,8 +211,8 @@ def sync_packages():
 
         # First check if the package has any changes
         if has_changes(package_path):
-            # Then check if the version number has changed
-            version_changed, current_version, committed_version = has_version_changed(package_path)
+            # Then check if the version number has changed compared to the package branch
+            version_changed, current_version, remote_version = has_version_changed(package_path, scope, feature)
             
             if not version_changed:
                 print(colored(f"Package \"{package_name}\" has been changed but its version number has not changed, skipping...", "yellow"))
@@ -207,18 +229,22 @@ def sync_packages():
 
                     if repo_url:
                         # Check if the package already exists in the repository
-                        package_exists = subprocess.run(['git', 'ls-remote', '--heads', 'origin', f'{scope}.{feature}'],
-                                                        capture_output=True, text=True).returncode == 0
+                        remote_url = "https://github.com/Mathieu-Schmerber/LemonInc.Packages"
+                        branch = f"{pascal_to_dashed(scope)}.{pascal_to_dashed(feature)}".lower()
+                        check_branch_cmd = ['git', 'ls-remote', '--heads', remote_url, branch]
+                        check_result = subprocess.run(check_branch_cmd, capture_output=True, text=True)
+                        package_exists = check_result.returncode == 0 and bool(check_result.stdout.strip())
 
                         if package_exists:
                             action = 'update'
-                            package_description = f"update package '{package_name}' (version {committed_version} → {current_version})"
+                            package_description = f"update package '{package_name}' (version {remote_version} → {current_version})"
                         else:
                             action = 'create'
                             package_description = f"create new package '{package_name}' (version {current_version})"
                         
                         # Ask the user if they want to upload this package
-                        print(colored(f"The package \"{package_name}\" has been changed (version {committed_version} → {current_version}), should it be uploaded?", "cyan"))
+                        version_info = f"version {remote_version} → {current_version}" if remote_version != "new package" else f"initial version {current_version}"
+                        print(colored(f"The package \"{package_name}\" has been changed ({version_info}), should it be uploaded?", "cyan"))
                         choice = input(colored("[Y] - Yes\n[N] - No\n> ", "cyan")).strip().upper()
                         
                         if choice == 'Y':
@@ -260,7 +286,7 @@ def publish_package(package_name, commit_msg):
 
     if os.path.exists(path):
         # Check if version has changed before publishing
-        version_changed, current_version, committed_version = has_version_changed(path)
+        version_changed, current_version, remote_version = has_version_changed(path, scope, feature)
         if not version_changed and has_changes(path):
             print(colored(f"Package \"{scope}.{feature}\" has been changed but its version number has not changed, skipping...", "yellow"))
             return
@@ -274,11 +300,16 @@ def publish_package(package_name, commit_msg):
 
                 if repo_url:
                     # Check if the package already exists in the repository
-                    package_exists = subprocess.run(['git', 'ls-remote', '--heads', 'origin', f'{scope}.{feature}'], capture_output=True, text=True).returncode == 0
+                    remote_url = "https://github.com/Mathieu-Schmerber/LemonInc.Packages"
+                    branch = f"{pascal_to_dashed(scope)}.{pascal_to_dashed(feature)}".lower()
+                    check_branch_cmd = ['git', 'ls-remote', '--heads', remote_url, branch]
+                    check_result = subprocess.run(check_branch_cmd, capture_output=True, text=True)
+                    package_exists = check_result.returncode == 0 and bool(check_result.stdout.strip())
 
                     if package_exists:
                         action = 'update'
-                        print(colored(f"The package '{package_name}' already exists in the repository. Updating the package (version {committed_version} → {current_version})...", "cyan"))
+                        version_info = f"version {remote_version} → {current_version}" if remote_version != "new package" else f"initial version {current_version}"
+                        print(colored(f"The package '{package_name}' already exists in the repository. Updating the package ({version_info})...", "cyan"))
                     else:
                         action = 'create'
                         print(colored(f"The package '{package_name}' does not exist in the repository. Creating the package (version {current_version})...", "cyan"))
