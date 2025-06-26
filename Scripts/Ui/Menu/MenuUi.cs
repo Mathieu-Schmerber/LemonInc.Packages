@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using PrimeTween;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace LemonInc.Core.Utilities.Ui.Menu
@@ -7,8 +8,9 @@ namespace LemonInc.Core.Utilities.Ui.Menu
     [RequireComponent(typeof(CanvasGroup))]
     public abstract class MenuUi : MonoBehaviour
     {
-        [SerializeField] private float _showDuration = 0.2f;
-        [SerializeField] private float _hideDuration = 0.2f;
+        [Title("Transitions")]
+        [SerializeField] protected float ShowDuration = 0.2f;
+        [SerializeField] protected float HideDuration = 0.2f;
         [SerializeReference] private List<MenuTransition> _transitions;
         
         protected CanvasGroup CanvasGroup;
@@ -31,7 +33,7 @@ namespace LemonInc.Core.Utilities.Ui.Menu
                 _hidden = false;
                 CanvasGroup.interactable = true;
                 CanvasGroup.blocksRaycasts = true;
-                Tween.Custom(0f, 1f, _showDuration, v =>
+                Tween.Custom(0f, 1f, ShowDuration, v =>
                 {
                     _transitions.ForEach(t => t.OnShowTransition(v));
                 }).OnComplete(() =>
@@ -49,7 +51,7 @@ namespace LemonInc.Core.Utilities.Ui.Menu
                 _hidden = true;
                 CanvasGroup.interactable = false;
                 CanvasGroup.blocksRaycasts = false;
-                Tween.Custom(1f, 0f, _hideDuration, v =>
+                Tween.Custom(0, 1f, HideDuration, v =>
                 {
                     _transitions.ForEach(t => t.OnHideTransition(v));
                 }).OnComplete(() =>
@@ -64,22 +66,32 @@ namespace LemonInc.Core.Utilities.Ui.Menu
         protected virtual void OnHideMenu() { }
         
 #if UNITY_EDITOR
-        [Sirenix.OdinInspector.Button]
-        private void Show()
+        [Sirenix.OdinInspector.Button(Name = "Show")]
+        protected void ShowInEditor()
         {
             CanvasGroup = GetComponent<CanvasGroup>();
             CanvasGroup.interactable = true;
             CanvasGroup.blocksRaycasts = true;
-            CanvasGroup.alpha = 1;
+            
+            _transitions.ForEach(t =>
+            {
+                t.Initialize(this);
+                t.EditorEnter();
+            });
         }
 
-        [Sirenix.OdinInspector.Button]
-        private void Hide()
+        [Sirenix.OdinInspector.Button(Name = "Hide")]
+        protected void HideInEditor()
         {
             CanvasGroup = GetComponent<CanvasGroup>();
             CanvasGroup.interactable = false;
             CanvasGroup.blocksRaycasts = false;
-            CanvasGroup.alpha = 0;
+            
+            _transitions.ForEach(t =>
+            {
+                t.Initialize(this);
+                t.EditorExit();
+            });
         }
 #endif
     }
