@@ -7,7 +7,8 @@ MonoImporter:
   - m_ViewDataDictionary: {instanceID: 0}
   - _baseUxml: {fileID: 9197481963319205126, guid: 6ea03548795e73941afb71373018653b, type: 3}
   - _packageScopeTemplate: {fileID: 9197481963319205126, guid: ec0a4e97a669c2048a0d32e99d1df260, type: 3}
-  - _packageEntryTemplate: {fileID: 9197481963319205126, guid: e96282e9a43a8e9499531a683bfcd599, type: 3}
+  - _packageViewTemplate: {fileID: 9197481963319205126, guid: 2ec9b82560b87dd4db502d3f84a114f4, type: 3}
+  - _setupViewTemplate: {fileID: 9197481963319205126, guid: a510c088d3678ba42b5dd9a3de78065a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

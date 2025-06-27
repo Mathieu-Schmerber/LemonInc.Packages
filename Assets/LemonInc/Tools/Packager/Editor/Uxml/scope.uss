@@ -1,0 +1,21 @@
+.unity-foldout__content {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+#Scope > .unity-toggle {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: normal;
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+}

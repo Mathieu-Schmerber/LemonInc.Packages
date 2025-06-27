@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:GroupBox name="GroupBox" style="flex-direction: row; background-color: rgba(0, 0, 0, 0.31); flex-grow: 0; width: auto; margin-right: 0; margin-top: 0; margin-left: 0; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px;">
+        <ui:Label text="Selection" style="justify-content: center; -unity-text-align: middle-left; margin-left: 3px; -unity-font-style: bold;" />
+        <ui:GroupBox style="flex-direction: row; align-items: center; justify-content: flex-end; flex-wrap: nowrap; left: auto; right: 1px; position: relative; width: auto; max-width: none; height: auto; margin-right: 3px; flex-grow: 1; margin-top: 1px; padding-top: 0; padding-bottom: 0; padding-left: 0;">
+            <ui:Button text="Apply" name="Apply" style="height: 22px; width: 60px;" />
+        </ui:GroupBox>
+    </ui:GroupBox>
+</ui:UXML>

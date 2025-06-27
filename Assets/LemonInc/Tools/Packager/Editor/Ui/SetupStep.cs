@@ -1,62 +1,67 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UIElements;
 
 namespace LemonInc.Tools.Packager.Editor.Ui
 {
-	/// <summary>
-	/// Package scope.
-	/// </summary>
-	/// <seealso cref="UnityEngine.UIElements.VisualElement" />
-	public class PackageScope : VisualElement
+	public class Step
+	{
+		public string Name { get; }
+		public Action Action { get; }
+		public bool CanRun { get; }
+		public bool Toggled { get; set; }
+
+		public Step(string name, Action action, bool canRun)
+		{
+			Name = name;
+			Action = action;
+			CanRun = canRun;
+		}
+	}
+	
+	public class SetupStep : VisualElement
 	{
 		private readonly Label _title;
-		private readonly ListView _packageView;
-		private List<LemonIncPackage> _packages;
+		private readonly ListView _stepsView;
+		private List<Step> _steps;
 
-		/// <summary>
-		/// Gets or sets the install callback.
-		/// </summary>
-		/// <value>
-		/// The install callback.
-		/// </value>
-		public Func<LemonIncPackage, Action<bool>, IEnumerator> InstallCallback { get; set; }
-
-		/// <summary>
-		/// Gets or sets the delete callback.
-		/// </summary>
-		/// <value>
-		/// The delete callback.
-		/// </value>
-		public Func<LemonIncPackage, Action<bool>, IEnumerator> DeleteCallback { get; set; }
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="PackageScope"/> class.
-		/// </summary>
-		/// <param name="baseUxml">The base uxml.</param>
-		/// <param name="entryUxml">The entry uxml.</param>
-		public PackageScope(VisualTreeAsset baseUxml)
+		public SetupStep(VisualTreeAsset baseUxml)
 		{
 			baseUxml.CloneTree(this);
 
 			_title = this.Q<Label>();
-			_packageView = this.Q<ListView>();
+			_stepsView = this.Q<ListView>();
 			
-			_packageView.makeItem = () => new PackageEntry();
-			_packageView.bindItem = (element, index) => (element as PackageEntry)?.Bind(_packages[index], InstallCallback, DeleteCallback);
+			_stepsView.makeItem = () => new Toggle();
+			_stepsView.bindItem = (element, index) =>
+			{
+				var toggle = (Toggle)element;
+				if (toggle == null)
+					return;
+				
+				toggle.style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
+				toggle.style.alignItems = new StyleEnum<Align>(Align.Center);
+				toggle.style.justifyContent = new StyleEnum<Justify>(Justify.SpaceBetween);
+				toggle.style.flexGrow = 1;
+				toggle.style.paddingLeft = new StyleLength(10);
+				toggle.style.paddingRight = new StyleLength(10);
+				
+				toggle.text = _steps[index].Name;
+				toggle.value = _steps[index].Toggled;
+				toggle.RegisterValueChangedCallback((evt) => _steps[index].Toggled = evt.newValue);
+				toggle.Q<Label>().style.marginLeft = new StyleLength(10);
+				toggle.SetEnabled(_steps[index].CanRun);
+			};
 		}
 
-		/// <summary>
-		/// Binds the specified package.
-		/// </summary>
-		/// <param name="packages">The package.</param>
-		public void Bind(List<LemonIncPackage> packages)
+		public void Bind(string title, List<Step> steps)
 		{
-			_packages = packages;
-			_title.text = packages.FirstOrDefault()?.Scope;
-			_packageView.itemsSource = _packages;
+			_steps = steps;
+			_title.text = title;
+			_stepsView.itemsSource = _steps;
 		}
+		
+		public List<Step> GetSteps() => _steps.Where(x => x.Toggled && x.CanRun).ToList();
 	}
 }

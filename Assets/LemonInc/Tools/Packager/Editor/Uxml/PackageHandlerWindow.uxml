@@ -1,13 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <ui:Template name="Banner" src="project://database/Assets/LemonInc/Tools/Packager/Editor/Uxml/Banner.uxml?fileID=9197481963319205126&amp;guid=180ce77758cc83d4c9948fce4c534601&amp;type=3#Banner" />
+    <Style src="project://database/Assets/LemonInc/Tools/Packager/Editor/Uxml/window.uss?fileID=7433441132597879392&amp;guid=cd589f3dbc5a4e1489acc89036412636&amp;type=3#window" />
     <ui:Instance template="Banner" name="Banner" />
-    <ui:GroupBox style="flex-direction: row; background-color: rgba(0, 0, 0, 0.31); flex-grow: 0; width: auto; margin-right: 0; margin-top: 0; margin-left: 0;">
-        <ui:Label text="Selection" style="justify-content: center; -unity-text-align: middle-left; margin-left: 3px; -unity-font-style: bold;" />
-        <ui:GroupBox style="flex-direction: row; align-items: center; justify-content: flex-end; flex-wrap: nowrap; left: auto; right: 1px; position: relative; width: auto; max-width: none; height: auto; margin-right: 3px; flex-grow: 1; margin-top: 1px; padding-top: 0; padding-bottom: 0; padding-left: 0;">
-            <ui:Button text="Install" name="Install" style="height: 25px; width: 60px;" />
-            <ui:Button text="Delete" name="Delete" style="width: 60px; height: 25px;" />
-        </ui:GroupBox>
-    </ui:GroupBox>
-    <ui:ScrollView name="PackageList" />
-    <ui:Label tabindex="-1" text="Fetching packages..." display-tooltip-when-elided="true" name="State" style="flex-grow: 1; align-items: center; align-self: center; -unity-text-align: middle-left;" />
+    <ui:TabView />
 </ui:UXML>
