@@ -1,13 +1,5 @@
 # LemonInc.Packages
 
-This repository hosts all custom Unity packages that LemonInc uses for its projects.
-
-- [LemonInc.Packages](#lemonincpackages)
-- [Import a LemonInc package to your project](#import-a-lemoninc-package-to-your-project)
-  - [Importing](#importing)
-- [Developing packages](#developing-packages)
-- [Coming up...](#coming-up)
-
 # Import a LemonInc package to your project
 ## Importing
 
@@ -25,11 +17,3 @@ To publish or update your package, run
 ``` html
 ./publish.exe -s
 ```
-
-# Coming up...
-
-- LemonInc Package Handler:
-  - Install external dependencies
-- Some pipeline work to:
-  - Ensure some % coverage
-  - Make package.json configuration easier by using keyword such as $P{REPOSITORY_URL}
