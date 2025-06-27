@@ -6,14 +6,14 @@ namespace LemonInc.Core.Utilities
 {
 	public class BuildConsole : MonoBehaviour
 	{
-		[SerializeField] private float windowX = 10f;
-		[SerializeField] private float windowY = 10f;
-		[SerializeField] private float windowWidth = 400f;
-		[SerializeField] private float windowHeight = 300f;
+		[SerializeField] private float _windowX = 10f;
+		[SerializeField] private float _windowY = 10f;
+		[SerializeField] private float _windowWidth = 400f;
+		[SerializeField] private float _windowHeight = 300f;
 
-		private string logs;
-		private Vector2 scrollPosition;
-		private string logFilePath;
+		private string _logs;
+		private Vector2 _scrollPosition;
+		private string _logFilePath;
 
 		private void Start()
 		{
@@ -21,12 +21,12 @@ namespace LemonInc.Core.Utilities
 			string executableDirectory = Path.GetDirectoryName(Application.dataPath);
 
 			// Specify the path for the log file (next to the executable)
-			logFilePath = Path.Combine(executableDirectory, "application_log.txt");
+			_logFilePath = Path.Combine(executableDirectory, "application_log.txt");
 
 			// If the log file exists, delete it to clear previous logs
-			if (File.Exists(logFilePath))
+			if (File.Exists(_logFilePath))
 			{
-				File.Delete(logFilePath);
+				File.Delete(_logFilePath);
 			}
 		}
 
@@ -43,31 +43,31 @@ namespace LemonInc.Core.Utilities
 		private void HandleLog(string logText, string stackTrace, LogType type)
 		{
 			// Append the new log message to the logs string
-			logs += $"[{DateTime.Now.ToShortTimeString()}]" + logText + "\n";
+			_logs += $"[{DateTime.Now.ToShortTimeString()}]" + logText + "\n";
 
 			// Write the log message to the log file
-			using (StreamWriter writer = new StreamWriter(logFilePath, true))
+			using (StreamWriter writer = new StreamWriter(_logFilePath, true))
 			{
 				writer.WriteLine(logText);
 			}
 
 			// Make sure the scroll position is always at the bottom to display latest logs
-			scrollPosition.y = Mathf.Infinity;
+			_scrollPosition.y = Mathf.Infinity;
 		}
 
 		private void OnGUI()
 		{
 			// Set the position and size of the log window
-			Rect logWindowRect = new Rect(windowX, windowY, windowWidth, windowHeight);
+			Rect logWindowRect = new Rect(_windowX, _windowY, _windowWidth, _windowHeight);
 
 			// Begin the log window GUI group
 			GUI.BeginGroup(logWindowRect);
 
 			// Create a scroll view for the logs
-			scrollPosition = GUILayout.BeginScrollView(scrollPosition, GUILayout.Width(windowWidth), GUILayout.Height(windowHeight));
+			_scrollPosition = GUILayout.BeginScrollView(_scrollPosition, GUILayout.Width(_windowWidth), GUILayout.Height(_windowHeight));
 
 			// Draw the console GUI
-			GUILayout.TextArea(logs);
+			GUILayout.TextArea(_logs);
 
 			// End the scroll view
 			GUILayout.EndScrollView();
