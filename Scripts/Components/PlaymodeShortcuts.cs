@@ -1,11 +1,10 @@
-using System;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using Sirenix.OdinInspector; // Add Odin Inspector namespace
 
-namespace LemonInc.Core.Utilities
+namespace LemonInc.Core.Utilities.Components
 {
     public class PlaymodeShortcuts : MonoBehaviour
     {
