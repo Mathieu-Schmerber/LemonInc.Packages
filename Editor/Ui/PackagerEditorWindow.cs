@@ -35,6 +35,12 @@ namespace LemonInc.Tools.Packager.Editor.Ui
         /// </summary>
         private SetupView _setupView;
 
+        private static GUIContent _packageIcon;
+        public static GUIContent PackageIcon => _packageIcon ??= EditorGUIUtility.IconContent("d_Package Manager");
+        
+        private static GUIContent _settingsIcon;
+        public static GUIContent SettingsIcon => _settingsIcon ??= EditorGUIUtility.IconContent("d_Settings");
+
         [MenuItem("Tools/LemonInc/Packager", false, 1)]
         public static void OpenWindow()
         {
@@ -52,10 +58,10 @@ namespace LemonInc.Tools.Packager.Editor.Ui
 
             _tabView = rootVisualElement.Q<TabView>();
             
-            var packagesTab = new Tab("Packages");
+            var packagesTab = new Tab("Packages", Background.FromTexture2D(PackageIcon.image as Texture2D));
             _tabView.Add(packagesTab);
             
-            var setupTab = new Tab("Setup");
+            var setupTab = new Tab("Setup", Background.FromTexture2D(SettingsIcon.image as Texture2D));
             _tabView.Add(setupTab);
             
             _packageView = new PackageView();
