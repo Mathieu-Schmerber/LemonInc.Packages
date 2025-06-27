@@ -25,11 +25,3 @@ To publish or update your package, run
 ``` html
 ./publish.exe -s
 ```
-
-# Coming up...
-
-- LemonInc Package Handler:
-  - Install external dependencies
-- Some pipeline work to:
-  - Ensure some % coverage
-  - Make package.json configuration easier by using keyword such as $P{REPOSITORY_URL}
