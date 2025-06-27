@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: UxmlAssetConfiguration
   m_EditorClassIdentifier: 
   References:
-    _keyData:
-    - Assets/LemonInc/Tools/Panels/Editor/Resources/CreateItem.uxml
-    _valueData:
-    - AssetPath: Assets/LemonInc/Tools/Panels/Editor/Resources/CreateItem.uxml
-      ReferenceClass: Assets/LemonInc/Tools/Panels/Editor/Ui/CreateItemReference.cs
+    _keyData: []
+    _valueData: []
   DoLogTrace: 0

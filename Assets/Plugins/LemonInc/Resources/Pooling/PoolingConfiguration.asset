@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LastFormState:
     Prefab: {fileID: 0}
-    InitialCount: 10
+    InitialCount: 0
     Key: 
-    AutoGenerateOnCreate: 1
+    AutoGenerateOnCreate: 0
