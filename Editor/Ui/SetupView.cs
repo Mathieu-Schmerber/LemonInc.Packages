@@ -56,16 +56,13 @@ namespace LemonInc.Tools.Packager.Editor.Ui
             {
                 new("Install GitDependencyResolverForUnity",
                     () => SetupUtils.Packages.EnqueuePackageInstall("git+https://github.com/mob-sakai/GitDependencyResolverForUnity.git"),
-                    true),
+                    SetupUtils.Packages.IsInstalled("com.coffee.git-dependency-resolver")),
                 new("Install com.unity.2d.animation", 
                     () => SetupUtils.Packages.EnqueuePackageInstall("com.unity.2d.animation"),
-                    true),
+                    SetupUtils.Packages.IsInstalled("com.unity.2d.animation")),
                 new("Install com.unity.inputsystem",
                     () => SetupUtils.Packages.EnqueuePackageInstall("com.unity.inputsystem"),
-                    true),
-                new("Install com.unity.textmeshpro",
-                    () => SetupUtils.Packages.EnqueuePackageInstall("com.unity.textmeshpro"),
-                    true)
+                    SetupUtils.Packages.IsInstalled("com.unity.inputsystem"))
             });
         }
 
