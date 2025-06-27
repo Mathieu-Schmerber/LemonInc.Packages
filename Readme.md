@@ -1,13 +1,5 @@
 # LemonInc.Packages
 
-This repository hosts all custom Unity packages that LemonInc uses for its projects.
-
-- [LemonInc.Packages](#lemonincpackages)
-- [Import a LemonInc package to your project](#import-a-lemoninc-package-to-your-project)
-  - [Importing](#importing)
-- [Developing packages](#developing-packages)
-- [Coming up...](#coming-up)
-
 # Import a LemonInc package to your project
 ## Importing
 
