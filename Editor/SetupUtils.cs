@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEditor;
 using UnityEditor.PackageManager;
@@ -13,8 +14,7 @@ using Application = UnityEngine.Application;
 
 namespace LemonInc.Tools.Packager.Editor
 {
-    public static class ProjectSetup {
-        [MenuItem("Tools/LemonInc/Setup/Import essentials")]
+    public static class SetupUtils {
         public static void ImportEssentials() {        
             Assets.ImportAsset("Odin Inspector and Serializer.unitypackage", "Sirenix/Editor ExtensionsSystem");
             Assets.ImportAsset("Feel.unitypackage", "More Mountains/ScriptingEffects");
@@ -22,7 +22,6 @@ namespace LemonInc.Tools.Packager.Editor
             Assets.ImportAsset("PrimeTween High-Performance Animations and Sequences.unitypackage", "Kyrylo Kuzyk/Editor ExtensionsAnimation");
         }
 
-        [MenuItem("Tools/LemonInc/Setup/Import packages")]
         public static void InstallPackages() {
             Packages.InstallPackages(new[] {
                 "com.unity.2d.animation",
@@ -31,7 +30,6 @@ namespace LemonInc.Tools.Packager.Editor
             });
         }
 
-        [MenuItem("Tools/LemonInc/Setup/Create Folders")]
         public static void CreateFolders()
         {
             Folders.Create("Externals");
@@ -64,34 +62,116 @@ namespace LemonInc.Tools.Packager.Editor
             MoveAsset("Assets/InputSystem_Actions.inputactions", "Assets/Game/Settings/Controls.inputactions");
             DeleteAsset("Assets/Readme.asset");
             Refresh();
-        
+        }
+
+        public static void SetupEditorSettings()
+        {
             EditorSettings.enterPlayModeOptions = EnterPlayModeOptions.DisableDomainReload | EnterPlayModeOptions.DisableSceneReload;
         }
 
-        static class Assets {
-            public static void ImportAsset(string asset, string folder) {
+        public static class Assets {
+            public static void ImportAsset(string asset, string folder, string moveTo = null)
+            {
                 string basePath;
-                if (OSVersion.Platform is PlatformID.MacOSX or PlatformID.Unix) {
-                    string homeDirectory = GetFolderPath(SpecialFolder.Personal);
+                if (OSVersion.Platform is PlatformID.MacOSX or PlatformID.Unix)
+                {
+                    var homeDirectory = GetFolderPath(SpecialFolder.Personal);
                     basePath = Combine(homeDirectory, "Library/Unity/Asset Store-5.x");
-                } else {
-                    string defaultPath = Combine(GetFolderPath(SpecialFolder.ApplicationData), "Unity");
-                    basePath = Combine(EditorPrefs.GetString("AssetStoreCacheRootPath", defaultPath), "Asset Store-5.x");
+                }
+                else
+                {
+                    var defaultPath = Combine(GetFolderPath(SpecialFolder.ApplicationData), "Unity");
+                    basePath = Combine(EditorPrefs.GetString("AssetStoreCacheRootPath", defaultPath),
+                        "Asset Store-5.x");
                 }
 
                 asset = asset.EndsWith(".unitypackage") ? asset : asset + ".unitypackage";
 
-                string fullPath = Combine(basePath, folder, asset);
+                var fullPath = Combine(basePath, folder, asset);
 
-                if (!File.Exists(fullPath)) {
+                if (!File.Exists(fullPath))
                     throw new FileNotFoundException($"The asset package was not found at the path: {fullPath}");
+
+                var assetsBeforeImport = GetAllAssetPaths().ToHashSet();
+                ImportPackage(fullPath, false);
+                Refresh();
+
+                if (!string.IsNullOrEmpty(moveTo))
+                {
+                    // Get newly imported assets
+                    var assetsAfterImport = GetAllAssetPaths();
+                    var newAssets = assetsAfterImport.Where(path => !assetsBeforeImport.Contains(path)).ToList();
+
+                    if (newAssets.Any())
+                    {
+                        // Ensure the destination folder exists
+                        var destinationPath = Combine("Assets", moveTo);
+                        if (!Directory.Exists(destinationPath))
+                        {
+                            Directory.CreateDirectory(destinationPath);
+                            Refresh();
+                        }
+
+                        // Move each new asset to the destination folder
+                        foreach (var assetPath in newAssets)
+                        {
+                            if (assetPath.StartsWith("Assets/") && !assetPath.StartsWith(destinationPath))
+                            {
+                                var fileName = GetFileName(assetPath);
+                                var newPath = Combine(destinationPath, fileName);
+
+                                // Handle name conflicts by adding a number suffix
+                                var counter = 1;
+                                var originalNewPath = newPath;
+                                while (File.Exists(newPath) || Directory.Exists(newPath))
+                                {
+                                    var nameWithoutExtension = GetFileNameWithoutExtension(originalNewPath);
+                                    var extension = GetExtension(originalNewPath);
+                                    newPath = Combine(destinationPath, $"{nameWithoutExtension}_{counter}{extension}");
+                                    counter++;
+                                }
+
+                                var error = MoveAsset(assetPath, newPath);
+                                if (!string.IsNullOrEmpty(error))
+                                    Debug.LogError($"Failed to move asset {assetPath} to {newPath}: {error}");
+                            }
+                        }
+
+                        Refresh();
+                    }
+                }
+            }
+
+            public static bool IsInstalled(string keyword)
+            {
+                if (string.IsNullOrEmpty(keyword))
+                    return false;
+
+                var assetsPath = "Assets";
+                string[] foldersToCheck = { "Plugins", "Externals" };
+
+                foreach (var folderName in foldersToCheck)
+                {
+                    var folderPath = Combine(assetsPath, folderName);
+            
+                    if (Directory.Exists(folderPath))
+                    {
+                        var subdirectories = Directory.GetDirectories(folderPath, "*", SearchOption.AllDirectories);
+                
+                        if (subdirectories.Any(dir => GetFileName(dir).IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0))
+                            return true;
+                
+                        if (Directory.GetDirectories(folderPath)
+                            .Any(dir => GetFileName(dir).IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0))
+                            return true;
+                    }
                 }
 
-                ImportPackage(fullPath, false);
+                return false;
             }
         }
 
-        static class Packages {
+        public static class Packages {
             private static AddRequest _request;
             private static readonly Queue<string> PackagesToInstall = new();
 
@@ -103,6 +183,11 @@ namespace LemonInc.Tools.Packager.Editor
                 if (PackagesToInstall.Count > 0) {
                     StartNextPackageInstallation();
                 }
+            }
+            
+            public static void InstallPackageQueue() {
+                if (PackagesToInstall.Count > 0)
+                    StartNextPackageInstallation();
             }
 
             static async void StartNextPackageInstallation() {
@@ -118,9 +203,40 @@ namespace LemonInc.Tools.Packager.Editor
                     StartNextPackageInstallation();
                 }
             }
+
+            public static void EnqueuePackageInstall(string package)
+            {
+                PackagesToInstall.Enqueue(package);
+            }
+
+            private static async Task WaitUntil(Func<bool> check, Action then)
+            {
+                while (!check())
+                    await Task.Yield();
+
+                then.Invoke();
+            }
+
+            public static async Task<bool> IsInstalledAsync(string package)
+            {
+                var listRequest = Client.List(true);
+
+                while (!listRequest.IsCompleted)
+                {
+                    await Task.Delay(10);
+                }
+
+                if (listRequest.Status == StatusCode.Success)
+                {
+                    return listRequest.Result.Any(p => p.name == package);
+                }
+                    
+                Debug.LogError($"Error checking installed packages: {listRequest.Error.message}");
+                return false;
+            }
         }
 
-        static class Folders {
+        public static class Folders {
             public static void Create(string root, params string[] folders) {
                 var fullpath = Combine(Application.dataPath, root);
                 if (!Directory.Exists(fullpath)) {
