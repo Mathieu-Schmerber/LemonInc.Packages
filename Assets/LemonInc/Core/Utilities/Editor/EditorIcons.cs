@@ -3088,7 +3088,7 @@ namespace LemonInc.Core.Utilities.Editor
 		/// d_Package Manager
 		/// </summary>
 		public static GUIContent DPackageManager => _dpackagemanager ??= EditorGUIUtility.IconContent("d_Package Manager");
-
+		
 		private static GUIContent _dpackagemanager2X;
 		/// <summary>
 		/// d_Package Manager@2x
