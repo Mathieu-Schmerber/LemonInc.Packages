@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace LemonInc.Core.Input
 {
-    public class TouchInput
+    public class GestureInput
     {
         private readonly float _maxSwipeTime;
         private readonly float _minSwipeDistance;
@@ -75,7 +75,7 @@ namespace LemonInc.Core.Input
             Touched.OnReleased -= OnTouchEnd;
         }
 
-        public TouchInput(float maxSwipeTime = 1f, float minSwipeDistance = 100f)
+        public GestureInput(float maxSwipeTime = 1f, float minSwipeDistance = 100f)
         {
             _maxSwipeTime = maxSwipeTime;
             _minSwipeDistance = minSwipeDistance;
