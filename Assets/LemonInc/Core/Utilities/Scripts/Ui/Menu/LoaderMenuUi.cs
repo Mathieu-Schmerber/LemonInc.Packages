@@ -11,6 +11,7 @@ namespace LemonInc.Core.Utilities.Ui.Menu
         private Func<IEnumerator> _fadeInCallback;
         private float _baseShowDuration;
         private float _baseHideDuration;
+        private bool _isInTransitionMode;
 
         protected override void Awake()
         {
@@ -32,15 +33,17 @@ namespace LemonInc.Core.Utilities.Ui.Menu
 
             _fadeInCallback = onFadedIn;
             _fadeOutCallback = onFadedOut;
+            _isInTransitionMode = true;
             ShowMenu();
         }
 
         protected override void OnShowMenu()
         {
             base.OnShowMenu();
-            if (_fadeInCallback != null)
+            
+            if (_isInTransitionMode && _fadeInCallback != null)
                 StartCoroutine(FadeInThenHide());
-            else
+            else if (_isInTransitionMode)
                 HideMenu();
             return;
 
@@ -54,7 +57,10 @@ namespace LemonInc.Core.Utilities.Ui.Menu
         protected override void OnHideMenu()
         {
             base.OnHideMenu();
-            _fadeOutCallback?.Invoke();
+            
+            if (_isInTransitionMode)
+                _fadeOutCallback?.Invoke();
+            _isInTransitionMode = false;
         }
     }
 }
