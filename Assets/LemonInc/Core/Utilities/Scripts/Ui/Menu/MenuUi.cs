@@ -33,6 +33,7 @@ namespace LemonInc.Core.Utilities.Ui.Menu
                 _hidden = false;
                 CanvasGroup.interactable = true;
                 CanvasGroup.blocksRaycasts = true;
+                OnBeforeShow();
                 Tween.Custom(0f, 1f, ShowDuration, v =>
                 {
                     _transitions.ForEach(t => t.OnShowTransition(v));
@@ -51,6 +52,7 @@ namespace LemonInc.Core.Utilities.Ui.Menu
                 _hidden = true;
                 CanvasGroup.interactable = false;
                 CanvasGroup.blocksRaycasts = false;
+                OnBeforeHide();
                 Tween.Custom(0, 1f, HideDuration, v =>
                 {
                     _transitions.ForEach(t => t.OnHideTransition(v));
@@ -62,7 +64,10 @@ namespace LemonInc.Core.Utilities.Ui.Menu
             }
         }
         
+        protected virtual void OnBeforeShow() { }
         protected virtual void OnShowMenu() { }
+        
+        protected virtual void OnBeforeHide() { }
         protected virtual void OnHideMenu() { }
         
 #if UNITY_EDITOR
