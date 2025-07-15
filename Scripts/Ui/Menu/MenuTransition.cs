@@ -23,6 +23,8 @@ namespace LemonInc.Core.Utilities.Ui.Menu
     [Serializable]
     public class FadeMenuTransition : MenuTransition
     {
+        [SerializeField] private bool _disableAfterHide = true;
+        
         private CanvasGroup _canvasGroup;
 
         public override void Initialize(MenuUi menu)
@@ -33,6 +35,8 @@ namespace LemonInc.Core.Utilities.Ui.Menu
 
         public override void OnShowTransition(float progress)
         {
+            if (_disableAfterHide)
+                _canvasGroup.gameObject.SetActive(true);
             _canvasGroup.alpha = progress;
         }
         
@@ -41,12 +45,34 @@ namespace LemonInc.Core.Utilities.Ui.Menu
             _canvasGroup.alpha = 1f - progress;
         }
         
-        public override void OnShowTransitionCompleted() => _canvasGroup.alpha = 1f;
-        public override void OnHideTransitionCompleted() => _canvasGroup.alpha = 0f;
-        
+        public override void OnShowTransitionCompleted()
+        {
+            _canvasGroup.alpha = 1f;
+            if (_disableAfterHide)
+                _canvasGroup.gameObject.SetActive(true);
+        }
+
+        public override void OnHideTransitionCompleted()
+        {
+            _canvasGroup.alpha = 0f;
+            if (_disableAfterHide)
+                _canvasGroup.gameObject.SetActive(false);
+        }
+
 #if UNITY_EDITOR
-        public override void EditorEnter() => _canvasGroup.alpha = 1f;
-        public override void EditorExit() => _canvasGroup.alpha = 0f;
+        public override void EditorEnter()
+        {
+            _canvasGroup.alpha = 1f;
+            if (_disableAfterHide)
+                _canvasGroup.gameObject.SetActive(true);
+        }
+
+        public override void EditorExit()
+        {
+            _canvasGroup.alpha = 0f;
+            if (_disableAfterHide)
+                _canvasGroup.gameObject.SetActive(false);
+        }
 #endif
     }
     
