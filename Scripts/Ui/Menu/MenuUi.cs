@@ -35,36 +35,30 @@ namespace LemonInc.Core.Utilities.Ui.Menu
             _hidden = !CanvasGroup.interactable;
             _transitions.ForEach(t => t.Initialize(this));
         }
-        
+
         /// <summary>
         /// Shows the menu with an optional custom transition time.
         /// </summary>
         /// <param name="transitionTime">The duration of the show transition. If -1, uses the serialized ShowDuration.</param>
         public void ShowMenu(float transitionTime = -1f)
         {
-            if (_hidden)
+            _hidden = false;
+
+            if (_disableGameObjectWhenHidden)
             {
-                _hidden = false;
-                
-                if (_disableGameObjectWhenHidden)
-                {
-                    gameObject.SetActive(true);
-                }
-                
-                CanvasGroup.interactable = true;
-                CanvasGroup.blocksRaycasts = true;
-                OnBeforeShow();
-                
-                float duration = transitionTime >= 0f ? transitionTime : ShowDuration;
-                Tween.Custom(0f, 1f, duration, v =>
-                {
-                    _transitions.ForEach(t => t.OnShowTransition(v));
-                }).OnComplete(() =>
-                {
-                    _transitions.ForEach(t => t.OnShowTransitionCompleted());
-                    OnShowMenu();
-                });
+                gameObject.SetActive(true);
             }
+
+            CanvasGroup.interactable = true;
+            CanvasGroup.blocksRaycasts = true;
+            OnBeforeShow();
+
+            float duration = transitionTime >= 0f ? transitionTime : ShowDuration;
+            Tween.Custom(0f, 1f, duration, v => { _transitions.ForEach(t => t.OnShowTransition(v)); }).OnComplete(() =>
+            {
+                _transitions.ForEach(t => t.OnShowTransitionCompleted());
+                OnShowMenu();
+            });
         }
 
         /// <summary>
@@ -73,30 +67,24 @@ namespace LemonInc.Core.Utilities.Ui.Menu
         /// <param name="transitionTime">The duration of the hide transition. If -1, uses the serialized HideDuration.</param>
         public void HideMenu(float transitionTime = -1f)
         {
-            if (!_hidden)
+            _hidden = true;
+            CanvasGroup.interactable = false;
+            CanvasGroup.blocksRaycasts = false;
+            OnBeforeHide();
+
+            float duration = transitionTime >= 0f ? transitionTime : HideDuration;
+            Tween.Custom(0, 1f, duration, v => { _transitions.ForEach(t => t.OnHideTransition(v)); }).OnComplete(() =>
             {
-                _hidden = true;
-                CanvasGroup.interactable = false;
-                CanvasGroup.blocksRaycasts = false;
-                OnBeforeHide();
-                
-                float duration = transitionTime >= 0f ? transitionTime : HideDuration;
-                Tween.Custom(0, 1f, duration, v =>
+                _transitions.ForEach(t => t.OnHideTransitionCompleted());
+                OnHideMenu();
+
+                if (_disableGameObjectWhenHidden)
                 {
-                    _transitions.ForEach(t => t.OnHideTransition(v));
-                }).OnComplete(() =>
-                {
-                    _transitions.ForEach(t => t.OnHideTransitionCompleted());
-                    OnHideMenu();
-                    
-                    if (_disableGameObjectWhenHidden)
-                    {
-                        gameObject.SetActive(false);
-                    }
-                });
-            }
+                    gameObject.SetActive(false);
+                }
+            });
         }
-        
+
         protected virtual void OnBeforeShow() { }
         protected virtual void OnShowMenu() { }
         
