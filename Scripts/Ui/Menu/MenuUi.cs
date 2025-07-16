@@ -13,10 +13,20 @@ namespace LemonInc.Core.Utilities.Ui.Menu
         [SerializeField] protected float HideDuration = 0.2f;
         [SerializeReference] private List<MenuTransition> _transitions;
         
+        [Title("Behavior")]
+        [SerializeField] private bool _disableGameObjectWhenHidden = true;
+        
         protected CanvasGroup CanvasGroup;
         private bool _hidden = true;
 
+        /// <summary>
+        /// Gets whether this menu blocks interactions with other UI elements behind it.
+        /// </summary>
         public abstract bool IsBlocking { get; }
+        
+        /// <summary>
+        /// Gets whether this menu is currently visible to the user.
+        /// </summary>
         public bool IsVisible => !_hidden;
 
         protected virtual void Awake()
@@ -26,15 +36,27 @@ namespace LemonInc.Core.Utilities.Ui.Menu
             _transitions.ForEach(t => t.Initialize(this));
         }
         
-        public void ShowMenu()
+        /// <summary>
+        /// Shows the menu with an optional custom transition time.
+        /// </summary>
+        /// <param name="transitionTime">The duration of the show transition. If -1, uses the serialized ShowDuration.</param>
+        public void ShowMenu(float transitionTime = -1f)
         {
             if (_hidden)
             {
                 _hidden = false;
+                
+                if (_disableGameObjectWhenHidden)
+                {
+                    gameObject.SetActive(true);
+                }
+                
                 CanvasGroup.interactable = true;
                 CanvasGroup.blocksRaycasts = true;
                 OnBeforeShow();
-                Tween.Custom(0f, 1f, ShowDuration, v =>
+                
+                float duration = transitionTime >= 0f ? transitionTime : ShowDuration;
+                Tween.Custom(0f, 1f, duration, v =>
                 {
                     _transitions.ForEach(t => t.OnShowTransition(v));
                 }).OnComplete(() =>
@@ -45,7 +67,11 @@ namespace LemonInc.Core.Utilities.Ui.Menu
             }
         }
 
-        public void HideMenu()
+        /// <summary>
+        /// Hides the menu with an optional custom transition time.
+        /// </summary>
+        /// <param name="transitionTime">The duration of the hide transition. If -1, uses the serialized HideDuration.</param>
+        public void HideMenu(float transitionTime = -1f)
         {
             if (!_hidden)
             {
@@ -53,13 +79,20 @@ namespace LemonInc.Core.Utilities.Ui.Menu
                 CanvasGroup.interactable = false;
                 CanvasGroup.blocksRaycasts = false;
                 OnBeforeHide();
-                Tween.Custom(0, 1f, HideDuration, v =>
+                
+                float duration = transitionTime >= 0f ? transitionTime : HideDuration;
+                Tween.Custom(0, 1f, duration, v =>
                 {
                     _transitions.ForEach(t => t.OnHideTransition(v));
                 }).OnComplete(() =>
                 {
                     _transitions.ForEach(t => t.OnHideTransitionCompleted());
                     OnHideMenu();
+                    
+                    if (_disableGameObjectWhenHidden)
+                    {
+                        gameObject.SetActive(false);
+                    }
                 });
             }
         }
@@ -77,6 +110,11 @@ namespace LemonInc.Core.Utilities.Ui.Menu
             CanvasGroup = GetComponent<CanvasGroup>();
             CanvasGroup.interactable = true;
             CanvasGroup.blocksRaycasts = true;
+            
+            if (_disableGameObjectWhenHidden)
+            {
+                gameObject.SetActive(true);
+            }
             
             _transitions.ForEach(t =>
             {
@@ -97,6 +135,11 @@ namespace LemonInc.Core.Utilities.Ui.Menu
                 t.Initialize(this);
                 t.EditorExit();
             });
+            
+            if (_disableGameObjectWhenHidden)
+            {
+                gameObject.SetActive(false);
+            }
         }
 #endif
     }
