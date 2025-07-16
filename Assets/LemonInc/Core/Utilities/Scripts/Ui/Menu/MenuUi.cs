@@ -19,72 +19,69 @@ namespace LemonInc.Core.Utilities.Ui.Menu
         protected CanvasGroup CanvasGroup;
         private bool _hidden = true;
 
-        /// <summary>
-        /// Gets whether this menu blocks interactions with other UI elements behind it.
-        /// </summary>
         public abstract bool IsBlocking { get; }
-        
-        /// <summary>
-        /// Gets whether this menu is currently visible to the user.
-        /// </summary>
         public bool IsVisible => !_hidden;
 
         protected virtual void Awake()
         {
             CanvasGroup = GetComponent<CanvasGroup>();
-            _hidden = !CanvasGroup.interactable;
             _transitions.ForEach(t => t.Initialize(this));
         }
 
-        /// <summary>
-        /// Shows the menu with an optional custom transition time.
-        /// </summary>
-        /// <param name="transitionTime">The duration of the show transition. If -1, uses the serialized ShowDuration.</param>
+        protected virtual void Start()
+        {
+            _hidden = !CanvasGroup.interactable;
+        }
+        
         public void ShowMenu(float transitionTime = -1f)
         {
-            _hidden = false;
-
-            if (_disableGameObjectWhenHidden)
+            if (_hidden)
             {
-                gameObject.SetActive(true);
+                _hidden = false;
+                
+                if (_disableGameObjectWhenHidden)
+                    gameObject.SetActive(true);
+                
+                CanvasGroup.interactable = true;
+                CanvasGroup.blocksRaycasts = true;
+                OnBeforeShow();
+                
+                var duration = transitionTime >= 0f ? transitionTime : ShowDuration;
+                Tween.Custom(0f, 1f, duration, v =>
+                {
+                    _transitions.ForEach(t => t.OnShowTransition(v));
+                }).OnComplete(() =>
+                {
+                    _transitions.ForEach(t => t.OnShowTransitionCompleted());
+                    OnShowMenu();
+                });
             }
-
-            CanvasGroup.interactable = true;
-            CanvasGroup.blocksRaycasts = true;
-            OnBeforeShow();
-
-            float duration = transitionTime >= 0f ? transitionTime : ShowDuration;
-            Tween.Custom(0f, 1f, duration, v => { _transitions.ForEach(t => t.OnShowTransition(v)); }).OnComplete(() =>
-            {
-                _transitions.ForEach(t => t.OnShowTransitionCompleted());
-                OnShowMenu();
-            });
         }
 
-        /// <summary>
-        /// Hides the menu with an optional custom transition time.
-        /// </summary>
-        /// <param name="transitionTime">The duration of the hide transition. If -1, uses the serialized HideDuration.</param>
         public void HideMenu(float transitionTime = -1f)
         {
-            _hidden = true;
-            CanvasGroup.interactable = false;
-            CanvasGroup.blocksRaycasts = false;
-            OnBeforeHide();
-
-            float duration = transitionTime >= 0f ? transitionTime : HideDuration;
-            Tween.Custom(0, 1f, duration, v => { _transitions.ForEach(t => t.OnHideTransition(v)); }).OnComplete(() =>
+            if (!_hidden)
             {
-                _transitions.ForEach(t => t.OnHideTransitionCompleted());
-                OnHideMenu();
-
-                if (_disableGameObjectWhenHidden)
+                _hidden = true;
+                CanvasGroup.interactable = false;
+                CanvasGroup.blocksRaycasts = false;
+                OnBeforeHide();
+                
+                var duration = transitionTime >= 0f ? transitionTime : HideDuration;
+                Tween.Custom(0, 1f, duration, v =>
                 {
-                    gameObject.SetActive(false);
-                }
-            });
+                    _transitions.ForEach(t => t.OnHideTransition(v));
+                }).OnComplete(() =>
+                {
+                    _transitions.ForEach(t => t.OnHideTransitionCompleted());
+                    OnHideMenu();
+                    
+                    if (_disableGameObjectWhenHidden)
+                        gameObject.SetActive(false);
+                });
+            }
         }
-
+        
         protected virtual void OnBeforeShow() { }
         protected virtual void OnShowMenu() { }
         
