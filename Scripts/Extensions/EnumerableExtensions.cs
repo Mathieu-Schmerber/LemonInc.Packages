@@ -8,7 +8,7 @@ namespace LemonInc.Core.Utilities.Extensions
 	/// <summary>
 	/// Extends any IEnumerable implementation.
 	/// </summary>
-	public static class EnumerableExtension
+	public static class EnumerableExtensions
 	{
 		/// <summary>
 		/// The random.
