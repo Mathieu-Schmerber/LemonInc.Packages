@@ -44,6 +44,9 @@ namespace LemonInc.Core.Utilities.Editor.Ui.GraphView.Node
         public override Port draggedPort { get; set; }
 
         public override void HandleMouseUp(MouseUpEvent evt) { }
+        public override bool HandlePointerDown(PointerDownEvent evt) => false;
+        public override void HandlePointerMove(PointerMoveEvent evt) { }
+        public override void HandlePointerUp(PointerUpEvent evt) { }
 
         public override void Reset(bool didConnect = false)
         {
