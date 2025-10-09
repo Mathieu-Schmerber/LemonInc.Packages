@@ -68,6 +68,11 @@ namespace LemonInc.Tools.Panels.Controllers
       /// </summary>
       public Action OnDeleteRequested;
       
+      /// <summary>
+      /// Event raised when we should duplicate this entry.
+      /// </summary>
+      public Action OnDuplicateRequested;
+      
       public Action OnCreateItemRequested;
       
       public Action OnCreateSectionRequested;
@@ -222,6 +227,11 @@ namespace LemonInc.Tools.Panels.Controllers
             OnDeleteRequested?.Invoke();
             evt.StopPropagation();
          }
+         else if (evt.keyCode == KeyCode.D && evt.ctrlKey)
+         {
+            OnDuplicateRequested?.Invoke();
+            evt.StopPropagation();
+         }
       }
 
       /// <summary>
@@ -343,10 +353,26 @@ namespace LemonInc.Tools.Panels.Controllers
 
                menu.AddSeparator("");
                menu.AddItem(new GUIContent("Rename (F2)"), false, StartRename);
+               menu.AddItem(new GUIContent("Duplicate (Ctrl+D)"), false, () =>
+               {
+                  OnDuplicateRequested?.Invoke();
+               });
+               menu.AddItem(new GUIContent("Delete (Suppr)"), false, () =>
+               {
+                  OnDeleteRequested?.Invoke();
+               });
                break;
 
             case SidebarElementType.ELEMENT:
                menu.AddItem(new GUIContent("Rename (F2)"), false, StartRename);
+               menu.AddItem(new GUIContent("Duplicate (Ctrl+D)"), false, () =>
+               {
+                  OnDuplicateRequested?.Invoke();
+               });
+               menu.AddItem(new GUIContent("Delete (Suppr)"), false, () =>
+               {
+                  OnDeleteRequested?.Invoke();
+               });
                break;
 
             default:

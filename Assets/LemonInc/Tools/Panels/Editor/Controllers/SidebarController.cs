@@ -5,6 +5,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using LemonInc.Core.Utilities.Editor.Events;
 using LemonInc.Core.Utilities.Editor.Extensions;
+using LemonInc.Core.Utilities.Extensions;
 using LemonInc.Tools.Panels.Interfaces;
 using LemonInc.Tools.Panels.Models;
 using UnityEditor;
@@ -32,18 +33,21 @@ namespace LemonInc.Tools.Panels.Controllers
 		/// The target folder.
 		/// </summary>
 		private string _targetFolder;
+
 		private Label _targetLabel;
 
 		/// <summary>
 		/// The search value.
 		/// </summary>
 		private string _search;
+
 		private ToolbarSearchField _searchSearchField;
 
 		/// <summary>
 		/// The sidebar elements.
 		/// </summary>
 		private List<ISidebarElement> _sidebarElements;
+
 		private TreeView _elementsView;
 
 		/// <summary>
@@ -65,11 +69,11 @@ namespace LemonInc.Tools.Panels.Controllers
 		/// Field used for renaming entries
 		/// </summary>
 		private TextField _renameField;
-        
-        /// <summary>
-        /// Flag indicating if we're currently reordering items
-        /// </summary>
-        private bool _isReordering = false;
+
+		/// <summary>
+		/// Flag indicating if we're currently reordering items
+		/// </summary>
+		private bool _isReordering = false;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="SidebarController"/> class.
@@ -88,7 +92,7 @@ namespace LemonInc.Tools.Panels.Controllers
 			EditorEvents.Asset.OnAssetDeleted += OnAssetDeleted;
 			EditorEvents.Asset.OnAssetImported += OnAssetImported;
 			EditorEvents.Asset.OnAssetMoved += OnAssetMoved;
-			
+
 			BuildUi();
 		}
 
@@ -110,9 +114,9 @@ namespace LemonInc.Tools.Panels.Controllers
 		private void OnAssetMoved(string oldAssetPath, string newAssetPath)
 		{
 			// Don't refresh if we're the ones doing the moving via reordering
-            if (_isReordering)
-                return;
-                
+			if (_isReordering)
+				return;
+
 			// TODO: optimize
 			// TODO: if old in tree, remove entry, and if new in tree, add entry
 			Refresh();
@@ -180,8 +184,10 @@ namespace LemonInc.Tools.Panels.Controllers
 				var entry = element as SidebarEntry;
 				var sidebarElement = _elementsView.GetItemDataForIndex<ISidebarElement>(index);
 				entry!.Bind(sidebarElement, _search);
-				entry.OnRenameSuccess = (id, newName) => RenameEntry(sidebarElement, sidebarElement.DisplayName, newName);
+				entry.OnRenameSuccess = (id, newName) =>
+					RenameEntry(sidebarElement, sidebarElement.DisplayName, newName);
 				entry.OnDeleteRequested = () => _main.RequestElementDeletion(sidebarElement);
+				entry.OnDuplicateRequested = () => DuplicateEntry(sidebarElement);
 				entry.OnCreateItemRequested = () => CreateSubItem(sidebarElement);
 				entry.OnCreateSectionRequested = () => CreateSubSection(sidebarElement);
 				_sidebarElements.Add(sidebarElement);
@@ -189,13 +195,13 @@ namespace LemonInc.Tools.Panels.Controllers
 			_elementsView.autoExpand = true;
 			_elementsView.reorderable = false;
 			_elementsView.selectionChanged += SelectionChanged;
-			
+
 			_searchSearchField.RegisterCallback<ChangeEvent<string>>(Search);
 
 			if (!string.IsNullOrEmpty(_targetFolder))
 				PopulateTree();
 		}
-		
+
 		/// <summary>
 		/// Executes a search.
 		/// </summary>
@@ -232,7 +238,7 @@ namespace LemonInc.Tools.Panels.Controllers
 			OnTargetFolderChanged?.Invoke(_targetFolder);
 			PopulateTree();
 		}
-		
+
 		/// <summary>
 		/// Creates a new item at the root.
 		/// </summary>
@@ -241,7 +247,7 @@ namespace LemonInc.Tools.Panels.Controllers
 			var sections = _sidebarElements
 				.Where(x => x.Type == SidebarElementType.GROUP)
 				.ToList();
-			
+
 			ItemCreatorEditorWindow.Open(sections, _targetFolder);
 		}
 
@@ -253,17 +259,17 @@ namespace LemonInc.Tools.Panels.Controllers
 			var folder = _targetFolder;
 			var name = "New Section";
 			var path = Path.Combine(folder, name.ToUniquePathName(folder));
-    
+
 			Directory.CreateDirectory(path);
 			AssetDatabase.Refresh();
 		}
-		
+
 		private void CreateSubSection(ISidebarElement sidebarElement)
 		{
 			var folder = sidebarElement.Path;
 			var name = "New Section";
 			var path = Path.Combine(folder, name.ToUniquePathName(folder));
-    
+
 			Directory.CreateDirectory(path);
 			AssetDatabase.Refresh();
 		}
@@ -273,8 +279,81 @@ namespace LemonInc.Tools.Panels.Controllers
 			var sections = _sidebarElements
 				.Where(x => x.Type == SidebarElementType.GROUP)
 				.ToList();
-			
+
 			ItemCreatorEditorWindow.Open(sections, _targetFolder, sidebarElement);
+		}
+
+		private void DuplicateEntry(ISidebarElement sidebarElement)
+		{
+			switch (sidebarElement.Type)
+			{
+				case SidebarElementType.ELEMENT:
+					// Duplicate scriptable object
+					var originalAsset = sidebarElement.Object as ScriptableObject;
+					if (originalAsset == null)
+						return;
+
+					// Clone the scriptable object
+					var clonedAsset = originalAsset.Clone();
+
+					// Generate unique name for the duplicate
+					var directory = Path.GetDirectoryName(sidebarElement.Path);
+					var extension = Path.GetExtension(sidebarElement.Path);
+					var baseName = Path.GetFileNameWithoutExtension(sidebarElement.Path);
+					var newName = $"{baseName}{Guid.NewGuid()}";
+					var uniqueName = newName.ToUniquePathName(directory);
+					var newPath = Path.Combine(directory, $"{uniqueName}{extension}");
+
+					// Save the cloned asset
+					AssetDatabase.CreateAsset(clonedAsset, newPath.ToAssetPath());
+					AssetDatabase.SaveAssets();
+					break;
+
+				case SidebarElementType.GROUP:
+					// Duplicate folder and its contents
+					var sourceFolder = sidebarElement.Path;
+					var parentFolder = Path.GetDirectoryName(sourceFolder);
+					var folderName = Path.GetFileName(sourceFolder);
+					var newFolderName = $"{folderName}{Guid.NewGuid()}";
+					var uniqueFolderName = newFolderName.ToUniquePathName(parentFolder);
+					var destinationFolder = Path.Combine(parentFolder, uniqueFolderName);
+
+					// Copy directory recursively
+					CopyDirectory(sourceFolder, destinationFolder);
+					break;
+
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
+
+			AssetDatabase.Refresh();
+		}
+
+		/// <summary>
+		/// Recursively copies a directory and all its contents.
+		/// </summary>
+		/// <param name="sourceDir">Source directory path.</param>
+		/// <param name="destinationDir">Destination directory path.</param>
+		private void CopyDirectory(string sourceDir, string destinationDir)
+		{
+			Directory.CreateDirectory(destinationDir);
+
+			foreach (var file in Directory.GetFiles(sourceDir))
+			{
+				if (file.EndsWith(".meta"))
+					continue;
+
+				var fileName = Path.GetFileName(file);
+				var destFile = Path.Combine(destinationDir, fileName);
+				File.Copy(file, destFile);
+			}
+
+			foreach (var subDir in Directory.GetDirectories(sourceDir))
+			{
+				var dirName = Path.GetFileName(subDir);
+				var destSubDir = Path.Combine(destinationDir, dirName);
+				CopyDirectory(subDir, destSubDir);
+			}
 		}
 
 		private void RenameEntry(ISidebarElement sidebarElement, string oldName, string newName)
@@ -282,11 +361,11 @@ namespace LemonInc.Tools.Panels.Controllers
 			var extension = Path.GetExtension(sidebarElement.Path);
 			var current = $"{newName}{extension}";
 			var name = current.ToUniquePathName(Path.GetDirectoryName(sidebarElement.Path));
-			
+
 			AssetDatabase.RenameAsset(sidebarElement.Path.ToAssetPath(), name);
 			AssetDatabase.Refresh();
 		}
-		
+
 		/// <summary>
 		/// Determines whether the specified path is an object.
 		/// </summary>
@@ -304,7 +383,8 @@ namespace LemonInc.Tools.Panels.Controllers
 		/// <returns></returns>
 		private static bool MatchSearch(string path, string search)
 		{
-			return string.IsNullOrEmpty(search) || Path.GetFileNameWithoutExtension(path).Contains(search, StringComparison.InvariantCultureIgnoreCase);
+			return string.IsNullOrEmpty(search) || Path.GetFileNameWithoutExtension(path)
+				.Contains(search, StringComparison.InvariantCultureIgnoreCase);
 		}
 
 		/// <summary>
