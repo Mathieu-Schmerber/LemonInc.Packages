@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace LemonInc.Core.Utilities.Singletons
 {
@@ -23,6 +24,24 @@ namespace LemonInc.Core.Utilities.Singletons
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Singleton{T}"/> class.
 		/// </summary>
-		protected Singleton() { }
+		protected Singleton() 
+		{
+#if UNITY_EDITOR
+			UnityEditor.EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+#endif
+		}
+
+#if UNITY_EDITOR
+		/// <summary>
+		/// Resets the singleton instance when exiting play mode to prevent stale references.
+		/// </summary>
+		private static void OnPlayModeStateChanged(UnityEditor.PlayModeStateChange state)
+		{
+			if (state == UnityEditor.PlayModeStateChange.ExitingPlayMode)
+			{
+				_instance = default;
+			}
+		}
+#endif
 	}
 }

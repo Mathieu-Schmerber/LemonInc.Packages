@@ -28,6 +28,10 @@ namespace LemonInc.Core.Utilities.Singletons
 
         protected virtual void Awake()
         {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+#endif
+
             if (_instance == null)
             {
                 _instance = this as T;
@@ -42,10 +46,27 @@ namespace LemonInc.Core.Utilities.Singletons
 
         protected virtual void OnDestroy()
         {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+#endif
+
             if (_instance == this)
             {
                 _instance = null;
             }
         }
+
+#if UNITY_EDITOR
+        /// <summary>
+        /// Resets the singleton instance when exiting play mode to prevent stale references.
+        /// </summary>
+        private static void OnPlayModeStateChanged(UnityEditor.PlayModeStateChange state)
+        {
+            if (state == UnityEditor.PlayModeStateChange.ExitingPlayMode)
+            {
+                _instance = null;
+            }
+        }
+#endif
     }
 }
