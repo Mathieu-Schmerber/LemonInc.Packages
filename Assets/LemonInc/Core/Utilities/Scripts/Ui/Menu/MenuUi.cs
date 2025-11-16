@@ -11,10 +11,10 @@ namespace LemonInc.Core.Utilities.Ui.Menu
         [Title("Transitions")]
         [SerializeField] protected float ShowDuration = 0.2f;
         [SerializeField] protected float HideDuration = 0.2f;
-        [SerializeReference] private List<MenuTransition> _transitions;
-        
-        [Title("Behavior")]
-        [SerializeField] private bool _disableGameObjectWhenHidden = true;
+        [SerializeReference] private List<MenuTransition> _transitions = new()
+        {
+            new FadeMenuTransition()
+        };
         
         protected CanvasGroup CanvasGroup;
         private bool _hidden = true;
@@ -38,9 +38,6 @@ namespace LemonInc.Core.Utilities.Ui.Menu
             if (_hidden)
             {
                 _hidden = false;
-                
-                if (_disableGameObjectWhenHidden)
-                    gameObject.SetActive(true);
                 
                 CanvasGroup.interactable = true;
                 CanvasGroup.blocksRaycasts = true;
@@ -75,9 +72,6 @@ namespace LemonInc.Core.Utilities.Ui.Menu
                 {
                     _transitions.ForEach(t => t.OnHideTransitionCompleted());
                     OnHideMenu();
-                    
-                    if (_disableGameObjectWhenHidden)
-                        gameObject.SetActive(false);
                 });
             }
         }
@@ -95,11 +89,6 @@ namespace LemonInc.Core.Utilities.Ui.Menu
             CanvasGroup = GetComponent<CanvasGroup>();
             CanvasGroup.interactable = true;
             CanvasGroup.blocksRaycasts = true;
-            
-            if (_disableGameObjectWhenHidden)
-            {
-                gameObject.SetActive(true);
-            }
             
             _transitions.ForEach(t =>
             {
@@ -120,11 +109,6 @@ namespace LemonInc.Core.Utilities.Ui.Menu
                 t.Initialize(this);
                 t.EditorExit();
             });
-            
-            if (_disableGameObjectWhenHidden)
-            {
-                gameObject.SetActive(false);
-            }
         }
 #endif
     }
