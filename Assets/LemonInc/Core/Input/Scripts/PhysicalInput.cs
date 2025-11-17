@@ -6,29 +6,44 @@ namespace LemonInc.Core.Input
     /// <summary>
     /// Represents a physical input.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <seealso cref="Game.Systems.Input.InputState&lt;T&gt;" />
-    public class PhysicalInput : InputState
+    public class PhysicalInput : InputState, IUpdatableInput
     {
         /// <summary>
-		/// The input action.
-		/// </summary>
-		private InputAction _inputAction;
+        /// The input action.
+        /// </summary>
+        private InputAction _inputAction;
+        
+        /// <summary>
+        /// Tracks if we were pressed last frame to detect releases.
+        /// </summary>
+        private bool _wasPressedLastFrame;
 
         /// <inheritdoc/>
         public override bool PressedThisFrame => _inputAction?.WasPressedThisFrame() == true;
 
         /// <summary>
-        /// Performs the specified input.
+        /// Updates the input state. Should be called every frame.
         /// </summary>
-        /// <param name="ctx">The context.</param>
-        private void Performed(InputAction.CallbackContext ctx) => Hold();
+        public void Update()
+        {
+            if (_inputAction == null)
+                return;
 
-        /// <summary>
-        /// Cancels the specified input.
-        /// </summary>
-        /// <param name="_">The context</param>
-        private void Cancelled(InputAction.CallbackContext _) => Release();
+            var isPressedNow = _inputAction.IsPressed();
+            
+            // Handle press
+            if (isPressedNow && !_wasPressedLastFrame)
+            {
+                Hold();
+            }
+            // Handle release
+            else if (!isPressedNow && _wasPressedLastFrame)
+            {
+                Release();
+            }
+            
+            _wasPressedLastFrame = isPressedNow;
+        }
 
         /// <summary>
         /// Subscribes the specified input action.
@@ -37,8 +52,6 @@ namespace LemonInc.Core.Input
         public void Subscribe(InputAction inputAction)
         {
             _inputAction = inputAction;
-            _inputAction.performed += Performed;
-            _inputAction.canceled += Cancelled;
         }
 
         /// <summary>
@@ -46,8 +59,7 @@ namespace LemonInc.Core.Input
         /// </summary>
         public void UnSubscribe()
         {
-            _inputAction.performed -= Performed;
-            _inputAction.canceled -= Cancelled;
+            _inputAction = null;
         }
     }
 }

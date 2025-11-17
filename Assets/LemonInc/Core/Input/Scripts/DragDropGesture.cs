@@ -6,7 +6,7 @@ namespace LemonInc.Core.Input
     /// <summary>
     /// Handles drag and drop gesture detection.
     /// </summary>
-    public class DragDropGesture
+    public class DragDropGesture : IUpdatableInput
     {
         private readonly float _minDragDistance;
         private Vector2 _dragStartPos;
@@ -130,10 +130,12 @@ namespace LemonInc.Core.Input
         }
         
         /// <summary>
-        /// Updates the drag state. Call this from Update() if you want continuous drag updates.
+        /// Updates the drag state and underlying inputs. Call this from Update().
         /// </summary>
         public void Update()
         {
+            Touched.Update();
+            Position.Update();
             OnTouchHeld();
         }
 

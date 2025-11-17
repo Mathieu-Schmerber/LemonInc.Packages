@@ -5,14 +5,14 @@
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class InputStateValue<T> : InputState
-	{
+    {
         /// <summary>
-		/// Gets the value.
-		/// </summary>
-		/// <value>
-		/// The value.
-		/// </value>
-		public virtual T Value { get; protected set; }
+        /// Gets the value.
+        /// </summary>
+        /// <value>
+        /// The value.
+        /// </value>
+        public virtual T Value { get; protected set; }
 
         /// <summary>
         /// Occurs when [on value changed].
