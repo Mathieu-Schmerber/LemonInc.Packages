@@ -16,12 +16,17 @@ namespace LemonInc.Core.Utilities.Ui.Menu
         {
             new FadeMenuTransition()
         };
-        
+
         protected CanvasGroup CanvasGroup;
         private bool _hidden = true;
 
         public abstract bool IsBlocking { get; }
         public bool IsVisible => !_hidden;
+
+        private Tween _activeTween;
+
+        private bool _cancelShowRequested = false;
+        private bool _cancelHideRequested = false;
 
         protected virtual void Awake()
         {
@@ -33,23 +38,71 @@ namespace LemonInc.Core.Utilities.Ui.Menu
         {
             _hidden = !CanvasGroup.interactable;
         }
-        
+
+        public void CancelShow()
+        {
+            if (_hidden == false) return; // Already visible
+            _cancelShowRequested = true;
+
+            // Kill tween before it finishes
+            _activeTween.Stop();
+        }
+
+        public void CancelHide()
+        {
+            if (_hidden == true) return; // Already hidden
+            _cancelHideRequested = true;
+
+            _activeTween.Stop();
+        }
+
         public void ShowMenu(float transitionTime = -1f, bool? unscaledTime = null)
         {
             if (_hidden)
             {
+                _cancelShowRequested = false; // Reset
+
+                // Give subclass a chance to cancel BEFORE starting transitions
+                OnBeforeShow();
+                if (_cancelShowRequested)
+                {
+                    _hidden = true;
+                    CanvasGroup.interactable = false;
+                    CanvasGroup.blocksRaycasts = false;
+                    return;
+                }
+
                 _hidden = false;
-                
+
                 CanvasGroup.interactable = true;
                 CanvasGroup.blocksRaycasts = true;
-                OnBeforeShow();
-                
+
                 var duration = transitionTime >= 0f ? transitionTime : ShowDuration;
-                Tween.Custom(0f, 1f, duration, v =>
+
+                _activeTween = Tween.Custom(
+                    0f, 1f, duration, 
+                    v =>
+                    {
+                        if (_cancelShowRequested)
+                        {
+                            _activeTween.Stop();
+                            return;
+                        }
+                        _transitions.ForEach(t => t.OnShowTransition(v));
+                    },
+                    useUnscaledTime: unscaledTime ?? UnscaledTime
+                )
+                .OnComplete(() =>
                 {
-                    _transitions.ForEach(t => t.OnShowTransition(v));
-                }, useUnscaledTime: unscaledTime ?? UnscaledTime).OnComplete(() =>
-                {
+                    if (_cancelShowRequested)
+                    {
+                        // Re-hide instantly
+                        CanvasGroup.interactable = false;
+                        CanvasGroup.blocksRaycasts = false;
+                        _hidden = true;
+                        return;
+                    }
+
                     _transitions.ForEach(t => t.OnShowTransitionCompleted());
                     OnShowMenu();
                 });
@@ -60,38 +113,65 @@ namespace LemonInc.Core.Utilities.Ui.Menu
         {
             if (!_hidden)
             {
+                _cancelHideRequested = false;
+
+                OnBeforeHide();
+                if (_cancelHideRequested)
+                {
+                    return;
+                }
+
                 _hidden = true;
                 CanvasGroup.interactable = false;
                 CanvasGroup.blocksRaycasts = false;
-                OnBeforeHide();
-                
+
                 var duration = transitionTime >= 0f ? transitionTime : HideDuration;
-                Tween.Custom(0, 1f, duration, v =>
+
+                _activeTween = Tween.Custom(
+                    0f, 1f, duration,
+                    v =>
+                    {
+                        if (_cancelHideRequested)
+                        {
+                            _activeTween.Stop();
+                            return;
+                        }
+                        _transitions.ForEach(t => t.OnHideTransition(v));
+                    },
+                    useUnscaledTime: unscaledTime ?? UnscaledTime
+                )
+                .OnComplete(() =>
                 {
-                    _transitions.ForEach(t => t.OnHideTransition(v));
-                }, useUnscaledTime: unscaledTime ?? UnscaledTime).OnComplete(() =>
-                {
+                    if (_cancelHideRequested)
+                    {
+                        // Undo hidden state
+                        _hidden = false;
+                        CanvasGroup.interactable = true;
+                        CanvasGroup.blocksRaycasts = true;
+                        return;
+                    }
+
                     _transitions.ForEach(t => t.OnHideTransitionCompleted());
                     OnHideMenu();
                 });
             }
         }
 
-
         protected virtual void OnBeforeShow() { }
         protected virtual void OnShowMenu() { }
-        
+
         protected virtual void OnBeforeHide() { }
         protected virtual void OnHideMenu() { }
-        
+
+
 #if UNITY_EDITOR
-        [Sirenix.OdinInspector.Button(Name = "Show")]
+        [Button(Name = "Show")]
         protected void ShowInEditor()
         {
             CanvasGroup = GetComponent<CanvasGroup>();
             CanvasGroup.interactable = true;
             CanvasGroup.blocksRaycasts = true;
-            
+
             _transitions.ForEach(t =>
             {
                 t.Initialize(this);
@@ -99,13 +179,13 @@ namespace LemonInc.Core.Utilities.Ui.Menu
             });
         }
 
-        [Sirenix.OdinInspector.Button(Name = "Hide")]
+        [Button(Name = "Hide")]
         protected void HideInEditor()
         {
             CanvasGroup = GetComponent<CanvasGroup>();
             CanvasGroup.interactable = false;
             CanvasGroup.blocksRaycasts = false;
-            
+
             _transitions.ForEach(t =>
             {
                 t.Initialize(this);
