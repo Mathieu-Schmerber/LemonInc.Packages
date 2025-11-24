@@ -16,17 +16,12 @@ namespace LemonInc.Core.Utilities.Ui.Menu
         {
             new FadeMenuTransition()
         };
-
+        
         protected CanvasGroup CanvasGroup;
         private bool _hidden = true;
 
         public abstract bool IsBlocking { get; }
         public bool IsVisible => !_hidden;
-
-        private Tween _activeTween;
-
-        private bool _cancelShowRequested = false;
-        private bool _cancelHideRequested = false;
 
         protected virtual void Awake()
         {
@@ -38,71 +33,23 @@ namespace LemonInc.Core.Utilities.Ui.Menu
         {
             _hidden = !CanvasGroup.interactable;
         }
-
-        public void CancelShow()
-        {
-            if (_hidden == false) return; // Already visible
-            _cancelShowRequested = true;
-
-            // Kill tween before it finishes
-            _activeTween.Stop();
-        }
-
-        public void CancelHide()
-        {
-            if (_hidden == true) return; // Already hidden
-            _cancelHideRequested = true;
-
-            _activeTween.Stop();
-        }
-
+        
         public void ShowMenu(float transitionTime = -1f, bool? unscaledTime = null)
         {
-            if (_hidden)
+            if (_hidden && CanShow())
             {
-                _cancelShowRequested = false; // Reset
-
-                // Give subclass a chance to cancel BEFORE starting transitions
-                OnBeforeShow();
-                if (_cancelShowRequested)
-                {
-                    _hidden = true;
-                    CanvasGroup.interactable = false;
-                    CanvasGroup.blocksRaycasts = false;
-                    return;
-                }
-
                 _hidden = false;
-
+                
                 CanvasGroup.interactable = true;
                 CanvasGroup.blocksRaycasts = true;
-
+                OnBeforeShow();
+                
                 var duration = transitionTime >= 0f ? transitionTime : ShowDuration;
-
-                _activeTween = Tween.Custom(
-                    0f, 1f, duration, 
-                    v =>
-                    {
-                        if (_cancelShowRequested)
-                        {
-                            _activeTween.Stop();
-                            return;
-                        }
-                        _transitions.ForEach(t => t.OnShowTransition(v));
-                    },
-                    useUnscaledTime: unscaledTime ?? UnscaledTime
-                )
-                .OnComplete(() =>
+                Tween.Custom(0f, 1f, duration, v =>
                 {
-                    if (_cancelShowRequested)
-                    {
-                        // Re-hide instantly
-                        CanvasGroup.interactable = false;
-                        CanvasGroup.blocksRaycasts = false;
-                        _hidden = true;
-                        return;
-                    }
-
+                    _transitions.ForEach(t => t.OnShowTransition(v));
+                }, useUnscaledTime: unscaledTime ?? UnscaledTime).OnComplete(() =>
+                {
                     _transitions.ForEach(t => t.OnShowTransitionCompleted());
                     OnShowMenu();
                 });
@@ -111,46 +58,19 @@ namespace LemonInc.Core.Utilities.Ui.Menu
 
         public void HideMenu(float transitionTime = -1f, bool? unscaledTime = null)
         {
-            if (!_hidden)
+            if (!_hidden && CanHide())
             {
-                _cancelHideRequested = false;
-
-                OnBeforeHide();
-                if (_cancelHideRequested)
-                {
-                    return;
-                }
-
                 _hidden = true;
                 CanvasGroup.interactable = false;
                 CanvasGroup.blocksRaycasts = false;
-
+                OnBeforeHide();
+                
                 var duration = transitionTime >= 0f ? transitionTime : HideDuration;
-
-                _activeTween = Tween.Custom(
-                    0f, 1f, duration,
-                    v =>
-                    {
-                        if (_cancelHideRequested)
-                        {
-                            _activeTween.Stop();
-                            return;
-                        }
-                        _transitions.ForEach(t => t.OnHideTransition(v));
-                    },
-                    useUnscaledTime: unscaledTime ?? UnscaledTime
-                )
-                .OnComplete(() =>
+                Tween.Custom(0, 1f, duration, v =>
                 {
-                    if (_cancelHideRequested)
-                    {
-                        // Undo hidden state
-                        _hidden = false;
-                        CanvasGroup.interactable = true;
-                        CanvasGroup.blocksRaycasts = true;
-                        return;
-                    }
-
+                    _transitions.ForEach(t => t.OnHideTransition(v));
+                }, useUnscaledTime: unscaledTime ?? UnscaledTime).OnComplete(() =>
+                {
                     _transitions.ForEach(t => t.OnHideTransitionCompleted());
                     OnHideMenu();
                 });
@@ -159,19 +79,21 @@ namespace LemonInc.Core.Utilities.Ui.Menu
 
         protected virtual void OnBeforeShow() { }
         protected virtual void OnShowMenu() { }
-
+        
         protected virtual void OnBeforeHide() { }
         protected virtual void OnHideMenu() { }
 
-
+        protected virtual bool CanShow() => true;
+        protected virtual bool CanHide() => true;
+        
 #if UNITY_EDITOR
-        [Button(Name = "Show")]
+        [Sirenix.OdinInspector.Button(Name = "Show")]
         protected void ShowInEditor()
         {
             CanvasGroup = GetComponent<CanvasGroup>();
             CanvasGroup.interactable = true;
             CanvasGroup.blocksRaycasts = true;
-
+            
             _transitions.ForEach(t =>
             {
                 t.Initialize(this);
@@ -179,13 +101,13 @@ namespace LemonInc.Core.Utilities.Ui.Menu
             });
         }
 
-        [Button(Name = "Hide")]
+        [Sirenix.OdinInspector.Button(Name = "Hide")]
         protected void HideInEditor()
         {
             CanvasGroup = GetComponent<CanvasGroup>();
             CanvasGroup.interactable = false;
             CanvasGroup.blocksRaycasts = false;
-
+            
             _transitions.ForEach(t =>
             {
                 t.Initialize(this);
