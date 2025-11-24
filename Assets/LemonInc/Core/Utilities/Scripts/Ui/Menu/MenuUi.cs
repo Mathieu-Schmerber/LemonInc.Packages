@@ -11,6 +11,7 @@ namespace LemonInc.Core.Utilities.Ui.Menu
         [Title("Transitions")]
         [SerializeField] protected float ShowDuration = 0.2f;
         [SerializeField] protected float HideDuration = 0.2f;
+        [SerializeField] protected bool UnscaledTime = false;
         [SerializeReference] private List<MenuTransition> _transitions = new()
         {
             new FadeMenuTransition()
@@ -33,7 +34,7 @@ namespace LemonInc.Core.Utilities.Ui.Menu
             _hidden = !CanvasGroup.interactable;
         }
         
-        public void ShowMenu(float transitionTime = -1f)
+        public void ShowMenu(float transitionTime = -1f, bool? unscaledTime = null)
         {
             if (_hidden)
             {
@@ -47,7 +48,7 @@ namespace LemonInc.Core.Utilities.Ui.Menu
                 Tween.Custom(0f, 1f, duration, v =>
                 {
                     _transitions.ForEach(t => t.OnShowTransition(v));
-                }).OnComplete(() =>
+                }, useUnscaledTime: unscaledTime ?? UnscaledTime).OnComplete(() =>
                 {
                     _transitions.ForEach(t => t.OnShowTransitionCompleted());
                     OnShowMenu();
@@ -55,7 +56,7 @@ namespace LemonInc.Core.Utilities.Ui.Menu
             }
         }
 
-        public void HideMenu(float transitionTime = -1f)
+        public void HideMenu(float transitionTime = -1f, bool? unscaledTime = null)
         {
             if (!_hidden)
             {
@@ -68,14 +69,15 @@ namespace LemonInc.Core.Utilities.Ui.Menu
                 Tween.Custom(0, 1f, duration, v =>
                 {
                     _transitions.ForEach(t => t.OnHideTransition(v));
-                }).OnComplete(() =>
+                }, useUnscaledTime: unscaledTime ?? UnscaledTime).OnComplete(() =>
                 {
                     _transitions.ForEach(t => t.OnHideTransitionCompleted());
                     OnHideMenu();
                 });
             }
         }
-        
+
+
         protected virtual void OnBeforeShow() { }
         protected virtual void OnShowMenu() { }
         
