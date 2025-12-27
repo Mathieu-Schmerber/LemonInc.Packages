@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using LemonInc.Core.Utilities.Editor.Ui.Preview.InputHandle;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LemonInc.Core.Utilities.Editor.Ui.Preview
 {
@@ -153,6 +154,19 @@ namespace LemonInc.Core.Utilities.Editor.Ui.Preview
 
             var instance = _previewUtility.InstantiatePrefabInScene(prefab);
             callback?.Invoke(instance);
+        }
+        
+        public void SpawnObject(Action<GameObject> callback = null)
+        {
+            if (!_initialized)
+            {
+                Debug.LogWarning("Preview has not been initialized. Call InitializePreview() first.");
+                return;
+            }
+
+            var go = new GameObject();
+            _previewUtility.AddSingleGO(go);
+            callback?.Invoke(go);
         }
 
         void IEditorPreview.DrawMesh(Mesh mesh, Matrix4x4 identity, Material material, int i)
