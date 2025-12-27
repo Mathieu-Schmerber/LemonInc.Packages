@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace LemonInc.Core.Utilities.Editor.Ui.Preview
@@ -53,7 +54,8 @@ namespace LemonInc.Core.Utilities.Editor.Ui.Preview
         /// </summary>
         /// <param name="prefab">The prefab to instantiate.</param>
         /// <param name="callback">The instantiation callback.</param>
-        public void SpawnObject(GameObject prefab, Action<GameObject> callback = null);
+        [CanBeNull] public GameObject SpawnObject(GameObject prefab, Action<GameObject> callback = null);
+        [CanBeNull] public GameObject SpawnObject(Action<GameObject> callback = null);
         
         /// <summary>
         /// Draws a mesh within the preview scene.

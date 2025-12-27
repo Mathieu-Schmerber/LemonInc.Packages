@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using LemonInc.Core.Utilities.Editor.Ui.Preview.InputHandle;
 using UnityEditor;
 using UnityEngine;
@@ -144,31 +145,33 @@ namespace LemonInc.Core.Utilities.Editor.Ui.Preview
             GUI.DrawTexture(previewRect, _previewTexture, ScaleMode.ScaleToFit, false);
         }
         
-        public void SpawnObject(GameObject prefab, Action<GameObject> callback = null)
+        public GameObject SpawnObject(GameObject prefab, Action<GameObject> callback = null)
         {
             if (!_initialized)
             {
                 Debug.LogWarning("Preview has not been initialized. Call InitializePreview() first.");
-                return;
+                return null;
             }
 
             var instance = _previewUtility.InstantiatePrefabInScene(prefab);
             callback?.Invoke(instance);
+            return instance;
         }
         
-        public void SpawnObject(Action<GameObject> callback = null)
+        public GameObject SpawnObject(Action<GameObject> callback = null)
         {
             if (!_initialized)
             {
                 Debug.LogWarning("Preview has not been initialized. Call InitializePreview() first.");
-                return;
+                return null;
             }
 
             var go = new GameObject();
             _previewUtility.AddSingleGO(go);
             callback?.Invoke(go);
+            return go;
         }
-
+        
         void IEditorPreview.DrawMesh(Mesh mesh, Matrix4x4 identity, Material material, int i)
         {
             if (!_initialized)
