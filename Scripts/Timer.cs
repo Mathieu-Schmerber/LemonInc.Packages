@@ -16,16 +16,21 @@ namespace LemonInc.Core.Utilities
         private bool _isRunning;
         private bool _isPaused;
         private List<Action> _onTickCallbacks;
+        private List<Action> _onStartCallbacks;
+        private List<Action> _onStopCallbacks;
+        private List<Action> _onPauseCallbacks;
+        private List<Action> _onResumeCallbacks;
+        private List<Action> _onResetCallbacks;
 
         /// <summary>
-        /// Gets the elapsed time since the timer started.
+        /// Gets the elapsed time since the timer started, clamped to interval.
         /// </summary>
-        public float ElapsedTime => _elapsedTime;
+        public float ElapsedTime => Mathf.Min(_elapsedTime, _interval);
 
         /// <summary>
-        /// Gets the remaining time until the timer finishes.
+        /// Gets the remaining time until the timer finishes, clamped to 0.
         /// </summary>
-        public float TimeLeft => _interval - _elapsedTime;
+        public float TimeLeft => Mathf.Max(_interval - _elapsedTime, 0f);
 
         /// <summary>
         /// Gets whether the timer is currently running.
@@ -67,6 +72,7 @@ namespace LemonInc.Core.Utilities
             _isRunning = true;
             _isPaused = false;
             _elapsedTime = 0f;
+            _onStartCallbacks?.ForEach(callback => callback?.Invoke());
             RunTimerAsync();
         }
 
@@ -88,6 +94,7 @@ namespace LemonInc.Core.Utilities
                     continue;
                 
                 _onTickCallbacks?.ForEach(callback => callback?.Invoke());
+                
                 if (_autoReset)
                     _elapsedTime = 0f;
                 else
@@ -100,8 +107,11 @@ namespace LemonInc.Core.Utilities
         /// </summary>
         public void Stop()
         {
+            if (!_isRunning) return;
+            
             _isRunning = false;
             _isPaused = false;
+            _onStopCallbacks?.ForEach(callback => callback?.Invoke());
         }
 
         /// <summary>
@@ -112,6 +122,7 @@ namespace LemonInc.Core.Utilities
             if (_isRunning && !_isPaused)
             {
                 _isPaused = true;
+                _onPauseCallbacks?.ForEach(callback => callback?.Invoke());
             }
         }
 
@@ -123,6 +134,7 @@ namespace LemonInc.Core.Utilities
             if (_isRunning && _isPaused)
             {
                 _isPaused = false;
+                _onResumeCallbacks?.ForEach(callback => callback?.Invoke());
             }
         }
 
@@ -142,6 +154,7 @@ namespace LemonInc.Core.Utilities
             _elapsedTime = 0f;
             _isRunning = false;
             _isPaused = false;
+            _onResetCallbacks?.ForEach(callback => callback?.Invoke());
         }
 
         /// <summary>
@@ -153,25 +166,155 @@ namespace LemonInc.Core.Utilities
             Start();
         }
 
+        #region Callbacks
+
         /// <summary>
-        /// Sets or updates the callback to invoke every frame while the timer is running.
+        /// Adds a callback to invoke every frame while the timer is running.
         /// </summary>
-        public void AddOnTickListener(Action onTickCallback)
+        public void AddOnTickListener(Action callback)
         {
-            if (onTickCallback != null)
+            if (callback != null)
             {
                 _onTickCallbacks ??= new List<Action>();
-                _onTickCallbacks.Add(onTickCallback);
+                if (!_onTickCallbacks.Contains(callback))
+                    _onTickCallbacks.Add(callback);
             }
         }
 
         /// <summary>
-        /// Removes an OnTick listener. 
+        /// Removes an OnTick listener.
         /// </summary>
-        /// <param name="onTickCallback"></param>
-        public void RemoveOnTickListener(Action onTickCallback)
+        public void RemoveOnTickListener(Action callback)
         {
-            _onTickCallbacks?.Remove(onTickCallback);
+            _onTickCallbacks?.Remove(callback);
         }
+
+        /// <summary>
+        /// Adds a callback to invoke when the timer starts.
+        /// </summary>
+        public void AddOnStartListener(Action callback)
+        {
+            if (callback != null)
+            {
+                _onStartCallbacks ??= new List<Action>();
+                if (!_onStartCallbacks.Contains(callback))
+                    _onStartCallbacks.Add(callback);
+            }
+        }
+
+        /// <summary>
+        /// Removes an OnStart listener.
+        /// </summary>
+        public void RemoveOnStartListener(Action callback)
+        {
+            _onStartCallbacks?.Remove(callback);
+        }
+
+        /// <summary>
+        /// Adds a callback to invoke when the timer stops.
+        /// </summary>
+        public void AddOnStopListener(Action callback)
+        {
+            if (callback != null)
+            {
+                _onStopCallbacks ??= new List<Action>();
+                if (!_onStopCallbacks.Contains(callback))
+                    _onStopCallbacks.Add(callback);
+            }
+        }
+
+        /// <summary>
+        /// Removes an OnStop listener.
+        /// </summary>
+        public void RemoveOnStopListener(Action callback)
+        {
+            _onStopCallbacks?.Remove(callback);
+        }
+
+        /// <summary>
+        /// Adds a callback to invoke when the timer is paused.
+        /// </summary>
+        public void AddOnPauseListener(Action callback)
+        {
+            if (callback != null)
+            {
+                _onPauseCallbacks ??= new List<Action>();
+                if (!_onPauseCallbacks.Contains(callback))
+                    _onPauseCallbacks.Add(callback);
+            }
+        }
+
+        /// <summary>
+        /// Removes an OnPause listener.
+        /// </summary>
+        public void RemoveOnPauseListener(Action callback)
+        {
+            _onPauseCallbacks?.Remove(callback);
+        }
+
+        /// <summary>
+        /// Adds a callback to invoke when the timer is resumed.
+        /// </summary>
+        public void AddOnResumeListener(Action callback)
+        {
+            if (callback != null)
+            {
+                _onResumeCallbacks ??= new List<Action>();
+                if (!_onResumeCallbacks.Contains(callback))
+                    _onResumeCallbacks.Add(callback);
+            }
+        }
+
+        /// <summary>
+        /// Removes an OnResume listener.
+        /// </summary>
+        public void RemoveOnResumeListener(Action callback)
+        {
+            _onResumeCallbacks?.Remove(callback);
+        }
+
+        /// <summary>
+        /// Adds a callback to invoke when the timer is reset.
+        /// </summary>
+        public void AddOnResetListener(Action callback)
+        {
+            if (callback != null)
+            {
+                _onResetCallbacks ??= new List<Action>();
+                if (!_onResetCallbacks.Contains(callback))
+                    _onResetCallbacks.Add(callback);
+            }
+        }
+
+        /// <summary>
+        /// Removes an OnReset listener.
+        /// </summary>
+        public void RemoveOnResetListener(Action callback)
+        {
+            _onResetCallbacks?.Remove(callback);
+        }
+
+        /// <summary>
+        /// Adds a callback to invoke when the timer completes (reaches interval).
+        /// </summary>
+        public void AddOnCompleteListener(Action callback)
+        {
+            if (callback != null)
+            {
+                _onTickCallbacks ??= new List<Action>();
+                if (!_onTickCallbacks.Contains(callback))
+                    _onTickCallbacks.Add(callback);
+            }
+        }
+
+        /// <summary>
+        /// Removes an OnComplete listener.
+        /// </summary>
+        public void RemoveOnCompleteListener(Action callback)
+        {
+            _onTickCallbacks?.Remove(callback);
+        }
+
+        #endregion
     }
 }
