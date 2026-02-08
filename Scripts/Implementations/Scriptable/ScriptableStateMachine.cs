@@ -56,6 +56,16 @@ namespace LemonInc.Core.StateMachine.Implementations.Scriptable
         public void SetActiveState<T>() where T : IState 
             => _stateMachine.SetActiveState<T>();
 
+        public void SwitchToState(IState state)
+        {
+            _stateMachine.SwitchToState(state);
+        }
+        
+        public void SwitchToState<T>() where T : IState
+        {
+            _stateMachine.SwitchToState<T>();
+        }
+
         public void Update() 
             => _stateMachine.Update();
 

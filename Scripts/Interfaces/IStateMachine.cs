@@ -29,6 +29,9 @@ namespace LemonInc.Core.StateMachine.Interfaces
         
         void SetActiveState(IState state);
         void SetActiveState<T>() where T : IState;
+        
+        void SwitchToState(IState state);
+        void SwitchToState<T>() where T : IState;
 
         void Update();
         void FixedUpdate();
