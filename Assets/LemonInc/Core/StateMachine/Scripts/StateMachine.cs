@@ -136,7 +136,19 @@ namespace LemonInc.Core.StateMachine
             
             Current = stateNode;
         }
-        
+
+        public void SwitchToState(IState state)
+        {
+            var node = GetNode(state.GetType());
+            SwitchToStateNode(node);
+        }
+
+        public void SwitchToState<T>() where T : IState
+        {
+            var node = GetNode(typeof(T));
+            SwitchToStateNode(node);
+        }
+
         public void SetActiveState(IState state)
         {
             var stateNode = GetNode(state.GetType());
@@ -157,7 +169,7 @@ namespace LemonInc.Core.StateMachine
 
         public virtual void FixedUpdate() => CurrentState?.FixedUpdate();
 
-        protected void SwitchToState(StateNode node)
+        protected void SwitchToStateNode(StateNode node)
         {
             if (Equals(Current, node))
                 return;
@@ -177,7 +189,7 @@ namespace LemonInc.Core.StateMachine
                 if (!transition.Predicate())
                     continue;
 
-                SwitchToState(transition.To);
+                SwitchToStateNode(transition.To);
                 return;
             }
         }

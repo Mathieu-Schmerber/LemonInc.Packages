@@ -40,7 +40,7 @@ namespace LemonInc.Core.StateMachine
                 if (!transition.Predicate()) 
                     continue;
                 
-                SwitchToState(transition.To);
+                SwitchToStateNode(transition.To);
                 return;
             }
         }

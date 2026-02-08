@@ -60,6 +60,12 @@ namespace LemonInc.Core.StateMachine.Implementations.Scriptable
         public void SetActiveState<T>() where T : IState
             => _subStateMachine.SetActiveState<T>();
 
+        public void SwitchToState(IState state)
+            => _subStateMachine.SwitchToState(state);
+
+        public void SwitchToState<T>() where T : IState
+            => _subStateMachine.SwitchToState<T>();
+
         public void OnEnter()
         {
             _subStateMachine.OnEnter();
