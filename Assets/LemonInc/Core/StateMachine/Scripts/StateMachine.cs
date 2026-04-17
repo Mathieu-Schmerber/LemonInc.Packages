@@ -139,6 +139,9 @@ namespace LemonInc.Core.StateMachine
 
         public void SwitchToState(IState state)
         {
+            if (state == null)
+                return;
+            
             var node = GetNode(state.GetType());
             SwitchToStateNode(node);
         }
