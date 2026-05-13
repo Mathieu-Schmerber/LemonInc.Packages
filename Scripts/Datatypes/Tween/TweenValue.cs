@@ -28,7 +28,7 @@ namespace LemonInc.Core.Utilities.Datatypes.Tween
             TValue startValue, 
             TValue endValue, 
             float duration, 
-            Ease ease = Ease.Default, 
+            Easing ease = new(), 
             int cycles = 1, 
             CycleMode cycleMode = CycleMode.Restart, 
             float startDelay = 0, 
